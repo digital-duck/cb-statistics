@@ -1,0 +1,67 @@
+domain: introductory_statistics_2e
+sources:
+  random_variable:
+    label: Random Variable
+    sections:
+    - id: ch04_chapter_objectives
+      title: Chapter Objectives
+  discrete_random_variable:
+    label: Discrete Random Variable
+    sections:
+    - id: ch04_chapter_objectives
+      title: Chapter Objectives
+  probability_distribution_function:
+    label: Probability Distribution Function (PDF)
+    sections:
+    - id: ch04_s4_1
+      title: 4.1 Probability Distribution Function (PDF) for a Discrete Random Variable
+  law_of_large_numbers:
+    label: Law of Large Numbers
+    sections:
+    - id: ch04_s4_2
+      title: 4.2 Mean or Expected Value and Standard Deviation
+  expected_value:
+    label: Mean or Expected Value
+    sections:
+    - id: ch04_s4_2
+      title: 4.2 Mean or Expected Value and Standard Deviation
+  standard_deviation_pdf:
+    label: Standard Deviation of a Probability Distribution
+    sections:
+    - id: ch04_s4_2
+      title: 4.2 Mean or Expected Value and Standard Deviation
+  bernoulli_trial:
+    label: Bernoulli Trial
+    sections:
+    - id: ch04_s4_3
+      title: 4.3 Binomial Distribution
+  binomial_distribution:
+    label: Binomial Distribution
+    sections:
+    - id: ch04_s4_3
+      title: 4.3 Binomial Distribution
+  geometric_distribution:
+    label: Geometric Distribution
+    sections:
+    - id: ch04_s4_4
+      title: 4.4 Geometric Distribution
+  hypergeometric_distribution:
+    label: Hypergeometric Distribution
+    sections:
+    - id: ch04_s4_5
+      title: 4.5 Hypergeometric Distribution
+  poisson_distribution:
+    label: Poisson Distribution
+    sections:
+    - id: ch04_s4_6
+      title: 4.6 Poisson Distribution
+  playing_card_experiment:
+    label: Discrete Distribution (Playing Card Experiment)
+    sections:
+    - id: ch04_s4_7
+      title: 4.7 Discrete Distribution (Playing Card Experiment)
+  dice_experiment:
+    label: Discrete Distribution (Dice Experiment)
+    sections:
+    - id: ch04_s4_8
+      title: 4.8 Discrete Distribution (Dice Experiment Using Three Regular Dice)

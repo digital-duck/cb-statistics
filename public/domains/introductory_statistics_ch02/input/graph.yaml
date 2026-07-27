@@ -1,0 +1,161 @@
+domain: introductory_statistics_2e
+primitives:
+  frequency:
+    defines: The number of times a value of the data occurs in a data set.
+    tier: 0
+  stem_and_leaf_plot:
+    defines: A graph that divides each data value into a stem and leaf and displays all values in increasing
+      order next to their stem, giving an exact picture of small data sets.
+    tier: 0
+  outlier:
+    defines: An observation of data that does not fit the overall pattern of the rest of the data; also
+      called an extreme value.
+    tier: 0
+  line_graph:
+    defines: A graph in which data values are plotted on the x-axis, frequency points on the y-axis, and
+      the points connected by line segments.
+    tier: 0
+  bar_graph:
+    defines: A graph consisting of separated bars (vertical or horizontal) used to compare categories
+      of data.
+    tier: 0
+  median:
+    defines: The "middle value" that separates ordered data into two equal halves; found using the location
+      formula (n+1)/2.
+    tier: 0
+  percentile:
+    defines: A value that divides an ordered data set into 100 equal parts, such that a given percentage
+      of the data falls at or below it.
+    tier: 0
+  mean:
+    defines: The arithmetic average of a data set, calculated by summing all values and dividing by the
+      number of values; denoted x-bar for a sample and μ for a population.
+    tier: 0
+  mode:
+    defines: The most frequently occurring value or values in a data set.
+    tier: 0
+concepts:
+  relative_frequency:
+    defines: The frequency of an observed value divided by the total number of data values, indicating
+      the proportion of the sample with that value.
+    composed_of:
+    - frequency
+    tier: 1
+  cumulative_relative_frequency:
+    defines: The running total of relative frequencies up to and including a given data value.
+    composed_of:
+    - relative_frequency
+    tier: 2
+  class_interval:
+    defines: A range of data values, chosen with a starting point and width, used to group data values
+      into the bars of a histogram.
+    composed_of:
+    - frequency
+    tier: 1
+  histogram:
+    defines: A graph of contiguous bars, built from class intervals, whose horizontal axis shows data
+      values and vertical axis shows frequency or relative frequency, used to display the shape, center,
+      and spread of large data sets.
+    composed_of:
+    - class_interval
+    - relative_frequency
+    tier: 2
+  frequency_polygon:
+    defines: A graph, analogous to a line graph, formed by plotting frequencies at interval midpoints
+      and connecting the points with line segments, used to display and compare distributions.
+    composed_of:
+    - class_interval
+    - line_graph
+    tier: 2
+  time_series_graph:
+    defines: A graph that plots paired data with time on the horizontal axis and a measured quantity on
+      the vertical axis, connected chronologically to reveal trends over time.
+    composed_of:
+    - line_graph
+    tier: 1
+  quartile:
+    defines: One of three values (Q1, Q2, Q3) that divide ordered data into four equal parts, where Q2
+      is the median, Q1 is the median of the lower half, and Q3 is the median of the upper half.
+    composed_of:
+    - median
+    tier: 1
+  interquartile_range:
+    defines: A measure of spread equal to Q3 minus Q1, representing the range of the middle 50% of the
+      data and used to detect potential outliers via the 1.5×IQR rule.
+    composed_of:
+    - quartile
+    - outlier
+    tier: 2
+  box_plot:
+    defines: A graph built from the minimum, first quartile, median, third quartile, and maximum that
+      shows the concentration and spread of the middle 50% of the data.
+    composed_of:
+    - quartile
+    - median
+    tier: 2
+  grouped_frequency_table_mean:
+    defines: An estimate of the mean computed from grouped data by multiplying each interval's midpoint
+      by its frequency, summing these products, and dividing by the total frequency.
+    composed_of:
+    - class_interval
+    - mean
+    - frequency
+    tier: 2
+  sampling_distribution:
+    defines: A relative frequency distribution built from a very large number of samples; a statistic
+      (e.g. sample mean) is a number calculated from a sample that estimates a population parameter.
+    composed_of:
+    - mean
+    - relative_frequency
+    tier: 2
+  skewness:
+    defines: A description of the asymmetry of a data distribution's shape (left-skewed, right-skewed,
+      or symmetrical), characterized by the relative positions of the mean, median, and mode.
+    composed_of:
+    - mean
+    - median
+    - mode
+    tier: 1
+  variance:
+    defines: The average of the squared deviations of data values from the mean, used as an intermediate
+      step in computing standard deviation.
+    composed_of:
+    - mean
+    tier: 1
+  standard_deviation:
+    defines: A number equal to the square root of the variance that measures how far data values are typically
+      spread from their mean.
+    composed_of:
+    - variance
+    tier: 2
+  grouped_standard_deviation:
+    defines: An estimate of standard deviation for grouped data, computed using interval midpoints, frequencies,
+      and the estimated grouped mean.
+    composed_of:
+    - grouped_frequency_table_mean
+    - standard_deviation
+    - class_interval
+    tier: 3
+  z_score:
+    defines: The number of standard deviations a data value lies above or below the mean, used to compare
+      values from different data sets.
+    composed_of:
+    - standard_deviation
+    - mean
+    tier: 3
+  standard_error:
+    defines: The standard deviation of the sampling distribution of the mean, measuring the sampling variability
+      of the sample mean statistic.
+    composed_of:
+    - sampling_distribution
+    - standard_deviation
+    tier: 3
+applications:
+  chebyshev_and_empirical_rules:
+    defines: Rules describing the minimum (Chebyshev's, any distribution) or approximate (Empirical, bell-shaped
+      symmetric distributions) percentage of data falling within a given number of standard deviations
+      of the mean.
+    needs:
+    - standard_deviation
+    - mean
+    tier: 3
