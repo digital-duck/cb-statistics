@@ -3,7 +3,7 @@
     "id": "introductory_statistics_ch01",
     "name": "Introductory Statistics — Ch1: Sampling and Data",
     "capstone": "research_ethics_irb",
-    "default_level": "core",
+    "default_level": "college",
     "has_navigator": true,
     "has_book": true,
     "books": [
@@ -197,7 +197,7 @@
     "id": "introductory_statistics_ch02",
     "name": "Introductory Statistics — Ch2: Descriptive Statistics",
     "capstone": "chebyshev_and_empirical_rules",
-    "default_level": "core",
+    "default_level": "college",
     "has_navigator": true,
     "has_book": true,
     "books": [
@@ -254,7 +254,7 @@
     "id": "introductory_statistics_ch03",
     "name": "Introductory Statistics — Ch3: Probability Topics",
     "capstone": "tree_diagram",
-    "default_level": "core",
+    "default_level": "college",
     "has_navigator": true,
     "has_book": true,
     "books": [
@@ -393,7 +393,7 @@
     "id": "introductory_statistics_ch04",
     "name": "Introductory Statistics — Ch4: Discrete Random Variables",
     "capstone": "dice_experiment",
-    "default_level": "core",
+    "default_level": "college",
     "has_navigator": true,
     "has_book": true,
     "books": [
@@ -491,7 +491,7 @@
     "id": "introductory_statistics_ch05",
     "name": "Introductory Statistics — Ch5: Continuous Random Variables",
     "capstone": "empirical_vs_theoretical_distribution_comparison",
-    "default_level": "core",
+    "default_level": "college",
     "has_navigator": true,
     "has_book": true,
     "books": [
@@ -562,7 +562,7 @@
     "id": "introductory_statistics_ch06",
     "name": "Introductory Statistics — Ch6: The Normal Distribution",
     "capstone": "normal_approximation_to_empirical_data",
-    "default_level": "core",
+    "default_level": "college",
     "has_navigator": true,
     "has_book": true,
     "books": [
@@ -686,7 +686,7 @@
     "id": "introductory_statistics_ch07",
     "name": "Introductory Statistics — Ch7: The Central Limit Theorem",
     "capstone": "cookie_recipes_simulation",
-    "default_level": "core",
+    "default_level": "college",
     "has_navigator": true,
     "has_book": true,
     "books": [
@@ -811,7 +811,7 @@
     "id": "introductory_statistics_ch08",
     "name": "Introductory Statistics — Ch8: Confidence Intervals",
     "capstone": "confidence_interval_application",
-    "default_level": "core",
+    "default_level": "college",
     "has_navigator": true,
     "has_book": true,
     "books": [
@@ -945,7 +945,7 @@
     "id": "introductory_statistics_ch09",
     "name": "Introductory Statistics — Ch9: Hypothesis Testing with One Sample",
     "capstone": "test_single_proportion",
-    "default_level": "core",
+    "default_level": "college",
     "has_navigator": true,
     "has_book": true,
     "books": [
@@ -1119,7 +1119,7 @@
     "id": "introductory_statistics_ch10",
     "name": "Introductory Statistics — Ch10: Hypothesis Testing with Two Samples",
     "capstone": "real_world_two_group_comparisons",
-    "default_level": "core",
+    "default_level": "college",
     "has_navigator": true,
     "has_book": true,
     "books": [
@@ -1231,7 +1231,7 @@
     "id": "introductory_statistics_ch11",
     "name": "Introductory Statistics — Ch11: The Chi-Square Distribution",
     "capstone": "independence_lab",
-    "default_level": "core",
+    "default_level": "college",
     "has_navigator": true,
     "has_book": true,
     "books": [
@@ -1350,7 +1350,7 @@
     "id": "introductory_statistics_ch12",
     "name": "Introductory Statistics — Ch12: Linear Regression and Correlation",
     "capstone": "regression_labs_distance_textbook_fuel",
-    "default_level": "core",
+    "default_level": "college",
     "has_navigator": true,
     "has_book": true,
     "books": [
@@ -1476,7 +1476,7 @@
     "id": "introductory_statistics_ch13",
     "name": "Introductory Statistics — Ch13: F Distribution and One-Way ANOVA",
     "capstone": "one_way_anova_lab",
-    "default_level": "core",
+    "default_level": "college",
     "has_navigator": true,
     "has_book": true,
     "books": [
