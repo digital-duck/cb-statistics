@@ -37,6 +37,8 @@ Logs are written to `logs/batch_gen_YYYYMMDD_HHMMSS.log`.
 
 ```bash
 python scripts/batch_generate.py [OPTIONS]
+
+python scripts/batch_generate.py --level college --language zh
 ```
 
 | Option | Default | Description |
