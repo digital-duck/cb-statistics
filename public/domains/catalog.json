@@ -60,7 +60,7 @@
       {
         "name": "blinding",
         "label": "Blinding",
-        "file": "output/research.en/sonnet/html/concept_blinding.html",
+        "file": "output/intro.en/sonnet/html/concept_blinding.html",
         "model": "sonnet",
         "language": "en"
       },
@@ -74,7 +74,7 @@
       {
         "name": "cluster_sampling",
         "label": "Cluster Sampling",
-        "file": "output/research.en/sonnet/html/concept_cluster_sampling.html",
+        "file": "output/intro.en/sonnet/html/concept_cluster_sampling.html",
         "model": "sonnet",
         "language": "en"
       },
@@ -88,7 +88,7 @@
       {
         "name": "control_group_placebo",
         "label": "Control Group Placebo",
-        "file": "output/research.en/sonnet/html/concept_control_group_placebo.html",
+        "file": "output/intro.en/sonnet/html/concept_control_group_placebo.html",
         "model": "sonnet",
         "language": "en"
       },
@@ -102,7 +102,7 @@
       {
         "name": "cumulative_relative_frequency",
         "label": "Cumulative Relative Frequency",
-        "file": "output/research.en/sonnet/html/concept_cumulative_relative_frequency.html",
+        "file": "output/intro.en/sonnet/html/concept_cumulative_relative_frequency.html",
         "model": "sonnet",
         "language": "en"
       },
@@ -116,14 +116,14 @@
       {
         "name": "data",
         "label": "Data",
-        "file": "output/research.en/sonnet/html/concept_data.html",
+        "file": "output/intro.en/sonnet/html/concept_data.html",
         "model": "sonnet",
         "language": "en"
       },
       {
         "name": "data_collection_design",
         "label": "Data Collection Design",
-        "file": "output/research.en/sonnet/html/concept_data_collection_design.html",
+        "file": "output/intro.en/sonnet/html/concept_data_collection_design.html",
         "model": "sonnet",
         "language": "en"
       },
@@ -144,7 +144,7 @@
       {
         "name": "explanatory_response_variable",
         "label": "Explanatory Response Variable",
-        "file": "output/research.en/sonnet/html/concept_explanatory_response_variable.html",
+        "file": "output/intro.en/sonnet/html/concept_explanatory_response_variable.html",
         "model": "sonnet",
         "language": "en"
       },
@@ -158,14 +158,14 @@
       {
         "name": "frequency",
         "label": "Frequency",
-        "file": "output/research.en/sonnet/html/concept_frequency.html",
+        "file": "output/intro.en/sonnet/html/concept_frequency.html",
         "model": "sonnet",
         "language": "en"
       },
       {
         "name": "frequency_table",
         "label": "Frequency Table",
-        "file": "output/research.en/sonnet/html/concept_frequency_table.html",
+        "file": "output/intro.en/sonnet/html/concept_frequency_table.html",
         "model": "sonnet",
         "language": "en"
       },
@@ -186,7 +186,7 @@
       {
         "name": "lurking_variable",
         "label": "Lurking Variable",
-        "file": "output/research.en/sonnet/html/concept_lurking_variable.html",
+        "file": "output/intro.en/sonnet/html/concept_lurking_variable.html",
         "model": "sonnet",
         "language": "en"
       },
@@ -200,7 +200,7 @@
       {
         "name": "population",
         "label": "Population",
-        "file": "output/research.en/sonnet/html/concept_population.html",
+        "file": "output/intro.en/sonnet/html/concept_population.html",
         "model": "sonnet",
         "language": "en"
       },
@@ -214,7 +214,7 @@
       {
         "name": "random_assignment",
         "label": "Random Assignment",
-        "file": "output/research.en/sonnet/html/concept_random_assignment.html",
+        "file": "output/intro.en/sonnet/html/concept_random_assignment.html",
         "model": "sonnet",
         "language": "en"
       },
@@ -228,7 +228,7 @@
       {
         "name": "randomized_experiment",
         "label": "Randomized Experiment",
-        "file": "output/research.en/sonnet/html/concept_randomized_experiment.html",
+        "file": "output/intro.en/sonnet/html/concept_randomized_experiment.html",
         "model": "sonnet",
         "language": "en"
       },
@@ -242,7 +242,7 @@
       {
         "name": "relative_frequency",
         "label": "Relative Frequency",
-        "file": "output/research.en/sonnet/html/concept_relative_frequency.html",
+        "file": "output/intro.en/sonnet/html/concept_relative_frequency.html",
         "model": "sonnet",
         "language": "en"
       },
@@ -256,7 +256,7 @@
       {
         "name": "research_ethics_irb",
         "label": "Research Ethics Irb",
-        "file": "output/research.en/sonnet/html/concept_research_ethics_irb.html",
+        "file": "output/intro.en/sonnet/html/concept_research_ethics_irb.html",
         "model": "sonnet",
         "language": "en"
       },
@@ -270,7 +270,7 @@
       {
         "name": "sample",
         "label": "Sample",
-        "file": "output/research.en/sonnet/html/concept_sample.html",
+        "file": "output/intro.en/sonnet/html/concept_sample.html",
         "model": "sonnet",
         "language": "en"
       },
@@ -284,7 +284,7 @@
       {
         "name": "simple_random_sampling",
         "label": "Simple Random Sampling",
-        "file": "output/research.en/sonnet/html/concept_simple_random_sampling.html",
+        "file": "output/intro.en/sonnet/html/concept_simple_random_sampling.html",
         "model": "sonnet",
         "language": "en"
       },
@@ -298,7 +298,7 @@
       {
         "name": "stratified_sampling",
         "label": "Stratified Sampling",
-        "file": "output/research.en/sonnet/html/concept_stratified_sampling.html",
+        "file": "output/intro.en/sonnet/html/concept_stratified_sampling.html",
         "model": "sonnet",
         "language": "en"
       },
@@ -312,7 +312,7 @@
       {
         "name": "systematic_sampling",
         "label": "Systematic Sampling",
-        "file": "output/research.en/sonnet/html/concept_systematic_sampling.html",
+        "file": "output/intro.en/sonnet/html/concept_systematic_sampling.html",
         "model": "sonnet",
         "language": "en"
       },
@@ -326,7 +326,7 @@
       {
         "name": "treatments_experimental_unit",
         "label": "Treatments Experimental Unit",
-        "file": "output/research.en/sonnet/html/concept_treatments_experimental_unit.html",
+        "file": "output/intro.en/sonnet/html/concept_treatments_experimental_unit.html",
         "model": "sonnet",
         "language": "en"
       },
@@ -340,7 +340,7 @@
       {
         "name": "variable",
         "label": "Variable",
-        "file": "output/research.en/sonnet/html/concept_variable.html",
+        "file": "output/intro.en/sonnet/html/concept_variable.html",
         "model": "sonnet",
         "language": "en"
       },
@@ -389,7 +389,7 @@
       {
         "name": "chebyshev_and_empirical_rules",
         "label": "Chebyshev And Empirical Rules",
-        "file": "output/research.en/sonnet/html/concept_chebyshev_and_empirical_rules.html",
+        "file": "output/intro.en/sonnet/html/concept_chebyshev_and_empirical_rules.html",
         "model": "sonnet",
         "language": "en"
       },
@@ -403,7 +403,7 @@
       {
         "name": "mean",
         "label": "Mean",
-        "file": "output/research.en/sonnet/html/concept_mean.html",
+        "file": "output/intro.en/sonnet/html/concept_mean.html",
         "model": "sonnet",
         "language": "en"
       },
@@ -417,7 +417,7 @@
       {
         "name": "standard_deviation",
         "label": "Standard Deviation",
-        "file": "output/research.en/sonnet/html/concept_standard_deviation.html",
+        "file": "output/intro.en/sonnet/html/concept_standard_deviation.html",
         "model": "sonnet",
         "language": "en"
       },
@@ -431,7 +431,7 @@
       {
         "name": "variance",
         "label": "Variance",
-        "file": "output/research.en/sonnet/html/concept_variance.html",
+        "file": "output/intro.en/sonnet/html/concept_variance.html",
         "model": "sonnet",
         "language": "en"
       },
@@ -504,7 +504,7 @@
       {
         "name": "and_event",
         "label": "And Event",
-        "file": "output/research.en/sonnet/html/concept_and_event.html",
+        "file": "output/intro.en/sonnet/html/concept_and_event.html",
         "model": "sonnet",
         "language": "en"
       },
@@ -518,7 +518,7 @@
       {
         "name": "complement_event",
         "label": "Complement Event",
-        "file": "output/research.en/sonnet/html/concept_complement_event.html",
+        "file": "output/intro.en/sonnet/html/concept_complement_event.html",
         "model": "sonnet",
         "language": "en"
       },
@@ -532,7 +532,7 @@
       {
         "name": "conditional_probability",
         "label": "Conditional Probability",
-        "file": "output/research.en/sonnet/html/concept_conditional_probability.html",
+        "file": "output/intro.en/sonnet/html/concept_conditional_probability.html",
         "model": "sonnet",
         "language": "en"
       },
@@ -546,7 +546,7 @@
       {
         "name": "contingency_table",
         "label": "Contingency Table",
-        "file": "output/research.en/sonnet/html/concept_contingency_table.html",
+        "file": "output/intro.en/sonnet/html/concept_contingency_table.html",
         "model": "sonnet",
         "language": "en"
       },
@@ -560,7 +560,7 @@
       {
         "name": "dependent_events",
         "label": "Dependent Events",
-        "file": "output/research.en/sonnet/html/concept_dependent_events.html",
+        "file": "output/intro.en/sonnet/html/concept_dependent_events.html",
         "model": "sonnet",
         "language": "en"
       },
@@ -574,7 +574,7 @@
       {
         "name": "event",
         "label": "Event",
-        "file": "output/research.en/sonnet/html/concept_event.html",
+        "file": "output/intro.en/sonnet/html/concept_event.html",
         "model": "sonnet",
         "language": "en"
       },
@@ -588,7 +588,7 @@
       {
         "name": "independent_events",
         "label": "Independent Events",
-        "file": "output/research.en/sonnet/html/concept_independent_events.html",
+        "file": "output/intro.en/sonnet/html/concept_independent_events.html",
         "model": "sonnet",
         "language": "en"
       },
@@ -602,7 +602,7 @@
       {
         "name": "multiplication_rule",
         "label": "Multiplication Rule",
-        "file": "output/research.en/sonnet/html/concept_multiplication_rule.html",
+        "file": "output/intro.en/sonnet/html/concept_multiplication_rule.html",
         "model": "sonnet",
         "language": "en"
       },
@@ -616,7 +616,7 @@
       {
         "name": "or_event",
         "label": "Or Event",
-        "file": "output/research.en/sonnet/html/concept_or_event.html",
+        "file": "output/intro.en/sonnet/html/concept_or_event.html",
         "model": "sonnet",
         "language": "en"
       },
@@ -630,7 +630,7 @@
       {
         "name": "outcome",
         "label": "Outcome",
-        "file": "output/research.en/sonnet/html/concept_outcome.html",
+        "file": "output/intro.en/sonnet/html/concept_outcome.html",
         "model": "sonnet",
         "language": "en"
       },
@@ -644,7 +644,7 @@
       {
         "name": "probability",
         "label": "Probability",
-        "file": "output/research.en/sonnet/html/concept_probability.html",
+        "file": "output/intro.en/sonnet/html/concept_probability.html",
         "model": "sonnet",
         "language": "en"
       },
@@ -658,7 +658,7 @@
       {
         "name": "sample_space",
         "label": "Sample Space",
-        "file": "output/research.en/sonnet/html/concept_sample_space.html",
+        "file": "output/intro.en/sonnet/html/concept_sample_space.html",
         "model": "sonnet",
         "language": "en"
       },
@@ -672,7 +672,7 @@
       {
         "name": "tree_diagram",
         "label": "Tree Diagram",
-        "file": "output/research.en/sonnet/html/concept_tree_diagram.html",
+        "file": "output/intro.en/sonnet/html/concept_tree_diagram.html",
         "model": "sonnet",
         "language": "en"
       },
@@ -686,7 +686,7 @@
       {
         "name": "venn_diagram",
         "label": "Venn Diagram",
-        "file": "output/research.en/sonnet/html/concept_venn_diagram.html",
+        "file": "output/intro.en/sonnet/html/concept_venn_diagram.html",
         "model": "sonnet",
         "language": "en"
       },
@@ -747,7 +747,7 @@
       {
         "name": "bernoulli_trial",
         "label": "Bernoulli Trial",
-        "file": "output/research.en/sonnet/html/concept_bernoulli_trial.html",
+        "file": "output/intro.en/sonnet/html/concept_bernoulli_trial.html",
         "model": "sonnet",
         "language": "en"
       },
@@ -761,7 +761,7 @@
       {
         "name": "binomial_distribution",
         "label": "Binomial Distribution",
-        "file": "output/research.en/sonnet/html/concept_binomial_distribution.html",
+        "file": "output/intro.en/sonnet/html/concept_binomial_distribution.html",
         "model": "sonnet",
         "language": "en"
       },
@@ -775,7 +775,7 @@
       {
         "name": "dice_experiment",
         "label": "Dice Experiment",
-        "file": "output/research.en/sonnet/html/concept_dice_experiment.html",
+        "file": "output/intro.en/sonnet/html/concept_dice_experiment.html",
         "model": "sonnet",
         "language": "en"
       },
@@ -789,7 +789,7 @@
       {
         "name": "discrete_random_variable",
         "label": "Discrete Random Variable",
-        "file": "output/research.en/sonnet/html/concept_discrete_random_variable.html",
+        "file": "output/intro.en/sonnet/html/concept_discrete_random_variable.html",
         "model": "sonnet",
         "language": "en"
       },
@@ -803,7 +803,7 @@
       {
         "name": "expected_value",
         "label": "Expected Value",
-        "file": "output/research.en/sonnet/html/concept_expected_value.html",
+        "file": "output/intro.en/sonnet/html/concept_expected_value.html",
         "model": "sonnet",
         "language": "en"
       },
@@ -817,7 +817,7 @@
       {
         "name": "law_of_large_numbers",
         "label": "Law Of Large Numbers",
-        "file": "output/research.en/sonnet/html/concept_law_of_large_numbers.html",
+        "file": "output/intro.en/sonnet/html/concept_law_of_large_numbers.html",
         "model": "sonnet",
         "language": "en"
       },
@@ -831,7 +831,7 @@
       {
         "name": "playing_card_experiment",
         "label": "Playing Card Experiment",
-        "file": "output/research.en/sonnet/html/concept_playing_card_experiment.html",
+        "file": "output/intro.en/sonnet/html/concept_playing_card_experiment.html",
         "model": "sonnet",
         "language": "en"
       },
@@ -845,7 +845,7 @@
       {
         "name": "probability_distribution_function",
         "label": "Probability Distribution Function",
-        "file": "output/research.en/sonnet/html/concept_probability_distribution_function.html",
+        "file": "output/intro.en/sonnet/html/concept_probability_distribution_function.html",
         "model": "sonnet",
         "language": "en"
       },
@@ -859,7 +859,7 @@
       {
         "name": "random_variable",
         "label": "Random Variable",
-        "file": "output/research.en/sonnet/html/concept_random_variable.html",
+        "file": "output/intro.en/sonnet/html/concept_random_variable.html",
         "model": "sonnet",
         "language": "en"
       },
@@ -908,7 +908,7 @@
       {
         "name": "continuous_random_variable",
         "label": "Continuous Random Variable",
-        "file": "output/research.en/sonnet/html/concept_continuous_random_variable.html",
+        "file": "output/intro.en/sonnet/html/concept_continuous_random_variable.html",
         "model": "sonnet",
         "language": "en"
       },
@@ -922,7 +922,7 @@
       {
         "name": "empirical_vs_theoretical_distribution_comparison",
         "label": "Empirical Vs Theoretical Distribution Comparison",
-        "file": "output/research.en/sonnet/html/concept_empirical_vs_theoretical_distribution_comparison.html",
+        "file": "output/intro.en/sonnet/html/concept_empirical_vs_theoretical_distribution_comparison.html",
         "model": "sonnet",
         "language": "en"
       },
@@ -936,7 +936,7 @@
       {
         "name": "exponential_distribution",
         "label": "Exponential Distribution",
-        "file": "output/research.en/sonnet/html/concept_exponential_distribution.html",
+        "file": "output/intro.en/sonnet/html/concept_exponential_distribution.html",
         "model": "sonnet",
         "language": "en"
       },
@@ -950,7 +950,7 @@
       {
         "name": "mean_and_standard_deviation_of_continuous_distributions",
         "label": "Mean And Standard Deviation Of Continuous Distributions",
-        "file": "output/research.en/sonnet/html/concept_mean_and_standard_deviation_of_continuous_distributions.html",
+        "file": "output/intro.en/sonnet/html/concept_mean_and_standard_deviation_of_continuous_distributions.html",
         "model": "sonnet",
         "language": "en"
       },
@@ -964,7 +964,7 @@
       {
         "name": "probability_density_function",
         "label": "Probability Density Function",
-        "file": "output/research.en/sonnet/html/concept_probability_density_function.html",
+        "file": "output/intro.en/sonnet/html/concept_probability_density_function.html",
         "model": "sonnet",
         "language": "en"
       },
@@ -978,7 +978,7 @@
       {
         "name": "uniform_distribution",
         "label": "Uniform Distribution",
-        "file": "output/research.en/sonnet/html/concept_uniform_distribution.html",
+        "file": "output/intro.en/sonnet/html/concept_uniform_distribution.html",
         "model": "sonnet",
         "language": "en"
       },
@@ -1063,7 +1063,7 @@
       {
         "name": "continuous_probability_distribution",
         "label": "Continuous Probability Distribution",
-        "file": "output/research.en/sonnet/html/concept_continuous_probability_distribution.html",
+        "file": "output/intro.en/sonnet/html/concept_continuous_probability_distribution.html",
         "model": "sonnet",
         "language": "en"
       },
@@ -1077,7 +1077,7 @@
       {
         "name": "cumulative_distribution_function",
         "label": "Cumulative Distribution Function",
-        "file": "output/research.en/sonnet/html/concept_cumulative_distribution_function.html",
+        "file": "output/intro.en/sonnet/html/concept_cumulative_distribution_function.html",
         "model": "sonnet",
         "language": "en"
       },
@@ -1091,7 +1091,7 @@
       {
         "name": "empirical_rule",
         "label": "Empirical Rule",
-        "file": "output/research.en/sonnet/html/concept_empirical_rule.html",
+        "file": "output/intro.en/sonnet/html/concept_empirical_rule.html",
         "model": "sonnet",
         "language": "en"
       },
@@ -1105,7 +1105,7 @@
       {
         "name": "interquartile_range_normal",
         "label": "Interquartile Range Normal",
-        "file": "output/research.en/sonnet/html/concept_interquartile_range_normal.html",
+        "file": "output/intro.en/sonnet/html/concept_interquartile_range_normal.html",
         "model": "sonnet",
         "language": "en"
       },
@@ -1119,7 +1119,7 @@
       {
         "name": "mean",
         "label": "Mean",
-        "file": "output/research.en/sonnet/html/concept_mean.html",
+        "file": "output/intro.en/sonnet/html/concept_mean.html",
         "model": "sonnet",
         "language": "en"
       },
@@ -1133,7 +1133,7 @@
       {
         "name": "normal_approximation_to_empirical_data",
         "label": "Normal Approximation To Empirical Data",
-        "file": "output/research.en/sonnet/html/concept_normal_approximation_to_empirical_data.html",
+        "file": "output/intro.en/sonnet/html/concept_normal_approximation_to_empirical_data.html",
         "model": "sonnet",
         "language": "en"
       },
@@ -1147,7 +1147,7 @@
       {
         "name": "normal_distribution",
         "label": "Normal Distribution",
-        "file": "output/research.en/sonnet/html/concept_normal_distribution.html",
+        "file": "output/intro.en/sonnet/html/concept_normal_distribution.html",
         "model": "sonnet",
         "language": "en"
       },
@@ -1161,7 +1161,7 @@
       {
         "name": "normal_probability_calculation",
         "label": "Normal Probability Calculation",
-        "file": "output/research.en/sonnet/html/concept_normal_probability_calculation.html",
+        "file": "output/intro.en/sonnet/html/concept_normal_probability_calculation.html",
         "model": "sonnet",
         "language": "en"
       },
@@ -1175,7 +1175,7 @@
       {
         "name": "percentile_and_invnorm",
         "label": "Percentile And Invnorm",
-        "file": "output/research.en/sonnet/html/concept_percentile_and_invnorm.html",
+        "file": "output/intro.en/sonnet/html/concept_percentile_and_invnorm.html",
         "model": "sonnet",
         "language": "en"
       },
@@ -1189,7 +1189,7 @@
       {
         "name": "random_variable",
         "label": "Random Variable",
-        "file": "output/research.en/sonnet/html/concept_random_variable.html",
+        "file": "output/intro.en/sonnet/html/concept_random_variable.html",
         "model": "sonnet",
         "language": "en"
       },
@@ -1203,7 +1203,7 @@
       {
         "name": "standard_deviation",
         "label": "Standard Deviation",
-        "file": "output/research.en/sonnet/html/concept_standard_deviation.html",
+        "file": "output/intro.en/sonnet/html/concept_standard_deviation.html",
         "model": "sonnet",
         "language": "en"
       },
@@ -1276,7 +1276,7 @@
       {
         "name": "binomial_distribution",
         "label": "Binomial Distribution",
-        "file": "output/research.en/sonnet/html/concept_binomial_distribution.html",
+        "file": "output/intro.en/sonnet/html/concept_binomial_distribution.html",
         "model": "sonnet",
         "language": "en"
       },
@@ -1290,7 +1290,7 @@
       {
         "name": "central_limit_theorem_means",
         "label": "Central Limit Theorem Means",
-        "file": "output/research.en/sonnet/html/concept_central_limit_theorem_means.html",
+        "file": "output/intro.en/sonnet/html/concept_central_limit_theorem_means.html",
         "model": "sonnet",
         "language": "en"
       },
@@ -1304,7 +1304,7 @@
       {
         "name": "continuity_correction_factor",
         "label": "Continuity Correction Factor",
-        "file": "output/research.en/sonnet/html/concept_continuity_correction_factor.html",
+        "file": "output/intro.en/sonnet/html/concept_continuity_correction_factor.html",
         "model": "sonnet",
         "language": "en"
       },
@@ -1318,7 +1318,7 @@
       {
         "name": "cookie_recipes_simulation",
         "label": "Cookie Recipes Simulation",
-        "file": "output/research.en/sonnet/html/concept_cookie_recipes_simulation.html",
+        "file": "output/intro.en/sonnet/html/concept_cookie_recipes_simulation.html",
         "model": "sonnet",
         "language": "en"
       },
@@ -1332,7 +1332,7 @@
       {
         "name": "mean",
         "label": "Mean",
-        "file": "output/research.en/sonnet/html/concept_mean.html",
+        "file": "output/intro.en/sonnet/html/concept_mean.html",
         "model": "sonnet",
         "language": "en"
       },
@@ -1346,7 +1346,7 @@
       {
         "name": "normal_approximation_to_binomial",
         "label": "Normal Approximation To Binomial",
-        "file": "output/research.en/sonnet/html/concept_normal_approximation_to_binomial.html",
+        "file": "output/intro.en/sonnet/html/concept_normal_approximation_to_binomial.html",
         "model": "sonnet",
         "language": "en"
       },
@@ -1360,7 +1360,7 @@
       {
         "name": "normal_distribution",
         "label": "Normal Distribution",
-        "file": "output/research.en/sonnet/html/concept_normal_distribution.html",
+        "file": "output/intro.en/sonnet/html/concept_normal_distribution.html",
         "model": "sonnet",
         "language": "en"
       },
@@ -1374,7 +1374,7 @@
       {
         "name": "pocket_change_simulation",
         "label": "Pocket Change Simulation",
-        "file": "output/research.en/sonnet/html/concept_pocket_change_simulation.html",
+        "file": "output/intro.en/sonnet/html/concept_pocket_change_simulation.html",
         "model": "sonnet",
         "language": "en"
       },
@@ -1388,7 +1388,7 @@
       {
         "name": "random_variable",
         "label": "Random Variable",
-        "file": "output/research.en/sonnet/html/concept_random_variable.html",
+        "file": "output/intro.en/sonnet/html/concept_random_variable.html",
         "model": "sonnet",
         "language": "en"
       },
@@ -1402,7 +1402,7 @@
       {
         "name": "sampling_distribution",
         "label": "Sampling Distribution",
-        "file": "output/research.en/sonnet/html/concept_sampling_distribution.html",
+        "file": "output/intro.en/sonnet/html/concept_sampling_distribution.html",
         "model": "sonnet",
         "language": "en"
       },
@@ -1416,7 +1416,7 @@
       {
         "name": "standard_deviation",
         "label": "Standard Deviation",
-        "file": "output/research.en/sonnet/html/concept_standard_deviation.html",
+        "file": "output/intro.en/sonnet/html/concept_standard_deviation.html",
         "model": "sonnet",
         "language": "en"
       },
@@ -1430,7 +1430,7 @@
       {
         "name": "standard_error_of_mean",
         "label": "Standard Error Of Mean",
-        "file": "output/research.en/sonnet/html/concept_standard_error_of_mean.html",
+        "file": "output/intro.en/sonnet/html/concept_standard_error_of_mean.html",
         "model": "sonnet",
         "language": "en"
       },
@@ -1479,7 +1479,7 @@
       {
         "name": "binomial_distribution",
         "label": "Binomial Distribution",
-        "file": "output/research.en/sonnet/html/concept_binomial_distribution.html",
+        "file": "output/intro.en/sonnet/html/concept_binomial_distribution.html",
         "model": "sonnet",
         "language": "en"
       },
@@ -1493,7 +1493,7 @@
       {
         "name": "central_limit_theorem",
         "label": "Central Limit Theorem",
-        "file": "output/research.en/sonnet/html/concept_central_limit_theorem.html",
+        "file": "output/intro.en/sonnet/html/concept_central_limit_theorem.html",
         "model": "sonnet",
         "language": "en"
       },
@@ -1507,7 +1507,7 @@
       {
         "name": "confidence_interval_application",
         "label": "Confidence Interval Application",
-        "file": "output/research.en/sonnet/html/concept_confidence_interval_application.html",
+        "file": "output/intro.en/sonnet/html/concept_confidence_interval_application.html",
         "model": "sonnet",
         "language": "en"
       },
@@ -1521,7 +1521,7 @@
       {
         "name": "confidence_interval_mean_known_sigma",
         "label": "Confidence Interval Mean Known Sigma",
-        "file": "output/research.en/sonnet/html/concept_confidence_interval_mean_known_sigma.html",
+        "file": "output/intro.en/sonnet/html/concept_confidence_interval_mean_known_sigma.html",
         "model": "sonnet",
         "language": "en"
       },
@@ -1535,7 +1535,7 @@
       {
         "name": "confidence_interval_mean_unknown_sigma",
         "label": "Confidence Interval Mean Unknown Sigma",
-        "file": "output/research.en/sonnet/html/concept_confidence_interval_mean_unknown_sigma.html",
+        "file": "output/intro.en/sonnet/html/concept_confidence_interval_mean_unknown_sigma.html",
         "model": "sonnet",
         "language": "en"
       },
@@ -1549,7 +1549,7 @@
       {
         "name": "confidence_interval_proportion",
         "label": "Confidence Interval Proportion",
-        "file": "output/research.en/sonnet/html/concept_confidence_interval_proportion.html",
+        "file": "output/intro.en/sonnet/html/concept_confidence_interval_proportion.html",
         "model": "sonnet",
         "language": "en"
       },
@@ -1563,7 +1563,7 @@
       {
         "name": "confidence_level",
         "label": "Confidence Level",
-        "file": "output/research.en/sonnet/html/concept_confidence_level.html",
+        "file": "output/intro.en/sonnet/html/concept_confidence_level.html",
         "model": "sonnet",
         "language": "en"
       },
@@ -1577,7 +1577,7 @@
       {
         "name": "degrees_of_freedom",
         "label": "Degrees Of Freedom",
-        "file": "output/research.en/sonnet/html/concept_degrees_of_freedom.html",
+        "file": "output/intro.en/sonnet/html/concept_degrees_of_freedom.html",
         "model": "sonnet",
         "language": "en"
       },
@@ -1591,7 +1591,7 @@
       {
         "name": "error_bound_mean",
         "label": "Error Bound Mean",
-        "file": "output/research.en/sonnet/html/concept_error_bound_mean.html",
+        "file": "output/intro.en/sonnet/html/concept_error_bound_mean.html",
         "model": "sonnet",
         "language": "en"
       },
@@ -1605,7 +1605,7 @@
       {
         "name": "error_bound_proportion",
         "label": "Error Bound Proportion",
-        "file": "output/research.en/sonnet/html/concept_error_bound_proportion.html",
+        "file": "output/intro.en/sonnet/html/concept_error_bound_proportion.html",
         "model": "sonnet",
         "language": "en"
       },
@@ -1619,7 +1619,7 @@
       {
         "name": "sample_mean",
         "label": "Sample Mean",
-        "file": "output/research.en/sonnet/html/concept_sample_mean.html",
+        "file": "output/intro.en/sonnet/html/concept_sample_mean.html",
         "model": "sonnet",
         "language": "en"
       },
@@ -1633,7 +1633,7 @@
       {
         "name": "sample_proportion",
         "label": "Sample Proportion",
-        "file": "output/research.en/sonnet/html/concept_sample_proportion.html",
+        "file": "output/intro.en/sonnet/html/concept_sample_proportion.html",
         "model": "sonnet",
         "language": "en"
       },
@@ -1647,7 +1647,7 @@
       {
         "name": "sample_standard_deviation",
         "label": "Sample Standard Deviation",
-        "file": "output/research.en/sonnet/html/concept_sample_standard_deviation.html",
+        "file": "output/intro.en/sonnet/html/concept_sample_standard_deviation.html",
         "model": "sonnet",
         "language": "en"
       },
@@ -1661,7 +1661,7 @@
       {
         "name": "students_t_distribution",
         "label": "Students T Distribution",
-        "file": "output/research.en/sonnet/html/concept_students_t_distribution.html",
+        "file": "output/intro.en/sonnet/html/concept_students_t_distribution.html",
         "model": "sonnet",
         "language": "en"
       },
@@ -1675,7 +1675,7 @@
       {
         "name": "z_score_confidence",
         "label": "Z Score Confidence",
-        "file": "output/research.en/sonnet/html/concept_z_score_confidence.html",
+        "file": "output/intro.en/sonnet/html/concept_z_score_confidence.html",
         "model": "sonnet",
         "language": "en"
       },
@@ -1730,133 +1730,133 @@
       {
         "name": "alternative_hypothesis",
         "label": "Alternative Hypothesis",
-        "file": "output/research.en/sonnet/html/concept_alternative_hypothesis.html",
+        "file": "output/intro.en/sonnet/html/concept_alternative_hypothesis.html",
         "model": "sonnet",
         "language": "en"
       },
       {
         "name": "binomial_distribution",
         "label": "Binomial Distribution",
-        "file": "output/research.en/sonnet/html/concept_binomial_distribution.html",
+        "file": "output/intro.en/sonnet/html/concept_binomial_distribution.html",
         "model": "sonnet",
         "language": "en"
       },
       {
         "name": "central_limit_theorem",
         "label": "Central Limit Theorem",
-        "file": "output/research.en/sonnet/html/concept_central_limit_theorem.html",
+        "file": "output/intro.en/sonnet/html/concept_central_limit_theorem.html",
         "model": "sonnet",
         "language": "en"
       },
       {
         "name": "conclusion_writing",
         "label": "Conclusion Writing",
-        "file": "output/research.en/sonnet/html/concept_conclusion_writing.html",
+        "file": "output/intro.en/sonnet/html/concept_conclusion_writing.html",
         "model": "sonnet",
         "language": "en"
       },
       {
         "name": "decision_rule",
         "label": "Decision Rule",
-        "file": "output/research.en/sonnet/html/concept_decision_rule.html",
+        "file": "output/intro.en/sonnet/html/concept_decision_rule.html",
         "model": "sonnet",
         "language": "en"
       },
       {
         "name": "hypothesis_test_procedure",
         "label": "Hypothesis Test Procedure",
-        "file": "output/research.en/sonnet/html/concept_hypothesis_test_procedure.html",
+        "file": "output/intro.en/sonnet/html/concept_hypothesis_test_procedure.html",
         "model": "sonnet",
         "language": "en"
       },
       {
         "name": "hypothesis_testing",
         "label": "Hypothesis Testing",
-        "file": "output/research.en/sonnet/html/concept_hypothesis_testing.html",
+        "file": "output/intro.en/sonnet/html/concept_hypothesis_testing.html",
         "model": "sonnet",
         "language": "en"
       },
       {
         "name": "normal_distribution",
         "label": "Normal Distribution",
-        "file": "output/research.en/sonnet/html/concept_normal_distribution.html",
+        "file": "output/intro.en/sonnet/html/concept_normal_distribution.html",
         "model": "sonnet",
         "language": "en"
       },
       {
         "name": "null_hypothesis",
         "label": "Null Hypothesis",
-        "file": "output/research.en/sonnet/html/concept_null_hypothesis.html",
+        "file": "output/intro.en/sonnet/html/concept_null_hypothesis.html",
         "model": "sonnet",
         "language": "en"
       },
       {
         "name": "p_value",
         "label": "P Value",
-        "file": "output/research.en/sonnet/html/concept_p_value.html",
+        "file": "output/intro.en/sonnet/html/concept_p_value.html",
         "model": "sonnet",
         "language": "en"
       },
       {
         "name": "rare_event",
         "label": "Rare Event",
-        "file": "output/research.en/sonnet/html/concept_rare_event.html",
+        "file": "output/intro.en/sonnet/html/concept_rare_event.html",
         "model": "sonnet",
         "language": "en"
       },
       {
         "name": "sampling_distribution_selection",
         "label": "Sampling Distribution Selection",
-        "file": "output/research.en/sonnet/html/concept_sampling_distribution_selection.html",
+        "file": "output/intro.en/sonnet/html/concept_sampling_distribution_selection.html",
         "model": "sonnet",
         "language": "en"
       },
       {
         "name": "significance_level",
         "label": "Significance Level",
-        "file": "output/research.en/sonnet/html/concept_significance_level.html",
+        "file": "output/intro.en/sonnet/html/concept_significance_level.html",
         "model": "sonnet",
         "language": "en"
       },
       {
         "name": "students_t_distribution",
         "label": "Students T Distribution",
-        "file": "output/research.en/sonnet/html/concept_students_t_distribution.html",
+        "file": "output/intro.en/sonnet/html/concept_students_t_distribution.html",
         "model": "sonnet",
         "language": "en"
       },
       {
         "name": "tailed_tests",
         "label": "Tailed Tests",
-        "file": "output/research.en/sonnet/html/concept_tailed_tests.html",
+        "file": "output/intro.en/sonnet/html/concept_tailed_tests.html",
         "model": "sonnet",
         "language": "en"
       },
       {
         "name": "test_single_mean_known_sd",
         "label": "Test Single Mean Known Sd",
-        "file": "output/research.en/sonnet/html/concept_test_single_mean_known_sd.html",
+        "file": "output/intro.en/sonnet/html/concept_test_single_mean_known_sd.html",
         "model": "sonnet",
         "language": "en"
       },
       {
         "name": "test_single_mean_unknown_sd",
         "label": "Test Single Mean Unknown Sd",
-        "file": "output/research.en/sonnet/html/concept_test_single_mean_unknown_sd.html",
+        "file": "output/intro.en/sonnet/html/concept_test_single_mean_unknown_sd.html",
         "model": "sonnet",
         "language": "en"
       },
       {
         "name": "test_single_proportion",
         "label": "Test Single Proportion",
-        "file": "output/research.en/sonnet/html/concept_test_single_proportion.html",
+        "file": "output/intro.en/sonnet/html/concept_test_single_proportion.html",
         "model": "sonnet",
         "language": "en"
       },
       {
         "name": "test_statistic",
         "label": "Test Statistic",
-        "file": "output/research.en/sonnet/html/concept_test_statistic.html",
+        "file": "output/intro.en/sonnet/html/concept_test_statistic.html",
         "model": "sonnet",
         "language": "en"
       }
@@ -1898,77 +1898,77 @@
       {
         "name": "degrees_of_freedom_two_sample",
         "label": "Degrees Of Freedom Two Sample",
-        "file": "output/research.en/sonnet/html/concept_degrees_of_freedom_two_sample.html",
+        "file": "output/intro.en/sonnet/html/concept_degrees_of_freedom_two_sample.html",
         "model": "sonnet",
         "language": "en"
       },
       {
         "name": "independent_samples",
         "label": "Independent Samples",
-        "file": "output/research.en/sonnet/html/concept_independent_samples.html",
+        "file": "output/intro.en/sonnet/html/concept_independent_samples.html",
         "model": "sonnet",
         "language": "en"
       },
       {
         "name": "matched_paired_samples",
         "label": "Matched Paired Samples",
-        "file": "output/research.en/sonnet/html/concept_matched_paired_samples.html",
+        "file": "output/intro.en/sonnet/html/concept_matched_paired_samples.html",
         "model": "sonnet",
         "language": "en"
       },
       {
         "name": "matched_pairs_test",
         "label": "Matched Pairs Test",
-        "file": "output/research.en/sonnet/html/concept_matched_pairs_test.html",
+        "file": "output/intro.en/sonnet/html/concept_matched_pairs_test.html",
         "model": "sonnet",
         "language": "en"
       },
       {
         "name": "pooled_proportion",
         "label": "Pooled Proportion",
-        "file": "output/research.en/sonnet/html/concept_pooled_proportion.html",
+        "file": "output/intro.en/sonnet/html/concept_pooled_proportion.html",
         "model": "sonnet",
         "language": "en"
       },
       {
         "name": "real_world_two_group_comparisons",
         "label": "Real World Two Group Comparisons",
-        "file": "output/research.en/sonnet/html/concept_real_world_two_group_comparisons.html",
+        "file": "output/intro.en/sonnet/html/concept_real_world_two_group_comparisons.html",
         "model": "sonnet",
         "language": "en"
       },
       {
         "name": "standard_error_diff_means",
         "label": "Standard Error Diff Means",
-        "file": "output/research.en/sonnet/html/concept_standard_error_diff_means.html",
+        "file": "output/intro.en/sonnet/html/concept_standard_error_diff_means.html",
         "model": "sonnet",
         "language": "en"
       },
       {
         "name": "two_means_known_sd_test",
         "label": "Two Means Known Sd Test",
-        "file": "output/research.en/sonnet/html/concept_two_means_known_sd_test.html",
+        "file": "output/intro.en/sonnet/html/concept_two_means_known_sd_test.html",
         "model": "sonnet",
         "language": "en"
       },
       {
         "name": "two_means_unknown_sd_test",
         "label": "Two Means Unknown Sd Test",
-        "file": "output/research.en/sonnet/html/concept_two_means_unknown_sd_test.html",
+        "file": "output/intro.en/sonnet/html/concept_two_means_unknown_sd_test.html",
         "model": "sonnet",
         "language": "en"
       },
       {
         "name": "two_proportions_test",
         "label": "Two Proportions Test",
-        "file": "output/research.en/sonnet/html/concept_two_proportions_test.html",
+        "file": "output/intro.en/sonnet/html/concept_two_proportions_test.html",
         "model": "sonnet",
         "language": "en"
       },
       {
         "name": "two_sample_test_classification",
         "label": "Two Sample Test Classification",
-        "file": "output/research.en/sonnet/html/concept_two_sample_test_classification.html",
+        "file": "output/intro.en/sonnet/html/concept_two_sample_test_classification.html",
         "model": "sonnet",
         "language": "en"
       }
@@ -2010,84 +2010,84 @@
       {
         "name": "chi_square_distribution",
         "label": "Chi Square Distribution",
-        "file": "output/research.en/sonnet/html/concept_chi_square_distribution.html",
+        "file": "output/intro.en/sonnet/html/concept_chi_square_distribution.html",
         "model": "sonnet",
         "language": "en"
       },
       {
         "name": "contingency_table",
         "label": "Contingency Table",
-        "file": "output/research.en/sonnet/html/concept_contingency_table.html",
+        "file": "output/intro.en/sonnet/html/concept_contingency_table.html",
         "model": "sonnet",
         "language": "en"
       },
       {
         "name": "degrees_of_freedom",
         "label": "Degrees Of Freedom",
-        "file": "output/research.en/sonnet/html/concept_degrees_of_freedom.html",
+        "file": "output/intro.en/sonnet/html/concept_degrees_of_freedom.html",
         "model": "sonnet",
         "language": "en"
       },
       {
         "name": "goodness_of_fit_lab",
         "label": "Goodness Of Fit Lab",
-        "file": "output/research.en/sonnet/html/concept_goodness_of_fit_lab.html",
+        "file": "output/intro.en/sonnet/html/concept_goodness_of_fit_lab.html",
         "model": "sonnet",
         "language": "en"
       },
       {
         "name": "goodness_of_fit_test",
         "label": "Goodness Of Fit Test",
-        "file": "output/research.en/sonnet/html/concept_goodness_of_fit_test.html",
+        "file": "output/intro.en/sonnet/html/concept_goodness_of_fit_test.html",
         "model": "sonnet",
         "language": "en"
       },
       {
         "name": "hypothesis_test",
         "label": "Hypothesis Test",
-        "file": "output/research.en/sonnet/html/concept_hypothesis_test.html",
+        "file": "output/intro.en/sonnet/html/concept_hypothesis_test.html",
         "model": "sonnet",
         "language": "en"
       },
       {
         "name": "independence_lab",
         "label": "Independence Lab",
-        "file": "output/research.en/sonnet/html/concept_independence_lab.html",
+        "file": "output/intro.en/sonnet/html/concept_independence_lab.html",
         "model": "sonnet",
         "language": "en"
       },
       {
         "name": "normal_distribution",
         "label": "Normal Distribution",
-        "file": "output/research.en/sonnet/html/concept_normal_distribution.html",
+        "file": "output/intro.en/sonnet/html/concept_normal_distribution.html",
         "model": "sonnet",
         "language": "en"
       },
       {
         "name": "observed_expected_values",
         "label": "Observed Expected Values",
-        "file": "output/research.en/sonnet/html/concept_observed_expected_values.html",
+        "file": "output/intro.en/sonnet/html/concept_observed_expected_values.html",
         "model": "sonnet",
         "language": "en"
       },
       {
         "name": "p_value",
         "label": "P Value",
-        "file": "output/research.en/sonnet/html/concept_p_value.html",
+        "file": "output/intro.en/sonnet/html/concept_p_value.html",
         "model": "sonnet",
         "language": "en"
       },
       {
         "name": "standard_normal_variable",
         "label": "Standard Normal Variable",
-        "file": "output/research.en/sonnet/html/concept_standard_normal_variable.html",
+        "file": "output/intro.en/sonnet/html/concept_standard_normal_variable.html",
         "model": "sonnet",
         "language": "en"
       },
       {
         "name": "test_of_independence",
         "label": "Test Of Independence",
-        "file": "output/research.en/sonnet/html/concept_test_of_independence.html",
+        "file": "output/intro.en/sonnet/html/concept_test_of_independence.html",
         "model": "sonnet",
         "language": "en"
       }
@@ -2129,91 +2129,91 @@
       {
         "name": "correlation",
         "label": "Correlation",
-        "file": "output/research.en/sonnet/html/concept_correlation.html",
+        "file": "output/intro.en/sonnet/html/concept_correlation.html",
         "model": "sonnet",
         "language": "en"
       },
       {
         "name": "correlation_coefficient_r",
         "label": "Correlation Coefficient R",
-        "file": "output/research.en/sonnet/html/concept_correlation_coefficient_r.html",
+        "file": "output/intro.en/sonnet/html/concept_correlation_coefficient_r.html",
         "model": "sonnet",
         "language": "en"
       },
       {
         "name": "independent_dependent_variables",
         "label": "Independent Dependent Variables",
-        "file": "output/research.en/sonnet/html/concept_independent_dependent_variables.html",
+        "file": "output/intro.en/sonnet/html/concept_independent_dependent_variables.html",
         "model": "sonnet",
         "language": "en"
       },
       {
         "name": "least_squares_regression_line",
         "label": "Least Squares Regression Line",
-        "file": "output/research.en/sonnet/html/concept_least_squares_regression_line.html",
+        "file": "output/intro.en/sonnet/html/concept_least_squares_regression_line.html",
         "model": "sonnet",
         "language": "en"
       },
       {
         "name": "linear_equation",
         "label": "Linear Equation",
-        "file": "output/research.en/sonnet/html/concept_linear_equation.html",
+        "file": "output/intro.en/sonnet/html/concept_linear_equation.html",
         "model": "sonnet",
         "language": "en"
       },
       {
         "name": "linear_regression",
         "label": "Linear Regression",
-        "file": "output/research.en/sonnet/html/concept_linear_regression.html",
+        "file": "output/intro.en/sonnet/html/concept_linear_regression.html",
         "model": "sonnet",
         "language": "en"
       },
       {
         "name": "outliers",
         "label": "Outliers",
-        "file": "output/research.en/sonnet/html/concept_outliers.html",
+        "file": "output/intro.en/sonnet/html/concept_outliers.html",
         "model": "sonnet",
         "language": "en"
       },
       {
         "name": "prediction_interpolation_extrapolation",
         "label": "Prediction Interpolation Extrapolation",
-        "file": "output/research.en/sonnet/html/concept_prediction_interpolation_extrapolation.html",
+        "file": "output/intro.en/sonnet/html/concept_prediction_interpolation_extrapolation.html",
         "model": "sonnet",
         "language": "en"
       },
       {
         "name": "regression_labs_distance_textbook_fuel",
         "label": "Regression Labs Distance Textbook Fuel",
-        "file": "output/research.en/sonnet/html/concept_regression_labs_distance_textbook_fuel.html",
+        "file": "output/intro.en/sonnet/html/concept_regression_labs_distance_textbook_fuel.html",
         "model": "sonnet",
         "language": "en"
       },
       {
         "name": "residual",
         "label": "Residual",
-        "file": "output/research.en/sonnet/html/concept_residual.html",
+        "file": "output/intro.en/sonnet/html/concept_residual.html",
         "model": "sonnet",
         "language": "en"
       },
       {
         "name": "scatter_plot",
         "label": "Scatter Plot",
-        "file": "output/research.en/sonnet/html/concept_scatter_plot.html",
+        "file": "output/intro.en/sonnet/html/concept_scatter_plot.html",
         "model": "sonnet",
         "language": "en"
       },
       {
         "name": "significance_test_correlation_coefficient",
         "label": "Significance Test Correlation Coefficient",
-        "file": "output/research.en/sonnet/html/concept_significance_test_correlation_coefficient.html",
+        "file": "output/intro.en/sonnet/html/concept_significance_test_correlation_coefficient.html",
         "model": "sonnet",
         "language": "en"
       },
       {
         "name": "sum_of_squared_errors",
         "label": "Sum Of Squared Errors",
-        "file": "output/research.en/sonnet/html/concept_sum_of_squared_errors.html",
+        "file": "output/intro.en/sonnet/html/concept_sum_of_squared_errors.html",
         "model": "sonnet",
         "language": "en"
       }
@@ -2261,91 +2261,91 @@
       {
         "name": "anova_table",
         "label": "Anova Table",
-        "file": "output/research.en/sonnet/html/concept_anova_table.html",
+        "file": "output/intro.en/sonnet/html/concept_anova_table.html",
         "model": "sonnet",
         "language": "en"
       },
       {
         "name": "degrees_of_freedom",
         "label": "Degrees Of Freedom",
-        "file": "output/research.en/sonnet/html/concept_degrees_of_freedom.html",
+        "file": "output/intro.en/sonnet/html/concept_degrees_of_freedom.html",
         "model": "sonnet",
         "language": "en"
       },
       {
         "name": "f_distribution",
         "label": "F Distribution",
-        "file": "output/research.en/sonnet/html/concept_f_distribution.html",
+        "file": "output/intro.en/sonnet/html/concept_f_distribution.html",
         "model": "sonnet",
         "language": "en"
       },
       {
         "name": "f_ratio",
         "label": "F Ratio",
-        "file": "output/research.en/sonnet/html/concept_f_ratio.html",
+        "file": "output/intro.en/sonnet/html/concept_f_ratio.html",
         "model": "sonnet",
         "language": "en"
       },
       {
         "name": "hypothesis_testing",
         "label": "Hypothesis Testing",
-        "file": "output/research.en/sonnet/html/concept_hypothesis_testing.html",
+        "file": "output/intro.en/sonnet/html/concept_hypothesis_testing.html",
         "model": "sonnet",
         "language": "en"
       },
       {
         "name": "mean_square",
         "label": "Mean Square",
-        "file": "output/research.en/sonnet/html/concept_mean_square.html",
+        "file": "output/intro.en/sonnet/html/concept_mean_square.html",
         "model": "sonnet",
         "language": "en"
       },
       {
         "name": "normal_distribution",
         "label": "Normal Distribution",
-        "file": "output/research.en/sonnet/html/concept_normal_distribution.html",
+        "file": "output/intro.en/sonnet/html/concept_normal_distribution.html",
         "model": "sonnet",
         "language": "en"
       },
       {
         "name": "one_way_anova",
         "label": "One Way Anova",
-        "file": "output/research.en/sonnet/html/concept_one_way_anova.html",
+        "file": "output/intro.en/sonnet/html/concept_one_way_anova.html",
         "model": "sonnet",
         "language": "en"
       },
       {
         "name": "one_way_anova_lab",
         "label": "One Way Anova Lab",
-        "file": "output/research.en/sonnet/html/concept_one_way_anova_lab.html",
+        "file": "output/intro.en/sonnet/html/concept_one_way_anova_lab.html",
         "model": "sonnet",
         "language": "en"
       },
       {
         "name": "p_value",
         "label": "P Value",
-        "file": "output/research.en/sonnet/html/concept_p_value.html",
+        "file": "output/intro.en/sonnet/html/concept_p_value.html",
         "model": "sonnet",
         "language": "en"
       },
       {
         "name": "sum_of_squares",
         "label": "Sum Of Squares",
-        "file": "output/research.en/sonnet/html/concept_sum_of_squares.html",
+        "file": "output/intro.en/sonnet/html/concept_sum_of_squares.html",
         "model": "sonnet",
         "language": "en"
       },
       {
         "name": "test_of_two_variances",
         "label": "Test Of Two Variances",
-        "file": "output/research.en/sonnet/html/concept_test_of_two_variances.html",
+        "file": "output/intro.en/sonnet/html/concept_test_of_two_variances.html",
         "model": "sonnet",
         "language": "en"
       },
       {
         "name": "variance",
         "label": "Variance",
-        "file": "output/research.en/sonnet/html/concept_variance.html",
+        "file": "output/intro.en/sonnet/html/concept_variance.html",
         "model": "sonnet",
         "language": "en"
       }
