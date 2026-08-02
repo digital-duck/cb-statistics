@@ -1,0 +1,125 @@
+domain: introductory_statistics_2e
+sources:
+  point_estimate:
+    label: Point Estimate
+    sections:
+    - id: ch08_chapter_objectives
+      title: Chapter Objectives
+  sample_mean:
+    label: Sample Mean
+    sections:
+    - id: ch08_chapter_objectives
+      title: Chapter Objectives
+  sample_standard_deviation:
+    label: Sample Standard Deviation
+    sections:
+    - id: ch08_chapter_objectives
+      title: Chapter Objectives
+  population_parameter:
+    label: Population Parameter
+    sections:
+    - id: ch08_chapter_objectives
+      title: Chapter Objectives
+  inferential_statistics:
+    label: Inferential Statistics
+    sections:
+    - id: ch08_chapter_objectives
+      title: Chapter Objectives
+  central_limit_theorem:
+    label: Central Limit Theorem
+    sections:
+    - id: ch08_chapter_objectives
+      title: Chapter Objectives
+    - id: ch08_s8_1
+      title: 8.1 A Single Population Mean using the Normal Distribution
+  confidence_level:
+    label: Confidence Level (CL)
+    sections:
+    - id: ch08_s8_1
+      title: 8.1 A Single Population Mean using the Normal Distribution
+  alpha_significance:
+    label: Alpha (α)
+    sections:
+    - id: ch08_s8_1
+      title: 8.1 A Single Population Mean using the Normal Distribution
+  error_bound_mean:
+    label: Error Bound for a Population Mean (EBM)
+    sections:
+    - id: ch08_s8_1
+      title: 8.1 A Single Population Mean using the Normal Distribution
+  z_score_confidence:
+    label: Z-score for Confidence Level
+    sections:
+    - id: ch08_s8_1
+      title: 8.1 A Single Population Mean using the Normal Distribution
+  confidence_interval_mean_known_sigma:
+    label: Confidence Interval for a Population Mean (σ Known)
+    sections:
+    - id: ch08_s8_1
+      title: 8.1 A Single Population Mean using the Normal Distribution
+  sample_size_for_mean:
+    label: Sample Size Calculation for a Mean
+    sections:
+    - id: ch08_s8_1
+      title: 8.1 A Single Population Mean using the Normal Distribution
+  degrees_of_freedom:
+    label: Degrees of Freedom (df)
+    sections:
+    - id: ch08_s8_2
+      title: 8.2 A Single Population Mean using the Student t Distribution
+  students_t_distribution:
+    label: Student's t-Distribution
+    sections:
+    - id: ch08_s8_2
+      title: 8.2 A Single Population Mean using the Student t Distribution
+  t_score:
+    label: T-score
+    sections:
+    - id: ch08_s8_2
+      title: 8.2 A Single Population Mean using the Student t Distribution
+  confidence_interval_mean_unknown_sigma:
+    label: Confidence Interval for a Population Mean (σ Unknown)
+    sections:
+    - id: ch08_s8_2
+      title: 8.2 A Single Population Mean using the Student t Distribution
+  binomial_distribution:
+    label: Binomial Distribution
+    sections:
+    - id: ch08_s8_3
+      title: 8.3 A Population Proportion
+    - id: ch08_chapter_review
+      title: Chapter Review
+  sample_proportion:
+    label: Sample Proportion (p′)
+    sections:
+    - id: ch08_s8_3
+      title: 8.3 A Population Proportion
+  error_bound_proportion:
+    label: Error Bound for a Proportion (EBP)
+    sections:
+    - id: ch08_s8_3
+      title: 8.3 A Population Proportion
+  confidence_interval_proportion:
+    label: Confidence Interval for a Population Proportion
+    sections:
+    - id: ch08_s8_3
+      title: 8.3 A Population Proportion
+  plus_four_method:
+    label: Plus Four Confidence Interval for p
+    sections:
+    - id: ch08_s8_3
+      title: 8.3 A Population Proportion
+  sample_size_for_proportion:
+    label: Sample Size Calculation for a Proportion
+    sections:
+    - id: ch08_s8_3
+      title: 8.3 A Population Proportion
+  confidence_interval_application:
+    label: Applying Confidence Intervals to Real Data
+    sections:
+    - id: ch08_s8_4
+      title: 8.4 Confidence Interval (Home Costs)
+    - id: ch08_s8_5
+      title: 8.5 Confidence Interval (Place of Birth)
+    - id: ch08_s8_6
+      title: 8.6 Confidence Interval (Women's Heights)

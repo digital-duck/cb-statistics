@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sample Space | Introductory Statistics Ch03</title>
+<script>
+MathJax = {
+  tex: { inlineMath: [['$','$'],['\\(','\\)']], displayMath: [['$$','$$'],['\\[','\\]']] },
+  options: { skipHtmlTags: ['script','noscript','style','textarea','pre','code'] }
+};
+</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" async></script>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:Georgia,serif;background:#fafaf8;color:#1a1a1a;line-height:1.7}
+h2{font-size:1.45rem;color:#1e3a5f;margin-bottom:12px}
+h3{font-size:1.1rem;color:#2e4a7f;margin:20px 0 8px}
+h4{font-size:1rem;color:#3a5a8f;margin:16px 0 6px}
+p{margin-bottom:16px;font-size:1rem}
+li{margin-bottom:6px;margin-left:24px;font-size:1rem}
+pre{background:#f4f4f0;border:1px solid #d8d8d0;border-radius:6px;
+    padding:16px 20px;overflow-x:auto;margin:16px 0}
+code{font-family:Menlo,Consolas,monospace;font-size:.87em}
+p code{background:#f0f0ea;padding:1px 4px;border-radius:3px}
+footer.spl-credit{margin-top:32px;padding-top:16px;border-top:1px solid #e0e0d8;
+      font-family:system-ui,sans-serif;font-size:.78rem;color:#999;text-align:center}
+footer.spl-credit a{color:#2563eb;text-decoration:none}
+.page{max-width:780px;margin:0 auto;padding:40px 32px}
+section{margin-bottom:48px;border-top:1px solid #e0e0d8;padding-top:36px}
+section:first-of-type{border-top:none;padding-top:0}
+</style>
+</head>
+<body>
+<div class="page">
+  <main>
+    <h2 id="sample-space">Sample Space</h2>
+<p><strong>Definition.</strong> A <em>sample space</em> is the set of all possible outcomes of a random experiment. It is conventionally denoted $\Omega$ (or $S$). Each element $\omega \in \Omega$ is called a <em>sample point</em> or <em>elementary outcome</em>. A sample space may be finite, countably infinite, or uncountably infinite, depending on the nature of the experiment.</p>
+<p>Formally, given a random experiment $\mathcal{E}$, the sample space $\Omega$ satisfies two properties: (i) every conceivable result of $\mathcal{E}$ corresponds to exactly one element of $\Omega$, and (ii) exactly one element of $\Omega$ is realized each time $\mathcal{E}$ is performed. These two properties are sometimes stated as <em>exhaustiveness</em> (no outcome is missing) and <em>mutual exclusivity</em> (no two distinct elements can both be realized simultaneously). Specifying $\Omega$ completely and unambiguously is the first step in any probabilistic model; subsequent constructs — events, probability measures — are built on top of it.</p>
+<p><strong>Worked Example.</strong> Consider rolling a standard fair die once. The experiment $\mathcal{E}$ produces one face value from $\{1, 2, 3, 4, 5, 6\}$, so</p>
+$$\Omega = \{1,\, 2,\, 3,\, 4,\, 5,\, 6\}.$$
+<p>This sample space is finite with $|\Omega| = 6$. Now suppose instead that we record the exact time (in seconds) until a radioactive atom decays. Any non-negative real value is physically possible, giving the uncountable sample space $\Omega = [0, \infty)$. The two examples illustrate how the same modelling choice — what counts as one outcome — determines the entire structure of $\Omega$.</p>
+<p><strong>Key Theorem (Uniqueness of the Sample Space).</strong> Given a precise description of a random experiment $\mathcal{E}$, there exists a unique minimal sample space $\Omega^<em>$ such that every other valid sample space for $\mathcal{E}$ can be obtained from $\Omega^</em>$ by partitioning its elements. In other words, coarser descriptions of outcomes correspond to quotients of $\Omega^*$, never to genuinely different foundations. This theorem underscores why precision in defining $\Omega$ matters: a poorly specified sample space cannot be recovered by later refinement — it must be replaced entirely.</p>
+<p><strong>Lab Cell (SymPy).</strong></p>
+<pre><code>from sympy import FiniteSet, Interval, oo
+
+# Finite sample space: one roll of a fair six-sided die
+omega_die = FiniteSet(1, 2, 3, 4, 5, 6)
+print("Sample space (die):", omega_die)
+print("Cardinality:", len(omega_die))   # 6
+
+# Uncountable sample space: radioactive decay time
+omega_decay = Interval(0, oo)
+print("Sample space (decay):", omega_decay)
+
+# Verify membership for a candidate outcome
+t = 2.5                                 # seconds
+print(f"Is t={t} a valid outcome?", t in omega_decay)  # True</code></pre>
+<p>Running this cell confirms that <code>omega_die</code> contains exactly six elements and that any non-negative real number is a valid member of <code>omega_decay</code>. The contrast between <code>FiniteSet</code> and <code>Interval</code> in SymPy mirrors the mathematical distinction between finite and uncountably infinite sample spaces — a distinction that will matter when assigning probabilities in the next section.</p>
+  </main>
+  <footer class="spl-credit">Generated by SPL &middot; Powered by SPL.py</footer>
+</div>
+</body>
+</html>
