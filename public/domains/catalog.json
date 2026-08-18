@@ -2255,6 +2255,12 @@
         "file": "output/core.en/sonnet/html/book_one_way_anova_lab.html",
         "model": "sonnet",
         "language": "en"
+      },
+      {
+        "target": "one_way_anova",
+        "file": "output/college.zh/sonnet/html/book_one_way_anova_zh.html",
+        "model": "sonnet",
+        "language": "zh"
       }
     ],
     "generated_concepts": [
@@ -2273,11 +2279,25 @@
         "language": "en"
       },
       {
+        "name": "degrees_of_freedom",
+        "label": "Degrees Of Freedom",
+        "file": "output/college.zh/sonnet/html/concept_degrees_of_freedom_zh.html",
+        "model": "sonnet",
+        "language": "zh"
+      },
+      {
         "name": "f_distribution",
         "label": "F Distribution",
         "file": "output/intro.en/sonnet/html/concept_f_distribution.html",
         "model": "sonnet",
         "language": "en"
+      },
+      {
+        "name": "f_distribution",
+        "label": "F Distribution",
+        "file": "output/college.zh/sonnet/html/concept_f_distribution_zh.html",
+        "model": "sonnet",
+        "language": "zh"
       },
       {
         "name": "f_ratio",
@@ -2287,11 +2307,25 @@
         "language": "en"
       },
       {
+        "name": "f_ratio",
+        "label": "F Ratio",
+        "file": "output/college.zh/sonnet/html/concept_f_ratio_zh.html",
+        "model": "sonnet",
+        "language": "zh"
+      },
+      {
         "name": "hypothesis_testing",
         "label": "Hypothesis Testing",
         "file": "output/intro.en/sonnet/html/concept_hypothesis_testing.html",
         "model": "sonnet",
         "language": "en"
+      },
+      {
+        "name": "hypothesis_testing",
+        "label": "Hypothesis Testing",
+        "file": "output/college.zh/sonnet/html/concept_hypothesis_testing_zh.html",
+        "model": "sonnet",
+        "language": "zh"
       },
       {
         "name": "mean_square",
@@ -2301,6 +2335,13 @@
         "language": "en"
       },
       {
+        "name": "mean_square",
+        "label": "Mean Square",
+        "file": "output/college.zh/sonnet/html/concept_mean_square_zh.html",
+        "model": "sonnet",
+        "language": "zh"
+      },
+      {
         "name": "normal_distribution",
         "label": "Normal Distribution",
         "file": "output/intro.en/sonnet/html/concept_normal_distribution.html",
@@ -2308,11 +2349,25 @@
         "language": "en"
       },
       {
+        "name": "normal_distribution",
+        "label": "Normal Distribution",
+        "file": "output/college.zh/sonnet/html/concept_normal_distribution_zh.html",
+        "model": "sonnet",
+        "language": "zh"
+      },
+      {
         "name": "one_way_anova",
         "label": "One Way Anova",
         "file": "output/intro.en/sonnet/html/concept_one_way_anova.html",
         "model": "sonnet",
         "language": "en"
+      },
+      {
+        "name": "one_way_anova",
+        "label": "One Way Anova",
+        "file": "output/college.zh/sonnet/html/concept_one_way_anova_zh.html",
+        "model": "sonnet",
+        "language": "zh"
       },
       {
         "name": "one_way_anova_lab",
@@ -2329,11 +2384,25 @@
         "language": "en"
       },
       {
+        "name": "p_value",
+        "label": "P Value",
+        "file": "output/college.zh/sonnet/html/concept_p_value_zh.html",
+        "model": "sonnet",
+        "language": "zh"
+      },
+      {
         "name": "sum_of_squares",
         "label": "Sum Of Squares",
         "file": "output/intro.en/sonnet/html/concept_sum_of_squares.html",
         "model": "sonnet",
         "language": "en"
+      },
+      {
+        "name": "sum_of_squares",
+        "label": "Sum Of Squares",
+        "file": "output/college.zh/sonnet/html/concept_sum_of_squares_zh.html",
+        "model": "sonnet",
+        "language": "zh"
       },
       {
         "name": "test_of_two_variances",
@@ -2348,6 +2417,13 @@
         "file": "output/intro.en/sonnet/html/concept_variance.html",
         "model": "sonnet",
         "language": "en"
+      },
+      {
+        "name": "variance",
+        "label": "Variance",
+        "file": "output/college.zh/sonnet/html/concept_variance_zh.html",
+        "model": "sonnet",
+        "language": "zh"
       }
     ],
     "tags": [
