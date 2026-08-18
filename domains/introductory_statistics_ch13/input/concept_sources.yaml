@@ -1,0 +1,77 @@
+domain: introductory_statistics_2e
+sources:
+  variance:
+    label: Variance
+    sections:
+    - id: ch13_chapter_review
+      title: Chapter Review
+  normal_distribution:
+    label: Normal Distribution
+    sections:
+    - id: ch13_s13_1
+      title: 13.1 One-Way ANOVA
+  hypothesis_testing:
+    label: Hypothesis Testing (Null and Alternative Hypotheses)
+    sections:
+    - id: ch13_s13_1
+      title: 13.1 One-Way ANOVA
+  degrees_of_freedom:
+    label: Degrees of Freedom
+    sections:
+    - id: ch13_s13_2
+      title: 13.2 The F Distribution and the F-Ratio
+  p_value:
+    label: P-value
+    sections:
+    - id: ch13_s13_2
+      title: 13.2 The F Distribution and the F-Ratio
+  sum_of_squares:
+    label: Sum of Squares
+    sections:
+    - id: ch13_s13_2
+      title: 13.2 The F Distribution and the F-Ratio
+  mean_square:
+    label: Mean Square
+    sections:
+    - id: ch13_s13_2
+      title: 13.2 The F Distribution and the F-Ratio
+  f_distribution:
+    label: F Distribution
+    sections:
+    - id: ch13_s13_2
+      title: 13.2 The F Distribution and the F-Ratio
+    - id: ch13_s13_3
+      title: 13.3 Facts About the F Distribution
+  f_ratio:
+    label: F-Ratio (F Statistic)
+    sections:
+    - id: ch13_s13_2
+      title: 13.2 The F Distribution and the F-Ratio
+    - id: ch13_s13_4
+      title: 13.4 Test of Two Variances
+  one_way_anova:
+    label: One-Way ANOVA
+    sections:
+    - id: ch13_s13_1
+      title: 13.1 One-Way ANOVA
+    - id: ch13_s13_2
+      title: 13.2 The F Distribution and the F-Ratio
+    - id: ch13_s13_5
+      title: '13.5 Lab: One-Way ANOVA'
+  anova_table:
+    label: ANOVA Table
+    sections:
+    - id: ch13_s13_2
+      title: 13.2 The F Distribution and the F-Ratio
+    - id: ch13_s13_3
+      title: 13.3 Facts About the F Distribution
+  test_of_two_variances:
+    label: Test of Two Variances
+    sections:
+    - id: ch13_s13_4
+      title: 13.4 Test of Two Variances
+  one_way_anova_lab:
+    label: One-Way ANOVA Lab Application
+    sections:
+    - id: ch13_s13_5
+      title: '13.5 Lab: One-Way ANOVA'

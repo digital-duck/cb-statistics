@@ -1,0 +1,249 @@
+domain: introductory_statistics_2e
+primitives:
+  population:
+    defines: All individuals, objects, or measurements whose properties are being studied.
+    tier: 0
+  data:
+    defines: The actual values of a variable, which may be numbers or words, collected from a population
+      or sample.
+    tier: 0
+  variable:
+    defines: A characteristic or measurement that can be determined for each member of a population, notated
+      by capital letters such as X and Y.
+    tier: 0
+  probability:
+    defines: A mathematical tool, expressed as a number between zero and one, used to study the likelihood
+      of an event occurring.
+    tier: 0
+concepts:
+  sample:
+    defines: A subset or portion of the population that is selected and studied to gain information about
+      the population.
+    composed_of:
+    - population
+    tier: 1
+  parameter:
+    defines: A numerical characteristic of the whole population that can be estimated by a statistic.
+    composed_of:
+    - population
+    tier: 1
+  qualitative_data:
+    defines: Data that result from categorizing or describing attributes of a population, generally described
+      by words or letters.
+    composed_of:
+    - variable
+    - data
+    tier: 1
+  quantitative_data:
+    defines: Data that are always numbers, resulting from counting or measuring attributes of a population,
+      and may be discrete or continuous.
+    composed_of:
+    - variable
+    - data
+    tier: 1
+  levels_of_measurement:
+    defines: A classification of how data is measured, ranging from nominal to ordinal to interval to
+      ratio scale.
+    composed_of:
+    - variable
+    tier: 1
+  frequency:
+    defines: The number of times a value of the data occurs.
+    composed_of:
+    - data
+    tier: 1
+  explanatory_response_variable:
+    defines: The explanatory variable is manipulated by the researcher and is thought to cause change,
+      while the response variable is the affected variable measured for change.
+    composed_of:
+    - variable
+    tier: 1
+  statistic:
+    defines: A number that represents a property of the sample and serves as an estimate of a population
+      parameter.
+    composed_of:
+    - sample
+    - parameter
+    tier: 2
+  descriptive_inferential_statistics:
+    defines: Descriptive statistics organizes and summarizes data, while inferential statistics uses probability
+      to draw confident conclusions about a population from sample data.
+    composed_of:
+    - population
+    - sample
+    - probability
+    - data
+    tier: 2
+  representative_sample:
+    defines: A subset of the population that has the same characteristics as the population it represents.
+    composed_of:
+    - sample
+    - population
+    tier: 2
+  simple_random_sampling:
+    defines: A sampling method in which any group of n individuals from the population is equally likely
+      to be chosen as any other group of the same size.
+    composed_of:
+    - sample
+    - population
+    tier: 2
+  stratified_sampling:
+    defines: A method of dividing the population into groups called strata and taking a proportionate
+      simple random sample from each stratum.
+    composed_of:
+    - sample
+    - population
+    tier: 2
+  cluster_sampling:
+    defines: A method of dividing the population into clusters, randomly selecting some clusters, and
+      including all members of the chosen clusters in the sample.
+    composed_of:
+    - sample
+    - population
+    tier: 2
+  systematic_sampling:
+    defines: A method of randomly selecting a starting point and then taking every nth piece of data from
+      a listing of the population.
+    composed_of:
+    - sample
+    - population
+    tier: 2
+  convenience_sampling:
+    defines: A non-random sampling method that uses results that are readily available, often producing
+      biased data.
+    composed_of:
+    - sample
+    - population
+    tier: 2
+  sampling_with_without_replacement:
+    defines: Sampling with replacement returns a chosen member to the population before the next selection,
+      while sampling without replacement does not.
+    composed_of:
+    - sample
+    - population
+    tier: 2
+  sampling_error:
+    defines: The natural variation that results from selecting a sample to represent a larger population,
+      which decreases as sample size increases.
+    composed_of:
+    - sample
+    - population
+    tier: 2
+  nonsampling_error:
+    defines: Errors affecting the reliability of data caused by factors other than natural sampling variation,
+      such as poor study design or data entry errors.
+    composed_of:
+    - data
+    - sample
+    tier: 2
+  variation_in_data_and_samples:
+    defines: The natural differences that occur in measurements and in samples drawn from the same population,
+      even when sampling methods are sound.
+    composed_of:
+    - data
+    - sample
+    - population
+    tier: 2
+  quantitative_discrete_data:
+    defines: Data resulting from counting that take on only certain numerical values.
+    composed_of:
+    - quantitative_data
+    tier: 2
+  quantitative_continuous_data:
+    defines: Data resulting from measuring that may include fractions, decimals, or irrational numbers.
+    composed_of:
+    - quantitative_data
+    tier: 2
+  relative_frequency:
+    defines: The ratio of the number of times a value of the data occurs to the total number of outcomes.
+    composed_of:
+    - frequency
+    tier: 2
+  treatments_experimental_unit:
+    defines: Treatments are the different values of the explanatory variable applied in an experiment,
+      and an experimental unit is a single object or individual being measured.
+    composed_of:
+    - explanatory_response_variable
+    - population
+    tier: 2
+  lurking_variable:
+    defines: A variable that affects a study's outcome even though it is neither the explanatory nor the
+      response variable, potentially clouding causal conclusions.
+    composed_of:
+    - explanatory_response_variable
+    tier: 2
+  sampling_bias:
+    defines: A condition in which some members of a population are not as likely to be chosen as others,
+      leading to incorrect conclusions about the population.
+    composed_of:
+    - sample
+    - population
+    - representative_sample
+    tier: 3
+  cumulative_relative_frequency:
+    defines: The accumulation of previous relative frequencies, obtained by summing all relative frequencies
+      up to and including the current value.
+    composed_of:
+    - relative_frequency
+    tier: 3
+  random_assignment:
+    defines: The act of assigning experimental units to treatment groups randomly, so that lurking variables
+      are spread equally among groups.
+    composed_of:
+    - treatments_experimental_unit
+    tier: 3
+  control_group_placebo:
+    defines: A control group receives an inactive placebo treatment, allowing researchers to counter the
+      power of suggestion and isolate the effect of the actual treatment.
+    composed_of:
+    - treatments_experimental_unit
+    tier: 3
+  critical_evaluation_of_studies:
+    defines: The practice of identifying common problems in studies, such as biased samples, self-selection,
+      undue influence, causality confusion, and confounding, before accepting results.
+    composed_of:
+    - sampling_bias
+    tier: 4
+  blinding:
+    defines: A technique in which participants (single-blind) or both participants and researchers (double-blind)
+      do not know who is receiving the active treatment versus the placebo.
+    composed_of:
+    - control_group_placebo
+    tier: 4
+applications:
+  frequency_table:
+    defines: A table organizing data values with their frequency, relative frequency, and cumulative relative
+      frequency to analyze how often data occurs.
+    needs:
+    - frequency
+    - relative_frequency
+    - cumulative_relative_frequency
+    tier: 4
+  randomized_experiment:
+    defines: A study design used to investigate the relationship between an explanatory and response variable
+      by manipulating treatments and randomly assigning experimental units, allowing cause-and-effect
+      conclusions.
+    needs:
+    - explanatory_response_variable
+    - treatments_experimental_unit
+    - random_assignment
+    - control_group_placebo
+    - blinding
+    - lurking_variable
+    tier: 5
+  data_collection_design:
+    defines: The application of sampling techniques (simple random, systematic, stratified, cluster) and
+      frequency tables to real data collection exercises.
+    needs:
+    - simple_random_sampling
+    - stratified_sampling
+    - cluster_sampling
+    - systematic_sampling
+    - frequency_table
+    tier: 5
+  research_ethics_irb:
+    defines: The principles and oversight, including informed consent and IRB approval, that protect human
+      subjects and ensure the integrity of research data.
+    needs:
+    - randomized_experiment
+    tier: 6

@@ -1,0 +1,116 @@
+domain: introductory_statistics_2e
+primitives:
+  independent_dependent_variables:
+    defines: In a relationship between two numeric variables, x is the independent variable chosen or
+      controlled, and y is the dependent variable whose value depends on x.
+    tier: 0
+  linear_equation:
+    defines: An equation of the form y = a + bx describing a straight-line relationship between an independent
+      variable x and a dependent variable y.
+    tier: 0
+  scatter_plot:
+    defines: A graph of paired (x, y) data points used to visually display the direction and strength
+      of the relationship between two variables.
+    tier: 0
+concepts:
+  slope_and_y_intercept:
+    defines: In y = a + bx, b (slope) describes the steepness/rate of change of the line, and a (y-intercept)
+      is the y-value where the line crosses the y-axis (x = 0).
+    composed_of:
+    - linear_equation
+    tier: 1
+  correlation:
+    defines: The degree to which two variables are linearly related, observable from a scatter plot as
+      a positive, negative, or absent pattern.
+    composed_of:
+    - scatter_plot
+    - independent_dependent_variables
+    tier: 1
+  linear_regression:
+    defines: The statistical process of fitting a straight line to bivariate data that appears to follow
+      a linear pattern, using one independent variable.
+    composed_of:
+    - linear_equation
+    - scatter_plot
+    - independent_dependent_variables
+    tier: 1
+  residual:
+    defines: The vertical distance y − ŷ between an observed data value y and the value ŷ predicted by
+      the regression line for the same x.
+    composed_of:
+    - linear_regression
+    tier: 2
+  sum_of_squared_errors:
+    defines: The sum of the squares of all residuals for a data set, minimized by the least-squares regression
+      line.
+    composed_of:
+    - residual
+    tier: 3
+  least_squares_regression_line:
+    defines: The unique line ŷ = a + bx that minimizes the sum of squared errors (SSE) between observed
+      and predicted y-values.
+    composed_of:
+    - sum_of_squared_errors
+    - linear_regression
+    tier: 4
+  correlation_coefficient_r:
+    defines: A numerical measure, between −1 and +1, of the strength and direction of the linear association
+      between x and y, with sign matching the regression slope.
+    composed_of:
+    - correlation
+    - least_squares_regression_line
+    tier: 5
+  coefficient_of_determination:
+    defines: The square of the correlation coefficient, expressed as a percent, representing the proportion
+      of variation in y explained by variation in x via the regression line.
+    composed_of:
+    - correlation_coefficient_r
+    tier: 6
+  significance_test_correlation_coefficient:
+    defines: 'A hypothesis test (H0: ρ = 0 vs Ha: ρ ≠ 0) using the sample correlation coefficient r and
+      sample size n to determine whether a significant linear relationship exists in the population.'
+    composed_of:
+    - correlation_coefficient_r
+    tier: 6
+  p_value_method:
+    defines: A method of deciding significance of r by comparing a computed p-value (from a t-distribution
+      with n − 2 degrees of freedom) to the significance level α.
+    composed_of:
+    - significance_test_correlation_coefficient
+    tier: 7
+  critical_value_method:
+    defines: A method of deciding significance of r by comparing it against tabulated critical values
+      for a given degrees of freedom at the 95% level.
+    composed_of:
+    - significance_test_correlation_coefficient
+    tier: 7
+  outliers:
+    defines: Observed data points that lie unusually far (typically more than two standard deviations
+      of the residuals) from the least-squares line.
+    composed_of:
+    - residual
+    - least_squares_regression_line
+    tier: 5
+  influential_points:
+    defines: Observed data points that are far from other points in the horizontal (x) direction and can
+      substantially affect the slope of the regression line.
+    composed_of:
+    - least_squares_regression_line
+    tier: 5
+applications:
+  prediction_interpolation_extrapolation:
+    defines: Using a significant regression line to estimate y for a given x; interpolation predicts within
+      the observed x-range (reliable), extrapolation predicts outside it (unreliable).
+    needs:
+    - least_squares_regression_line
+    - significance_test_correlation_coefficient
+    tier: 7
+  regression_labs_distance_textbook_fuel:
+    defines: Hands-on data-collection exercises (distance from school vs. supply cost, textbook pages
+      vs. cost, car weight vs. fuel efficiency) applying regression, correlation significance, and outlier
+      detection to real data.
+    needs:
+    - linear_regression
+    - correlation_coefficient_r
+    - outliers
+    tier: 6

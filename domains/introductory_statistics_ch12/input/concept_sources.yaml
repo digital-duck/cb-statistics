@@ -1,0 +1,102 @@
+domain: introductory_statistics_2e
+sources:
+  independent_dependent_variables:
+    label: Independent and Dependent Variables
+    sections:
+    - id: ch12_s12_1
+      title: 12.1 Linear Equations
+  linear_equation:
+    label: Linear Equation
+    sections:
+    - id: ch12_s12_1
+      title: 12.1 Linear Equations
+  slope_and_y_intercept:
+    label: Slope and Y-Intercept
+    sections:
+    - id: ch12_s12_1
+      title: 12.1 Linear Equations
+    - id: ch12_s12_2
+      title: 12.2 Scatter Plots
+  scatter_plot:
+    label: Scatter Plot
+    sections:
+    - id: ch12_s12_2
+      title: 12.2 Scatter Plots
+  correlation:
+    label: Correlation
+    sections:
+    - id: ch12_s12_2
+      title: 12.2 Scatter Plots
+    - id: ch12_s12_3
+      title: 12.3 The Regression Equation
+  linear_regression:
+    label: Linear Regression
+    sections:
+    - id: ch12_s12_1
+      title: 12.1 Linear Equations
+    - id: ch12_s12_3
+      title: 12.3 The Regression Equation
+  residual:
+    label: Residual (Error)
+    sections:
+    - id: ch12_s12_3
+      title: 12.3 The Regression Equation
+  sum_of_squared_errors:
+    label: Sum of Squared Errors (SSE)
+    sections:
+    - id: ch12_s12_3
+      title: 12.3 The Regression Equation
+  least_squares_regression_line:
+    label: Least-Squares Regression Line (Line of Best Fit)
+    sections:
+    - id: ch12_s12_3
+      title: 12.3 The Regression Equation
+  correlation_coefficient_r:
+    label: Correlation Coefficient (r)
+    sections:
+    - id: ch12_s12_3
+      title: 12.3 The Regression Equation
+  coefficient_of_determination:
+    label: Coefficient of Determination (r²)
+    sections:
+    - id: ch12_s12_3
+      title: 12.3 The Regression Equation
+  significance_test_correlation_coefficient:
+    label: Testing the Significance of the Correlation Coefficient
+    sections:
+    - id: ch12_s12_4
+      title: 12.4 Testing the Significance of the Correlation Coefficient
+  p_value_method:
+    label: P-Value Method for Significance Testing
+    sections:
+    - id: ch12_s12_4
+      title: 12.4 Testing the Significance of the Correlation Coefficient
+  critical_value_method:
+    label: Critical Value Method for Significance Testing
+    sections:
+    - id: ch12_s12_4
+      title: 12.4 Testing the Significance of the Correlation Coefficient
+  prediction_interpolation_extrapolation:
+    label: Prediction, Interpolation, and Extrapolation
+    sections:
+    - id: ch12_s12_5
+      title: 12.5 Prediction
+  outliers:
+    label: Outliers
+    sections:
+    - id: ch12_s12_6
+      title: 12.6 Outliers
+  influential_points:
+    label: Influential Points
+    sections:
+    - id: ch12_s12_6
+      title: 12.6 Outliers
+  regression_labs_distance_textbook_fuel:
+    label: Applied Regression Labs
+    sections:
+    - id: ch12_s12_7
+      title: 12.7 Regression (Distance from School)
+    - id: ch12_s12_8
+      title: 12.8 Regression (Textbook Cost)
+    - id: ch12_s12_9
+      title: 12.9 Regression (Fuel Efficiency)
