@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Variance | Introductory Statistics Ch13</title>
+<script>
+MathJax = {
+  tex: { inlineMath: [['$','$'],['\\(','\\)']], displayMath: [['$$','$$'],['\\[','\\]']] },
+  options: { skipHtmlTags: ['script','noscript','style','textarea','pre','code'] }
+};
+</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" async></script>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:Georgia,serif;background:#fafaf8;color:#1a1a1a;line-height:1.7}
+h2{font-size:1.45rem;color:#1e3a5f;margin-bottom:12px}
+h3{font-size:1.1rem;color:#2e4a7f;margin:20px 0 8px}
+h4{font-size:1rem;color:#3a5a8f;margin:16px 0 6px}
+p{margin-bottom:16px;font-size:1rem}
+li{margin-bottom:6px;margin-left:24px;font-size:1rem}
+pre{background:#f4f4f0;border:1px solid #d8d8d0;border-radius:6px;
+    padding:16px 20px;overflow-x:auto;margin:16px 0}
+code{font-family:Menlo,Consolas,monospace;font-size:.87em}
+p code{background:#f0f0ea;padding:1px 4px;border-radius:3px}
+footer.spl-credit{margin-top:32px;padding-top:16px;border-top:1px solid #e0e0d8;
+      font-family:system-ui,sans-serif;font-size:.78rem;color:#999;text-align:center}
+footer.spl-credit a{color:#2563eb;text-decoration:none}
+.page{max-width:780px;margin:0 auto;padding:40px 32px}
+section{margin-bottom:48px;border-top:1px solid #e0e0d8;padding-top:36px}
+section:first-of-type{border-top:none;padding-top:0}
+</style>
+</head>
+<body>
+<div class="page">
+  <main>
+    <h2 id="variance">Variance</h2>
+<p>Variance is a fundamental measure of dispersion that quantifies how spread out a set of data points are relative to their mean. While standard deviation simply reports this spread in the original units of measurement ($\sigma$), variance reports it in squared units ($\sigma^2$). Conceptually, we calculate variance by determining the average of the squared differences between each data point and the mean ($\mu$ or $\bar{x}$). Since squaring the deviations ensures that positive and negative distances from the mean do not cancel each other out, variance provides a single, powerful metric for measuring overall variability.</p>
+<p>The calculation differs slightly depending on whether you are analyzing an entire population (using $\sigma^2$) or merely using a sample drawn from a larger population (using $s^2$). For a population of size $N$, the variance is defined as:</p>
+$$ \sigma^2 = \frac{\sum_{i=1}^{N} (x_i - \mu)^2}{N} $$
+<p>For a sample of size $n$, we use Bessel’s correction to provide an unbiased estimate, adjusting the denominator:</p>
+$$ s^2 = \frac{\sum_{i=1}^{n} (x_i - \bar{x})^2}{n-1} $$
+<p><strong>Worked Example:</strong> Suppose a small investment portfolio tracks returns for four weeks: $\{3\%, 5\%, 7\%, 9\%\}$. First, calculate the mean ($\bar{x}$): $\bar{x} = (3+5+7+9)/4 = 6\%$. Next, calculate the squared deviations from this mean:</p>
+$$(3-6)^2 = 9$$
+$$(5-6)^2 = 1$$
+$$(7-6)^2 = 1$$
+$$(9-6)^2 = 9$$
+<p>Summing these gives $\sum (x_</p>
+  </main>
+  <footer class="spl-credit">Generated and Powered by <a href="https://github.com/digital-duck/SPL.py" target="_blank" rel="noopener">SPL</a></footer>
+</div>
+</body>
+</html>

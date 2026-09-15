@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sum Of Squares | Introductory Statistics Ch13</title>
+<script>
+MathJax = {
+  tex: { inlineMath: [['$','$'],['\\(','\\)']], displayMath: [['$$','$$'],['\\[','\\]']] },
+  options: { skipHtmlTags: ['script','noscript','style','textarea','pre','code'] }
+};
+</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" async></script>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:Georgia,serif;background:#fafaf8;color:#1a1a1a;line-height:1.7}
+h2{font-size:1.45rem;color:#1e3a5f;margin-bottom:12px}
+h3{font-size:1.1rem;color:#2e4a7f;margin:20px 0 8px}
+h4{font-size:1rem;color:#3a5a8f;margin:16px 0 6px}
+p{margin-bottom:16px;font-size:1rem}
+li{margin-bottom:6px;margin-left:24px;font-size:1rem}
+pre{background:#f4f4f0;border:1px solid #d8d8d0;border-radius:6px;
+    padding:16px 20px;overflow-x:auto;margin:16px 0}
+code{font-family:Menlo,Consolas,monospace;font-size:.87em}
+p code{background:#f0f0ea;padding:1px 4px;border-radius:3px}
+footer.spl-credit{margin-top:32px;padding-top:16px;border-top:1px solid #e0e0d8;
+      font-family:system-ui,sans-serif;font-size:.78rem;color:#999;text-align:center}
+footer.spl-credit a{color:#2563eb;text-decoration:none}
+.page{max-width:780px;margin:0 auto;padding:40px 32px}
+section{margin-bottom:48px;border-top:1px solid #e0e0d8;padding-top:36px}
+section:first-of-type{border-top:none;padding-top:0}
+</style>
+</head>
+<body>
+<div class="page">
+  <main>
+    <h2 id="sum-of-squares">Sum Of Squares</h2>
+<p>The concept of Sum of Squares ($\text{SS}$) is a fundamental measure used across statistics, particularly in analysis of variance (ANOVA), to quantify total variation within a dataset. Rather than simply measuring the raw spread of data points, $\text{SS}$ measures the <em>sum of squared deviations</em> from a given mean or group average. Crucially, when comparing different hypotheses or models, we rarely use the Total Sum of Squares ($\text{SST}$) alone; instead, we decompose it into components that isolate sources of variation—most commonly separating the variance attributed to differences between groups ($\text{SS}_{\text{Between}}$) from the unexplained residual variation within those groups ($\text{SS}_{\text{Within}}$). This decomposition allows us to determine whether observed group differences are likely due to a systematic effect or merely random chance.</p>
+<p>Consider three study sections (A, B, and C) with mean scores ($\mu_A, \mu_B, \mu_C$) that we hypothesize differ. The $\text{SS}_{\text{Between}}$ measures how far the <em>group means</em> are from the overall grand mean ($\bar{X}$). Conversely, the $\text{SS}_{\text{Within}}$ sums up the squared deviations of individual data points from their respective group mean. It represents the internal variability—the inherent noise or spread within each sample group, regardless of how those groups compare to one another. The total variation is always preserved: $\text{SST} = \text{SS}_{\text{Between}} + \text{SS}_{\text{Within}}$.</p>
+<p><strong>Worked Example:</strong> Suppose we have two small classes (Group 1 and Group 2) with scores $\{8, 10\}$ and $\{5, 7\}$. The grand mean ($\bar{X}$) is $7.5$. $\text{SST}$ measures the spread of all four points from $7.5$: $(8-7.5)^2 + (10-7.5)^2 + (5-7.5)^2 + (7-7.5)^2 = 0.25 + 6.25 + 6.25 + 0.25 = 13$. $\text{SS}_{\text{Between}}$ measures the deviation of the group means ($\bar{X}_1=9, \bar{X}_2=6$) from $\bar{X}$: $2 \cdot (9-7.5)^2 + 2 \cdot (6-7.5)^2 = 2(2.25) + 2(2.25) = 4.5$. $\text{SS}_{\text{Within}}$ measures the internal noise: $(8-9)^2 + (10-9)^2$ for Group 1, plus $(5-6)^2 + (7-6)^2$ for Group 2. $\text{SS}_{\text{Within}} = 1 + 1 + 1 + 1 = 4$. We verify the decomposition: $13 = 4.5 + 4$.</p>
+<p><strong>Problem-Solving Application:</strong> A cognitive psychologist measures reaction times in two groups, Group Alpha and Group Beta, using a novel training protocol. The resulting total $\text</p>
+  </main>
+  <footer class="spl-credit">Generated and Powered by <a href="https://github.com/digital-duck/SPL.py" target="_blank" rel="noopener">SPL</a></footer>
+</div>
+</body>
+</html>
