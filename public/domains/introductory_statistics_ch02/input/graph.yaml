@@ -28,6 +28,9 @@ primitives:
       of the data falls at or below it.
     tier: 0
   mean:
+    diagram:
+      type: flowchart LR
+      hint: "all values on a number line → sum them → divide by n → result is the balance point (fulcrum); if one value is much larger, the mean shifts toward it"
     defines: The arithmetic average of a data set, calculated by summing all values and dividing by the
       number of values; denoted x-bar for a sample and μ for a population.
     tier: 0
@@ -53,6 +56,9 @@ concepts:
     - frequency
     tier: 1
   histogram:
+    diagram:
+      type: flowchart LR
+      hint: "raw data → divide into equal class intervals → count frequency per interval → draw contiguous bars with height = frequency; no gaps between bars (unlike bar chart)"
     defines: A graph of contiguous bars, built from class intervals, whose horizontal axis shows data
       values and vertical axis shows frequency or relative frequency, used to display the shape, center,
       and spread of large data sets.
@@ -157,5 +163,6 @@ applications:
       of the mean.
     needs:
     - standard_deviation
+    - histogram
     - mean
     tier: 3

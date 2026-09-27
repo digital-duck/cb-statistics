@@ -962,13 +962,6 @@
       {
         "name": "chebyshev_and_empirical_rules",
         "label": "Chebyshev And Empirical Rules",
-        "file": "output/college.en/sonnet/html/concept_chebyshev_and_empirical_rules.html",
-        "model": "sonnet",
-        "language": "en"
-      },
-      {
-        "name": "chebyshev_and_empirical_rules",
-        "label": "Chebyshev And Empirical Rules",
         "file": "output/core.en/sonnet/html/concept_chebyshev_and_empirical_rules.html",
         "model": "sonnet",
         "language": "en"
@@ -977,6 +970,34 @@
         "name": "chebyshev_and_empirical_rules",
         "label": "Chebyshev And Empirical Rules",
         "file": "output/research.en/sonnet/html/concept_chebyshev_and_empirical_rules.html",
+        "model": "sonnet",
+        "language": "en"
+      },
+      {
+        "name": "chebyshev_and_empirical_rules",
+        "label": "Chebyshev And Empirical Rules",
+        "file": "output/college.en/sonnet/html/concept_chebyshev_and_empirical_rules.html",
+        "model": "sonnet",
+        "language": "en"
+      },
+      {
+        "name": "class_interval",
+        "label": "Class Interval",
+        "file": "output/college.en/sonnet/html/concept_class_interval.html",
+        "model": "sonnet",
+        "language": "en"
+      },
+      {
+        "name": "frequency",
+        "label": "Frequency",
+        "file": "output/college.en/sonnet/html/concept_frequency.html",
+        "model": "sonnet",
+        "language": "en"
+      },
+      {
+        "name": "histogram",
+        "label": "Histogram",
+        "file": "output/college.en/sonnet/html/concept_histogram.html",
         "model": "sonnet",
         "language": "en"
       },
@@ -997,13 +1018,6 @@
       {
         "name": "mean",
         "label": "Mean",
-        "file": "output/college.en/sonnet/html/concept_mean.html",
-        "model": "sonnet",
-        "language": "en"
-      },
-      {
-        "name": "mean",
-        "label": "Mean",
         "file": "output/core.en/sonnet/html/concept_mean.html",
         "model": "sonnet",
         "language": "en"
@@ -1012,6 +1026,20 @@
         "name": "mean",
         "label": "Mean",
         "file": "output/research.en/sonnet/html/concept_mean.html",
+        "model": "sonnet",
+        "language": "en"
+      },
+      {
+        "name": "mean",
+        "label": "Mean",
+        "file": "output/college.en/sonnet/html/concept_mean.html",
+        "model": "sonnet",
+        "language": "en"
+      },
+      {
+        "name": "relative_frequency",
+        "label": "Relative Frequency",
+        "file": "output/college.en/sonnet/html/concept_relative_frequency.html",
         "model": "sonnet",
         "language": "en"
       },
@@ -1032,13 +1060,6 @@
       {
         "name": "standard_deviation",
         "label": "Standard Deviation",
-        "file": "output/college.en/sonnet/html/concept_standard_deviation.html",
-        "model": "sonnet",
-        "language": "en"
-      },
-      {
-        "name": "standard_deviation",
-        "label": "Standard Deviation",
         "file": "output/core.en/sonnet/html/concept_standard_deviation.html",
         "model": "sonnet",
         "language": "en"
@@ -1047,6 +1068,13 @@
         "name": "standard_deviation",
         "label": "Standard Deviation",
         "file": "output/research.en/sonnet/html/concept_standard_deviation.html",
+        "model": "sonnet",
+        "language": "en"
+      },
+      {
+        "name": "standard_deviation",
+        "label": "Standard Deviation",
+        "file": "output/college.en/sonnet/html/concept_standard_deviation.html",
         "model": "sonnet",
         "language": "en"
       },
@@ -1067,13 +1095,6 @@
       {
         "name": "variance",
         "label": "Variance",
-        "file": "output/college.en/sonnet/html/concept_variance.html",
-        "model": "sonnet",
-        "language": "en"
-      },
-      {
-        "name": "variance",
-        "label": "Variance",
         "file": "output/core.en/sonnet/html/concept_variance.html",
         "model": "sonnet",
         "language": "en"
@@ -1082,6 +1103,13 @@
         "name": "variance",
         "label": "Variance",
         "file": "output/research.en/sonnet/html/concept_variance.html",
+        "model": "sonnet",
+        "language": "en"
+      },
+      {
+        "name": "variance",
+        "label": "Variance",
+        "file": "output/college.en/sonnet/html/concept_variance.html",
         "model": "sonnet",
         "language": "en"
       }

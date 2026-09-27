@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Mean | Introductory Statistics Ch02</title>
+<title>Frequency | Introductory Statistics Ch02</title>
 <script>
 MathJax = {
   tex: { inlineMath: [['$','$'],['\\(','\\)']], displayMath: [['$$','$$'],['\\[','\\]']] },
@@ -42,19 +42,14 @@ section:first-of-type{border-top:none;padding-top:0}
 <body>
 <div class="page">
   <main>
-    <h2 id="mean">Mean</h2>
-<p>The <strong>mean</strong> is the arithmetic average of a data set: sum every value, then divide by how many values there are. For a set of $n$ observations $x_1, x_2, \ldots, x_n$, the mean is</p>
-$$\bar{x} = \frac{1}{n}\sum_{i=1}^{n} x_i$$
-<p>This single formula applies whether the data come from a complete population or from a sample drawn out of a larger one — later sections will introduce separate notation to distinguish those two cases, but the arithmetic is identical either way.</p>
-<p><strong>Worked example.</strong> A study measures the resting heart rate (beats per minute) of 6 volunteers: 62, 68, 71, 65, 70, 66. The sum is $62+68+71+65+70+66 = 402$. Dividing by $n=6$ gives $\bar{x} = 402/6 = 67$ bpm. This single number summarizes the "center" of the data.</p>
-<p><strong>Problem-solving application.</strong> The mean is not just a summary statistic — it is a <em>balance point</em>. If each data value were a weight placed on a number line, the mean is the position where the line balances perfectly: the values above it pull just as hard, on average, as the values below it pull the other way. This is why a single extreme value can distort the mean disproportionately — it adds a lot of pull on one side without anything on the number line to counterbalance it.</p>
-<p>Suppose a 7th volunteer with a heart rate of 130 bpm (a measurement error) is added to the study. The new mean becomes $(402+130)/7 \approx 76$ bpm — a shift of 9 points caused by a single outlier, even though five of the seven original values are clustered near 65–70. This sensitivity to extreme values is why analysts often report the mean alongside the median, and why identifying and cleaning outliers before averaging is a standard first step in data analysis.</p>
-<pre class="mermaid">flowchart LR
-    A[Values on number line] --> B[Sum all values]
-    B --> C[Divide by n]
-    C --> D[Result: balance point]
-    D --> E[Large outlier pulls mean toward it]</pre>
-<p><em>The mean as a balance point: summing and dividing locates the fulcrum of the data, and an extreme value shifts that fulcrum.</em></p>
+    <h2 id="frequency">Frequency</h2>
+<p>The <strong>frequency</strong> of a value in a data set is the number of times that value occurs. If a data set records the number of siblings for 20 students, and the value 2 appears 6 times, then the frequency of "2 siblings" is 6. Frequencies are typically organized into a <strong>frequency table</strong>, which lists each distinct value alongside its count, and often a <strong>relative frequency</strong> — the frequency divided by the total number of observations, expressed as a proportion or percentage.</p>
+<p><strong>Worked example.</strong> Suppose a teacher records the number of pets owned by 15 students:</p>
+$$1, 2, 0, 1, 3, 2, 1, 1, 0, 2, 2, 1, 4, 1, 2$$
+<p>Tallying each value gives the frequency table:</p>
+<p>| Number of pets | Frequency | Relative frequency | |---|---|---| | 0 | 2 | $2/15 \approx 0.133$ | | 1 | 6 | $6/15 = 0.400$ | | 2 | 5 | $5/15 \approx 0.333$ | | 3 | 1 | $1/15 \approx 0.067$ | | 4 | 1 | $1/15 \approx 0.067$ |</p>
+<p>The relative frequencies sum to 1 (allowing for rounding), since every observation is accounted for exactly once. This table immediately reveals the shape of the data: owning 1 pet is the most common outcome (the <strong>mode</strong>), while owning 3 or 4 pets is rare.</p>
+<p><strong>Problem-solving application.</strong> Frequency tables are the foundation for nearly every downstream statistical tool: histograms are built by plotting frequency against value, probability estimates from empirical data use relative frequency as a stand-in for probability, and measures like the mode are defined directly in terms of frequency. When solving a problem that asks "how often," "how many," or "what proportion," the first step is almost always to construct or consult a frequency table before computing anything else. For instance, to estimate the probability that a randomly selected student from this class owns at least 2 pets, sum the frequencies for 2, 3, and 4 pets ($5 + 1 + 1 = 7$) and divide by the total ($15$), giving an estimated probability of $7/15 \approx 0.467$. This illustrates the general principle: frequency counts convert raw, unordered data into a structured summary that supports both description (what does the data look like?) and inference (what can we predict from it?).</p>
   </main>
   <footer class="spl-credit"><span class="spl-credit__meta">Introductory Statistics — Ch2: Descriptive Statistics (Level: College &middot; Language: EN &middot; Model: sonnet)</span><span class="spl-credit__powered">Generated and Powered by <a href="https://github.com/digital-duck/SPL.py" target="_blank" rel="noopener">SPL</a></span></footer>
 </div>
