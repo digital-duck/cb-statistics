@@ -1,0 +1,98 @@
+domain: introductory_statistics_2e
+primitives:
+  normal_distribution:
+    defines: The symmetric bell-shaped continuous probability distribution that the chi-square distribution
+      approximates when degrees of freedom exceed 90.
+    tier: 0
+  standard_normal_variable:
+    defines: A normally distributed random variable with mean 0 and standard deviation 1, used as the
+      building block of the chi-square random variable.
+    tier: 0
+  degrees_of_freedom:
+    defines: A parameter (df) that determines the shape of the chi-square curve and is calculated differently
+      depending on which chi-square test is being used.
+    tier: 0
+  hypothesis_test:
+    defines: A statistical procedure involving a null and alternative hypothesis, a test statistic, and
+      a p-value used to make a decision about a population claim.
+    tier: 0
+  p_value:
+    defines: The probability, computed under the null hypothesis, of obtaining a test statistic at least
+      as extreme as the one observed, used to decide whether to reject the null hypothesis.
+    tier: 0
+  contingency_table:
+    defines: A table that displays sample values for two different factors that may be dependent or contingent
+      on one another, facilitating determination of conditional probabilities.
+    tier: 0
+concepts:
+  chi_square_distribution:
+    defines: A right-skewed continuous probability distribution, parameterized by degrees of freedom,
+      defined as the sum of squares of independent standard normal variables, used as the sampling distribution
+      for several hypothesis tests.
+    composed_of:
+    - standard_normal_variable
+    - degrees_of_freedom
+    - normal_distribution
+    tier: 1
+  observed_expected_values:
+    defines: The actual data values (observed) compared against the values predicted under the null hypothesis
+      (expected), whose discrepancy forms the basis of chi-square test statistics.
+    composed_of:
+    - hypothesis_test
+    tier: 1
+  goodness_of_fit_test:
+    defines: A hypothesis test using the chi-square distribution to determine whether an observed data
+      set fits a particular (assumed) distribution, comparing observed to expected cell values with df
+      = k − 1.
+    composed_of:
+    - chi_square_distribution
+    - observed_expected_values
+    - p_value
+    tier: 2
+  test_of_independence:
+    defines: A hypothesis test using a contingency table and the chi-square distribution to determine
+      whether two categorical factors are independent, with df = (rows − 1)(columns − 1).
+    composed_of:
+    - chi_square_distribution
+    - contingency_table
+    - observed_expected_values
+    - p_value
+    tier: 2
+  test_for_homogeneity:
+    defines: A hypothesis test using the chi-square distribution to determine whether two or more populations
+      share the same distribution over a categorical variable, with df = number of columns − 1.
+    composed_of:
+    - chi_square_distribution
+    - contingency_table
+    - observed_expected_values
+    - p_value
+    tier: 2
+  test_of_single_variance:
+    defines: A hypothesis test assuming an underlying normal distribution that uses the chi-square distribution
+      to test claims about a population variance or standard deviation, with df = n − 1.
+    composed_of:
+    - chi_square_distribution
+    - normal_distribution
+    - p_value
+    tier: 2
+  comparison_of_chi_square_tests:
+    defines: A synthesis distinguishing when to apply the goodness-of-fit, independence, or homogeneity
+      chi-square tests based on the number of populations and variables involved.
+    composed_of:
+    - goodness_of_fit_test
+    - test_of_independence
+    - test_for_homogeneity
+    tier: 3
+applications:
+  goodness_of_fit_lab:
+    defines: A hands-on exercise applying the goodness-of-fit test to real collected data (e.g., grocery
+      receipts) to assess fit to uniform or exponential distributions.
+    needs:
+    - goodness_of_fit_test
+    tier: 3
+  independence_lab:
+    defines: A hands-on exercise applying the chi-square test of independence to classroom-collected data
+      on favorite snack type versus gender.
+    needs:
+    - test_of_independence
+    tier: 3

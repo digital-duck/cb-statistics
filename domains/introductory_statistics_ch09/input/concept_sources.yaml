@@ -1,0 +1,131 @@
+domain: introductory_statistics_2e
+sources:
+  null_hypothesis:
+    label: Null Hypothesis (H0)
+    sections:
+    - id: ch09_s9_1
+      title: 9.1 Null and Alternative Hypotheses
+  alternative_hypothesis:
+    label: Alternative Hypothesis (Ha)
+    sections:
+    - id: ch09_s9_1
+      title: 9.1 Null and Alternative Hypotheses
+  hypothesis_testing:
+    label: Hypothesis Testing
+    sections:
+    - id: ch09_chapter_objectives
+      title: Chapter Objectives
+    - id: ch09_s9_1
+      title: 9.1 Null and Alternative Hypotheses
+  type_i_error:
+    label: Type I Error
+    sections:
+    - id: ch09_s9_2
+      title: 9.2 Outcomes and the Type I and Type II Errors
+  type_ii_error:
+    label: Type II Error
+    sections:
+    - id: ch09_s9_2
+      title: 9.2 Outcomes and the Type I and Type II Errors
+  significance_level:
+    label: Significance Level (alpha)
+    sections:
+    - id: ch09_s9_2
+      title: 9.2 Outcomes and the Type I and Type II Errors
+    - id: ch09_s9_4
+      title: 9.4 Rare Events, the Sample, Decision and Conclusion
+  power_of_test:
+    label: Power of the Test
+    sections:
+    - id: ch09_s9_2
+      title: 9.2 Outcomes and the Type I and Type II Errors
+  normal_distribution:
+    label: Normal Distribution
+    sections:
+    - id: ch09_s9_3
+      title: 9.3 Probability Distribution Needed for Hypothesis Testing
+  students_t_distribution:
+    label: Student's t-Distribution
+    sections:
+    - id: ch09_s9_3
+      title: 9.3 Probability Distribution Needed for Hypothesis Testing
+  binomial_distribution:
+    label: Binomial Distribution
+    sections:
+    - id: ch09_s9_3
+      title: 9.3 Probability Distribution Needed for Hypothesis Testing
+  central_limit_theorem:
+    label: Central Limit Theorem
+    sections:
+    - id: ch09_s9_4
+      title: 9.4 Rare Events, the Sample, Decision and Conclusion
+  sampling_distribution_selection:
+    label: Selecting the Test Distribution
+    sections:
+    - id: ch09_s9_3
+      title: 9.3 Probability Distribution Needed for Hypothesis Testing
+  rare_event:
+    label: Rare Event
+    sections:
+    - id: ch09_s9_4
+      title: 9.4 Rare Events, the Sample, Decision and Conclusion
+  p_value:
+    label: p-value
+    sections:
+    - id: ch09_s9_4
+      title: 9.4 Rare Events, the Sample, Decision and Conclusion
+  decision_rule:
+    label: Decision Rule (Compare alpha and p-value)
+    sections:
+    - id: ch09_s9_4
+      title: 9.4 Rare Events, the Sample, Decision and Conclusion
+    - id: ch09_s9_5
+      title: 9.5 Additional Information and Full Hypothesis Test Examples
+  conclusion_writing:
+    label: Conclusion Statement
+    sections:
+    - id: ch09_s9_5
+      title: 9.5 Additional Information and Full Hypothesis Test Examples
+  tailed_tests:
+    label: Left-, Right-, and Two-Tailed Tests
+    sections:
+    - id: ch09_s9_5
+      title: 9.5 Additional Information and Full Hypothesis Test Examples
+  test_statistic:
+    label: Test Statistic (z-score or t-score)
+    sections:
+    - id: ch09_s9_5
+      title: 9.5 Additional Information and Full Hypothesis Test Examples
+  hypothesis_test_procedure:
+    label: Full Hypothesis Test Procedure
+    sections:
+    - id: ch09_s9_5
+      title: 9.5 Additional Information and Full Hypothesis Test Examples
+  test_single_mean_known_sd:
+    label: Hypothesis Test for a Single Mean (Known Standard Deviation)
+    sections:
+    - id: ch09_s9_5
+      title: 9.5 Additional Information and Full Hypothesis Test Examples
+    - id: ch09_s9_6
+      title: 9.6 Hypothesis Testing of a Single Mean and Single Proportion
+  test_single_mean_unknown_sd:
+    label: Hypothesis Test for a Single Mean (Unknown Standard Deviation)
+    sections:
+    - id: ch09_s9_5
+      title: 9.5 Additional Information and Full Hypothesis Test Examples
+    - id: ch09_s9_6
+      title: 9.6 Hypothesis Testing of a Single Mean and Single Proportion
+  test_single_proportion:
+    label: Hypothesis Test for a Single Proportion
+    sections:
+    - id: ch09_s9_3
+      title: 9.3 Probability Distribution Needed for Hypothesis Testing
+    - id: ch09_s9_5
+      title: 9.5 Additional Information and Full Hypothesis Test Examples
+    - id: ch09_s9_6
+      title: 9.6 Hypothesis Testing of a Single Mean and Single Proportion
+  confidence_interval:
+    label: Confidence Interval
+    sections:
+    - id: ch09_s9_5
+      title: 9.5 Additional Information and Full Hypothesis Test Examples

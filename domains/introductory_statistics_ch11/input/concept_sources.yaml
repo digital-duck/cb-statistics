@@ -1,0 +1,73 @@
+domain: introductory_statistics_2e
+sources:
+  normal_distribution:
+    label: Normal Distribution
+    sections:
+    - id: ch11_s11_1
+      title: 11.1 Facts About the Chi-Square Distribution
+  standard_normal_variable:
+    label: Standard Normal Variable
+    sections:
+    - id: ch11_s11_1
+      title: 11.1 Facts About the Chi-Square Distribution
+  degrees_of_freedom:
+    label: Degrees of Freedom
+    sections:
+    - id: ch11_s11_1
+      title: 11.1 Facts About the Chi-Square Distribution
+  hypothesis_test:
+    label: Hypothesis Test
+    sections: []
+  p_value:
+    label: P-value
+    sections: []
+  contingency_table:
+    label: Contingency Table
+    sections:
+    - id: ch11_formula_review
+      title: Formula Review
+  chi_square_distribution:
+    label: Chi-Square Distribution
+    sections:
+    - id: ch11_s11_1
+      title: 11.1 Facts About the Chi-Square Distribution
+  observed_expected_values:
+    label: Observed and Expected Values
+    sections:
+    - id: ch11_s11_2
+      title: 11.2 Goodness-of-Fit Test
+  goodness_of_fit_test:
+    label: Chi-Square Goodness-of-Fit Test
+    sections:
+    - id: ch11_s11_2
+      title: 11.2 Goodness-of-Fit Test
+  test_of_independence:
+    label: Chi-Square Test of Independence
+    sections:
+    - id: ch11_s11_3
+      title: 11.3 Test of Independence
+  test_for_homogeneity:
+    label: Chi-Square Test for Homogeneity
+    sections:
+    - id: ch11_s11_4
+      title: 11.4 Test for Homogeneity
+  comparison_of_chi_square_tests:
+    label: Comparison of the Chi-Square Tests
+    sections:
+    - id: ch11_s11_6
+      title: 11.6 Test of a Single Variance
+  test_of_single_variance:
+    label: Chi-Square Test of a Single Variance
+    sections:
+    - id: ch11_s11_6
+      title: 11.6 Test of a Single Variance
+  goodness_of_fit_lab:
+    label: Goodness-of-Fit Lab Application
+    sections:
+    - id: ch11_s11_7
+      title: '11.7 Lab 1: Chi-Square Goodness-of-Fit'
+  independence_lab:
+    label: Test of Independence Lab Application
+    sections:
+    - id: ch11_s11_8
+      title: '11.8 Lab 2: Chi-Square Test of Independence'

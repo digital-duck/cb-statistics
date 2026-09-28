@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Population | Introductory Statistics Ch01</title>
+<script>
+MathJax = {
+  tex: { inlineMath: [['$','$'],['\\(','\\)']], displayMath: [['$$','$$'],['\\[','\\]']] },
+  options: { skipHtmlTags: ['script','noscript','style','textarea','pre','code'] }
+};
+</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" async></script>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:Georgia,serif;background:#fafaf8;color:#1a1a1a;line-height:1.7}
+h2{font-size:1.45rem;color:#1e3a5f;margin-bottom:12px}
+h3{font-size:1.1rem;color:#2e4a7f;margin:20px 0 8px}
+h4{font-size:1rem;color:#3a5a8f;margin:16px 0 6px}
+p{margin-bottom:16px;font-size:1rem}
+li{margin-bottom:6px;margin-left:24px;font-size:1rem}
+pre{background:#f4f4f0;border:1px solid #d8d8d0;border-radius:6px;
+    padding:16px 20px;overflow-x:auto;margin:16px 0}
+code{font-family:Menlo,Consolas,monospace;font-size:.87em}
+p code{background:#f0f0ea;padding:1px 4px;border-radius:3px}
+footer.spl-credit{margin-top:32px;padding-top:16px;border-top:1px solid #e0e0d8;
+      font-family:system-ui,sans-serif;font-size:.78rem;color:#999;text-align:center}
+footer.spl-credit a{color:#2563eb;text-decoration:none}
+.page{max-width:780px;margin:0 auto;padding:40px 32px}
+section{margin-bottom:48px;border-top:1px solid #e0e0d8;padding-top:36px}
+section:first-of-type{border-top:none;padding-top:0}
+</style>
+</head>
+<body>
+<div class="page">
+  <main>
+    <h2 id="population">Population</h2>
+<p>In statistics, a <strong>population</strong> is the complete set of individuals, objects, or measurements that a study is designed to describe. It is defined by the researcher's question, not by an inherent property of the world: "all registered voters in Texas," "every bolt manufactured on line 3 this year," and "the blood pressure of every adult in a clinical trial's target group" are all populations, each bounded by the scope of what someone wants to know. A population can be finite and countable (students enrolled at a university this semester) or effectively infinite (all possible measurements a sensor could record). What matters is that the population is precisely specified before data collection begins, because every later step — sampling, estimation, inference — is only meaningful relative to that definition.</p>
+<p>Consider a school district asking, "What is the average time students spend on homework per week?" The population here is every student currently enrolled in the district — not just those who happen to answer a survey, and not students from other districts. If the district instead studies only 9th graders, that is a different, narrower population, and conclusions from one cannot be assumed to hold for the other. This distinction matters because population size and composition directly affect what claims are valid: a result true for 9th graders is not automatically true for the whole district.</p>
+<p>In practice, populations are rarely measured in full — this is why samples exist, drawn to represent the population without incurring the cost of surveying everyone. The problem-solving skill this section targets is precise scoping: before designing any study, ask "who or what, exactly, is included?" A vague population ("people who exercise") produces unusable results, because different researchers would interpret it differently, making replication and comparison impossible. A well-scoped population ("adults aged 18–65 who report at least one structured exercise session per week, as of the 2026 survey date") allows a sample to be drawn systematically and results to be generalized back with a clear boundary on what was actually studied. Getting this definition right is the first and most consequential decision in any statistical investigation, since errors here — an unintentionally excluded subgroup, an overly broad scope — cannot be fixed by better analysis later.</p>
+  </main>
+  <footer class="spl-credit">Generated and Powered by <a href="https://github.com/digital-duck/SPL.py" target="_blank" rel="noopener">SPL</a></footer>
+</div>
+</body>
+</html>

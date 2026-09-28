@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cookie Recipes Simulation | Introductory Statistics Ch07</title>
+<script>
+MathJax = {
+  tex: { inlineMath: [['$','$'],['\\(','\\)']], displayMath: [['$$','$$'],['\\[','\\]']] },
+  options: { skipHtmlTags: ['script','noscript','style','textarea','pre','code'] }
+};
+</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" async></script>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:Georgia,serif;background:#fafaf8;color:#1a1a1a;line-height:1.7}
+h2{font-size:1.45rem;color:#1e3a5f;margin-bottom:12px}
+h3{font-size:1.1rem;color:#2e4a7f;margin:20px 0 8px}
+h4{font-size:1rem;color:#3a5a8f;margin:16px 0 6px}
+p{margin-bottom:16px;font-size:1rem}
+li{margin-bottom:6px;margin-left:24px;font-size:1rem}
+pre{background:#f4f4f0;border:1px solid #d8d8d0;border-radius:6px;
+    padding:16px 20px;overflow-x:auto;margin:16px 0}
+code{font-family:Menlo,Consolas,monospace;font-size:.87em}
+p code{background:#f0f0ea;padding:1px 4px;border-radius:3px}
+footer.spl-credit{margin-top:32px;padding-top:16px;border-top:1px solid #e0e0d8;
+      font-family:system-ui,sans-serif;font-size:.78rem;color:#999;text-align:center}
+footer.spl-credit a{color:#2563eb;text-decoration:none}
+.page{max-width:780px;margin:0 auto;padding:40px 32px}
+section{margin-bottom:48px;border-top:1px solid #e0e0d8;padding-top:36px}
+section:first-of-type{border-top:none;padding-top:0}
+</style>
+</head>
+<body>
+<div class="page">
+  <main>
+    <h2 id="cookie-recipes-simulation">Cookie Recipes Simulation</h2>
+<h3 id="definition">Definition</h3>
+<p>A <strong>cookie recipes simulation</strong> models a constrained resource-allocation problem in which a finite set of ingredients must be distributed across multiple recipe variants to maximize a scalar objective — typically yield (number of cookies) or profit. Formally, let $\mathbf{r} = (r_1, r_2, \ldots, r_m)^{\top}$ denote $m$ recipe types, and let $A \in \mathbb{R}^{n \times m}_{\geq 0}$ be the ingredient matrix, where $A_{ij}$ is the quantity of ingredient $i$ required per unit of recipe $j$. Given an ingredient supply vector $\mathbf{b} \in \mathbb{R}^{n}_{\geq 0}$ and a revenue vector $\mathbf{c} \in \mathbb{R}^{m}_{>0}$, the simulation seeks a batch vector $\mathbf{x} \in \mathbb{R}^{m}_{\geq 0}$ satisfying</p>
+$$A\mathbf{x} \leq \mathbf{b}, \quad \mathbf{x} \geq \mathbf{0},$$
+<p>while maximising $\mathbf{c}^{\top}\mathbf{x}$. This is a standard linear programme, but embedding it inside a Monte Carlo loop over uncertain supply or demand transforms it into a <strong>stochastic simulation</strong>.</p>
+<h3 id="worked-example">Worked Example</h3>
+<p>Suppose a bakery stocks $b_1 = 500\,\text{g}$ of flour and $b_2 = 200\,\text{g}$ of sugar. Two recipes are available: a sugar cookie ($r_1$) requires $(100\,\text{g flour},\,80\,\text{g sugar})$ per batch, and a shortbread ($r_2$) requires $(200\,\text{g flour},\,40\,\text{g sugar})$ per batch. Revenue per batch is $c_1 = 4$ and $c_2 = 5$. The feasible region is determined by</p>
+$$100x_1 + 200x_2 \leq 500, \quad 80x_1 + 40x_2 \leq 200, \quad x_1, x_2 \geq 0.$$
+<p>Solving at the vertices, $(x_1, x_2) = (2, 0.5)$ yields revenue $\mathbf{c}^{\top}\mathbf{x} = 4(2) + 5(0.5) = 10.5$, which is the optimum. If flour supply is drawn from $\mathcal{U}[400, 600]$, running $N = 10{,}000$ replications and averaging optimal revenues yields the <strong>expected maximum revenue</strong> $\mathbb{E}[\mathbf{c}^{\top}\mathbf{x}^{*}]$.</p>
+<h3 id="key-theorem">Key Theorem</h3>
+<p><strong>Theorem (Linearity of expectation under LP feasibility).</strong> Let $\mathbf{b}(\omega)$ be a random supply vector with finite mean $\boldsymbol{\mu} = \mathbb{E}[\mathbf{b}]$. If the constraint matrix $A$ is fixed and the LP is feasible almost surely, then for large $N$,</p>
+$$\frac{1}{N}\sum_{k=1}^{N} \mathbf{c}^{\top}\mathbf{x}^{*}(\mathbf{b}^{(k)}) \xrightarrow{a.s.} \mathbb{E}[\mathbf{c}^{\top}\mathbf{x}^{*}(\mathbf{b})],$$
+<p>by the Strong Law of Large Numbers, provided the value function $V(\mathbf{b}) = \mathbf{c}^{\top}\mathbf{x}^{*}(\mathbf{b})$ is integrable. Because $V$ is piecewise linear and convex in $\mathbf{b}$, Jensen's inequality further guarantees $\mathbb{E}[V(\mathbf{b})] \geq V(\boldsymbol{\mu})$: stochastic supply is worth at least as much as its mean in expectation.</p>
+<h3 id="lab-cell">Lab Cell</h3>
+<pre><code>from sympy import symbols, linsolve, Rational
+
+x1, x2 = symbols('x1 x2', nonneg=True)
+
+# Constraint intersection (flour and sugar binding simultaneously)
+sol = linsolve([
+    100*x1 + 200*x2 - 500,
+    80*x1  + 40*x2  - 200
+], x1, x2)
+
+print("Optimal batch:", sol)          # {(2, 3/2)} — check against manual solution
+revenue = 4*Rational(2) + 5*Rational(3,2)
+print("Revenue:", revenue)            # 23/2</code></pre>
+<p>Running this cell confirms the deterministic optimum; wrapping the LP in a <code>for</code> loop over sampled values of $b_1$ extends the analysis to the stochastic setting explored in the exercises below.</p>
+  </main>
+  <footer class="spl-credit">Generated by SPL &middot; Powered by SPL.py</footer>
+</div>
+</body>
+</html>

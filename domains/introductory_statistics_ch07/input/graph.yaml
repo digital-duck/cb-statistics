@@ -1,0 +1,111 @@
+domain: introductory_statistics_2e
+primitives:
+  random_variable:
+    defines: A variable, such as X, representing a quantity from a population with a known or unknown
+      distribution, mean, and standard deviation.
+    tier: 0
+  mean:
+    defines: A number measuring the central tendency of a distribution or sample, commonly called the
+      average.
+    tier: 0
+  standard_deviation:
+    defines: A number measuring the spread of values in a distribution or sample around its mean.
+    tier: 0
+  normal_distribution:
+    defines: A continuous, bell-shaped random variable distribution notated X ~ N(μ, σ), fully determined
+      by its mean and standard deviation.
+    tier: 0
+  uniform_distribution:
+    defines: A continuous random variable with equally likely outcomes over an interval (a, b), notated
+      X ~ U(a, b).
+    tier: 0
+  exponential_distribution:
+    defines: A continuous random variable modeling time between random events, notated X ~ Exp(m), with
+      mean 1/m.
+    tier: 0
+  binomial_distribution:
+    defines: A discrete random variable X ~ B(n, p) counting successes in n independent trials each with
+      success probability p.
+    tier: 0
+  z_score:
+    defines: A standardized value expressing how many standard deviations a data point (or sample statistic)
+      lies from its distribution's mean.
+    tier: 0
+  percentile:
+    defines: The value below which a given percentage of a distribution's data falls, found using functions
+      like invNorm.
+    tier: 0
+concepts:
+  sampling_distribution:
+    defines: The probability distribution of a sample statistic (such as the mean) computed from repeated
+      random samples of a given size drawn from a population.
+    composed_of:
+    - random_variable
+    - mean
+    tier: 1
+  law_of_large_numbers:
+    defines: The principle that as sample size increases, the sample mean tends to get closer to the population
+      mean μ.
+    composed_of:
+    - mean
+    - random_variable
+    tier: 1
+  continuity_correction_factor:
+    defines: An adjustment of 0.5 added to or subtracted from a discrete value x when approximating a
+      discrete binomial distribution with the continuous normal distribution.
+    composed_of:
+    - binomial_distribution
+    - normal_distribution
+    tier: 1
+  standard_error_of_mean:
+    defines: The standard deviation of the sampling distribution of the sample mean, equal to the population
+      standard deviation divided by the square root of the sample size.
+    composed_of:
+    - standard_deviation
+    - sampling_distribution
+    tier: 2
+  central_limit_theorem_means:
+    defines: The theorem stating that for a sufficiently large sample size n, the distribution of sample
+      means x̄ from any population approaches N(μ, σ/√n).
+    composed_of:
+    - sampling_distribution
+    - standard_error_of_mean
+    - normal_distribution
+    tier: 3
+  central_limit_theorem_sums:
+    defines: The theorem stating that for a sufficiently large sample size n, the distribution of sample
+      sums ΣX from any population approaches N(nμ, √n·σ).
+    composed_of:
+    - central_limit_theorem_means
+    - normal_distribution
+    tier: 4
+  choosing_clt_form:
+    defines: The practice of deciding whether to apply the central limit theorem for means or for sums
+      (or neither, for individual values) based on what a problem asks for.
+    composed_of:
+    - central_limit_theorem_means
+    - central_limit_theorem_sums
+    tier: 5
+applications:
+  normal_approximation_to_binomial:
+    defines: A method of approximating binomial probabilities using a normal distribution with μ = np
+      and σ = √(npq) when np and nq both exceed five.
+    needs:
+    - binomial_distribution
+    - normal_distribution
+    - continuity_correction_factor
+    tier: 2
+  pocket_change_simulation:
+    defines: A hands-on lab demonstrating the CLT by comparing histograms of individual values versus
+      sample means of increasing size for pocket change data.
+    needs:
+    - central_limit_theorem_means
+    - sampling_distribution
+    tier: 4
+  cookie_recipes_simulation:
+    defines: A hands-on lab demonstrating the CLT by comparing histograms of a population's data versus
+      sample means of size 5 and 10 drawn from cookie recipe lifespan data.
+    needs:
+    - central_limit_theorem_means
+    - sampling_distribution
+    tier: 4

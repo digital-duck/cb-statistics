@@ -1,0 +1,134 @@
+domain: introductory_statistics_2e
+primitives:
+  experiment:
+    defines: A planned operation carried out under controlled conditions; if the result is not predetermined
+      it is a chance experiment.
+    tier: 0
+  outcome:
+    defines: A particular result of an experiment.
+    tier: 0
+  sample_space:
+    defines: The set of all possible outcomes of an experiment, denoted S.
+    tier: 0
+  probability:
+    defines: A number between zero and one, inclusive, that measures the likelihood that a specific event
+      will occur, based on the long-term relative frequency of that outcome.
+    tier: 0
+concepts:
+  event:
+    defines: Any combination of outcomes, represented by an uppercase letter such as A or B, and treated
+      as a subset of the sample space.
+    composed_of:
+    - sample_space
+    - outcome
+    tier: 1
+  equally_likely_outcomes:
+    defines: A property of an experiment where each outcome occurs with the same probability as any other
+      outcome.
+    composed_of:
+    - outcome
+    - probability
+    tier: 1
+  law_of_large_numbers:
+    defines: As the number of repetitions of an experiment increases, the relative frequency obtained
+      tends to become closer to the theoretical probability.
+    composed_of:
+    - probability
+    - experiment
+    tier: 1
+  or_event:
+    defines: An outcome is in the event A OR B if it is in A, in B, or in both, corresponding to the set
+      union of A and B.
+    composed_of:
+    - event
+    tier: 2
+  and_event:
+    defines: An outcome is in the event A AND B if it is in both A and B at the same time, corresponding
+      to the set intersection of A and B.
+    composed_of:
+    - event
+    tier: 2
+  complement_event:
+    defines: The complement of event A, denoted A', consists of all outcomes in the sample space that
+      are not in A, with P(A) + P(A') = 1.
+    composed_of:
+    - event
+    - probability
+    tier: 2
+  conditional_probability:
+    defines: The probability P(A|B) that event A occurs given that event B has already occurred, calculated
+      as P(A|B) = P(A AND B)/P(B), reducing the sample space to B.
+    composed_of:
+    - event
+    - probability
+    tier: 2
+  independent_events:
+    defines: Two events A and B are independent if the occurrence of one does not affect the probability
+      of the other, shown by P(A|B) = P(A), P(B|A) = P(B), or P(A AND B) = P(A)P(B).
+    composed_of:
+    - conditional_probability
+    tier: 3
+  dependent_events:
+    defines: Two events that are not independent, meaning knowledge that one occurred changes the probability
+      that the other occurs.
+    composed_of:
+    - conditional_probability
+    tier: 3
+  mutually_exclusive_events:
+    defines: Two events A and B that cannot occur at the same time, meaning they share no outcomes and
+      P(A AND B) = 0.
+    composed_of:
+    - and_event
+    tier: 3
+  sampling_with_replacement:
+    defines: A sampling method where each member of a population is replaced after being picked, so it
+      may be chosen more than once and successive picks are independent.
+    composed_of:
+    - independent_events
+    tier: 4
+  sampling_without_replacement:
+    defines: A sampling method where each member of a population may be chosen only once, so successive
+      picks are dependent.
+    composed_of:
+    - dependent_events
+    tier: 4
+  multiplication_rule:
+    defines: For two events A and B on a sample space, P(A AND B) = P(B)P(A|B), which simplifies to P(A
+      AND B) = P(A)P(B) when A and B are independent.
+    composed_of:
+    - and_event
+    - conditional_probability
+    - independent_events
+    tier: 4
+  addition_rule:
+    defines: For two events A and B on a sample space, P(A OR B) = P(A) + P(B) - P(A AND B), which simplifies
+      to P(A OR B) = P(A) + P(B) when A and B are mutually exclusive.
+    composed_of:
+    - or_event
+    - and_event
+    - mutually_exclusive_events
+    tier: 4
+applications:
+  contingency_table:
+    defines: A table displaying sample data by two variables in rows and columns to facilitate calculating
+      probabilities, including conditional probabilities.
+    needs:
+    - event
+    - conditional_probability
+    tier: 3
+  venn_diagram:
+    defines: A picture representing the sample space as a box with circles or ovals representing events,
+      used to visualize OR, AND, and complement relationships.
+    needs:
+    - or_event
+    - and_event
+    - complement_event
+    tier: 3
+  tree_diagram:
+    defines: A graph with branches labeled by frequencies or probabilities used to visualize and determine
+      the outcomes and probabilities of a multi-stage experiment.
+    needs:
+    - multiplication_rule
+    - independent_events
+    - dependent_events
+    tier: 5

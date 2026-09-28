@@ -1,0 +1,143 @@
+domain: introductory_statistics_2e
+sources:
+  frequency:
+    label: Frequency
+    sections:
+    - id: ch02_s2_2
+      title: 2.2 Histograms, Frequency Polygons, and Time Series Graphs
+  relative_frequency:
+    label: Relative Frequency
+    sections:
+    - id: ch02_s2_2
+      title: 2.2 Histograms, Frequency Polygons, and Time Series Graphs
+  cumulative_relative_frequency:
+    label: Cumulative Relative Frequency
+    sections:
+    - id: ch02_s2_2
+      title: 2.2 Histograms, Frequency Polygons, and Time Series Graphs
+    - id: ch02_s2_3
+      title: 2.3 Measures of the Location of the Data
+  stem_and_leaf_plot:
+    label: Stem-and-Leaf Plot (Stemplot)
+    sections:
+    - id: ch02_s2_1
+      title: 2.1 Stem-and-Leaf Graphs (Stemplots), Line Graphs, and Bar Graphs
+  outlier:
+    label: Outlier
+    sections:
+    - id: ch02_s2_1
+      title: 2.1 Stem-and-Leaf Graphs (Stemplots), Line Graphs, and Bar Graphs
+    - id: ch02_s2_3
+      title: 2.3 Measures of the Location of the Data
+  line_graph:
+    label: Line Graph
+    sections:
+    - id: ch02_s2_1
+      title: 2.1 Stem-and-Leaf Graphs (Stemplots), Line Graphs, and Bar Graphs
+  bar_graph:
+    label: Bar Graph
+    sections:
+    - id: ch02_s2_1
+      title: 2.1 Stem-and-Leaf Graphs (Stemplots), Line Graphs, and Bar Graphs
+  histogram:
+    label: Histogram
+    sections:
+    - id: ch02_s2_2
+      title: 2.2 Histograms, Frequency Polygons, and Time Series Graphs
+  class_interval:
+    label: Class Interval (Bar/Class Width)
+    sections:
+    - id: ch02_s2_2
+      title: 2.2 Histograms, Frequency Polygons, and Time Series Graphs
+  frequency_polygon:
+    label: Frequency Polygon
+    sections:
+    - id: ch02_s2_2
+      title: 2.2 Histograms, Frequency Polygons, and Time Series Graphs
+  time_series_graph:
+    label: Time Series Graph
+    sections:
+    - id: ch02_s2_2
+      title: 2.2 Histograms, Frequency Polygons, and Time Series Graphs
+  median:
+    label: Median
+    sections:
+    - id: ch02_s2_3
+      title: 2.3 Measures of the Location of the Data
+    - id: ch02_s2_5
+      title: 2.5 Measures of the Center of the Data
+  percentile:
+    label: Percentile
+    sections:
+    - id: ch02_s2_3
+      title: 2.3 Measures of the Location of the Data
+  quartile:
+    label: Quartile
+    sections:
+    - id: ch02_s2_3
+      title: 2.3 Measures of the Location of the Data
+  interquartile_range:
+    label: Interquartile Range (IQR)
+    sections:
+    - id: ch02_s2_3
+      title: 2.3 Measures of the Location of the Data
+  box_plot:
+    label: Box Plot
+    sections:
+    - id: ch02_s2_4
+      title: 2.4 Box Plots
+  mean:
+    label: Mean (Average)
+    sections:
+    - id: ch02_s2_5
+      title: 2.5 Measures of the Center of the Data
+  mode:
+    label: Mode
+    sections:
+    - id: ch02_s2_5
+      title: 2.5 Measures of the Center of the Data
+  grouped_frequency_table_mean:
+    label: Mean of a Grouped Frequency Table
+    sections:
+    - id: ch02_s2_5
+      title: 2.5 Measures of the Center of the Data
+  sampling_distribution:
+    label: Sampling Distribution and Statistic
+    sections:
+    - id: ch02_s2_5
+      title: 2.5 Measures of the Center of the Data
+  skewness:
+    label: Skewness
+    sections:
+    - id: ch02_s2_6
+      title: 2.6 Skewness and the Mean, Median, and Mode
+  variance:
+    label: Variance
+    sections:
+    - id: ch02_s2_7
+      title: 2.7 Measures of the Spread of the Data
+  standard_deviation:
+    label: Standard Deviation
+    sections:
+    - id: ch02_s2_7
+      title: 2.7 Measures of the Spread of the Data
+  grouped_standard_deviation:
+    label: Standard Deviation of a Grouped Frequency Table
+    sections:
+    - id: ch02_s2_7
+      title: 2.7 Measures of the Spread of the Data
+  z_score:
+    label: Z-Score (Number of Standard Deviations)
+    sections:
+    - id: ch02_s2_7
+      title: 2.7 Measures of the Spread of the Data
+  standard_error:
+    label: Standard Error of the Mean
+    sections:
+    - id: ch02_s2_7
+      title: 2.7 Measures of the Spread of the Data
+  chebyshev_and_empirical_rules:
+    label: Chebyshev's Rule and the Empirical Rule
+    sections:
+    - id: ch02_s2_7
+      title: 2.7 Measures of the Spread of the Data

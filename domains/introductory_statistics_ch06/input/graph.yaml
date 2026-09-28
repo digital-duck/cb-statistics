@@ -1,0 +1,86 @@
+domain: introductory_statistics_2e
+primitives:
+  random_variable:
+    defines: A variable, such as X, whose value is a numerical outcome of a random phenomenon.
+    tier: 0
+  continuous_probability_distribution:
+    defines: A probability distribution for a continuous random variable, where probability is represented
+      as area under a curve.
+    tier: 0
+  mean:
+    defines: The average or central value parameter of a distribution.
+    tier: 0
+  standard_deviation:
+    defines: A parameter measuring the spread or dispersion of values in a distribution.
+    tier: 0
+concepts:
+  normal_distribution:
+    defines: A continuous, bell-shaped probability distribution characterized by two parameters, the mean
+      (μ) and standard deviation (σ), written X ~ N(μ, σ).
+    composed_of:
+    - random_variable
+    - continuous_probability_distribution
+    - mean
+    - standard_deviation
+    tier: 1
+  z_score:
+    defines: A standardized value z = (x − μ)/σ that tells how many standard deviations a value x is above
+      or below the mean.
+    composed_of:
+    - normal_distribution
+    - mean
+    - standard_deviation
+    tier: 2
+  standard_normal_distribution:
+    defines: The normal distribution of z-scores, with mean zero and standard deviation one, written Z
+      ~ N(0, 1).
+    composed_of:
+    - z_score
+    - normal_distribution
+    tier: 3
+  empirical_rule:
+    defines: A rule stating that for a normal distribution, about 68%, 95%, and 99.7% of values lie within
+      one, two, and three standard deviations of the mean, respectively.
+    composed_of:
+    - normal_distribution
+    - standard_deviation
+    - mean
+    tier: 2
+  cumulative_distribution_function:
+    defines: The function P(X < x) giving the probability that a random variable is less than a given
+      value, calculated via calculator, computer, or table.
+    composed_of:
+    - normal_distribution
+    - random_variable
+    tier: 2
+applications:
+  normal_probability_calculation:
+    defines: Using technology (e.g., normalcdf) to find the probability that a normally distributed variable
+      falls within, above, or below given values.
+    needs:
+    - cumulative_distribution_function
+    - normal_distribution
+    tier: 3
+  percentile_and_invnorm:
+    defines: Finding a critical value k such that a given percentage of data lies below it, using invNorm(area,
+      mean, standard deviation).
+    needs:
+    - cumulative_distribution_function
+    - normal_distribution
+    tier: 3
+  interquartile_range_normal:
+    defines: The range between the 25th percentile (Q1) and 75th percentile (Q3) of a normal distribution,
+      IQR = Q3 − Q1.
+    needs:
+    - percentile_and_invnorm
+    tier: 4
+  normal_approximation_to_empirical_data:
+    defines: Using a sample mean and sample standard deviation to model real, collected data (e.g., lap
+      times, pinkie lengths) as an approximate normal distribution and comparing empirical results to
+      theoretical predictions.
+    needs:
+    - normal_distribution
+    - empirical_rule
+    - mean
+    - standard_deviation
+    tier: 3

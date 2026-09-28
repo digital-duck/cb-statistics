@@ -1,0 +1,75 @@
+domain: introductory_statistics_2e
+sources:
+  continuous_random_variable:
+    label: Continuous Random Variable
+    sections:
+    - id: ch05_chapter_objectives
+      title: Chapter Objectives
+  probability_density_function:
+    label: Probability Density Function (PDF)
+    sections:
+    - id: ch05_chapter_objectives
+      title: Chapter Objectives
+    - id: ch05_s5_1
+      title: 5.1 Continuous Probability Functions
+  probability_as_area:
+    label: Probability as Area Under the Curve
+    sections:
+    - id: ch05_s5_1
+      title: 5.1 Continuous Probability Functions
+  cumulative_distribution_function:
+    label: Cumulative Distribution Function (CDF)
+    sections:
+    - id: ch05_chapter_objectives
+      title: Chapter Objectives
+    - id: ch05_s5_1
+      title: 5.1 Continuous Probability Functions
+  conditional_probability:
+    label: Conditional Probability
+    sections:
+    - id: ch05_chapter_review
+      title: Chapter Review
+  uniform_distribution:
+    label: Uniform Distribution
+    sections:
+    - id: ch05_s5_2
+      title: 5.2 The Uniform Distribution
+  percentile:
+    label: Percentile
+    sections:
+    - id: ch05_s5_2
+      title: 5.2 The Uniform Distribution
+    - id: ch05_s5_3
+      title: 5.3 The Exponential Distribution
+  exponential_distribution:
+    label: Exponential Distribution
+    sections:
+    - id: ch05_s5_3
+      title: 5.3 The Exponential Distribution
+  decay_parameter:
+    label: Decay Parameter
+    sections:
+    - id: ch05_s5_3
+      title: 5.3 The Exponential Distribution
+  memoryless_property:
+    label: Memoryless Property
+    sections:
+    - id: ch05_s5_3
+      title: 5.3 The Exponential Distribution
+  poisson_distribution:
+    label: Poisson Distribution
+    sections:
+    - id: ch05_s5_3
+      title: 5.3 The Exponential Distribution
+  mean_and_standard_deviation_of_continuous_distributions:
+    label: Mean and Standard Deviation of a Continuous Distribution
+    sections:
+    - id: ch05_s5_2
+      title: 5.2 The Uniform Distribution
+    - id: ch05_s5_3
+      title: 5.3 The Exponential Distribution
+  empirical_vs_theoretical_distribution_comparison:
+    label: Comparing Empirical Data to a Theoretical Distribution
+    sections:
+    - id: ch05_s5_4
+      title: 5.4 Continuous Distribution

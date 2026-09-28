@@ -1,0 +1,81 @@
+domain: introductory_statistics_2e
+primitives:
+  continuous_random_variable:
+    defines: A random variable whose values are measured (not counted) and can take any value within an
+      interval.
+    tier: 0
+  probability_density_function:
+    defines: The function f(x) whose graph represents a continuous probability distribution, where area
+      under the curve corresponds to probability.
+    tier: 0
+  conditional_probability:
+    defines: The probability that an event occurs given that another event has already occurred, denoted
+      P(A|B).
+    tier: 0
+concepts:
+  probability_as_area:
+    defines: For continuous distributions, the probability that X falls in an interval equals the area
+      under f(x) between the interval's endpoints.
+    composed_of:
+    - continuous_random_variable
+    - probability_density_function
+    tier: 1
+  uniform_distribution:
+    defines: A continuous distribution X ~ U(a,b) where all outcomes between a and b are equally likely
+      and f(x) = 1/(b-a).
+    composed_of:
+    - continuous_random_variable
+    - probability_density_function
+    tier: 1
+  exponential_distribution:
+    defines: A continuous distribution X ~ Exp(m) modeling time until a specific event occurs, with pdf
+      f(x) = me^(-mx).
+    composed_of:
+    - continuous_random_variable
+    - probability_density_function
+    tier: 1
+  cumulative_distribution_function:
+    defines: The function P(X <= x) that gives the area to the left of x under the pdf.
+    composed_of:
+    - probability_density_function
+    - probability_as_area
+    tier: 2
+  decay_parameter:
+    defines: The value m in the exponential pdf f(x) = me^(-mx), equal to 1/mu.
+    composed_of:
+    - exponential_distribution
+    tier: 2
+  memoryless_property:
+    defines: The property that P(X > r + t | X > r) = P(X > t) for the exponential distribution.
+    composed_of:
+    - exponential_distribution
+    - conditional_probability
+    tier: 2
+  poisson_distribution:
+    defines: The discrete distribution of events per unit time when interarrival times are exponentially
+      distributed.
+    composed_of:
+    - exponential_distribution
+    tier: 2
+  mean_and_standard_deviation_of_continuous_distributions:
+    defines: The theoretical mean and spread of a continuous random variable, computed via distribution-specific
+      formulas.
+    composed_of:
+    - uniform_distribution
+    - exponential_distribution
+    tier: 2
+  percentile:
+    defines: The value k such that a given percentage of the distribution's probability lies below k,
+      found via the CDF.
+    composed_of:
+    - cumulative_distribution_function
+    tier: 3
+applications:
+  empirical_vs_theoretical_distribution_comparison:
+    defines: Comparing sample data's summary statistics and shape to values predicted by a theoretical
+      continuous distribution.
+    needs:
+    - uniform_distribution
+    - exponential_distribution
+    - mean_and_standard_deviation_of_continuous_distributions
+    tier: 3
