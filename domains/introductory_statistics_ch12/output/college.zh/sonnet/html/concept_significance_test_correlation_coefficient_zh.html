@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Significance Test Correlation Coefficient | Introductory Statistics Ch12</title>
+<script>
+MathJax = {
+  tex: { inlineMath: [['$','$'],['\\(','\\)']], displayMath: [['$$','$$'],['\\[','\\]']] },
+  options: { skipHtmlTags: ['script','noscript','style','textarea','pre','code'] }
+};
+</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" async></script>
+<script src="https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.min.js"></script>
+<script>mermaid.initialize({ startOnLoad: true, theme: 'neutral' });</script>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:Georgia,serif;background:#fafaf8;color:#1a1a1a;line-height:1.7}
+h2{font-size:1.45rem;color:#1e3a5f;margin-bottom:12px}
+h3{font-size:1.1rem;color:#2e4a7f;margin:20px 0 8px}
+h4{font-size:1rem;color:#3a5a8f;margin:16px 0 6px}
+p{margin-bottom:16px;font-size:1rem}
+li{margin-bottom:6px;margin-left:24px;font-size:1rem}
+pre{background:#f4f4f0;border:1px solid #d8d8d0;border-radius:6px;
+    padding:16px 20px;overflow-x:auto;margin:16px 0}
+code{font-family:Menlo,Consolas,monospace;font-size:.87em}
+p code{background:#f0f0ea;padding:1px 4px;border-radius:3px}
+footer.spl-credit{margin-top:32px;padding-top:16px;border-top:1px solid #e0e0d8;
+      font-family:system-ui,sans-serif;font-size:.78rem;color:#999;text-align:center}
+footer.spl-credit a{color:#2563eb;text-decoration:none}
+footer.spl-credit span{display:block}
+footer.spl-credit .spl-credit__meta{margin-bottom:4px}
+.cb-figure{margin:24px 0;text-align:center}
+.cb-figure img{max-width:100%;height:auto;border:1px solid #e0e0d8;border-radius:6px}
+figcaption{font-size:.82rem;color:#666;margin-top:8px;font-style:italic;text-align:center}
+pre.mermaid{background:none;border:none;padding:0;overflow:visible;margin:16px 0}
+.page{max-width:780px;margin:0 auto;padding:40px 32px}
+section{margin-bottom:48px;border-top:1px solid #e0e0d8;padding-top:36px}
+section:first-of-type{border-top:none;padding-top:0}
+</style>
+</head>
+<body>
+<div class="page">
+  <main>
+    <h2 id="相关系数的显著性检验">相关系数的显著性检验</h2>
+<h3 id="定义">定义</h3>
+<p>样本相关系数 $r$ 只反映样本中两个变量的线性关联强度。我们真正关心的是:总体中是否存在线性关系。<strong>相关系数的显著性检验</strong>用来回答这个问题。设总体相关系数为 $\rho$,检验假设为</p>
+$$H_0:\ \rho = 0 \quad \text{对} \quad H_a:\ \rho \neq 0.$$
+<p>在 $H_0$ 成立,且两个变量近似服从二元正态分布的条件下,检验统计量</p>
+$$t = \frac{r\sqrt{n-2}}{\sqrt{1-r^2}}$$
+<p>服从自由度为 $df = n-2$ 的 $t$ 分布。</p>
+<p>判断规则:若 $|t| > t_{\alpha/2,\,n-2}$(或 $p$ 值 $<\alpha$),则拒绝 $H_0$,认为总体中存在显著的线性关系。否则,没有足够证据说明线性关系存在。</p>
+<h3 id="直观理解">直观理解</h3>
+<p>$t$ 的大小取决于两个因素:$|r|$ 越大,$t$ 越大;$n$ 越大,$\sqrt{n-2}$ 越大,$t$ 也越大。因此,小样本中即使 $r$ 看起来较大,也可能不显著。大样本中很小的 $r$ 也可能"显著",但这不等于关系很强。</p>
+<h3 id="例题">例题</h3>
+<p>某班随机抽取 $n=12$ 名学生,记录每周学习时间与考试成绩,得到 $r = 0.62$。在 $\alpha = 0.05$ 下检验是否存在显著线性相关。</p>
+<p><strong>步骤 1:</strong> 设 $H_0:\rho=0$,$H_a:\rho\neq 0$。</p>
+<p><strong>步骤 2:</strong> 计算检验统计量,$df = 12-2 = 10$:</p>
+$$t = \frac{0.62\sqrt{10}}{\sqrt{1-0.62^2}} = \frac{0.62\times 3.162}{\sqrt{0.6156}} = \frac{1.961}{0.7846} \approx 2.50.$$
+<p><strong>步骤 3:</strong> 查表得 $t_{0.025,\,10} = 2.228$。</p>
+<p><strong>步骤 4:</strong> 因为 $2.50 > 2.228$(对应 $p\approx 0.031<0.05$),拒绝 $H_0$。</p>
+<p><strong>结论:</strong> 在 5% 的显著性水平下,有充分证据表明学习时间与成绩在总体中存在线性相关。</p>
+<h3 id="问题解决应用">问题解决应用</h3>
+<p><strong>临界值法。</strong> 若不想每次都计算 $t$,可以先求出使结果显著的最小 $|r|$。令 $t=t_{\alpha/2,\,n-2}$,解得</p>
+$$|r|_{\text{crit}} = \frac{t_{\alpha/2}}{\sqrt{t_{\alpha/2}^2 + n-2}}.$$
+<p>当 $n=12$ 时,$|r|_{\text{crit}} = \dfrac{2.228}{\sqrt{4.964+10}} \approx 0.576$。上例中 $0.62>0.576$,结论与前面一致。</p>
+<p><strong>样本量的影响。</strong> 若 $n=30$,则 $t_{0.025,28}=2.048$,$|r|_{\text{crit}}\approx 0.361$。样本量增大后,较弱的相关也能被检出。</p>
+<p><strong>常见错误:</strong></p>
+<li><strong>把显著性当作强度。</strong> 显著只说明 $\rho\neq 0$ 的证据充分,关系强弱要看 $|r|$ 与 $r^2$。例如 $r=0.62$ 时,$r^2\approx 0.38$,即成绩变异中约 38% 可由线性关系解释。</li>
+<li><strong>把相关当作因果。</strong> 显著的 $r$ 不能证明学习时间导致成绩提高。</li>
+<li><strong>忽略非线性。</strong> $r$ 不显著只说明没有线性关系的证据,变量之间仍可能存在曲线关系。检验前应先画散点图,检查线性趋势和异常值。</li>
+  </main>
+  <footer class="spl-credit"><span class="spl-credit__meta">Introductory Statistics — Ch12: Linear Regression and Correlation (Level: College &middot; Language: ZH &middot; Model: sonnet)</span><span class="spl-credit__powered">Generated and Powered by <a href="https://github.com/digital-duck/SPL.py" target="_blank" rel="noopener">SPL</a></span></footer>
+</div>
+</body>
+</html>

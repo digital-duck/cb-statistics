@@ -1,0 +1,86 @@
+domain: introductory_statistics_2e
+primitives:
+  random_variable:
+    defines: A characteristic of interest whose value varies with each repetition of a statistical experiment,
+      denoted by an upper-case letter (X) with specific outcomes denoted by lower-case letters (x).
+    tier: 0
+  law_of_large_numbers:
+    defines: As the number of trials in a probability experiment increases, the difference between the
+      theoretical probability of an event and its relative frequency approaches zero.
+    tier: 0
+  bernoulli_trial:
+    defines: An experiment with exactly two possible outcomes ("success" and "failure") where the probability
+      of success p is the same on every trial.
+    tier: 0
+concepts:
+  discrete_random_variable:
+    defines: A random variable whose possible values are countable outcomes, such as the number of heads
+      in coin tosses.
+    composed_of:
+    - random_variable
+    tier: 1
+  probability_distribution_function:
+    defines: A description (table or formula) of a discrete random variable giving the probability P(x)
+      of each possible outcome, where each probability is between 0 and 1 and all probabilities sum to
+      1.
+    composed_of:
+    - discrete_random_variable
+    tier: 2
+  expected_value:
+    defines: The long-term average outcome of a discrete random variable, denoted μ, calculated by multiplying
+      each value of the random variable by its probability and summing the products.
+    composed_of:
+    - probability_distribution_function
+    tier: 3
+  standard_deviation_pdf:
+    defines: A measure of how far the outcomes of a statistical experiment are spread from the mean of
+      the distribution, calculated as the square root of the sum of (x−μ)²P(x).
+    composed_of:
+    - expected_value
+    - probability_distribution_function
+    tier: 4
+  binomial_distribution:
+    defines: The probability distribution of the number of successes X in a fixed number n of independent
+      Bernoulli trials, each with success probability p, denoted X ~ B(n, p) with mean np and standard
+      deviation sqrt(npq).
+    composed_of:
+    - bernoulli_trial
+    - discrete_random_variable
+    tier: 2
+  geometric_distribution:
+    defines: The probability distribution of the number of independent Bernoulli trials, X, required to
+      obtain the first success, denoted X ~ G(p), with mean 1/p.
+    composed_of:
+    - bernoulli_trial
+    - discrete_random_variable
+    tier: 2
+  hypergeometric_distribution:
+    defines: The probability distribution of the number of items of interest, X, drawn in a fixed-size
+      sample taken without replacement from two combined finite groups, denoted X ~ H(r, b, n).
+    composed_of:
+    - discrete_random_variable
+    tier: 2
+  poisson_distribution:
+    defines: The probability distribution giving the number of occurrences of an event, X, in a fixed
+      interval of time or space when events happen independently at a known average rate μ, denoted X
+      ~ P(μ), and usable to approximate the binomial when n is large and p is small.
+    composed_of:
+    - discrete_random_variable
+    - binomial_distribution
+    tier: 3
+applications:
+  playing_card_experiment:
+    defines: A hands-on lab comparing empirical relative frequencies from repeated card draws to the theoretical
+      binomial distribution.
+    needs:
+    - binomial_distribution
+    - law_of_large_numbers
+    tier: 3
+  dice_experiment:
+    defines: A hands-on lab comparing empirical relative frequencies and profit outcomes from repeated
+      three-dice rolls to the theoretical binomial distribution and its expected value.
+    needs:
+    - binomial_distribution
+    - expected_value
+    - law_of_large_numbers
+    tier: 4

@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Prediction Interpolation Extrapolation | Introductory Statistics Ch12</title>
+<script>
+MathJax = {
+  tex: { inlineMath: [['$','$'],['\\(','\\)']], displayMath: [['$$','$$'],['\\[','\\]']] },
+  options: { skipHtmlTags: ['script','noscript','style','textarea','pre','code'] }
+};
+</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" async></script>
+<script src="https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.min.js"></script>
+<script>mermaid.initialize({ startOnLoad: true, theme: 'neutral' });</script>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:Georgia,serif;background:#fafaf8;color:#1a1a1a;line-height:1.7}
+h2{font-size:1.45rem;color:#1e3a5f;margin-bottom:12px}
+h3{font-size:1.1rem;color:#2e4a7f;margin:20px 0 8px}
+h4{font-size:1rem;color:#3a5a8f;margin:16px 0 6px}
+p{margin-bottom:16px;font-size:1rem}
+li{margin-bottom:6px;margin-left:24px;font-size:1rem}
+pre{background:#f4f4f0;border:1px solid #d8d8d0;border-radius:6px;
+    padding:16px 20px;overflow-x:auto;margin:16px 0}
+code{font-family:Menlo,Consolas,monospace;font-size:.87em}
+p code{background:#f0f0ea;padding:1px 4px;border-radius:3px}
+footer.spl-credit{margin-top:32px;padding-top:16px;border-top:1px solid #e0e0d8;
+      font-family:system-ui,sans-serif;font-size:.78rem;color:#999;text-align:center}
+footer.spl-credit a{color:#2563eb;text-decoration:none}
+footer.spl-credit span{display:block}
+footer.spl-credit .spl-credit__meta{margin-bottom:4px}
+.cb-figure{margin:24px 0;text-align:center}
+.cb-figure img{max-width:100%;height:auto;border:1px solid #e0e0d8;border-radius:6px}
+figcaption{font-size:.82rem;color:#666;margin-top:8px;font-style:italic;text-align:center}
+pre.mermaid{background:none;border:none;padding:0;overflow:visible;margin:16px 0}
+.page{max-width:780px;margin:0 auto;padding:40px 32px}
+section{margin-bottom:48px;border-top:1px solid #e0e0d8;padding-top:36px}
+section:first-of-type{border-top:none;padding-top:0}
+</style>
+</head>
+<body>
+<div class="page">
+  <main>
+    <h2 id="预测-内插与外推">预测、内插与外推</h2>
+<h3 id="定义">定义</h3>
+<p>当回归直线通过显著性检验后,我们可以用它根据给定的 $x$ 估计 $y$。设最小二乘回归线为</p>
+$$\hat{y} = b_0 + b_1 x,$$
+<p>其中 $b_0$ 为截距,$b_1$ 为斜率。<strong>预测</strong>就是把某个 $x_0$ 代入方程,得到 $\hat{y}_0 = b_0 + b_1 x_0$。</p>
+<p>预测按 $x_0$ 的位置分为两类:</p>
+<li><strong>内插</strong>:$x_{\min} \le x_0 \le x_{\max}$,即 $x_0$ 落在观测数据的 $x$ 范围之内。这时数据直接支持"线性关系成立"这一假设,预测通常可靠。</li>
+<li><strong>外推</strong>:$x_0 < x_{\min}$ 或 $x_0 > x_{\max}$。这时我们<strong>假定</strong>线性关系在数据范围之外仍然成立,而数据本身无法验证这一点,所以预测不可靠。</li>
+<h3 id="例题">例题</h3>
+<p>某班 8 名学生的每周学习时间 $x$(小时)与测验成绩 $y$(分)的数据如下,其中 $x$ 的取值范围为 $2 \le x \le 10$。已知回归线(检验显著,$r = 0.94$)为</p>
+$$\hat{y} = 52 + 4.0\,x.$$
+<p><strong>(a)</strong> 预测学习 6 小时的成绩。 因为 $2 \le 6 \le 10$,这是内插:</p>
+$$\hat{y} = 52 + 4.0(6) = 76 \text{ 分}.$$
+<p><strong>(b)</strong> 预测学习 20 小时的成绩。 因为 $20 > 10$,这是外推:</p>
+$$\hat{y} = 52 + 4.0(20) = 132 \text{ 分}.$$
+<p>满分通常只有 100 分,132 分显然不合理。原因在于成绩有上限,学习时间增加到一定程度后,收益会递减,关系不再是直线。这说明外推可能给出荒谬的结果。</p>
+<h3 id="问题求解应用">问题求解应用</h3>
+<p>遇到预测题时,按以下步骤处理:</p>
+<li><strong>检验显著性。</strong> 先确认相关性显著(例如对斜率做 $t$ 检验,或比较 $|r|$ 与临界值)。若不显著,就不应使用回归线预测,这时最好的估计只是 $\bar{y}$。</li>
+<li><strong>判断范围。</strong> 把 $x_0$ 与数据的最小值、最大值比较,确定属于内插还是外推。</li>
+<li><strong>代入计算。</strong> 求出 $\hat{y}_0$。</li>
+<li><strong>说明可靠性。</strong> 内插时可以说"在数据范围内,预测较可靠"。外推时必须注明"该预测依赖线性关系在数据范围外仍成立的假设,可信度低"。</li>
+<p><strong>再练一题:</strong> 用上面的回归线,判断 $x_0 = 1$ 与 $x_0 = 9$ 各属于哪一类,并求预测值。</p>
+<li>$x_0 = 9$:内插,$\hat{y} = 52 + 36 = 88$ 分,可信。</li>
+<li>$x_0 = 1$:外推(略低于 $x_{\min}=2$),$\hat{y} = 56$ 分。偏离数据范围较小,结果可作粗略参考,但仍应说明其局限。</li>
+<p>需要注意:离数据范围越远,外推的风险越大;即使相关系数很高,也只能说明线性模型<strong>在已观测范围内</strong>拟合良好,不能保证范围之外也成立。</p>
+<pre class="mermaid">flowchart TD
+    A[给定 x0] --> B{回归线显著?}
+    B -- 否 --> C[不用回归线预测<br/>改用 y 的平均值]
+    B -- 是 --> D{x0 在观测范围内?}
+    D -- 是 --> E[内插<br/>预测较可靠]
+    D -- 否 --> F[外推<br/>预测不可靠]
+    E --> G[代入 y 帽等于 b0 加 b1 x0]
+    F --> H[代入后须说明假设并谨慎解释]</pre>
+<p><em>图:使用回归线预测的判断流程。先检验显著性,再判断 $x_0$ 是否落在观测范围内,从而区分内插与外推。</em></p>
+  </main>
+  <footer class="spl-credit"><span class="spl-credit__meta">Introductory Statistics — Ch12: Linear Regression and Correlation (Level: College &middot; Language: ZH &middot; Model: sonnet)</span><span class="spl-credit__powered">Generated and Powered by <a href="https://github.com/digital-duck/SPL.py" target="_blank" rel="noopener">SPL</a></span></footer>
+</div>
+</body>
+</html>

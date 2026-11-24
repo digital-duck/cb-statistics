@@ -1,0 +1,151 @@
+domain: introductory_statistics_2e
+primitives:
+  null_hypothesis:
+    defines: A statement of no difference or status quo about a population parameter, assumed true unless
+      evidence indicates otherwise.
+    tier: 0
+  alternative_hypothesis:
+    defines: A claim about the population that contradicts the null hypothesis and is typically what the
+      researcher is trying to show.
+    tier: 0
+  significance_level:
+    defines: The preconceived probability of committing a Type I error, set before collecting sample data.
+    tier: 0
+  normal_distribution:
+    defines: A continuous probability distribution used as the sampling distribution for hypothesis tests
+      on means (known standard deviation) and proportions.
+    tier: 0
+  students_t_distribution:
+    defines: A continuous distribution similar to the normal distribution but flatter, used for testing
+      a population mean when the population standard deviation is unknown.
+    tier: 0
+  binomial_distribution:
+    defines: A discrete distribution of the number of successes in a fixed number of independent trials
+      with constant success probability, underlying tests of a population proportion.
+    tier: 0
+  central_limit_theorem:
+    defines: The principle that the distribution of sample means (or sums) approaches a normal distribution
+      as sample size grows, regardless of the population's shape.
+    tier: 0
+concepts:
+  hypothesis_testing:
+    defines: A procedure using sample data to decide whether there is sufficient evidence to reject a
+      null hypothesis about a population parameter.
+    composed_of:
+    - null_hypothesis
+    - alternative_hypothesis
+    tier: 1
+  type_i_error:
+    defines: The error of rejecting the null hypothesis when it is actually true, with probability denoted
+      alpha.
+    composed_of:
+    - null_hypothesis
+    - significance_level
+    tier: 1
+  type_ii_error:
+    defines: The error of not rejecting the null hypothesis when it is actually false, with probability
+      denoted beta.
+    composed_of:
+    - null_hypothesis
+    - alternative_hypothesis
+    tier: 1
+  sampling_distribution_selection:
+    defines: The process of choosing the normal, Student's t, or binomial-based normal distribution for
+      a hypothesis test based on the parameter tested and whether the population standard deviation is
+      known.
+    composed_of:
+    - normal_distribution
+    - students_t_distribution
+    - binomial_distribution
+    - central_limit_theorem
+    tier: 1
+  rare_event:
+    defines: An outcome so unlikely under an assumption that its occurrence casts doubt on the assumption
+      (the null hypothesis).
+    composed_of:
+    - null_hypothesis
+    - significance_level
+    tier: 1
+  confidence_interval:
+    defines: An interval estimate for an unknown population parameter, constructed from sample data and
+      a desired confidence level, often used alongside hypothesis test conclusions.
+    composed_of:
+    - students_t_distribution
+    - normal_distribution
+    - central_limit_theorem
+    tier: 1
+  power_of_test:
+    defines: The probability of correctly rejecting the null hypothesis when it is false, equal to 1 minus
+      beta.
+    composed_of:
+    - type_ii_error
+    tier: 2
+  p_value:
+    defines: The probability, assuming the null hypothesis is true, of obtaining a sample result as extreme
+      or more extreme than the one observed.
+    composed_of:
+    - null_hypothesis
+    - sampling_distribution_selection
+    - rare_event
+    tier: 2
+  test_statistic:
+    defines: A standardized value computed from sample data (such as a z-score or t-score) used to find
+      the p-value and compare against a critical value.
+    composed_of:
+    - sampling_distribution_selection
+    tier: 2
+  decision_rule:
+    defines: The rule that rejects H0 when alpha is greater than the p-value, and fails to reject H0 when
+      alpha is less than or equal to the p-value.
+    composed_of:
+    - significance_level
+    - p_value
+    tier: 3
+  tailed_tests:
+    defines: Classification of a hypothesis test based on which direction(s) of the sampling distribution
+      the p-value region falls in, determined by the alternative hypothesis symbol.
+    composed_of:
+    - alternative_hypothesis
+    - p_value
+    tier: 3
+  conclusion_writing:
+    defines: A plain-language statement, written after the decision, interpreting the hypothesis test
+      result in terms of the original problem.
+    composed_of:
+    - decision_rule
+    tier: 4
+  hypothesis_test_procedure:
+    defines: The systematic five-step process of stating hypotheses, identifying the distribution, calculating
+      the test statistic and p-value, comparing to alpha, and stating a conclusion.
+    composed_of:
+    - hypothesis_testing
+    - sampling_distribution_selection
+    - test_statistic
+    - p_value
+    - decision_rule
+    - tailed_tests
+    - conclusion_writing
+    tier: 5
+applications:
+  test_single_mean_known_sd:
+    defines: A z-test that determines whether a population mean differs from a claimed value when the
+      population standard deviation is known.
+    needs:
+    - hypothesis_test_procedure
+    - normal_distribution
+    tier: 6
+  test_single_mean_unknown_sd:
+    defines: A t-test that determines whether a population mean differs from a claimed value using the
+      sample standard deviation in place of an unknown population standard deviation.
+    needs:
+    - hypothesis_test_procedure
+    - students_t_distribution
+    tier: 6
+  test_single_proportion:
+    defines: A normal-approximation test that determines whether a population proportion differs from
+      a claimed value, applicable when both np and nq exceed five.
+    needs:
+    - hypothesis_test_procedure
+    - binomial_distribution
+    - normal_distribution
+    tier: 6

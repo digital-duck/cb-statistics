@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Test Single Mean Unknown Sd | Introductory Statistics Ch09</title>
+<script>
+MathJax = {
+  tex: { inlineMath: [['$','$'],['\\(','\\)']], displayMath: [['$$','$$'],['\\[','\\]']] },
+  options: { skipHtmlTags: ['script','noscript','style','textarea','pre','code'] }
+};
+</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" async></script>
+<script src="https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.min.js"></script>
+<script>mermaid.initialize({ startOnLoad: true, theme: 'neutral' });</script>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:Georgia,serif;background:#fafaf8;color:#1a1a1a;line-height:1.7}
+h2{font-size:1.45rem;color:#1e3a5f;margin-bottom:12px}
+h3{font-size:1.1rem;color:#2e4a7f;margin:20px 0 8px}
+h4{font-size:1rem;color:#3a5a8f;margin:16px 0 6px}
+p{margin-bottom:16px;font-size:1rem}
+li{margin-bottom:6px;margin-left:24px;font-size:1rem}
+pre{background:#f4f4f0;border:1px solid #d8d8d0;border-radius:6px;
+    padding:16px 20px;overflow-x:auto;margin:16px 0}
+code{font-family:Menlo,Consolas,monospace;font-size:.87em}
+p code{background:#f0f0ea;padding:1px 4px;border-radius:3px}
+footer.spl-credit{margin-top:32px;padding-top:16px;border-top:1px solid #e0e0d8;
+      font-family:system-ui,sans-serif;font-size:.78rem;color:#999;text-align:center}
+footer.spl-credit a{color:#2563eb;text-decoration:none}
+footer.spl-credit span{display:block}
+footer.spl-credit .spl-credit__meta{margin-bottom:4px}
+.cb-figure{margin:24px 0;text-align:center}
+.cb-figure img{max-width:100%;height:auto;border:1px solid #e0e0d8;border-radius:6px}
+figcaption{font-size:.82rem;color:#666;margin-top:8px;font-style:italic;text-align:center}
+pre.mermaid{background:none;border:none;padding:0;overflow:visible;margin:16px 0}
+.page{max-width:780px;margin:0 auto;padding:40px 32px}
+section{margin-bottom:48px;border-top:1px solid #e0e0d8;padding-top:36px}
+section:first-of-type{border-top:none;padding-top:0}
+</style>
+</head>
+<body>
+<div class="page">
+  <main>
+    <h2 id="单均值检验-总体标准差未知">单均值检验(总体标准差未知)</h2>
+<h3 id="定义">定义</h3>
+<p>当我们想检验总体均值 $\mu$ 是否不同于某个声称值 $\mu_0$,而总体标准差 $\sigma$ <strong>未知</strong>时,用样本标准差 $s$ 代替 $\sigma$,得到检验统计量</p>
+$$
+t=\frac{\bar{x}-\mu_0}{s/\sqrt{n}}.
+$$
+<p>在原假设 $H_0:\mu=\mu_0$ 成立且总体近似正态(或 $n$ 较大)的条件下,$t$ 服从自由度为 $df=n-1$ 的 $t$ 分布。与标准正态分布相比,$t$ 分布尾部更厚,这反映了用 $s$ 估计 $\sigma$ 带来的额外不确定性;随着 $n$ 增大,它趋近于标准正态分布。</p>
+<p>检验步骤:</p>
+<li>设定 $H_0:\mu=\mu_0$ 与备择假设 $H_a$($\mu\neq\mu_0$、$\mu>\mu_0$ 或 $\mu<\mu_0$)。</li>
+<li>检查条件:随机样本、独立性、近似正态(小样本时需检查数据是否严重偏斜或有离群值)。</li>
+<li>计算 $t$ 与 $p$ 值。</li>
+<li>若 $p<\alpha$,拒绝 $H_0$;否则不拒绝。</li>
+<h3 id="例题">例题</h3>
+<p>某品牌声称其电池平均寿命为 $\mu_0=500$ 小时。随机抽取 $n=16$ 个电池,测得 $\bar{x}=488$ 小时,$s=24$ 小时。在 $\alpha=0.05$ 下检验寿命是否不同于 500 小时。</p>
+<li>$H_0:\mu=500$,$H_a:\mu\neq500$。</li>
+<li>标准误:$SE=\dfrac{24}{\sqrt{16}}=6$。</li>
+<li>检验统计量:$t=\dfrac{488-500}{6}=-2.0$,$df=15$。</li>
+<li>双侧检验的临界值为 $t^*_{0.025,15}\approx2.131$。因为 $|-2.0|<2.131$,所以不拒绝 $H_0$。等价地,$p\approx0.064>0.05$。</li>
+<p><strong>结论:</strong>在 5% 的显著性水平下,没有足够证据表明平均寿命不同于 500 小时。注意,这并不证明厂商的声称是正确的,只是证据不够充分。</p>
+<h3 id="问题求解应用">问题求解应用</h3>
+<p><strong>场景:</strong>一位环境工程师怀疑某河流的溶解氧均值低于安全标准 $6.0$ mg/L。在 $n=9$ 个采样点测得 $\bar{x}=5.4$,$s=0.9$。取 $\alpha=0.05$,检验该怀疑。</p>
+<li>单侧假设:$H_0:\mu=6.0$,$H_a:\mu<6.0$。</li>
+<li>$SE=\dfrac{0.9}{\sqrt{9}}=0.3$,$t=\dfrac{5.4-6.0}{0.3}=-2.0$,$df=8$。</li>
+<li>左侧临界值 $-t^*_{0.05,8}\approx-1.860$。因为 $-2.0<-1.860$,所以拒绝 $H_0$($p\approx0.040$)。</li>
+<p><strong>结论:</strong>有显著证据表明该河流溶解氧均值低于 $6.0$ mg/L。</p>
+<p><strong>常见错误提醒:</strong></p>
+<li>总体标准差未知时不要使用 $z$ 检验;应使用 $t$ 检验并取 $df=n-1$。</li>
+<li>单侧与双侧检验的临界值不同,必须依据题意选择 $H_a$。</li>
+<li>小样本($n<30$)时,若数据明显偏斜或含离群值,$t$ 检验的结果不可靠。</li>
+<li>"不拒绝 $H_0$"不等于"接受 $H_0$"。</li>
+<p><strong>小结:</strong>当 $\sigma$ 未知时,用 $s$ 构造 $t=\dfrac{\bar{x}-\mu_0}{s/\sqrt{n}}$,在自由度 $n-1$ 的 $t$ 分布下作决策,这是实际数据分析中最常用的均值检验方法。</p>
+  </main>
+  <footer class="spl-credit"><span class="spl-credit__meta">Introductory Statistics — Ch9: Hypothesis Testing with One Sample (Level: College &middot; Language: ZH &middot; Model: sonnet)</span><span class="spl-credit__powered">Generated and Powered by <a href="https://github.com/digital-duck/SPL.py" target="_blank" rel="noopener">SPL</a></span></footer>
+</div>
+</body>
+</html>

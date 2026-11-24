@@ -1,0 +1,71 @@
+domain: introductory_statistics_2e
+sources:
+  random_variable:
+    label: Random Variable
+    sections: []
+  continuous_probability_distribution:
+    label: Continuous Probability Distribution
+    sections:
+    - id: ch06_chapter_objectives
+      title: Chapter Objectives
+  mean:
+    label: Mean (μ)
+    sections:
+    - id: ch06_chapter_objectives
+      title: Chapter Objectives
+  standard_deviation:
+    label: Standard Deviation (σ)
+    sections:
+    - id: ch06_chapter_objectives
+      title: Chapter Objectives
+  normal_distribution:
+    label: Normal Distribution
+    sections:
+    - id: ch06_chapter_objectives
+      title: Chapter Objectives
+    - id: ch06_s6_1
+      title: 6.1 The Standard Normal Distribution
+  z_score:
+    label: Z-Score
+    sections:
+    - id: ch06_s6_1
+      title: 6.1 The Standard Normal Distribution
+  standard_normal_distribution:
+    label: Standard Normal Distribution
+    sections:
+    - id: ch06_s6_1
+      title: 6.1 The Standard Normal Distribution
+  empirical_rule:
+    label: Empirical Rule (68-95-99.7 Rule)
+    sections:
+    - id: ch06_s6_1
+      title: 6.1 The Standard Normal Distribution
+  cumulative_distribution_function:
+    label: Cumulative Distribution Function
+    sections:
+    - id: ch06_s6_1
+      title: 6.1 The Standard Normal Distribution
+    - id: ch06_s6_2
+      title: 6.2 Using the Normal Distribution
+  normal_probability_calculation:
+    label: Normal Probability Calculation (normalcdf)
+    sections:
+    - id: ch06_s6_2
+      title: 6.2 Using the Normal Distribution
+  percentile_and_invnorm:
+    label: Percentile and Inverse Normal (invNorm)
+    sections:
+    - id: ch06_s6_2
+      title: 6.2 Using the Normal Distribution
+  interquartile_range_normal:
+    label: Interquartile Range (Normal Distribution)
+    sections:
+    - id: ch06_s6_2
+      title: 6.2 Using the Normal Distribution
+  normal_approximation_to_empirical_data:
+    label: Normal Approximation to Empirical Data
+    sections:
+    - id: ch06_s6_3
+      title: 6.3 Normal Distribution (Lap Times)
+    - id: ch06_s6_4
+      title: 6.4 Normal Distribution (Pinkie Length)

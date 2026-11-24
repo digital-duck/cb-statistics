@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sampling Distribution Selection | Introductory Statistics Ch09</title>
+<script>
+MathJax = {
+  tex: { inlineMath: [['$','$'],['\\(','\\)']], displayMath: [['$$','$$'],['\\[','\\]']] },
+  options: { skipHtmlTags: ['script','noscript','style','textarea','pre','code'] }
+};
+</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" async></script>
+<script src="https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.min.js"></script>
+<script>mermaid.initialize({ startOnLoad: true, theme: 'neutral' });</script>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:Georgia,serif;background:#fafaf8;color:#1a1a1a;line-height:1.7}
+h2{font-size:1.45rem;color:#1e3a5f;margin-bottom:12px}
+h3{font-size:1.1rem;color:#2e4a7f;margin:20px 0 8px}
+h4{font-size:1rem;color:#3a5a8f;margin:16px 0 6px}
+p{margin-bottom:16px;font-size:1rem}
+li{margin-bottom:6px;margin-left:24px;font-size:1rem}
+pre{background:#f4f4f0;border:1px solid #d8d8d0;border-radius:6px;
+    padding:16px 20px;overflow-x:auto;margin:16px 0}
+code{font-family:Menlo,Consolas,monospace;font-size:.87em}
+p code{background:#f0f0ea;padding:1px 4px;border-radius:3px}
+footer.spl-credit{margin-top:32px;padding-top:16px;border-top:1px solid #e0e0d8;
+      font-family:system-ui,sans-serif;font-size:.78rem;color:#999;text-align:center}
+footer.spl-credit a{color:#2563eb;text-decoration:none}
+footer.spl-credit span{display:block}
+footer.spl-credit .spl-credit__meta{margin-bottom:4px}
+.cb-figure{margin:24px 0;text-align:center}
+.cb-figure img{max-width:100%;height:auto;border:1px solid #e0e0d8;border-radius:6px}
+figcaption{font-size:.82rem;color:#666;margin-top:8px;font-style:italic;text-align:center}
+pre.mermaid{background:none;border:none;padding:0;overflow:visible;margin:16px 0}
+.page{max-width:780px;margin:0 auto;padding:40px 32px}
+section{margin-bottom:48px;border-top:1px solid #e0e0d8;padding-top:36px}
+section:first-of-type{border-top:none;padding-top:0}
+</style>
+</head>
+<body>
+<div class="page">
+  <main>
+    <h2 id="抽样分布的选择">抽样分布的选择</h2>
+<p><strong>定义。</strong> 做假设检验时,检验统计量服从哪种抽样分布,取决于两个问题:(1)检验的参数是什么(均值还是比例);(2)总体标准差 $\sigma$ 是否已知。选错分布,$p$ 值和临界值都会出错。</p>
+<p><strong>选择规则:</strong></p>
+<p>| 检验参数 | 条件 | 抽样分布 | |---|---|---| | 总体均值 $\mu$ | $\sigma$ 已知,且总体近似正态或 $n\ge 30$ | 标准正态 $z$ | | 总体均值 $\mu$ | $\sigma$ 未知,用样本标准差 $s$ 代替 | 学生 $t$,自由度 $df=n-1$ | | 总体比例 $p$ | $np_0\ge 10$ 且 $n(1-p_0)\ge 10$ | 二项分布的正态近似 $z$ |</p>
+<p>对应的检验统计量为:</p>
+$$z=\frac{\bar x-\mu_0}{\sigma/\sqrt n},\qquad t=\frac{\bar x-\mu_0}{s/\sqrt n},\qquad z=\frac{\hat p-p_0}{\sqrt{p_0(1-p_0)/n}}$$
+<p>注意:比例检验的标准误用的是原假设中的 $p_0$,而不是样本比例 $\hat p$。比例检验不需要 $\sigma$,因为二项分布的方差 $np_0(1-p_0)$ 完全由 $p_0$ 决定。</p>
+<p><strong>为什么 $\sigma$ 未知时要用 $t$?</strong> 用 $s$ 替代 $\sigma$ 会引入额外的随机性,$t$ 分布的尾部比正态分布更厚,$df$ 越小越明显;当 $n\to\infty$ 时,$t$ 分布趋近标准正态分布。</p>
+<p><strong>例题 1。</strong> 某工厂声称螺栓平均长度为 $50$ mm。抽取 $n=16$ 个,得 $\bar x=50.8$,$s=1.6$,总体 $\sigma$ 未知。检验 $H_0:\mu=50$。</p>
+<p>因为参数是均值且 $\sigma$ 未知,选用 $t$ 分布,$df=15$:</p>
+$$t=\frac{50.8-50}{1.6/\sqrt{16}}=\frac{0.8}{0.4}=2.0$$
+<p>双侧检验,$t_{0.025,15}=2.131$。由于 $2.0<2.131$,在 $5\%$ 水平上不拒绝 $H_0$。若误用 $z$(临界值 $1.96$),就会错误地拒绝 $H_0$——这正是选错分布的后果。</p>
+<p><strong>例题 2。</strong> 某政策声称支持率为 $p_0=0.40$。调查 $n=200$ 人,有 $92$ 人支持,$\hat p=0.46$。</p>
+<p>先检验条件:$np_0=80\ge10$,$n(1-p_0)=120\ge10$,可以使用正态近似。</p>
+$$z=\frac{0.46-0.40}{\sqrt{0.40\times0.60/200}}=\frac{0.06}{0.0346}\approx1.73$$
+<p>双侧 $p$ 值约为 $0.084>0.05$,不拒绝 $H_0$。</p>
+<p><strong>问题解决流程。</strong></p>
+<pre class="mermaid">flowchart TD
+A[确定检验参数] --> B{均值还是比例?}
+B -->|比例| C[检查 np0 与 n1-p0 是否≥10]
+C --> D[使用正态近似 z]
+B -->|均值| E{σ 是否已知?}
+E -->|已知| F[使用标准正态 z]
+E -->|未知| G[使用 t 分布 df=n-1]</pre>
+<p><em>图:根据参数类型和 $\sigma$ 是否已知选择抽样分布的决策流程。</em></p>
+<p><strong>常见陷阱:</strong> (1)实际问题中 $\sigma$ 几乎总是未知的,默认应优先考虑 $t$;(2)小样本且总体明显偏态时,$t$ 与 $z$ 都不可靠,应改用其他方法;(3)比例检验的条件检查用 $p_0$,而置信区间则用 $\hat p$。</p>
+  </main>
+  <footer class="spl-credit"><span class="spl-credit__meta">Introductory Statistics — Ch9: Hypothesis Testing with One Sample (Level: College &middot; Language: ZH &middot; Model: sonnet)</span><span class="spl-credit__powered">Generated and Powered by <a href="https://github.com/digital-duck/SPL.py" target="_blank" rel="noopener">SPL</a></span></footer>
+</div>
+</body>
+</html>

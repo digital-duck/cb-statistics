@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Scatter Plot | Introductory Statistics Ch12</title>
+<script>
+MathJax = {
+  tex: { inlineMath: [['$','$'],['\\(','\\)']], displayMath: [['$$','$$'],['\\[','\\]']] },
+  options: { skipHtmlTags: ['script','noscript','style','textarea','pre','code'] }
+};
+</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" async></script>
+<script src="https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.min.js"></script>
+<script>mermaid.initialize({ startOnLoad: true, theme: 'neutral' });</script>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:Georgia,serif;background:#fafaf8;color:#1a1a1a;line-height:1.7}
+h2{font-size:1.45rem;color:#1e3a5f;margin-bottom:12px}
+h3{font-size:1.1rem;color:#2e4a7f;margin:20px 0 8px}
+h4{font-size:1rem;color:#3a5a8f;margin:16px 0 6px}
+p{margin-bottom:16px;font-size:1rem}
+li{margin-bottom:6px;margin-left:24px;font-size:1rem}
+pre{background:#f4f4f0;border:1px solid #d8d8d0;border-radius:6px;
+    padding:16px 20px;overflow-x:auto;margin:16px 0}
+code{font-family:Menlo,Consolas,monospace;font-size:.87em}
+p code{background:#f0f0ea;padding:1px 4px;border-radius:3px}
+footer.spl-credit{margin-top:32px;padding-top:16px;border-top:1px solid #e0e0d8;
+      font-family:system-ui,sans-serif;font-size:.78rem;color:#999;text-align:center}
+footer.spl-credit a{color:#2563eb;text-decoration:none}
+footer.spl-credit span{display:block}
+footer.spl-credit .spl-credit__meta{margin-bottom:4px}
+.cb-figure{margin:24px 0;text-align:center}
+.cb-figure img{max-width:100%;height:auto;border:1px solid #e0e0d8;border-radius:6px}
+figcaption{font-size:.82rem;color:#666;margin-top:8px;font-style:italic;text-align:center}
+pre.mermaid{background:none;border:none;padding:0;overflow:visible;margin:16px 0}
+.page{max-width:780px;margin:0 auto;padding:40px 32px}
+section{margin-bottom:48px;border-top:1px solid #e0e0d8;padding-top:36px}
+section:first-of-type{border-top:none;padding-top:0}
+</style>
+</head>
+<body>
+<div class="page">
+  <main>
+    <h2 id="散点图">散点图</h2>
+<p><strong>定义。</strong> 散点图(scatter plot)把成对观测值 $(x_i, y_i)$ 画成平面上的点:横轴表示变量 $x$,纵轴表示变量 $y$。它不假设任何函数形式,只让数据"自己说话",用来观察两个变量之间关系的<strong>方向</strong>、<strong>强度</strong>和<strong>形状</strong>。</p>
+<li><strong>方向</strong>:点群从左下向右上倾斜为正相关;从左上向右下倾斜为负相关。</li>
+<li><strong>强度</strong>:点越紧密地聚集在一条线或曲线附近,关系越强;越分散,关系越弱。</li>
+<li><strong>形状</strong>:线性、曲线(如二次、指数)或无明显模式;此外还要留意离群点和分组结构。</li>
+<p>强度可用样本相关系数 $r$ 量化:</p>
+$$r=\frac{\sum_{i=1}^{n}(x_i-\bar x)(y_i-\bar y)}{\sqrt{\sum_{i=1}^{n}(x_i-\bar x)^2}\,\sqrt{\sum_{i=1}^{n}(y_i-\bar y)^2}},\qquad -1\le r\le 1.$$
+<p>$r$ 接近 $\pm1$ 表示线性关系强,接近 $0$ 表示线性关系弱。注意:$r$ 只度量<strong>线性</strong>关系,因此必须先看图,再算数。</p>
+<p><strong>例题。</strong> 五名学生每周学习时数 $x$ 与测验分数 $y$:</p>
+<p>| $x$ | 1 | 2 | 3 | 4 | 5 | |---|---|---|---|---|---| | $y$ | 55 | 62 | 70 | 74 | 84 |</p>
+<p>描点后,点从左下向右上排列,近似成一条直线,故为正相关。计算:$\bar x=3$,$\bar y=69$。</p>
+<li>$\sum(x_i-\bar x)(y_i-\bar y)=(-2)(-14)+(-1)(-7)+0\cdot1+1\cdot5+2\cdot15=28+7+0+5+30=70$</li>
+<li>$\sum(x_i-\bar x)^2=10$</li>
+<li>$\sum(y_i-\bar y)^2=196+49+1+25+225=496$</li>
+$$r=\frac{70}{\sqrt{10}\sqrt{496}}=\frac{70}{\sqrt{4960}}\approx\frac{70}{70.43}\approx 0.994.$$
+<p>这是很强的正线性关系。最小二乘直线斜率为 $b=70/10=7$,即每多学 1 小时,预测分数约增加 7 分;截距为 $a=69-7\cdot3=48$,所以 $\hat y=48+7x$。</p>
+<p><strong>问题求解应用。</strong> 面对新数据集,可按以下步骤分析:</p>
+<li><strong>先画图。</strong> 判断形状是否近似线性。若点呈"U"形,即使 $r\approx0$,两变量也可能有很强的二次关系。</li>
+<li><strong>检查离群点。</strong> 一个远离群体的点可以显著拉高或拉低 $r$,应核查它是测量错误还是真实现象。</li>
+<li><strong>考虑分组。</strong> 若点分成几簇,合并计算的 $r$ 可能掩盖各组内部相反的趋势(辛普森悖论)。</li>
+<li><strong>谨慎解释。</strong> 相关不等于因果:冰淇淋销量与溺水人数正相关,是因为共同的"气温"这一潜在变量。</li>
+<li><strong>限制外推。</strong> 上例中用 $\hat y=48+7x$ 预测 $x=20$ 小时显然荒谬(分数会超过 100),直线只在观测范围内可靠。</li>
+<p><strong>小结。</strong> 散点图是数据分析的第一步:先用眼睛判断方向、强度与形状,再用 $r$ 和回归直线做定量描述,最后结合背景知识判断结论是否合理。</p>
+  </main>
+  <footer class="spl-credit"><span class="spl-credit__meta">Introductory Statistics — Ch12: Linear Regression and Correlation (Level: College &middot; Language: ZH &middot; Model: sonnet)</span><span class="spl-credit__powered">Generated and Powered by <a href="https://github.com/digital-duck/SPL.py" target="_blank" rel="noopener">SPL</a></span></footer>
+</div>
+</body>
+</html>

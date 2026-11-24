@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Two Sample Test Classification | Introductory Statistics Ch10</title>
+<script>
+MathJax = {
+  tex: { inlineMath: [['$','$'],['\\(','\\)']], displayMath: [['$$','$$'],['\\[','\\]']] },
+  options: { skipHtmlTags: ['script','noscript','style','textarea','pre','code'] }
+};
+</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" async></script>
+<script src="https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.min.js"></script>
+<script>mermaid.initialize({ startOnLoad: true, theme: 'neutral' });</script>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:Georgia,serif;background:#fafaf8;color:#1a1a1a;line-height:1.7}
+h2{font-size:1.45rem;color:#1e3a5f;margin-bottom:12px}
+h3{font-size:1.1rem;color:#2e4a7f;margin:20px 0 8px}
+h4{font-size:1rem;color:#3a5a8f;margin:16px 0 6px}
+p{margin-bottom:16px;font-size:1rem}
+li{margin-bottom:6px;margin-left:24px;font-size:1rem}
+pre{background:#f4f4f0;border:1px solid #d8d8d0;border-radius:6px;
+    padding:16px 20px;overflow-x:auto;margin:16px 0}
+code{font-family:Menlo,Consolas,monospace;font-size:.87em}
+p code{background:#f0f0ea;padding:1px 4px;border-radius:3px}
+footer.spl-credit{margin-top:32px;padding-top:16px;border-top:1px solid #e0e0d8;
+      font-family:system-ui,sans-serif;font-size:.78rem;color:#999;text-align:center}
+footer.spl-credit a{color:#2563eb;text-decoration:none}
+footer.spl-credit span{display:block}
+footer.spl-credit .spl-credit__meta{margin-bottom:4px}
+.cb-figure{margin:24px 0;text-align:center}
+.cb-figure img{max-width:100%;height:auto;border:1px solid #e0e0d8;border-radius:6px}
+figcaption{font-size:.82rem;color:#666;margin-top:8px;font-style:italic;text-align:center}
+pre.mermaid{background:none;border:none;padding:0;overflow:visible;margin:16px 0}
+.page{max-width:780px;margin:0 auto;padding:40px 32px}
+section{margin-bottom:48px;border-top:1px solid #e0e0d8;padding-top:36px}
+section:first-of-type{border-top:none;padding-top:0}
+</style>
+</head>
+<body>
+<div class="page">
+  <main>
+    <h2 id="双样本检验的分类">双样本检验的分类</h2>
+<p><strong>定义。</strong> 面对两组数据,第一步不是计算,而是<em>分类</em>:检验统计量的形式完全取决于数据的结构。判断顺序如下:</p>
+<li>两组观测是否<strong>配对</strong>(同一对象前后测量、匹配对子)?若是,用<strong>配对样本检验</strong>。</li>
+<li>若相互独立,比较的是<strong>均值</strong>还是<strong>比例</strong>?</li>
+<li>比较均值时,总体方差 $\sigma_1^2,\sigma_2^2$ 是<strong>已知</strong>还是<strong>未知</strong>?未知时,再判断能否假设方差相等。</li>
+<pre class="mermaid">flowchart TD
+A[两组数据] --> B{是否配对?}
+B -->|是| C[配对t检验:对差值d做单样本t]
+B -->|否| D{比较对象?}
+D -->|比例| E[两比例z检验]
+D -->|均值| F{方差是否已知?}
+F -->|已知| G[两样本z检验]
+F -->|未知| H{可假设方差相等?}
+H -->|是| I[合并方差t检验]
+H -->|否| J[Welch t检验]</pre>
+<p><em>图:双样本检验的决策流程,从数据结构出发选出对应的检验。</em></p>
+<p>各情形的统计量:</p>
+<li>方差已知:$z=\dfrac{\bar x_1-\bar x_2}{\sqrt{\sigma_1^2/n_1+\sigma_2^2/n_2}}$</li>
+<li>方差未知且相等:$t=\dfrac{\bar x_1-\bar x_2}{s_p\sqrt{1/n_1+1/n_2}}$,其中 $s_p^2=\dfrac{(n_1-1)s_1^2+(n_2-1)s_2^2}{n_1+n_2-2}$,自由度 $n_1+n_2-2$</li>
+<li>方差未知且不等(Welch):$t=\dfrac{\bar x_1-\bar x_2}{\sqrt{s_1^2/n_1+s_2^2/n_2}}$,自由度由 Welch–Satterthwaite 公式近似</li>
+<li>两比例:$z=\dfrac{\hat p_1-\hat p_2}{\sqrt{\hat p(1-\hat p)(1/n_1+1/n_2)}}$,$\hat p$ 为合并比例</li>
+<li>配对:令 $d_i=x_{i}-y_{i}$,则 $t=\dfrac{\bar d}{s_d/\sqrt n}$,自由度 $n-1$</li>
+<p><strong>例题(分类练习)。</strong> 判断下列情形各用哪种检验:</p>
+<p>(a) 某班 12 名学生在培训前后各测一次成绩,比较平均分是否提高。 (b) 两种教学法分别用于两组互不相关的学生,总体标准差未知,样本标准差分别为 8.1 与 7.9,比较平均分。 (c) 药物组 200 人中 130 人有效,安慰剂组 200 人中 105 人有效,比较有效率。</p>
+<p><em>解答。</em> (a) 同一批学生测两次,数据配对,用配对 $t$ 检验,$df=11$。(b) 两组独立、比较均值、方差未知;$s_1\approx s_2$,可合理假设方差相等,用合并方差 $t$ 检验(若不放心,Welch 检验更稳妥)。(c) 独立样本、比较比例,用两比例 $z$ 检验。</p>
+<p><strong>问题求解应用。</strong> 完成 (c):$\hat p_1=0.65,\ \hat p_2=0.525$,合并比例 $\hat p=\dfrac{130+105}{400}=0.5875$。</p>
+$$z=\frac{0.65-0.525}{\sqrt{0.5875\times0.4125\times(2/200)}}=\frac{0.125}{0.0492}\approx 2.54$$
+<p>双侧 $p\approx0.011<0.05$,拒绝原假设:药物有效率显著高于安慰剂。</p>
+<p><strong>常见错误。</strong> 把配对数据当作独立样本处理,会忽略对子间的相关性,通常使标准误偏大、检验功效下降;反之,把独立样本误当作配对则毫无依据。总是先问:"第一组的每个观测,是否在第二组中有唯一对应的伙伴?"</p>
+  </main>
+  <footer class="spl-credit"><span class="spl-credit__meta">Introductory Statistics — Ch10: Hypothesis Testing with Two Samples (Level: College &middot; Language: ZH &middot; Model: sonnet)</span><span class="spl-credit__powered">Generated and Powered by <a href="https://github.com/digital-duck/SPL.py" target="_blank" rel="noopener">SPL</a></span></footer>
+</div>
+</body>
+</html>

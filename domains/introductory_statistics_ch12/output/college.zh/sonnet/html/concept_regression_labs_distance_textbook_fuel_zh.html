@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Regression Labs Distance Textbook Fuel | Introductory Statistics Ch12</title>
+<script>
+MathJax = {
+  tex: { inlineMath: [['$','$'],['\\(','\\)']], displayMath: [['$$','$$'],['\\[','\\]']] },
+  options: { skipHtmlTags: ['script','noscript','style','textarea','pre','code'] }
+};
+</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" async></script>
+<script src="https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.min.js"></script>
+<script>mermaid.initialize({ startOnLoad: true, theme: 'neutral' });</script>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:Georgia,serif;background:#fafaf8;color:#1a1a1a;line-height:1.7}
+h2{font-size:1.45rem;color:#1e3a5f;margin-bottom:12px}
+h3{font-size:1.1rem;color:#2e4a7f;margin:20px 0 8px}
+h4{font-size:1rem;color:#3a5a8f;margin:16px 0 6px}
+p{margin-bottom:16px;font-size:1rem}
+li{margin-bottom:6px;margin-left:24px;font-size:1rem}
+pre{background:#f4f4f0;border:1px solid #d8d8d0;border-radius:6px;
+    padding:16px 20px;overflow-x:auto;margin:16px 0}
+code{font-family:Menlo,Consolas,monospace;font-size:.87em}
+p code{background:#f0f0ea;padding:1px 4px;border-radius:3px}
+footer.spl-credit{margin-top:32px;padding-top:16px;border-top:1px solid #e0e0d8;
+      font-family:system-ui,sans-serif;font-size:.78rem;color:#999;text-align:center}
+footer.spl-credit a{color:#2563eb;text-decoration:none}
+footer.spl-credit span{display:block}
+footer.spl-credit .spl-credit__meta{margin-bottom:4px}
+.cb-figure{margin:24px 0;text-align:center}
+.cb-figure img{max-width:100%;height:auto;border:1px solid #e0e0d8;border-radius:6px}
+figcaption{font-size:.82rem;color:#666;margin-top:8px;font-style:italic;text-align:center}
+pre.mermaid{background:none;border:none;padding:0;overflow:visible;margin:16px 0}
+.page{max-width:780px;margin:0 auto;padding:40px 32px}
+section{margin-bottom:48px;border-top:1px solid #e0e0d8;padding-top:36px}
+section:first-of-type{border-top:none;padding-top:0}
+</style>
+</head>
+<body>
+<div class="page">
+  <main>
+    <h2 id="回归实验-距离-教材与燃油效率">回归实验:距离、教材与燃油效率</h2>
+<p><strong>定义。</strong> 简单线性回归用直线 $\hat y=a+bx$ 拟合 $n$ 组数据 $(x_i,y_i)$,并使残差平方和最小。最小二乘解为</p>
+$$b=r\,\frac{s_y}{s_x},\qquad a=\bar y-b\bar x,$$
+<p>其中 $r$ 为相关系数,$s_x,s_y$ 为样本标准差。斜率 $b$ 表示 $x$ 每增加一个单位时 $y$ 的平均变化量。三个实验的变量设置如下:</p>
+<li><strong>实验 A</strong>:学校到供应商的距离 $x$(公里)与供应成本 $y$(元)。</li>
+<li><strong>实验 B</strong>:教材页数 $x$ 与售价 $y$(元)。</li>
+<li><strong>实验 C</strong>:汽车重量 $x$(百公斤)与油耗 $y$(升/百公里)。</li>
+<p><strong>相关性显著性检验。</strong> 检验 $H_0:\rho=0$,统计量为</p>
+$$t=\frac{r\sqrt{n-2}}{\sqrt{1-r^2}},\qquad \text{自由度 } n-2.$$
+<p>若 $|t|$ 大于临界值(或 $p<0.05$),则认为线性关系显著。</p>
+<p><strong>例题(实验 B)。</strong> 收集 $n=10$ 本教材的数据,算得 $\bar x=400$ 页,$\bar y=80$ 元,$s_x=100$,$s_y=20$,$r=0.90$。</p>
+<li>斜率 $b=0.90\times\frac{20}{100}=0.18$ 元/页。</li>
+<li>截距 $a=80-0.18\times400=8$ 元。</li>
+<li>回归方程为 $\hat y=8+0.18x$。</li>
+<li>检验:$t=\dfrac{0.90\sqrt8}{\sqrt{1-0.81}}=\dfrac{2.546}{0.436}\approx5.84$。自由度为 8 时,双侧 5% 临界值约为 2.306,所以相关显著。</li>
+<li>决定系数 $r^2=0.81$,即页数解释了价格 81% 的变异。</li>
+<p>预测 500 页的教材:$\hat y=8+0.18\times500=98$ 元。</p>
+<p><strong>问题解决应用:离群点检测。</strong> 计算残差 $e_i=y_i-\hat y_i$,再计算标准化残差 $e_i/s_e$,其中</p>
+$$s_e=\sqrt{\frac{\sum e_i^2}{n-2}}.$$
+<p>若 $|e_i/s_e|>2$(严格检验常用 3),该点需要检查。</p>
+<p>在实验 C 中,若多数轿车满足"越重越费油",而某辆混合动力车的油耗远低于直线预测值,它的标准化残差会很大。处理步骤如下:</p>
+<li>核对记录是否有误,例如单位或录入错误。</li>
+<li>若数据无误,说明该车属于另一类总体(动力系统不同)。此时应分组拟合,不应直接删点。</li>
+<li>对比删除前后的 $r$ 与 $b$,判断该点的影响力。</li>
+<p><strong>实验注意事项。</strong></p>
+<li>外推要谨慎:实验 A 中距离只测了 1–20 公里,不能预测 200 公里的成本。</li>
+<li>相关不等于因果:页数与价格同增,可能源于纸张、装帧等共同因素。</li>
+<li>先画散点图再计算,因为 $r$ 只衡量线性关系。</li>
+<li>残差图应无明显规律。若呈弧形,说明需要非线性模型,例如实验 C 中油耗随重量可能加速上升。</li>
+<pre class="mermaid">flowchart LR
+A[收集数据] --> B[画散点图]
+B --> C[拟合回归直线]
+C --> D[检验 r 的显著性]
+D --> E[分析残差]
+E --> F{存在离群点?}
+F -->|是| G[核查或分组]
+F -->|否| H[预测并解释]
+G --> C</pre>
+<p><em>图:回归实验的标准流程。离群点经核查或分组后,需重新拟合并再次检验。</em></p>
+  </main>
+  <footer class="spl-credit"><span class="spl-credit__meta">Introductory Statistics — Ch12: Linear Regression and Correlation (Level: College &middot; Language: ZH &middot; Model: sonnet)</span><span class="spl-credit__powered">Generated and Powered by <a href="https://github.com/digital-duck/SPL.py" target="_blank" rel="noopener">SPL</a></span></footer>
+</div>
+</body>
+</html>

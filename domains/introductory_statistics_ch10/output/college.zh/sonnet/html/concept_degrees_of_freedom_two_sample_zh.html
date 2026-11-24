@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Degrees Of Freedom Two Sample | Introductory Statistics Ch10</title>
+<script>
+MathJax = {
+  tex: { inlineMath: [['$','$'],['\\(','\\)']], displayMath: [['$$','$$'],['\\[','\\]']] },
+  options: { skipHtmlTags: ['script','noscript','style','textarea','pre','code'] }
+};
+</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" async></script>
+<script src="https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.min.js"></script>
+<script>mermaid.initialize({ startOnLoad: true, theme: 'neutral' });</script>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:Georgia,serif;background:#fafaf8;color:#1a1a1a;line-height:1.7}
+h2{font-size:1.45rem;color:#1e3a5f;margin-bottom:12px}
+h3{font-size:1.1rem;color:#2e4a7f;margin:20px 0 8px}
+h4{font-size:1rem;color:#3a5a8f;margin:16px 0 6px}
+p{margin-bottom:16px;font-size:1rem}
+li{margin-bottom:6px;margin-left:24px;font-size:1rem}
+pre{background:#f4f4f0;border:1px solid #d8d8d0;border-radius:6px;
+    padding:16px 20px;overflow-x:auto;margin:16px 0}
+code{font-family:Menlo,Consolas,monospace;font-size:.87em}
+p code{background:#f0f0ea;padding:1px 4px;border-radius:3px}
+footer.spl-credit{margin-top:32px;padding-top:16px;border-top:1px solid #e0e0d8;
+      font-family:system-ui,sans-serif;font-size:.78rem;color:#999;text-align:center}
+footer.spl-credit a{color:#2563eb;text-decoration:none}
+footer.spl-credit span{display:block}
+footer.spl-credit .spl-credit__meta{margin-bottom:4px}
+.cb-figure{margin:24px 0;text-align:center}
+.cb-figure img{max-width:100%;height:auto;border:1px solid #e0e0d8;border-radius:6px}
+figcaption{font-size:.82rem;color:#666;margin-top:8px;font-style:italic;text-align:center}
+pre.mermaid{background:none;border:none;padding:0;overflow:visible;margin:16px 0}
+.page{max-width:780px;margin:0 auto;padding:40px 32px}
+section{margin-bottom:48px;border-top:1px solid #e0e0d8;padding-top:36px}
+section:first-of-type{border-top:none;padding-top:0}
+</style>
+</head>
+<body>
+<div class="page">
+  <main>
+    <h2 id="双样本自由度-不合并方差">双样本自由度(不合并方差)</h2>
+<h3 id="定义">定义</h3>
+<p>比较两个独立总体的均值时,若不假定两总体方差相等,检验统计量为</p>
+$$
+t=\frac{\bar x_1-\bar x_2}{\sqrt{\dfrac{s_1^2}{n_1}+\dfrac{s_2^2}{n_2}}}.
+$$
+<p>该统计量并不严格服从 t 分布,但可以用某个 t 分布很好地近似。这个近似分布的<strong>自由度</strong>由 Welch–Satterthwaite 公式给出:</p>
+$$
+\nu=\frac{\left(\dfrac{s_1^2}{n_1}+\dfrac{s_2^2}{n_2}\right)^2}{\dfrac{\left(s_1^2/n_1\right)^2}{n_1-1}+\dfrac{\left(s_2^2/n_2\right)^2}{n_2-1}}.
+$$
+<p>由于 $\nu$ 由样本数据算出,通常<strong>不是整数</strong>。它具有如下性质:</p>
+<li>$\min(n_1-1,\,n_2-1)\le \nu\le n_1+n_2-2$;</li>
+<li>两样本方差相近且样本量相等时,$\nu$ 接近 $n_1+n_2-2$(合并检验的自由度);</li>
+<li>方差或样本量悬殊时,$\nu$ 会明显变小,使临界值变大,检验更保守。</li>
+<h3 id="直观理由">直观理由</h3>
+<p>$s_1^2/n_1+s_2^2/n_2$ 是两个独立方差估计的加权和。Satterthwaite 的思路是:让这个加权和的均值与方差,与某个缩放的卡方变量一致,由此解出等效的自由度 $\nu$。</p>
+<h3 id="例题">例题</h3>
+<p>样本 1:$n_1=10,\ s_1^2=4$;样本 2:$n_2=15,\ s_2^2=9$。</p>
+<p>先计算各自的方差贡献:</p>
+$$
+\frac{s_1^2}{n_1}=0.4,\qquad \frac{s_2^2}{n_2}=0.6.
+$$
+<p>分子为 $(0.4+0.6)^2=1$。分母为</p>
+$$
+\frac{0.4^2}{9}+\frac{0.6^2}{14}=\frac{0.16}{9}+\frac{0.36}{14}\approx 0.01778+0.02571=0.04349.
+$$
+<p>所以</p>
+$$
+\nu\approx\frac{1}{0.04349}\approx 23.0.
+$$
+<p>它位于 $9$ 与 $23$ 之间,符合上述范围(此处恰好接近上界 $n_1+n_2-2=23$)。</p>
+<h3 id="问题求解应用">问题求解应用</h3>
+<p>某实验比较两种肥料的作物产量。A 组 $n_1=8,\ \bar x_1=52,\ s_1^2=25$;B 组 $n_2=20,\ \bar x_2=47,\ s_2^2=4$。检验 $H_0:\mu_1=\mu_2$。</p>
+<li>方差贡献:$s_1^2/n_1=3.125$,$s_2^2/n_2=0.2$,和为 $3.325$。</li>
+<li>统计量:$t=\dfrac{5}{\sqrt{3.325}}\approx 2.74$。</li>
+<li>自由度:</li>
+$$
+\nu=\frac{3.325^2}{\dfrac{3.125^2}{7}+\dfrac{0.2^2}{19}}=\frac{11.056}{1.3951+0.0021}\approx 7.91.
+$$
+<li>判断:合并检验会使用 $df=26$,而这里 $\nu\approx 7.9$ 远小于 26,因为小样本 A 组的方差大,主导了不确定性。取 $df\approx 7.9$,双侧 $5\%$ 临界值约为 $2.31$。由于 $2.74>2.31$,拒绝 $H_0$。</li>
+<p><strong>要点</strong>:若误用 $df=26$(临界值约 $2.06$),会低估不确定性。使用 $\nu$ 时,软件常直接用非整数值;手算时可向下取整($\nu=7$)以保持保守。</p>
+  </main>
+  <footer class="spl-credit"><span class="spl-credit__meta">Introductory Statistics — Ch10: Hypothesis Testing with Two Samples (Level: College &middot; Language: ZH &middot; Model: sonnet)</span><span class="spl-credit__powered">Generated and Powered by <a href="https://github.com/digital-duck/SPL.py" target="_blank" rel="noopener">SPL</a></span></footer>
+</div>
+</body>
+</html>

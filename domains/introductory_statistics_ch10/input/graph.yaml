@@ -1,0 +1,84 @@
+domain: introductory_statistics_2e
+primitives:
+  independent_samples:
+    defines: Two samples in which values selected from one population are not related in any way to values
+      selected from the other population.
+    tier: 0
+  matched_paired_samples:
+    defines: Two samples that are dependent, consisting of two measurements drawn from the same pair of
+      individuals or objects.
+    tier: 0
+  standard_error_diff_means:
+    defines: An estimated standard deviation of the difference between two sample means, computed from
+      the two sample standard deviations.
+    tier: 0
+  pooled_proportion:
+    defines: An estimate of the common value of two population proportions, computed by combining the
+      successes and sample sizes of both samples.
+    tier: 0
+concepts:
+  degrees_of_freedom_two_sample:
+    defines: A calculated (often non-whole) value approximating the Student's t-distribution for the two-independent-sample
+      means test with unpooled variances.
+    composed_of:
+    - independent_samples
+    - standard_error_diff_means
+    tier: 1
+  cohens_d:
+    defines: A measure of effect size based on the standardized difference between two means, divided
+      by the pooled standard deviation, classified as small, medium, or large.
+    composed_of:
+    - independent_samples
+    - standard_error_diff_means
+    tier: 1
+  two_means_known_sd_test:
+    defines: A z-test comparing two independent population means when the population standard deviations
+      are known, using a normal sampling distribution for the difference in means.
+    composed_of:
+    - independent_samples
+    tier: 1
+  two_proportions_test:
+    defines: A z-test comparing two independent population proportions using the pooled proportion to
+      construct the sampling distribution of the difference in sample proportions.
+    composed_of:
+    - independent_samples
+    - pooled_proportion
+    tier: 1
+  matched_pairs_test:
+    defines: A single-mean Student's t-test applied to the differences calculated from matched pairs of
+      dependent observations.
+    composed_of:
+    - matched_paired_samples
+    tier: 1
+  two_means_unknown_sd_test:
+    defines: A t-test (Aspin-Welch) comparing two independent population means when the population standard
+      deviations are unknown and not pooled, using a t-score test statistic and calculated degrees of
+      freedom.
+    composed_of:
+    - independent_samples
+    - standard_error_diff_means
+    - degrees_of_freedom_two_sample
+    tier: 2
+  normal_approx_large_samples:
+    defines: When the sum of two independent sample sizes exceeds 30, the normal distribution can be used
+      to approximate the Student's t-distribution for comparing means.
+    composed_of:
+    - two_means_unknown_sd_test
+    - degrees_of_freedom_two_sample
+    tier: 3
+applications:
+  two_sample_test_classification:
+    defines: The process of determining whether a hypothesis test involves independent group means (variances
+      known or unknown), independent proportions, or matched paired samples.
+    needs:
+    - two_means_unknown_sd_test
+    - two_means_known_sd_test
+    - two_proportions_test
+    - matched_pairs_test
+    tier: 3
+  real_world_two_group_comparisons:
+    defines: Applying two-sample hypothesis tests to practical scenarios such as comparing medications,
+      consumer products, salaries, and demographic proportions.
+    needs:
+    - two_sample_test_classification
+    tier: 4

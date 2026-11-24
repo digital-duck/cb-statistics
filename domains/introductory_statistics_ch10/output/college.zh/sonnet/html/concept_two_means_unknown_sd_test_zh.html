@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Two Means Unknown Sd Test | Introductory Statistics Ch10</title>
+<script>
+MathJax = {
+  tex: { inlineMath: [['$','$'],['\\(','\\)']], displayMath: [['$$','$$'],['\\[','\\]']] },
+  options: { skipHtmlTags: ['script','noscript','style','textarea','pre','code'] }
+};
+</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" async></script>
+<script src="https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.min.js"></script>
+<script>mermaid.initialize({ startOnLoad: true, theme: 'neutral' });</script>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:Georgia,serif;background:#fafaf8;color:#1a1a1a;line-height:1.7}
+h2{font-size:1.45rem;color:#1e3a5f;margin-bottom:12px}
+h3{font-size:1.1rem;color:#2e4a7f;margin:20px 0 8px}
+h4{font-size:1rem;color:#3a5a8f;margin:16px 0 6px}
+p{margin-bottom:16px;font-size:1rem}
+li{margin-bottom:6px;margin-left:24px;font-size:1rem}
+pre{background:#f4f4f0;border:1px solid #d8d8d0;border-radius:6px;
+    padding:16px 20px;overflow-x:auto;margin:16px 0}
+code{font-family:Menlo,Consolas,monospace;font-size:.87em}
+p code{background:#f0f0ea;padding:1px 4px;border-radius:3px}
+footer.spl-credit{margin-top:32px;padding-top:16px;border-top:1px solid #e0e0d8;
+      font-family:system-ui,sans-serif;font-size:.78rem;color:#999;text-align:center}
+footer.spl-credit a{color:#2563eb;text-decoration:none}
+footer.spl-credit span{display:block}
+footer.spl-credit .spl-credit__meta{margin-bottom:4px}
+.cb-figure{margin:24px 0;text-align:center}
+.cb-figure img{max-width:100%;height:auto;border:1px solid #e0e0d8;border-radius:6px}
+figcaption{font-size:.82rem;color:#666;margin-top:8px;font-style:italic;text-align:center}
+pre.mermaid{background:none;border:none;padding:0;overflow:visible;margin:16px 0}
+.page{max-width:780px;margin:0 auto;padding:40px 32px}
+section{margin-bottom:48px;border-top:1px solid #e0e0d8;padding-top:36px}
+section:first-of-type{border-top:none;padding-top:0}
+</style>
+</head>
+<body>
+<div class="page">
+  <main>
+    <h2 id="双总体均值检验-总体标准差未知-aspin-welch-t-检验">双总体均值检验(总体标准差未知,Aspin-Welch t 检验)</h2>
+<h3 id="定义">定义</h3>
+<p>当比较两个<strong>独立</strong>总体的均值 $\mu_1,\mu_2$,而两个总体标准差 $\sigma_1,\sigma_2$ 都未知,且<strong>不能假定二者相等</strong>(不合并方差)时,使用 Aspin-Welch t 检验。检验假设为</p>
+$$H_0:\ \mu_1-\mu_2=\delta_0\quad(\text{通常 }\delta_0=0),\qquad H_a:\ \mu_1-\mu_2\ne\delta_0\ \text{(或 }<,>\text{)}.$$
+<p>用样本标准差 $s_1,s_2$ 代替未知的 $\sigma_1,\sigma_2$,检验统计量为 t 分数:</p>
+$$t=\frac{(\bar x_1-\bar x_2)-\delta_0}{\sqrt{\dfrac{s_1^2}{n_1}+\dfrac{s_2^2}{n_2}}}.$$
+<p>由于不合并方差,$t$ 只近似服从 t 分布,其<strong>自由度需要计算</strong>(Welch–Satterthwaite 公式):</p>
+$$df=\frac{\left(\dfrac{s_1^2}{n_1}+\dfrac{s_2^2}{n_2}\right)^2}{\dfrac{1}{n_1-1}\left(\dfrac{s_1^2}{n_1}\right)^2+\dfrac{1}{n_2-1}\left(\dfrac{s_2^2}{n_2}\right)^2}.$$
+<p>计算结果通常不是整数,软件直接使用,手算时可向下取整以保守处理。适用条件:两组样本为简单随机样本且相互独立;总体近似正态,或样本量足够大。</p>
+<h3 id="例题">例题</h3>
+<p>某老师比较两种教学方法的考试成绩。方法 A:$n_1=15$,$\bar x_1=78$,$s_1=8$;方法 B:$n_2=12$,$\bar x_2=71$,$s_2=12$。在 $\alpha=0.05$ 下检验两种方法平均成绩是否不同。</p>
+<li>假设:$H_0:\mu_1=\mu_2$,$H_a:\mu_1\ne\mu_2$。</li>
+<li>标准误:$\dfrac{64}{15}=4.267$,$\dfrac{144}{12}=12$,故 $SE=\sqrt{16.267}=4.033$。</li>
+<li>检验统计量:$t=\dfrac{78-71}{4.033}=1.74$。</li>
+<li>自由度:</li>
+$$df=\frac{(16.267)^2}{\frac{(4.267)^2}{14}+\frac{(12)^2}{11}}=\frac{264.6}{1.300+13.091}\approx 18.4.$$
+<li>判断:双尾检验的临界值约为 $t_{0.025,18}\approx2.101$,$|1.74|<2.101$(对应 $p\approx0.10$),故<strong>不拒绝</strong> $H_0$。</li>
+<p>结论:在 5% 显著性水平下,没有足够证据表明两种方法的平均成绩不同。</p>
+<h3 id="问题求解应用">问题求解应用</h3>
+<p>实际操作流程:</p>
+<li><strong>判断是否用本检验</strong>:两组独立?$\sigma$ 未知?没有充分理由认为方差相等?若是,优先选 Welch 检验,它在方差相等时也几乎不损失功效。</li>
+<li><strong>软件实现</strong>(Python):</li>
+<pre><code>from scipy import stats
+t, p = stats.ttest_ind(a, b, equal_var=False)  # Welch 检验</code></pre>
+<li><strong>常见错误</strong>:把配对数据(如同一学生前后测)当作独立样本;或直接用合并方差公式 $df=n_1+n_2-2$,当 $s_1,s_2$ 和样本量悬殊时会使结论失真。</li>
+<li><strong>解读</strong>:$p$ 值较大只表示证据不足,不代表两总体均值相等;可再构造置信区间 $(\bar x_1-\bar x_2)\pm t^*\cdot SE$ 来评估差异的大小。本例区间为 $7\pm2.10\times4.03\approx(-1.5,\,15.5)$,包含 0,与检验结论一致。</li>
+  </main>
+  <footer class="spl-credit"><span class="spl-credit__meta">Introductory Statistics — Ch10: Hypothesis Testing with Two Samples (Level: College &middot; Language: ZH &middot; Model: sonnet)</span><span class="spl-credit__powered">Generated and Powered by <a href="https://github.com/digital-duck/SPL.py" target="_blank" rel="noopener">SPL</a></span></footer>
+</div>
+</body>
+</html>

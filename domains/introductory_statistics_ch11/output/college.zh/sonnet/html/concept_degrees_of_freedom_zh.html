@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Degrees Of Freedom | Introductory Statistics Ch11</title>
+<script>
+MathJax = {
+  tex: { inlineMath: [['$','$'],['\\(','\\)']], displayMath: [['$$','$$'],['\\[','\\]']] },
+  options: { skipHtmlTags: ['script','noscript','style','textarea','pre','code'] }
+};
+</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" async></script>
+<script src="https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.min.js"></script>
+<script>mermaid.initialize({ startOnLoad: true, theme: 'neutral' });</script>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:Georgia,serif;background:#fafaf8;color:#1a1a1a;line-height:1.7}
+h2{font-size:1.45rem;color:#1e3a5f;margin-bottom:12px}
+h3{font-size:1.1rem;color:#2e4a7f;margin:20px 0 8px}
+h4{font-size:1rem;color:#3a5a8f;margin:16px 0 6px}
+p{margin-bottom:16px;font-size:1rem}
+li{margin-bottom:6px;margin-left:24px;font-size:1rem}
+pre{background:#f4f4f0;border:1px solid #d8d8d0;border-radius:6px;
+    padding:16px 20px;overflow-x:auto;margin:16px 0}
+code{font-family:Menlo,Consolas,monospace;font-size:.87em}
+p code{background:#f0f0ea;padding:1px 4px;border-radius:3px}
+footer.spl-credit{margin-top:32px;padding-top:16px;border-top:1px solid #e0e0d8;
+      font-family:system-ui,sans-serif;font-size:.78rem;color:#999;text-align:center}
+footer.spl-credit a{color:#2563eb;text-decoration:none}
+footer.spl-credit span{display:block}
+footer.spl-credit .spl-credit__meta{margin-bottom:4px}
+.cb-figure{margin:24px 0;text-align:center}
+.cb-figure img{max-width:100%;height:auto;border:1px solid #e0e0d8;border-radius:6px}
+figcaption{font-size:.82rem;color:#666;margin-top:8px;font-style:italic;text-align:center}
+pre.mermaid{background:none;border:none;padding:0;overflow:visible;margin:16px 0}
+.page{max-width:780px;margin:0 auto;padding:40px 32px}
+section{margin-bottom:48px;border-top:1px solid #e0e0d8;padding-top:36px}
+section:first-of-type{border-top:none;padding-top:0}
+</style>
+</head>
+<body>
+<div class="page">
+  <main>
+    <h2 id="自由度">自由度</h2>
+<p><strong>定义。</strong> 自由度(degrees of freedom,记作 $df$)是决定卡方分布曲线形状的唯一参数。直观地说,它是数据中"可以自由变动的独立信息个数":当样本受到若干约束(例如各类别频数之和必须等于总数 $n$)时,真正自由的数据个数就要减去约束数。$df$ 越小,曲线越偏斜、集中在左侧;$df$ 越大,曲线越对称,并逐渐接近正态形状。卡方分布的均值等于 $df$,方差等于 $2\,df$。</p>
+<p>不同的卡方检验,$df$ 的算法不同:</p>
+<li><strong>拟合优度检验</strong>($k$ 个类别):</li>
+$$df = k - 1$$
+<p>若分布中还有 $m$ 个参数是由样本估计出来的,则 $df = k - 1 - m$。</p>
+<li><strong>独立性检验 / 同质性检验</strong>($r$ 行 $c$ 列的列联表):</li>
+$$df = (r-1)(c-1)$$
+<p><strong>为什么是这些公式?</strong> 拟合优度检验中,$k$ 个频数之和固定为 $n$,所以只有 $k-1$ 个可以自由取值,最后一个由差值决定。列联表中,行合计与列合计都已固定,因此每行只有 $c-1$ 个格子自由、只有 $r-1$ 行自由,其余格子都被边际合计"锁定"。</p>
+<p><strong>例 1(拟合优度)。</strong> 掷一枚骰子 120 次,检验它是否均匀。类别数 $k=6$,所以</p>
+$$df = 6 - 1 = 5.$$
+<p>若算得 $\chi^2 = 9.2$,查 $df=5$ 的临界值 $\chi^2_{0.05}=11.07$。因为 $9.2 < 11.07$,不能拒绝"骰子均匀"的原假设。</p>
+<p><strong>例 2(独立性)。</strong> 调查 3 个年级(行)与 4 种课外活动偏好(列)是否相关,列联表为 $3\times4$:</p>
+$$df = (3-1)(4-1) = 2\times 3 = 6.$$
+<p>若算得 $\chi^2 = 15.8$,而 $df=6$ 时 $\chi^2_{0.05}=12.59$,则 $15.8 > 12.59$,拒绝原假设,认为年级与活动偏好有关。</p>
+<p><strong>问题求解应用。</strong> 一位研究者检验某地每天的交通事故数是否服从泊松分布。数据分成 $k=7$ 个类别,而泊松参数 $\lambda$ 由样本均值估计得到($m=1$)。于是</p>
+$$df = 7 - 1 - 1 = 5.$$
+<p>如果错误地使用 $df=6$,临界值会偏大($\chi^2_{0.05}=12.59$ 而非正确的 $11.07$),使检验过于保守,可能漏掉真实的偏离。</p>
+<p><strong>解题步骤:</strong></p>
+<li>判断检验类型(拟合优度还是列联表)。</li>
+<li>数清类别数 $k$,或行数 $r$ 与列数 $c$。</li>
+<li>减去被样本估计的参数个数(如有)。</li>
+<li>用所得 $df$ 查表或计算 $p$ 值。</li>
+<p><strong>常见错误:</strong> 用样本量 $n$ 代替类别数;把列联表的 $df$ 误写成 $rc-1$;忘记扣除估计参数。记住:$df$ 反映的是<strong>类别结构</strong>,而不是样本有多大。</p>
+  </main>
+  <footer class="spl-credit"><span class="spl-credit__meta">Introductory Statistics — Ch11: The Chi-Square Distribution (Level: College &middot; Language: ZH &middot; Model: sonnet)</span><span class="spl-credit__powered">Generated and Powered by <a href="https://github.com/digital-duck/SPL.py" target="_blank" rel="noopener">SPL</a></span></footer>
+</div>
+</body>
+</html>

@@ -1,0 +1,107 @@
+domain: introductory_statistics_2e
+sources:
+  experiment:
+    label: Experiment
+    sections:
+    - id: ch03_s3_1
+      title: 3.1 Terminology
+  outcome:
+    label: Outcome
+    sections:
+    - id: ch03_s3_1
+      title: 3.1 Terminology
+  sample_space:
+    label: Sample Space
+    sections:
+    - id: ch03_s3_1
+      title: 3.1 Terminology
+  event:
+    label: Event
+    sections:
+    - id: ch03_s3_1
+      title: 3.1 Terminology
+  probability:
+    label: Probability
+    sections:
+    - id: ch03_s3_1
+      title: 3.1 Terminology
+  equally_likely_outcomes:
+    label: Equally Likely Outcomes
+    sections:
+    - id: ch03_s3_1
+      title: 3.1 Terminology
+  law_of_large_numbers:
+    label: Law of Large Numbers
+    sections:
+    - id: ch03_s3_1
+      title: 3.1 Terminology
+  or_event:
+    label: OR Event (Union)
+    sections:
+    - id: ch03_s3_1
+      title: 3.1 Terminology
+  and_event:
+    label: AND Event (Intersection)
+    sections:
+    - id: ch03_s3_1
+      title: 3.1 Terminology
+  complement_event:
+    label: Complement of an Event
+    sections:
+    - id: ch03_s3_1
+      title: 3.1 Terminology
+  conditional_probability:
+    label: Conditional Probability
+    sections:
+    - id: ch03_s3_1
+      title: 3.1 Terminology
+  independent_events:
+    label: Independent Events
+    sections:
+    - id: ch03_s3_2
+      title: 3.2 Independent and Mutually Exclusive Events
+  dependent_events:
+    label: Dependent Events
+    sections:
+    - id: ch03_s3_2
+      title: 3.2 Independent and Mutually Exclusive Events
+  sampling_with_replacement:
+    label: Sampling With Replacement
+    sections:
+    - id: ch03_s3_2
+      title: 3.2 Independent and Mutually Exclusive Events
+  sampling_without_replacement:
+    label: Sampling Without Replacement
+    sections:
+    - id: ch03_s3_2
+      title: 3.2 Independent and Mutually Exclusive Events
+  mutually_exclusive_events:
+    label: Mutually Exclusive Events
+    sections:
+    - id: ch03_s3_2
+      title: 3.2 Independent and Mutually Exclusive Events
+  multiplication_rule:
+    label: Multiplication Rule
+    sections:
+    - id: ch03_s3_3
+      title: 3.3 Two Basic Rules of Probability
+  addition_rule:
+    label: Addition Rule
+    sections:
+    - id: ch03_s3_3
+      title: 3.3 Two Basic Rules of Probability
+  contingency_table:
+    label: Contingency Table
+    sections:
+    - id: ch03_s3_4
+      title: 3.4 Contingency Tables
+  tree_diagram:
+    label: Tree Diagram
+    sections:
+    - id: ch03_s3_5
+      title: 3.5 Tree and Venn Diagrams
+  venn_diagram:
+    label: Venn Diagram
+    sections:
+    - id: ch03_s3_5
+      title: 3.5 Tree and Venn Diagrams

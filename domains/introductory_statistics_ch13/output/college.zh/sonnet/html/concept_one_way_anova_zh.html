@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>One Way Anova | Introductory Statistics Ch13</title>
+<script>
+MathJax = {
+  tex: { inlineMath: [['$','$'],['\\(','\\)']], displayMath: [['$$','$$'],['\\[','\\]']] },
+  options: { skipHtmlTags: ['script','noscript','style','textarea','pre','code'] }
+};
+</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" async></script>
+<script src="https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.min.js"></script>
+<script>mermaid.initialize({ startOnLoad: true, theme: 'neutral' });</script>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:Georgia,serif;background:#fafaf8;color:#1a1a1a;line-height:1.7}
+h2{font-size:1.45rem;color:#1e3a5f;margin-bottom:12px}
+h3{font-size:1.1rem;color:#2e4a7f;margin:20px 0 8px}
+h4{font-size:1rem;color:#3a5a8f;margin:16px 0 6px}
+p{margin-bottom:16px;font-size:1rem}
+li{margin-bottom:6px;margin-left:24px;font-size:1rem}
+pre{background:#f4f4f0;border:1px solid #d8d8d0;border-radius:6px;
+    padding:16px 20px;overflow-x:auto;margin:16px 0}
+code{font-family:Menlo,Consolas,monospace;font-size:.87em}
+p code{background:#f0f0ea;padding:1px 4px;border-radius:3px}
+footer.spl-credit{margin-top:32px;padding-top:16px;border-top:1px solid #e0e0d8;
+      font-family:system-ui,sans-serif;font-size:.78rem;color:#999;text-align:center}
+footer.spl-credit a{color:#2563eb;text-decoration:none}
+footer.spl-credit span{display:block}
+footer.spl-credit .spl-credit__meta{margin-bottom:4px}
+.cb-figure{margin:24px 0;text-align:center}
+.cb-figure img{max-width:100%;height:auto;border:1px solid #e0e0d8;border-radius:6px}
+figcaption{font-size:.82rem;color:#666;margin-top:8px;font-style:italic;text-align:center}
+pre.mermaid{background:none;border:none;padding:0;overflow:visible;margin:16px 0}
+.page{max-width:780px;margin:0 auto;padding:40px 32px}
+section{margin-bottom:48px;border-top:1px solid #e0e0d8;padding-top:36px}
+section:first-of-type{border-top:none;padding-top:0}
+</style>
+</head>
+<body>
+<div class="page">
+  <main>
+    <h2 id="单因素方差分析">单因素方差分析</h2>
+<h3 id="定义">定义</h3>
+<p><strong>单因素方差分析</strong>(one-way ANOVA)用于检验由单一分类因素划分出的 $k\ (k\ge 3)$ 个组,其总体均值是否全部相等:</p>
+$$H_0:\ \mu_1=\mu_2=\cdots=\mu_k,\qquad H_1:\ \text{至少有两个均值不相等}.$$
+<p>为什么不做多次 $t$ 检验?对 $k=3$ 要做 3 次两两比较,若每次 $\alpha=0.05$,整体犯第一类错误的概率约为 $1-0.95^3\approx 0.143$。ANOVA 用一次检验控制整体错误率。</p>
+<p>其思想是比较两种变异。设第 $i$ 组有 $n_i$ 个观测,总样本量 $N=\sum n_i$,组均值 $\bar{x}_i$,总均值 $\bar{x}$:</p>
+$$SSB=\sum_{i=1}^k n_i(\bar{x}_i-\bar{x})^2,\qquad SSW=\sum_{i=1}^k\sum_{j=1}^{n_i}(x_{ij}-\bar{x}_i)^2.$$
+<p>均方为 $MSB=\dfrac{SSB}{k-1}$,$MSW=\dfrac{SSW}{N-k}$,检验统计量为</p>
+$$F=\frac{MSB}{MSW}\sim F(k-1,\ N-k)\quad(\text{在 }H_0\text{ 下}).$$
+<p>若 $H_0$ 成立,组间变异与组内变异都只反映随机误差,$F$ 应接近 1;$F$ 显著偏大,说明组间差异超出随机波动。</p>
+<p><strong>适用条件</strong>:各组观测相互独立;各组总体近似正态;各组总体方差相等(方差齐性)。</p>
+<h3 id="工作示例">工作示例</h3>
+<p>三种肥料各种植 4 块地,产量(单位:kg)如下:</p>
+<li>A:$8,9,7,8$,$\bar{x}_A=8$</li>
+<li>B:$10,11,9,10$,$\bar{x}_B=10$</li>
+<li>C:$12,13,11,12$,$\bar{x}_C=12$</li>
+<p>总均值 $\bar{x}=10$,$k=3$,$N=12$。</p>
+<p><strong>组间平方和</strong>:$SSB=4(8-10)^2+4(0)^2+4(12-10)^2=32$。</p>
+<p><strong>组内平方和</strong>:每组偏差平方和为 $(0)^2+(1)^2+(-1)^2+(0)^2=2$,故 $SSW=2+2+2=6$。</p>
+<p><strong>均方</strong>:$MSB=32/2=16$,$MSW=6/9\approx 0.667$。</p>
+<p><strong>统计量</strong>:$F=16/0.667=24$。</p>
+<p>取 $\alpha=0.05$,临界值 $F_{0.05}(2,9)\approx 4.26$。因为 $24>4.26$,拒绝 $H_0$:三种肥料的平均产量并不全相同。</p>
+<h3 id="问题求解应用">问题求解应用</h3>
+<p><strong>判断流程</strong>(见下图):先检查三个适用条件,再计算 $F$,最后与临界值比较或使用 $p$ 值。</p>
+<pre class="mermaid">flowchart TD
+    A[收集 k 组数据] --> B{检查独立性、正态性、方差齐性}
+    B -->|满足| C[计算 SSB 与 SSW]
+    C --> D[计算 MSB 与 MSW]
+    D --> E[得到 F 统计量]
+    E --> F{F 大于临界值?}
+    F -->|是| G[拒绝原假设]
+    F -->|否| H[不能拒绝原假设]
+    G --> I[事后比较确定哪些组不同]</pre>
+<p><em>单因素方差分析的决策流程:先验证条件,再比较组间与组内变异。</em></p>
+<p><strong>应用提示</strong>:</p>
+<li><strong>ANOVA 只回答"是否全相等"</strong>。拒绝 $H_0$ 后,要用事后检验(如 Tukey HSD)找出具体哪些组不同,并控制整体错误率。</li>
+<li><strong>方差分解</strong>:$SST=SSB+SSW$。本例 $SST=38$,可用 $\eta^2=SSB/SST=32/38\approx 0.84$ 表示因素解释了约 84% 的总变异,即效应量。</li>
+<li><strong>自检</strong>:自由度应满足 $(k-1)+(N-k)=N-1$。本例 $2+9=11$,正确。</li>
+<p><strong>练习</strong>:若四组各有 5 个观测,$SSB=30$,$SSW=48$,求 $F$ 并判断显著性。 解:$k=4$,$N=20$,$MSB=10$,$MSW=48/16=3$,$F\approx 3.33$。$F_{0.05}(3,16)\approx 3.24$,故 $F>3.24$,在 $0.05$ 水平下拒绝 $H_0$,但证据只是勉强显著,宜结合效应量与事后检验谨慎解释。</p>
+  </main>
+  <footer class="spl-credit"><span class="spl-credit__meta">Introductory Statistics — Ch13: F Distribution and One-Way ANOVA (Level: College &middot; Language: ZH &middot; Model: sonnet)</span><span class="spl-credit__powered">Generated and Powered by <a href="https://github.com/digital-duck/SPL.py" target="_blank" rel="noopener">SPL</a></span></footer>
+</div>
+</body>
+</html>

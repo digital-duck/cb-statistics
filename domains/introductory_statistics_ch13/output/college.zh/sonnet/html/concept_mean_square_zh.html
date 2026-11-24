@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mean Square | Introductory Statistics Ch13</title>
+<script>
+MathJax = {
+  tex: { inlineMath: [['$','$'],['\\(','\\)']], displayMath: [['$$','$$'],['\\[','\\]']] },
+  options: { skipHtmlTags: ['script','noscript','style','textarea','pre','code'] }
+};
+</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" async></script>
+<script src="https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.min.js"></script>
+<script>mermaid.initialize({ startOnLoad: true, theme: 'neutral' });</script>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:Georgia,serif;background:#fafaf8;color:#1a1a1a;line-height:1.7}
+h2{font-size:1.45rem;color:#1e3a5f;margin-bottom:12px}
+h3{font-size:1.1rem;color:#2e4a7f;margin:20px 0 8px}
+h4{font-size:1rem;color:#3a5a8f;margin:16px 0 6px}
+p{margin-bottom:16px;font-size:1rem}
+li{margin-bottom:6px;margin-left:24px;font-size:1rem}
+pre{background:#f4f4f0;border:1px solid #d8d8d0;border-radius:6px;
+    padding:16px 20px;overflow-x:auto;margin:16px 0}
+code{font-family:Menlo,Consolas,monospace;font-size:.87em}
+p code{background:#f0f0ea;padding:1px 4px;border-radius:3px}
+footer.spl-credit{margin-top:32px;padding-top:16px;border-top:1px solid #e0e0d8;
+      font-family:system-ui,sans-serif;font-size:.78rem;color:#999;text-align:center}
+footer.spl-credit a{color:#2563eb;text-decoration:none}
+footer.spl-credit span{display:block}
+footer.spl-credit .spl-credit__meta{margin-bottom:4px}
+.cb-figure{margin:24px 0;text-align:center}
+.cb-figure img{max-width:100%;height:auto;border:1px solid #e0e0d8;border-radius:6px}
+figcaption{font-size:.82rem;color:#666;margin-top:8px;font-style:italic;text-align:center}
+pre.mermaid{background:none;border:none;padding:0;overflow:visible;margin:16px 0}
+.page{max-width:780px;margin:0 auto;padding:40px 32px}
+section{margin-bottom:48px;border-top:1px solid #e0e0d8;padding-top:36px}
+section:first-of-type{border-top:none;padding-top:0}
+</style>
+</head>
+<body>
+<div class="page">
+  <main>
+    <h2 id="均方-mean-square">均方(Mean Square)</h2>
+<p><strong>定义。</strong> 均方是用平方和除以其自由度得到的方差估计量:</p>
+$$
+MS=\frac{SS}{df}
+$$
+<p>其中 $SS$ 为平方和,$df$ 为对应的自由度。除以自由度,是为了把"总的波动量"变成"每个独立信息单位上的平均波动",这样不同规模的平方和才能公平比较。在单因素方差分析(ANOVA)中,设有 $k$ 组、总样本量为 $N$,则有两个均方:</p>
+$$
+MS_{\text{between}}=\frac{SS_{\text{between}}}{k-1},\qquad
+MS_{\text{within}}=\frac{SS_{\text{within}}}{N-k}
+$$
+<p>其中 $SS_{\text{between}}=\sum_{i=1}^{k} n_i(\bar{x}_i-\bar{x})^2$ 衡量组均值之间的离散程度,$SS_{\text{within}}=\sum_{i=1}^{k}\sum_{j=1}^{n_i}(x_{ij}-\bar{x}_i)^2$ 衡量组内个体的离散程度。</p>
+<p><strong>为什么这样除?</strong> 当各组总体均值相等($H_0$ 成立)时,$MS_{\text{within}}$ 与 $MS_{\text{between}}$ 都是公共方差 $\sigma^2$ 的无偏估计,即 $E(MS_{\text{within}})=\sigma^2$。若各组均值不等,$MS_{\text{between}}$ 会偏大,于是比值</p>
+$$
+F=\frac{MS_{\text{between}}}{MS_{\text{within}}}\sim F(k-1,\,N-k)\quad(H_0\text{ 成立时})
+$$
+<p>显著大于 1 就是拒绝 $H_0$ 的证据。</p>
+<p><strong>例题。</strong> 三种教学方法($k=3$),每组 5 名学生($N=15$),测验成绩如下:</p>
+<li>方法 A:70, 72, 68, 74, 66(均值 70)</li>
+<li>方法 B:75, 77, 73, 79, 71(均值 75)</li>
+<li>方法 C:80, 82, 78, 84, 76(均值 80)</li>
+<p>总均值 $\bar{x}=75$。计算:</p>
+$$
+SS_{\text{between}}=5\left[(70-75)^2+(75-75)^2+(80-75)^2\right]=5(25+0+25)=250
+$$
+<p>每组组内平方和均为 $16+4+4+16+16\cdot0+\ldots$,逐项核对:A 组偏差为 $0,2,-2,4,-4$,平方和 $=0+4+4+16+16=40$;B、C 组同理各为 40,故 $SS_{\text{within}}=120$。于是</p>
+$$
+MS_{\text{between}}=\frac{250}{3-1}=125,\qquad
+MS_{\text{within}}=\frac{120}{15-3}=10
+$$
+<p><strong>问题求解应用。</strong> 计算 $F=125/10=12.5$。查 $F(2,12)$ 分布,$\alpha=0.05$ 的临界值约为 $3.89$,而 $12.5>3.89$,因此拒绝 $H_0$,认为三种教学方法的平均成绩存在显著差异。</p>
+<p><strong>常见错误。</strong> 不能直接比较 $SS_{\text{between}}=250$ 与 $SS_{\text{within}}=120$:二者自由度不同(2 对 12)。只有化为均方之后,才是在同一"每自由度"尺度上的比较。</p>
+<pre class="mermaid">flowchart LR
+A["平方和 SS_between"] --> C["除以 k-1"]
+B["平方和 SS_within"] --> D["除以 N-k"]
+C --> E["MS_between"]
+D --> F["MS_within"]
+E --> G["F = MS_between / MS_within"]
+F --> G</pre>
+<p><em>图:由平方和除以自由度得到两个均方,二者之比构成 $F$ 统计量。</em></p>
+  </main>
+  <footer class="spl-credit"><span class="spl-credit__meta">Introductory Statistics — Ch13: F Distribution and One-Way ANOVA (Level: College &middot; Language: ZH &middot; Model: sonnet)</span><span class="spl-credit__powered">Generated and Powered by <a href="https://github.com/digital-duck/SPL.py" target="_blank" rel="noopener">SPL</a></span></footer>
+</div>
+</body>
+</html>

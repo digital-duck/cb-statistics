@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Matched Pairs Test | Introductory Statistics Ch10</title>
+<script>
+MathJax = {
+  tex: { inlineMath: [['$','$'],['\\(','\\)']], displayMath: [['$$','$$'],['\\[','\\]']] },
+  options: { skipHtmlTags: ['script','noscript','style','textarea','pre','code'] }
+};
+</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" async></script>
+<script src="https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.min.js"></script>
+<script>mermaid.initialize({ startOnLoad: true, theme: 'neutral' });</script>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:Georgia,serif;background:#fafaf8;color:#1a1a1a;line-height:1.7}
+h2{font-size:1.45rem;color:#1e3a5f;margin-bottom:12px}
+h3{font-size:1.1rem;color:#2e4a7f;margin:20px 0 8px}
+h4{font-size:1rem;color:#3a5a8f;margin:16px 0 6px}
+p{margin-bottom:16px;font-size:1rem}
+li{margin-bottom:6px;margin-left:24px;font-size:1rem}
+pre{background:#f4f4f0;border:1px solid #d8d8d0;border-radius:6px;
+    padding:16px 20px;overflow-x:auto;margin:16px 0}
+code{font-family:Menlo,Consolas,monospace;font-size:.87em}
+p code{background:#f0f0ea;padding:1px 4px;border-radius:3px}
+footer.spl-credit{margin-top:32px;padding-top:16px;border-top:1px solid #e0e0d8;
+      font-family:system-ui,sans-serif;font-size:.78rem;color:#999;text-align:center}
+footer.spl-credit a{color:#2563eb;text-decoration:none}
+footer.spl-credit span{display:block}
+footer.spl-credit .spl-credit__meta{margin-bottom:4px}
+.cb-figure{margin:24px 0;text-align:center}
+.cb-figure img{max-width:100%;height:auto;border:1px solid #e0e0d8;border-radius:6px}
+figcaption{font-size:.82rem;color:#666;margin-top:8px;font-style:italic;text-align:center}
+pre.mermaid{background:none;border:none;padding:0;overflow:visible;margin:16px 0}
+.page{max-width:780px;margin:0 auto;padding:40px 32px}
+section{margin-bottom:48px;border-top:1px solid #e0e0d8;padding-top:36px}
+section:first-of-type{border-top:none;padding-top:0}
+</style>
+</head>
+<body>
+<div class="page">
+  <main>
+    <h2 id="配对检验-matched-pairs-test">配对检验(Matched Pairs Test)</h2>
+<p><strong>定义。</strong> 当两组观测值并非相互独立,而是天然成对出现(同一个人治疗前后的血压、同一块地使用两种肥料的产量、双胞胎中的两人)时,应使用配对检验。其核心思想是:先对每一对数据作差</p>
+$$d_i = x_i - y_i,\quad i=1,\dots,n,$$
+<p>再把 $d_1,\dots,d_n$ 当作<strong>一个</strong>样本,做单样本 $t$ 检验。设总体平均差为 $\mu_d$,检验</p>
+$$H_0:\mu_d=\mu_0\ (\text{通常 }\mu_0=0)\quad\text{对}\quad H_a:\mu_d\neq\mu_0 .$$
+<p>检验统计量为</p>
+$$t=\frac{\bar d-\mu_0}{s_d/\sqrt n},\qquad df=n-1,$$
+<p>其中 $\bar d$ 与 $s_d$ 分别是差值的样本均值与样本标准差。条件:各对之间相互独立,且差值近似服从正态分布(或 $n$ 较大)。</p>
+<p><strong>为什么要配对?</strong> 同一对象的两次测量往往高度相关,个体差异(如基础血压高低)在作差时被抵消,$s_d$ 通常远小于两个独立样本的合并波动,检验因此更灵敏。</p>
+<p><strong>例题。</strong> 8 名受试者服用降压药前后的收缩压(mmHg)如下:</p>
+<p>| 受试者 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | |---|---|---|---|---|---|---|---|---| | 服药前 | 150 | 142 | 160 | 138 | 155 | 148 | 165 | 152 | | 服药后 | 144 | 140 | 151 | 139 | 147 | 145 | 156 | 146 |</p>
+<p>取 $d_i=$ 服药前 $-$ 服药后:$6,\,2,\,9,\,-1,\,8,\,3,\,9,\,6$。</p>
+<li>$\bar d = 42/8 = 5.25$。</li>
+<li>$s_d^2=\dfrac{\sum (d_i-\bar d)^2}{7}=\dfrac{80.5}{7}=11.5$,故 $s_d\approx 3.39$。</li>
+<li>$t=\dfrac{5.25-0}{3.39/\sqrt 8}=\dfrac{5.25}{1.199}\approx 4.38$,$df=7$。</li>
+<p>在 $\alpha=0.05$、双侧检验下,临界值 $t_{0.025,7}\approx 2.365$。因 $4.38>2.365$(双侧 $p\approx 0.003$),拒绝 $H_0$,认为药物确实改变了血压。</p>
+<p><strong>问题求解应用。</strong> 同样可给出 95% 置信区间:</p>
+$$\bar d\pm t_{0.025,7}\frac{s_d}{\sqrt n}=5.25\pm2.365\times1.199\approx(2.4,\ 8.1).$$
+<p>区间不含 0,与检验结论一致,并进一步说明平均降压幅度约为 2.4 至 8.1 mmHg。</p>
+<p><strong>常见误区与判断步骤。</strong></p>
+<li>先问:两组数据是否来自同一对象或被刻意匹配?是 $\to$ 配对检验;否 $\to$ 双样本 $t$ 检验。</li>
+<li>若误用双样本检验,本例中个体间血压差异大(138 到 165),会使标准误偏大,从而可能漏掉真实效应。</li>
+<li>检验前应画出差值的直方图或正态概率图,确认没有严重偏态或极端异常值。</li>
+<li>若是单侧问题(如"药物是否降低血压"),只需把 $H_a$ 改为 $\mu_d>0$,并使用单侧 $p$ 值。</li>
+<p><strong>小结:</strong> 配对检验 = 作差 + 单样本 $t$ 检验,关键在于识别数据的"成对"结构。</p>
+  </main>
+  <footer class="spl-credit"><span class="spl-credit__meta">Introductory Statistics — Ch10: Hypothesis Testing with Two Samples (Level: College &middot; Language: ZH &middot; Model: sonnet)</span><span class="spl-credit__powered">Generated and Powered by <a href="https://github.com/digital-duck/SPL.py" target="_blank" rel="noopener">SPL</a></span></footer>
+</div>
+</body>
+</html>

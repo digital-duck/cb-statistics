@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Correlation Coefficient R | Introductory Statistics Ch12</title>
+<script>
+MathJax = {
+  tex: { inlineMath: [['$','$'],['\\(','\\)']], displayMath: [['$$','$$'],['\\[','\\]']] },
+  options: { skipHtmlTags: ['script','noscript','style','textarea','pre','code'] }
+};
+</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" async></script>
+<script src="https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.min.js"></script>
+<script>mermaid.initialize({ startOnLoad: true, theme: 'neutral' });</script>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:Georgia,serif;background:#fafaf8;color:#1a1a1a;line-height:1.7}
+h2{font-size:1.45rem;color:#1e3a5f;margin-bottom:12px}
+h3{font-size:1.1rem;color:#2e4a7f;margin:20px 0 8px}
+h4{font-size:1rem;color:#3a5a8f;margin:16px 0 6px}
+p{margin-bottom:16px;font-size:1rem}
+li{margin-bottom:6px;margin-left:24px;font-size:1rem}
+pre{background:#f4f4f0;border:1px solid #d8d8d0;border-radius:6px;
+    padding:16px 20px;overflow-x:auto;margin:16px 0}
+code{font-family:Menlo,Consolas,monospace;font-size:.87em}
+p code{background:#f0f0ea;padding:1px 4px;border-radius:3px}
+footer.spl-credit{margin-top:32px;padding-top:16px;border-top:1px solid #e0e0d8;
+      font-family:system-ui,sans-serif;font-size:.78rem;color:#999;text-align:center}
+footer.spl-credit a{color:#2563eb;text-decoration:none}
+footer.spl-credit span{display:block}
+footer.spl-credit .spl-credit__meta{margin-bottom:4px}
+.cb-figure{margin:24px 0;text-align:center}
+.cb-figure img{max-width:100%;height:auto;border:1px solid #e0e0d8;border-radius:6px}
+figcaption{font-size:.82rem;color:#666;margin-top:8px;font-style:italic;text-align:center}
+pre.mermaid{background:none;border:none;padding:0;overflow:visible;margin:16px 0}
+.page{max-width:780px;margin:0 auto;padding:40px 32px}
+section{margin-bottom:48px;border-top:1px solid #e0e0d8;padding-top:36px}
+section:first-of-type{border-top:none;padding-top:0}
+</style>
+</head>
+<body>
+<div class="page">
+  <main>
+    <h2 id="相关系数-r">相关系数 R</h2>
+<p><strong>定义。</strong> 对 $n$ 个成对数据 $(x_i, y_i)$，样本相关系数（皮尔逊相关系数）定义为</p>
+$$
+r=\frac{1}{n-1}\sum_{i=1}^{n}\left(\frac{x_i-\bar x}{s_x}\right)\left(\frac{y_i-\bar y}{s_y}\right)=\frac{\sum (x_i-\bar x)(y_i-\bar y)}{\sqrt{\sum (x_i-\bar x)^2\,\sum (y_i-\bar y)^2}}
+$$
+<p>其中 $s_x, s_y$ 为样本标准差。$r$ 是两个变量标准化后（$z$ 分数）乘积的平均，因此没有单位，且恒有 $-1\le r\le 1$（由柯西–施瓦茨不等式可证）。</p>
+<p><strong>性质与解释。</strong></p>
+<li>$r>0$：正线性关系；$r<0$：负线性关系；$r=\pm1$：所有点恰好落在一条直线上；$r\approx 0$：没有线性关系（但可能存在非线性关系）。</li>
+<li>最小二乘回归直线的斜率为 $b=r\,\dfrac{s_y}{s_x}$。因为 $s_x,s_y>0$，所以 $b$ 的符号与 $r$ 相同。</li>
+<li>$r^2$ 表示 $y$ 的变异中能被 $x$ 的线性关系解释的比例。</li>
+<li>$r$ 对离群点敏感，且相关不等于因果。</li>
+<p><strong>例题。</strong> 五名学生的学习时间 $x$（小时）与测验成绩 $y$（分）为：$(1,60),(2,65),(3,75),(4,80),(5,90)$。</p>
+<li>均值：$\bar x=3,\ \bar y=74$。</li>
+<li>离差：$x_i-\bar x=-2,-1,0,1,2$；$y_i-\bar y=-14,-9,1,6,16$。</li>
+<li>求和：</li>
+<p>$\sum(x_i-\bar x)(y_i-\bar y)=28+9+0+6+32=75$， $\sum(x_i-\bar x)^2=10$， $\sum(y_i-\bar y)^2=196+81+1+36+256=570$。</p>
+<li>代入：</li>
+$$r=\frac{75}{\sqrt{10\times570}}=\frac{75}{\sqrt{5700}}\approx\frac{75}{75.50}\approx0.993.$$
+<p>这说明二者有很强的正线性关系。回归斜率为 $b=\dfrac{75}{10}=7.5$，即每多学 1 小时，预测成绩约提高 7.5 分，符号与 $r$ 一致。又 $r^2\approx0.987$，约 98.7% 的成绩变异可由学习时间的线性关系解释。</p>
+<p><strong>问题求解应用。</strong> 某数据集中 $s_x=2$，$s_y=10$，$r=-0.6$，求回归斜率，并判断 $x=\bar x+2$ 时 $y$ 的预测值相对 $\bar y$ 的变化。</p>
+<li>斜率：$b=r\dfrac{s_y}{s_x}=-0.6\times\dfrac{10}{2}=-3$。</li>
+<li>回归线过点 $(\bar x,\bar y)$，所以 $x$ 增加 2 时，预测 $y$ 变化 $-3\times2=-6$。</li>
+<li>用 $z$ 分数理解：$x$ 比均值高 1 个标准差，预测 $y$ 仅比均值低 $|r|=0.6$ 个标准差，即 $-0.6\times10=-6$。这与上面的结果一致。</li>
+<p><strong>常见陷阱。</strong> 若 $y=x^2$，$x$ 在 $-3$ 到 $3$ 上对称取值，则 $r=0$，但两者有完全确定的关系。因此在计算 $r$ 之前，务必先画散点图，确认关系大致呈线性，并检查离群点。</p>
+  </main>
+  <footer class="spl-credit"><span class="spl-credit__meta">Introductory Statistics — Ch12: Linear Regression and Correlation (Level: College &middot; Language: ZH &middot; Model: sonnet)</span><span class="spl-credit__powered">Generated and Powered by <a href="https://github.com/digital-duck/SPL.py" target="_blank" rel="noopener">SPL</a></span></footer>
+</div>
+</body>
+</html>

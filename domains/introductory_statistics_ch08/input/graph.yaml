@@ -1,0 +1,143 @@
+domain: introductory_statistics_2e
+primitives:
+  point_estimate:
+    defines: A single number, computed from sample data, used to estimate an unknown population parameter.
+    tier: 0
+  sample_mean:
+    defines: The average of sample data values, used as a point estimate of the population mean.
+    tier: 0
+  sample_standard_deviation:
+    defines: A statistic measuring variability in sample data, used as an estimate of the population standard
+      deviation.
+    tier: 0
+  population_parameter:
+    defines: A fixed numerical characteristic of an entire population, such as the mean or proportion,
+      that is typically unknown and must be estimated.
+    tier: 0
+  central_limit_theorem:
+    defines: The result that the sampling distribution of the sample mean is approximately normal, with
+      standard deviation equal to the population standard deviation divided by the square root of the
+      sample size.
+    tier: 0
+  confidence_level:
+    defines: The percent of all possible confidence intervals, constructed the same way, that are expected
+      to contain the true population parameter.
+    tier: 0
+  degrees_of_freedom:
+    defines: The number of values in a sample that are free to vary, calculated as n − 1 for a sample
+      standard deviation.
+    tier: 0
+  binomial_distribution:
+    defines: A discrete distribution describing the number of successes in a fixed number of independent
+      trials, each with the same probability of success, notated X ~ B(n, p).
+    tier: 0
+concepts:
+  inferential_statistics:
+    defines: The branch of statistics concerned with using sample data to make generalizations or estimates
+      about an unknown population parameter.
+    composed_of:
+    - point_estimate
+    - population_parameter
+    tier: 1
+  alpha_significance:
+    defines: The probability that a confidence interval does not contain the true population parameter,
+      equal to 1 minus the confidence level.
+    composed_of:
+    - confidence_level
+    tier: 1
+  z_score_confidence:
+    defines: The value from the standard normal distribution that places the specified confidence level's
+      area in the center of the distribution, used to compute the error bound when the population standard
+      deviation is known.
+    composed_of:
+    - confidence_level
+    tier: 1
+  students_t_distribution:
+    defines: A probability distribution, similar to but more spread out than the normal distribution,
+      used to construct confidence intervals for a population mean when the population standard deviation
+      is unknown, with shape determined by degrees of freedom.
+    composed_of:
+    - degrees_of_freedom
+    tier: 1
+  sample_proportion:
+    defines: The point estimate of a population proportion, calculated as the number of successes x divided
+      by the sample size n.
+    composed_of:
+    - binomial_distribution
+    tier: 1
+  error_bound_mean:
+    defines: The margin of error added to and subtracted from the sample mean to form a confidence interval,
+      depending on confidence level, sample size, and standard deviation.
+    composed_of:
+    - z_score_confidence
+    - sample_standard_deviation
+    tier: 2
+  t_score:
+    defines: A standardized value, analogous to a z-score, computed as (sample mean − μ) divided by (s
+      / sqrt(n)), that follows the Student's t-distribution.
+    composed_of:
+    - sample_mean
+    - sample_standard_deviation
+    - students_t_distribution
+    tier: 2
+  confidence_interval_mean_unknown_sigma:
+    defines: An interval estimate for a population mean using the sample standard deviation and the Student's
+      t-distribution when the population standard deviation is unknown.
+    composed_of:
+    - sample_mean
+    - sample_standard_deviation
+    - students_t_distribution
+    tier: 2
+  error_bound_proportion:
+    defines: The margin of error for a population proportion, calculated using the z-score for the confidence
+      level and the estimated standard deviation of the sample proportion.
+    composed_of:
+    - z_score_confidence
+    - sample_proportion
+    tier: 2
+  confidence_interval_mean_known_sigma:
+    defines: An interval estimate of the form (sample mean − EBM, sample mean + EBM), constructed using
+      the normal distribution when the population standard deviation is known.
+    composed_of:
+    - sample_mean
+    - error_bound_mean
+    - central_limit_theorem
+    tier: 3
+  sample_size_for_mean:
+    defines: A formula, derived by solving the error bound formula for n, used to determine how many observations
+      are needed to achieve a desired margin of error and confidence level when estimating a population
+      mean.
+    composed_of:
+    - error_bound_mean
+    tier: 3
+  confidence_interval_proportion:
+    defines: An interval estimate of the form (p′ − EBP, p′ + EBP), constructed using the normal approximation
+      to the binomial distribution to estimate an unknown population proportion.
+    composed_of:
+    - sample_proportion
+    - error_bound_proportion
+    tier: 3
+  sample_size_for_proportion:
+    defines: A formula, derived from the error bound formula for a proportion, used to determine the sample
+      size needed to achieve a desired margin of error and confidence level when estimating a population
+      proportion.
+    composed_of:
+    - error_bound_proportion
+    tier: 3
+  plus_four_method:
+    defines: An adjusted method for constructing a confidence interval for a proportion by adding two
+      successes and two failures (four total observations) to the sample before calculating, improving
+      accuracy for small samples.
+    composed_of:
+    - confidence_interval_proportion
+    tier: 4
+applications:
+  confidence_interval_application:
+    defines: The practical use of confidence interval construction, through in-class labs and exercises,
+      to estimate real population parameters such as home costs, place of birth proportions, and women's
+      heights.
+    needs:
+    - confidence_interval_mean_known_sigma
+    - confidence_interval_mean_unknown_sigma
+    - confidence_interval_proportion
+    tier: 4

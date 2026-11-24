@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Relative Frequency | Introductory Statistics Ch02</title>
+<script>
+MathJax = {
+  tex: { inlineMath: [['$','$'],['\\(','\\)']], displayMath: [['$$','$$'],['\\[','\\]']] },
+  options: { skipHtmlTags: ['script','noscript','style','textarea','pre','code'] }
+};
+</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" async></script>
+<script src="https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.min.js"></script>
+<script>mermaid.initialize({ startOnLoad: true, theme: 'neutral' });</script>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:Georgia,serif;background:#fafaf8;color:#1a1a1a;line-height:1.7}
+h2{font-size:1.45rem;color:#1e3a5f;margin-bottom:12px}
+h3{font-size:1.1rem;color:#2e4a7f;margin:20px 0 8px}
+h4{font-size:1rem;color:#3a5a8f;margin:16px 0 6px}
+p{margin-bottom:16px;font-size:1rem}
+li{margin-bottom:6px;margin-left:24px;font-size:1rem}
+pre{background:#f4f4f0;border:1px solid #d8d8d0;border-radius:6px;
+    padding:16px 20px;overflow-x:auto;margin:16px 0}
+code{font-family:Menlo,Consolas,monospace;font-size:.87em}
+p code{background:#f0f0ea;padding:1px 4px;border-radius:3px}
+footer.spl-credit{margin-top:32px;padding-top:16px;border-top:1px solid #e0e0d8;
+      font-family:system-ui,sans-serif;font-size:.78rem;color:#999;text-align:center}
+footer.spl-credit a{color:#2563eb;text-decoration:none}
+footer.spl-credit span{display:block}
+footer.spl-credit .spl-credit__meta{margin-bottom:4px}
+.cb-figure{margin:24px 0;text-align:center}
+.cb-figure img{max-width:100%;height:auto;border:1px solid #e0e0d8;border-radius:6px}
+figcaption{font-size:.82rem;color:#666;margin-top:8px;font-style:italic;text-align:center}
+pre.mermaid{background:none;border:none;padding:0;overflow:visible;margin:16px 0}
+.page{max-width:780px;margin:0 auto;padding:40px 32px}
+section{margin-bottom:48px;border-top:1px solid #e0e0d8;padding-top:36px}
+section:first-of-type{border-top:none;padding-top:0}
+</style>
+</head>
+<body>
+<div class="page">
+  <main>
+    <h2 id="relative-frequency">Relative Frequency</h2>
+<p>Relative frequency measures the proportion of a dataset that falls into a particular category or takes a particular value. If a value $x_i$ appears with frequency $f_i$ (the count of times it occurs) in a dataset of total size $n$, its relative frequency is</p>
+$$
+rf_i = \frac{f_i}{n}
+$$
+<p>Because every observation belongs to exactly one category, the relative frequencies of all distinct values in a dataset must sum to 1: $\sum_i rf_i = 1$. This makes relative frequency directly interpretable as a proportion or, under repeated random sampling, an empirical estimate of probability — the foundation of the frequentist interpretation of probability.</p>
+<p><strong>Worked example.</strong> A quality-control inspector samples 200 light bulbs from a production line and finds 8 defective. The frequency of "defective" is $f = 8$, and $n = 200$, so</p>
+$$
+rf_{\text{defective}} = \frac{8}{200} = 0.04
+$$
+<p>This means 4% of the sampled bulbs were defective. Relative frequency turns a raw count, which depends on sample size and is hard to compare across datasets, into a standardized proportion that can be compared directly — for example, against a factory's target defect rate of 2%, or against another day's sample of 500 bulbs with 15 defective ($rf = 0.03$).</p>
+<p><strong>Problem-solving application.</strong> Relative frequencies are the building block of frequency distributions and histograms: instead of plotting raw counts on the vertical axis, plotting $rf_i$ lets you compare datasets of different sizes on the same scale, and it lets you read off an estimated probability directly from the graph. They also let you reconstruct expected counts: if a survey of 1,000 voters shows a candidate's relative frequency of support at $0.37$, you'd expect about $370$ supporters, and you can attach a margin of error to that estimate using the sample size $n$. When relative frequencies are computed from a large enough sample under consistent conditions, the Law of Large Numbers guarantees they converge to the true underlying probability — which is precisely why we trust polls, defect-rate estimates, and experimental probabilities more as $n$ grows.</p>
+  </main>
+  <footer class="spl-credit"><span class="spl-credit__meta">Introductory Statistics — Ch2: Descriptive Statistics (Level: College &middot; Language: EN &middot; Model: sonnet)</span><span class="spl-credit__powered">Generated and Powered by <a href="https://github.com/digital-duck/SPL.py" target="_blank" rel="noopener">SPL</a></span></footer>
+</div>
+</body>
+</html>

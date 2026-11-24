@@ -1,0 +1,91 @@
+domain: introductory_statistics_2e
+sources:
+  random_variable:
+    label: Random Variable
+    sections: []
+  mean:
+    label: Mean (μ)
+    sections: []
+  standard_deviation:
+    label: Standard Deviation (σ)
+    sections: []
+  normal_distribution:
+    label: Normal Distribution
+    sections: []
+  uniform_distribution:
+    label: Uniform Distribution
+    sections:
+    - id: ch07_s7_3
+      title: 7.3 Using the Central Limit Theorem
+  exponential_distribution:
+    label: Exponential Distribution
+    sections:
+    - id: ch07_s7_3
+      title: 7.3 Using the Central Limit Theorem
+  binomial_distribution:
+    label: Binomial Distribution
+    sections:
+    - id: ch07_s7_3
+      title: 7.3 Using the Central Limit Theorem
+    - id: ch07_s7_4
+      title: 7.4 Central Limit Theorem (Pocket Change)
+  z_score:
+    label: Z-score
+    sections: []
+  percentile:
+    label: Percentile
+    sections: []
+  sampling_distribution:
+    label: Sampling Distribution
+    sections:
+    - id: ch07_s7_1
+      title: 7.1 The Central Limit Theorem for Sample Means (Averages)
+  standard_error_of_mean:
+    label: Standard Error of the Mean
+    sections:
+    - id: ch07_s7_1
+      title: 7.1 The Central Limit Theorem for Sample Means (Averages)
+  central_limit_theorem_means:
+    label: Central Limit Theorem for Sample Means
+    sections:
+    - id: ch07_s7_1
+      title: 7.1 The Central Limit Theorem for Sample Means (Averages)
+    - id: ch07_chapter_objectives
+      title: Chapter Objectives
+  central_limit_theorem_sums:
+    label: Central Limit Theorem for Sums
+    sections:
+    - id: ch07_s7_2
+      title: 7.2 The Central Limit Theorem for Sums
+  law_of_large_numbers:
+    label: Law of Large Numbers
+    sections:
+    - id: ch07_s7_3
+      title: 7.3 Using the Central Limit Theorem
+  choosing_clt_form:
+    label: Choosing Between CLT for Means and Sums
+    sections:
+    - id: ch07_s7_3
+      title: 7.3 Using the Central Limit Theorem
+  normal_approximation_to_binomial:
+    label: Normal Approximation to the Binomial
+    sections:
+    - id: ch07_s7_3
+      title: 7.3 Using the Central Limit Theorem
+    - id: ch07_s7_4
+      title: 7.4 Central Limit Theorem (Pocket Change)
+  continuity_correction_factor:
+    label: Continuity Correction Factor
+    sections:
+    - id: ch07_s7_3
+      title: 7.3 Using the Central Limit Theorem
+  pocket_change_simulation:
+    label: Central Limit Theorem Simulation (Pocket Change)
+    sections:
+    - id: ch07_s7_4
+      title: 7.4 Central Limit Theorem (Pocket Change)
+  cookie_recipes_simulation:
+    label: Central Limit Theorem Simulation (Cookie Recipes)
+    sections:
+    - id: ch07_s7_5
+      title: 7.5 Central Limit Theorem (Cookie Recipes)

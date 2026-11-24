@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Chebyshev And Empirical Rules | Introductory Statistics Ch02</title>
+<script>
+MathJax = {
+  tex: { inlineMath: [['$','$'],['\\(','\\)']], displayMath: [['$$','$$'],['\\[','\\]']] },
+  options: { skipHtmlTags: ['script','noscript','style','textarea','pre','code'] }
+};
+</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" async></script>
+<script src="https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.min.js"></script>
+<script>mermaid.initialize({ startOnLoad: true, theme: 'neutral' });</script>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:Georgia,serif;background:#fafaf8;color:#1a1a1a;line-height:1.7}
+h2{font-size:1.45rem;color:#1e3a5f;margin-bottom:12px}
+h3{font-size:1.1rem;color:#2e4a7f;margin:20px 0 8px}
+h4{font-size:1rem;color:#3a5a8f;margin:16px 0 6px}
+p{margin-bottom:16px;font-size:1rem}
+li{margin-bottom:6px;margin-left:24px;font-size:1rem}
+pre{background:#f4f4f0;border:1px solid #d8d8d0;border-radius:6px;
+    padding:16px 20px;overflow-x:auto;margin:16px 0}
+code{font-family:Menlo,Consolas,monospace;font-size:.87em}
+p code{background:#f0f0ea;padding:1px 4px;border-radius:3px}
+footer.spl-credit{margin-top:32px;padding-top:16px;border-top:1px solid #e0e0d8;
+      font-family:system-ui,sans-serif;font-size:.78rem;color:#999;text-align:center}
+footer.spl-credit a{color:#2563eb;text-decoration:none}
+footer.spl-credit span{display:block}
+footer.spl-credit .spl-credit__meta{margin-bottom:4px}
+.cb-figure{margin:24px 0;text-align:center}
+.cb-figure img{max-width:100%;height:auto;border:1px solid #e0e0d8;border-radius:6px}
+figcaption{font-size:.82rem;color:#666;margin-top:8px;font-style:italic;text-align:center}
+pre.mermaid{background:none;border:none;padding:0;overflow:visible;margin:16px 0}
+.page{max-width:780px;margin:0 auto;padding:40px 32px}
+section{margin-bottom:48px;border-top:1px solid #e0e0d8;padding-top:36px}
+section:first-of-type{border-top:none;padding-top:0}
+</style>
+</head>
+<body>
+<div class="page">
+  <main>
+    <h2 id="chebyshev-and-empirical-rules">Chebyshev And Empirical Rules</h2>
+<p>Both rules answer the same question — what fraction of data lies within $k$ standard deviations of the mean? — but they answer it under different assumptions about the distribution's shape.</p>
+<p><strong>The core idea.</strong> For any dataset with mean $\mu$ and standard deviation $\sigma$, define the <em>within-$k$-sigma proportion</em> as the fraction of data falling in the interval $\mu \pm k\sigma$. Chebyshev's Rule gives a guaranteed minimum for this proportion that holds for <em>any</em> distribution, no matter how skewed or irregular:</p>
+$$
+\text{proportion within } k\sigma \;\geq\; 1 - \frac{1}{k^2}, \qquad k > 1
+$$
+<p>For $k=2$, this guarantees at least $1 - \tfrac14 = 75\%$ of data lie within $\mu \pm 2\sigma$. For $k=3$, at least $1 - \tfrac19 \approx 88.9\%$. This is a worst-case bound — the true proportion could be higher, but never lower.</p>
+<p>When the distribution happens to be bell-shaped and symmetric (approximately normal), the <em>same</em> within-$k$-sigma proportion is known exactly rather than bounded from below. This is the Empirical Rule, often called the 68-95-99.7 rule: about 68% of data fall within $\mu \pm 1\sigma$, about 95% within $\mu \pm 2\sigma$, and about 99.7% within $\mu \pm 3\sigma$ — each a tighter, more informative version of the same $k=1,2,3$ cases Chebyshev covers only loosely.</p>
+<p><strong>Worked example.</strong> Exam scores have $\mu = 75$, $\sigma = 8$. If scores are normally distributed, the Empirical Rule says about 95% of students scored between $75 - 16 = 59$ and $75 + 16 = 91$. If instead the distribution is skewed (say, a hard subset of questions pulled some scores down), we can't use the Empirical Rule, but Chebyshev's bound still guarantees at least 75% of scores fall in that same $59$–$91$ range — a weaker but always-valid claim.</p>
+<p><strong>Problem-solving application.</strong> These rules serve as a sanity check on data. Suppose a dataset has $\mu = 50$, $\sigma = 5$, and only 40% of values fall within $\mu \pm 2\sigma$ (between 40 and 60). This violates Chebyshev's 75% floor, which must hold for <em>any</em> real distribution — so the data likely contain an error, not just skewness. Conversely, once you've confirmed a dataset is approximately normal, switch to the Empirical Rule's exact percentages to flag outliers: any value beyond $\mu \pm 3\sigma$ occurs less than 0.3% of the time and merits closer inspection.</p>
+  </main>
+  <footer class="spl-credit"><span class="spl-credit__meta">Introductory Statistics — Ch2: Descriptive Statistics (Level: College &middot; Language: EN &middot; Model: sonnet)</span><span class="spl-credit__powered">Generated and Powered by <a href="https://github.com/digital-duck/SPL.py" target="_blank" rel="noopener">SPL</a></span></footer>
+</div>
+</body>
+</html>

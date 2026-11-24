@@ -1,0 +1,79 @@
+domain: introductory_statistics_2e
+sources:
+  independent_samples:
+    label: Independent Samples
+    sections:
+    - id: ch10_chapter_objectives
+      title: Chapter Objectives
+  matched_paired_samples:
+    label: Matched or Paired Samples
+    sections:
+    - id: ch10_chapter_objectives
+      title: Chapter Objectives
+    - id: ch10_s10_4
+      title: 10.4 Matched or Paired Samples
+  standard_error_diff_means:
+    label: Standard Error of the Difference in Sample Means
+    sections:
+    - id: ch10_s10_1
+      title: 10.1 Two Population Means with Unknown Standard Deviations
+  two_means_unknown_sd_test:
+    label: Hypothesis Test for Two Population Means, Standard Deviations Unknown
+    sections:
+    - id: ch10_s10_1
+      title: 10.1 Two Population Means with Unknown Standard Deviations
+  degrees_of_freedom_two_sample:
+    label: Degrees of Freedom for Two-Sample t-Test
+    sections:
+    - id: ch10_s10_1
+      title: 10.1 Two Population Means with Unknown Standard Deviations
+  cohens_d:
+    label: Cohen's d
+    sections:
+    - id: ch10_s10_1
+      title: 10.1 Two Population Means with Unknown Standard Deviations
+  two_means_known_sd_test:
+    label: Hypothesis Test for Two Population Means, Standard Deviations Known
+    sections:
+    - id: ch10_s10_2
+      title: 10.2 Two Population Means with Known Standard Deviations
+  normal_approx_large_samples:
+    label: Normal Approximation for Large Combined Sample Sizes
+    sections:
+    - id: ch10_s10_1
+      title: 10.1 Two Population Means with Unknown Standard Deviations
+    - id: ch10_s10_2
+      title: 10.2 Two Population Means with Known Standard Deviations
+  pooled_proportion:
+    label: Pooled Proportion
+    sections:
+    - id: ch10_s10_3
+      title: 10.3 Comparing Two Independent Population Proportions
+  two_proportions_test:
+    label: Hypothesis Test for Two Population Proportions
+    sections:
+    - id: ch10_s10_3
+      title: 10.3 Comparing Two Independent Population Proportions
+  matched_pairs_test:
+    label: Hypothesis Test for Matched or Paired Samples
+    sections:
+    - id: ch10_s10_4
+      title: 10.4 Matched or Paired Samples
+  two_sample_test_classification:
+    label: Classifying Two-Sample Hypothesis Tests
+    sections:
+    - id: ch10_s10_5
+      title: 10.5 Hypothesis Testing for Two Means and Two Proportions
+    - id: ch10_practice
+      title: Practice
+    - id: ch10_homework
+      title: Homework
+  real_world_two_group_comparisons:
+    label: Real-World Two-Group Comparisons
+    sections:
+    - id: ch10_practice
+      title: Practice
+    - id: ch10_homework
+      title: Homework
+    - id: ch10_bringing_it_together_homework
+      title: 'Bringing It Together: Homework'

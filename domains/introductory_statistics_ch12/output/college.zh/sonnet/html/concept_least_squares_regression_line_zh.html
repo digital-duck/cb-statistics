@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Least Squares Regression Line | Introductory Statistics Ch12</title>
+<script>
+MathJax = {
+  tex: { inlineMath: [['$','$'],['\\(','\\)']], displayMath: [['$$','$$'],['\\[','\\]']] },
+  options: { skipHtmlTags: ['script','noscript','style','textarea','pre','code'] }
+};
+</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" async></script>
+<script src="https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.min.js"></script>
+<script>mermaid.initialize({ startOnLoad: true, theme: 'neutral' });</script>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:Georgia,serif;background:#fafaf8;color:#1a1a1a;line-height:1.7}
+h2{font-size:1.45rem;color:#1e3a5f;margin-bottom:12px}
+h3{font-size:1.1rem;color:#2e4a7f;margin:20px 0 8px}
+h4{font-size:1rem;color:#3a5a8f;margin:16px 0 6px}
+p{margin-bottom:16px;font-size:1rem}
+li{margin-bottom:6px;margin-left:24px;font-size:1rem}
+pre{background:#f4f4f0;border:1px solid #d8d8d0;border-radius:6px;
+    padding:16px 20px;overflow-x:auto;margin:16px 0}
+code{font-family:Menlo,Consolas,monospace;font-size:.87em}
+p code{background:#f0f0ea;padding:1px 4px;border-radius:3px}
+footer.spl-credit{margin-top:32px;padding-top:16px;border-top:1px solid #e0e0d8;
+      font-family:system-ui,sans-serif;font-size:.78rem;color:#999;text-align:center}
+footer.spl-credit a{color:#2563eb;text-decoration:none}
+footer.spl-credit span{display:block}
+footer.spl-credit .spl-credit__meta{margin-bottom:4px}
+.cb-figure{margin:24px 0;text-align:center}
+.cb-figure img{max-width:100%;height:auto;border:1px solid #e0e0d8;border-radius:6px}
+figcaption{font-size:.82rem;color:#666;margin-top:8px;font-style:italic;text-align:center}
+pre.mermaid{background:none;border:none;padding:0;overflow:visible;margin:16px 0}
+.page{max-width:780px;margin:0 auto;padding:40px 32px}
+section{margin-bottom:48px;border-top:1px solid #e0e0d8;padding-top:36px}
+section:first-of-type{border-top:none;padding-top:0}
+</style>
+</head>
+<body>
+<div class="page">
+  <main>
+    <h2 id="最小二乘回归直线">最小二乘回归直线</h2>
+<p><strong>定义。</strong> 给定 $n$ 个数据点 $(x_i, y_i)$,对直线 $\hat y = a + bx$ 的<strong>残差</strong>为 $e_i = y_i - \hat y_i$。<strong>最小二乘回归直线</strong>是使误差平方和</p>
+$$
+\text{SSE}(a,b)=\sum_{i=1}^{n}\bigl(y_i-a-bx_i\bigr)^2
+$$
+<p>取最小值的那条唯一直线。</p>
+<p><strong>公式推导。</strong> SSE 是关于 $a,b$ 的二次函数,令偏导数为零:</p>
+$$
+\frac{\partial\,\text{SSE}}{\partial a}=-2\sum (y_i-a-bx_i)=0,\qquad
+\frac{\partial\,\text{SSE}}{\partial b}=-2\sum x_i(y_i-a-bx_i)=0 .
+$$
+<p>整理得到<strong>正规方程</strong>,解为</p>
+$$
+b=\frac{\sum (x_i-\bar x)(y_i-\bar y)}{\sum (x_i-\bar x)^2}=r\,\frac{s_y}{s_x},\qquad
+a=\bar y-b\,\bar x .
+$$
+<p>只要 $x_i$ 不全相同,分母大于 0,解唯一;SSE 的二阶导数矩阵正定,因此这是最小值而非鞍点。由 $a=\bar y-b\bar x$ 可知,<strong>回归直线必过点 $(\bar x,\bar y)$</strong>。</p>
+<p><strong>例题。</strong> 某学生每周学习时间 $x$(小时)与测验成绩 $y$:</p>
+<p>| $x$ | 1 | 2 | 3 | 4 | 5 | |---|---|---|---|---|---| | $y$ | 55 | 65 | 70 | 80 | 85 |</p>
+<p>计算得 $\bar x=3$,$\bar y=71$。 $\sum (x_i-\bar x)(y_i-\bar y)=(-2)(-16)+(-1)(-6)+0+(1)(9)+(2)(14)=32+6+0+9+28=75$, $\sum (x_i-\bar x)^2=4+1+0+1+4=10$。</p>
+<p>于是 $b=75/10=7.5$,$a=71-7.5\times 3=48.5$,即</p>
+$$
+\hat y = 48.5+7.5x .
+$$
+<p><strong>问题求解应用。</strong></p>
+<li><strong>解释斜率:</strong> 每周多学 1 小时,平均成绩预计提高约 7.5 分;截距 48.5 是 $x=0$ 时的预测值(此处仅为外推,意义有限)。</li>
+<li><strong>预测:</strong> $x=3.5$ 时,$\hat y=48.5+26.25=74.75$。</li>
+<li><strong>残差:</strong> $x=4$ 时 $\hat y=78.5$,残差 $e=80-78.5=1.5$。全部残差为 $-1,\,1.5,\,-1,\,1.5,\,-1$ 再核对:$x=1$ 时 $\hat y=56$,$e=-1$;$x=2$ 时 $\hat y=63.5$,$e=1.5$;$x=3$ 时 $\hat y=71$,$e=-1$;$x=5$ 时 $\hat y=86$,$e=-1$。其和为 $-1+1.5-1+1.5-1=0$,符合最小二乘残差之和恒为 0 的性质。</li>
+<li><strong>SSE:</strong> $1+2.25+1+2.25+1=7.5$。任何其他直线(如 $\hat y=50+7x$)的 SSE 都更大。</li>
+<p><strong>使用提醒。</strong> 直线只在数据范围内可靠,避免盲目外推;离群点和高杠杆点会显著拉动直线;$r$ 或 $r^2$ 衡量线性拟合程度,但相关不等于因果。</p>
+<pre class="mermaid">flowchart LR
+A["散点数据"] --> B["写出 SSE(a,b)"]
+B --> C["对 a、b 求偏导并令其为零"]
+C --> D["解正规方程"]
+D --> E["得 b 与 a"]
+E --> F["回归直线 过 (x̄, ȳ)"]</pre>
+<p><em>图:由最小化 SSE 到得出回归直线的推导流程。</em></p>
+  </main>
+  <footer class="spl-credit"><span class="spl-credit__meta">Introductory Statistics — Ch12: Linear Regression and Correlation (Level: College &middot; Language: ZH &middot; Model: sonnet)</span><span class="spl-credit__powered">Generated and Powered by <a href="https://github.com/digital-duck/SPL.py" target="_blank" rel="noopener">SPL</a></span></footer>
+</div>
+</body>
+</html>

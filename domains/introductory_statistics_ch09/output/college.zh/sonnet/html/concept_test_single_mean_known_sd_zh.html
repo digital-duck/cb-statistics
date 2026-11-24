@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Test Single Mean Known Sd | Introductory Statistics Ch09</title>
+<script>
+MathJax = {
+  tex: { inlineMath: [['$','$'],['\\(','\\)']], displayMath: [['$$','$$'],['\\[','\\]']] },
+  options: { skipHtmlTags: ['script','noscript','style','textarea','pre','code'] }
+};
+</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" async></script>
+<script src="https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.min.js"></script>
+<script>mermaid.initialize({ startOnLoad: true, theme: 'neutral' });</script>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:Georgia,serif;background:#fafaf8;color:#1a1a1a;line-height:1.7}
+h2{font-size:1.45rem;color:#1e3a5f;margin-bottom:12px}
+h3{font-size:1.1rem;color:#2e4a7f;margin:20px 0 8px}
+h4{font-size:1rem;color:#3a5a8f;margin:16px 0 6px}
+p{margin-bottom:16px;font-size:1rem}
+li{margin-bottom:6px;margin-left:24px;font-size:1rem}
+pre{background:#f4f4f0;border:1px solid #d8d8d0;border-radius:6px;
+    padding:16px 20px;overflow-x:auto;margin:16px 0}
+code{font-family:Menlo,Consolas,monospace;font-size:.87em}
+p code{background:#f0f0ea;padding:1px 4px;border-radius:3px}
+footer.spl-credit{margin-top:32px;padding-top:16px;border-top:1px solid #e0e0d8;
+      font-family:system-ui,sans-serif;font-size:.78rem;color:#999;text-align:center}
+footer.spl-credit a{color:#2563eb;text-decoration:none}
+footer.spl-credit span{display:block}
+footer.spl-credit .spl-credit__meta{margin-bottom:4px}
+.cb-figure{margin:24px 0;text-align:center}
+.cb-figure img{max-width:100%;height:auto;border:1px solid #e0e0d8;border-radius:6px}
+figcaption{font-size:.82rem;color:#666;margin-top:8px;font-style:italic;text-align:center}
+pre.mermaid{background:none;border:none;padding:0;overflow:visible;margin:16px 0}
+.page{max-width:780px;margin:0 auto;padding:40px 32px}
+section{margin-bottom:48px;border-top:1px solid #e0e0d8;padding-top:36px}
+section:first-of-type{border-top:none;padding-top:0}
+</style>
+</head>
+<body>
+<div class="page">
+  <main>
+    <h2 id="单均值检验-总体标准差已知">单均值检验(总体标准差已知)</h2>
+<p><strong>定义。</strong> 当总体标准差 $\sigma$ 已知时,检验总体均值 $\mu$ 是否与声称值 $\mu_0$ 不同,使用 <strong>$z$ 检验</strong>。基本假设是:样本来自正态总体,或样本量 $n$ 足够大,使样本均值 $\bar{X}$ 近似服从正态分布。</p>
+<li>原假设 $H_0:\mu=\mu_0$;备择假设 $H_1:\mu\ne\mu_0$(双侧),或 $\mu>\mu_0$、$\mu<\mu_0$(单侧)。</li>
+<li>在 $H_0$ 成立时,$\bar{X}\sim N\!\left(\mu_0,\ \sigma^2/n\right)$,因此检验统计量</li>
+$$
+z=\frac{\bar{x}-\mu_0}{\sigma/\sqrt{n}}\sim N(0,1).
+$$
+<p>$z$ 衡量样本均值偏离 $\mu_0$ 多少个<strong>标准误</strong> $\sigma/\sqrt{n}$。</p>
+<p><strong>决策规则。</strong> 给定显著性水平 $\alpha$:</p>
+<li>双侧检验:若 $|z|>z_{\alpha/2}$,则拒绝 $H_0$。当 $\alpha=0.05$ 时,$z_{0.025}=1.96$。</li>
+<li>也可计算 $p$ 值:双侧检验中 $p=2\,[1-\Phi(|z|)]$。若 $p<\alpha$,则拒绝 $H_0$。</li>
+<p><strong>例题。</strong> 某工厂声称灯泡平均寿命为 $\mu_0=1000$ 小时。历史数据表明 $\sigma=60$ 小时。随机抽取 $n=36$ 只灯泡,测得 $\bar{x}=980$ 小时。在 $\alpha=0.05$ 下,检验寿命是否与声称值不同。</p>
+<li>假设:$H_0:\mu=1000$,$H_1:\mu\ne1000$。</li>
+<li>标准误:$\sigma/\sqrt{n}=60/6=10$。</li>
+<li>统计量:</li>
+$$
+z=\frac{980-1000}{10}=-2.
+$$
+<li>比较临界值:$|z|=2>1.96$,拒绝 $H_0$。</li>
+<li>$p$ 值:$p=2\,[1-\Phi(2)]\approx2(0.0228)=0.0455<0.05$,结论一致。</li>
+<p><strong>结论:</strong> 在 5% 的显著性水平下,有充分证据表明平均寿命不同于 1000 小时。</p>
+<p><strong>问题求解应用。</strong> 如果只关心"寿命是否<strong>低于</strong>声称值",则应做左侧检验:$H_1:\mu<1000$。此时拒绝域为 $z<-z_{\alpha}=-1.645$。因为 $-2<-1.645$,同样拒绝 $H_0$。单侧 $p$ 值为 $\Phi(-2)\approx0.0228$。</p>
+<p>再看样本量的影响。若样本均值同样为 980,但只抽了 $n=9$ 只,则标准误为 $60/3=20$,$z=-1$,不能拒绝 $H_0$。这说明:<strong>同样的差异,样本越大,证据越强</strong>。</p>
+<p><strong>常见错误。</strong></p>
+<li>不能说"$p=0.0455$ 表示 $H_0$ 为真的概率是 4.55%"。$p$ 值是<strong>假设 $H_0$ 成立时</strong>,出现如此极端(或更极端)数据的概率。</li>
+<li>"未拒绝 $H_0$"不等于"证明 $H_0$ 成立",只表示证据不足。</li>
+<li>若 $\sigma$ 未知,需改用样本标准差 $s$ 并采用 $t$ 检验。</li>
+<pre class="mermaid">flowchart TD
+    A[提出 H0 与 H1] --> B[确认 σ 已知且满足正态条件]
+    B --> C[计算标准误 σ/√n]
+    C --> D[计算 z 统计量]
+    D --> E{|z| 大于临界值 或 p 小于 α?}
+    E -->|是| F[拒绝 H0]
+    E -->|否| G[不能拒绝 H0]</pre>
+<p><em>图:已知标准差的单均值 $z$ 检验流程,从设定假设到作出决策。</em></p>
+  </main>
+  <footer class="spl-credit"><span class="spl-credit__meta">Introductory Statistics — Ch9: Hypothesis Testing with One Sample (Level: College &middot; Language: ZH &middot; Model: sonnet)</span><span class="spl-credit__powered">Generated and Powered by <a href="https://github.com/digital-duck/SPL.py" target="_blank" rel="noopener">SPL</a></span></footer>
+</div>
+</body>
+</html>

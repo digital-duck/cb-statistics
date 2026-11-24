@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Chi Square Distribution | Introductory Statistics Ch11</title>
+<script>
+MathJax = {
+  tex: { inlineMath: [['$','$'],['\\(','\\)']], displayMath: [['$$','$$'],['\\[','\\]']] },
+  options: { skipHtmlTags: ['script','noscript','style','textarea','pre','code'] }
+};
+</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" async></script>
+<script src="https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.min.js"></script>
+<script>mermaid.initialize({ startOnLoad: true, theme: 'neutral' });</script>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:Georgia,serif;background:#fafaf8;color:#1a1a1a;line-height:1.7}
+h2{font-size:1.45rem;color:#1e3a5f;margin-bottom:12px}
+h3{font-size:1.1rem;color:#2e4a7f;margin:20px 0 8px}
+h4{font-size:1rem;color:#3a5a8f;margin:16px 0 6px}
+p{margin-bottom:16px;font-size:1rem}
+li{margin-bottom:6px;margin-left:24px;font-size:1rem}
+pre{background:#f4f4f0;border:1px solid #d8d8d0;border-radius:6px;
+    padding:16px 20px;overflow-x:auto;margin:16px 0}
+code{font-family:Menlo,Consolas,monospace;font-size:.87em}
+p code{background:#f0f0ea;padding:1px 4px;border-radius:3px}
+footer.spl-credit{margin-top:32px;padding-top:16px;border-top:1px solid #e0e0d8;
+      font-family:system-ui,sans-serif;font-size:.78rem;color:#999;text-align:center}
+footer.spl-credit a{color:#2563eb;text-decoration:none}
+footer.spl-credit span{display:block}
+footer.spl-credit .spl-credit__meta{margin-bottom:4px}
+.cb-figure{margin:24px 0;text-align:center}
+.cb-figure img{max-width:100%;height:auto;border:1px solid #e0e0d8;border-radius:6px}
+figcaption{font-size:.82rem;color:#666;margin-top:8px;font-style:italic;text-align:center}
+pre.mermaid{background:none;border:none;padding:0;overflow:visible;margin:16px 0}
+.page{max-width:780px;margin:0 auto;padding:40px 32px}
+section{margin-bottom:48px;border-top:1px solid #e0e0d8;padding-top:36px}
+section:first-of-type{border-top:none;padding-top:0}
+</style>
+</head>
+<body>
+<div class="page">
+  <main>
+    <h2 id="卡方分布">卡方分布</h2>
+<p><strong>定义。</strong> 设 $Z_1, Z_2, \dots, Z_k$ 是相互独立的标准正态随机变量,则</p>
+$$
+X = Z_1^2 + Z_2^2 + \cdots + Z_k^2
+$$
+<p>服从<strong>自由度为 $k$ 的卡方分布</strong>,记作 $X \sim \chi^2_k$。其基本性质如下:</p>
+<li>取值范围为 $[0, \infty)$,因为平方和不可能为负。</li>
+<li>均值 $E[X] = k$,方差 $\mathrm{Var}(X) = 2k$。</li>
+<li>分布右偏。$k$ 较小时偏斜明显,$k$ 增大后逐渐趋近正态分布。</li>
+<li>可加性:若 $X_1 \sim \chi^2_{k_1}$ 与 $X_2 \sim \chi^2_{k_2}$ 独立,则 $X_1 + X_2 \sim \chi^2_{k_1+k_2}$。</li>
+<p>均值和方差的推导很直接。由 $E[Z^2]=\mathrm{Var}(Z)=1$ 得 $E[X]=k$。又 $E[Z^4]=3$,所以 $\mathrm{Var}(Z^2)=3-1=2$。各项独立,方差相加得 $2k$。</p>
+<p>其概率密度函数为</p>
+$$
+f(x;k)=\frac{1}{2^{k/2}\,\Gamma(k/2)}\,x^{k/2-1}e^{-x/2},\quad x>0.
+$$
+<p>它是 Gamma 分布的特例,对应形状参数 $k/2$、尺度参数 $2$。</p>
+<pre class="mermaid">flowchart LR
+    A["独立标准正态 Z1…Zk"] --> B["逐个平方 Zi²"]
+    B --> C["求和 X"]
+    C --> D["X 服从卡方分布 χ²(k)"]
+    D --> E["拟合优度检验"]
+    D --> F["独立性检验"]
+    D --> G["方差的置信区间"]</pre>
+<p><em>图:卡方分布由标准正态变量的平方和构成,并成为多种假设检验的抽样分布。</em></p>
+<p><strong>例题。</strong> 设 $Z_1, Z_2, Z_3$ 是独立的标准正态变量,求 $P(Z_1^2+Z_2^2+Z_3^2 > 7.815)$。</p>
+<p>这里 $X\sim\chi^2_3$。查卡方分布表,自由度 3 时的上 5% 临界值为 $7.815$,所以概率为 $0.05$。该分布的均值为 $3$,方差为 $6$,标准差约为 $2.45$。因此 $7.815$ 高于均值约 $2$ 个标准差,与右偏分布的长尾相符。</p>
+<p><strong>问题求解应用。</strong> 卡方分布的主要用途是检验方差和分类数据,下面用一个拟合优度检验说明。</p>
+<p>某骰子掷 $60$ 次,各点数出现次数为 $5, 8, 9, 8, 10, 20$。若骰子均匀,每个点数的期望次数为 $E_i=10$。检验统计量为</p>
+$$
+\chi^2=\sum_{i=1}^{6}\frac{(O_i-E_i)^2}{E_i}.
+$$
+<p>代入计算:</p>
+$$
+\chi^2=\frac{25+4+1+4+0+100}{10}=13.4.
+$$
+<p>在原假设"骰子均匀"下,该统计量近似服从 $\chi^2_{5}$,自由度为类别数减一,即 $6-1=5$。查表得 $\chi^2_{5}$ 的上 5% 临界值为 $11.07$。由于 $13.4>11.07$,在 $\alpha=0.05$ 下拒绝原假设,认为骰子不均匀。主要偏差来自点数 6,它单独贡献了 $10$ 的统计量。</p>
+<p><strong>要点。</strong> 样本方差也与卡方分布相关:对正态总体,$(n-1)S^2/\sigma^2\sim\chi^2_{n-1}$,据此可以构造方差的置信区间并检验方差。使用时要始终确认自由度,因为同一个观测值在不同自由度下对应的 $p$ 值完全不同。</p>
+  </main>
+  <footer class="spl-credit"><span class="spl-credit__meta">Introductory Statistics — Ch11: The Chi-Square Distribution (Level: College &middot; Language: ZH &middot; Model: sonnet)</span><span class="spl-credit__powered">Generated and Powered by <a href="https://github.com/digital-duck/SPL.py" target="_blank" rel="noopener">SPL</a></span></footer>
+</div>
+</body>
+</html>

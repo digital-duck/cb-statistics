@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Independent Dependent Variables | Introductory Statistics Ch12</title>
+<script>
+MathJax = {
+  tex: { inlineMath: [['$','$'],['\\(','\\)']], displayMath: [['$$','$$'],['\\[','\\]']] },
+  options: { skipHtmlTags: ['script','noscript','style','textarea','pre','code'] }
+};
+</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" async></script>
+<script src="https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.min.js"></script>
+<script>mermaid.initialize({ startOnLoad: true, theme: 'neutral' });</script>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:Georgia,serif;background:#fafaf8;color:#1a1a1a;line-height:1.7}
+h2{font-size:1.45rem;color:#1e3a5f;margin-bottom:12px}
+h3{font-size:1.1rem;color:#2e4a7f;margin:20px 0 8px}
+h4{font-size:1rem;color:#3a5a8f;margin:16px 0 6px}
+p{margin-bottom:16px;font-size:1rem}
+li{margin-bottom:6px;margin-left:24px;font-size:1rem}
+pre{background:#f4f4f0;border:1px solid #d8d8d0;border-radius:6px;
+    padding:16px 20px;overflow-x:auto;margin:16px 0}
+code{font-family:Menlo,Consolas,monospace;font-size:.87em}
+p code{background:#f0f0ea;padding:1px 4px;border-radius:3px}
+footer.spl-credit{margin-top:32px;padding-top:16px;border-top:1px solid #e0e0d8;
+      font-family:system-ui,sans-serif;font-size:.78rem;color:#999;text-align:center}
+footer.spl-credit a{color:#2563eb;text-decoration:none}
+footer.spl-credit span{display:block}
+footer.spl-credit .spl-credit__meta{margin-bottom:4px}
+.cb-figure{margin:24px 0;text-align:center}
+.cb-figure img{max-width:100%;height:auto;border:1px solid #e0e0d8;border-radius:6px}
+figcaption{font-size:.82rem;color:#666;margin-top:8px;font-style:italic;text-align:center}
+pre.mermaid{background:none;border:none;padding:0;overflow:visible;margin:16px 0}
+.page{max-width:780px;margin:0 auto;padding:40px 32px}
+section{margin-bottom:48px;border-top:1px solid #e0e0d8;padding-top:36px}
+section:first-of-type{border-top:none;padding-top:0}
+</style>
+</head>
+<body>
+<div class="page">
+  <main>
+    <h2 id="自变量与因变量">自变量与因变量</h2>
+<p><strong>定义。</strong> 在两个数值变量的关系中,<strong>自变量</strong>(independent variable,常记作 $x$)是被选定或被控制的量;<strong>因变量</strong>(dependent variable,常记作 $y$)是其取值随 $x$ 而变化的量。若 $y$ 由 $x$ 唯一确定,则可写成函数关系</p>
+$$y = f(x),$$
+<p>其中 $x$ 的所有允许取值构成<strong>定义域</strong>,$y$ 的所有对应取值构成<strong>值域</strong>。</p>
+<p>需要注意:"自变量"与"因变量"描述的是变量在<em>问题中的角色</em>,而不是变量本身的性质。同一个量在不同问题中可以扮演不同角色。判断时可问自己:"我在改变或选择哪个量?哪个量是被测量或被计算出来的结果?"</p>
+<p><strong>例题。</strong> 一辆出租车起步价为 10 元,之后每行驶 1 公里加收 3 元。设行驶距离为 $x$ 公里($x \ge 0$),车费为 $y$ 元。</p>
+<li>距离由乘客的行程决定,因此 $x$ 是自变量;车费随距离变化,因此 $y$ 是因变量。</li>
+<li>建立关系:</li>
+$$y = 10 + 3x.$$
+<li>当 $x = 4$ 时,$y = 10 + 3\times 4 = 22$(元);当 $x = 7$ 时,$y = 31$(元)。</li>
+<li>定义域为 $x \ge 0$,值域为 $y \ge 10$。</li>
+<p><strong>问题求解应用。</strong> 在实验设计中,正确识别两类变量是第一步。</p>
+<p><em>情境:</em> 某同学想研究弹簧挂上砝码后的伸长量。他依次挂上 $50,100,150,200$ g 的砝码,并用尺子测得弹簧总长度 $L$(cm)分别为 $12.1,\ 14.0,\ 16.1,\ 18.0$。</p>
+<li><strong>自变量:</strong> 砝码质量 $m$(由实验者主动选择)。</li>
+<li><strong>因变量:</strong> 弹簧长度 $L$(被测量的结果)。</li>
+<li><strong>控制变量:</strong> 同一根弹簧、同一把尺子、同一温度,保证只有 $m$ 在改变。</li>
+<p>作图时,通常把自变量放在横轴、因变量放在纵轴。由数据可估计斜率:</p>
+$$k=\frac{18.0-12.1}{200-50}\approx 0.039\ \text{cm/g},$$
+<p>于是 $L \approx 10.2 + 0.039\,m$。据此可预测:挂 $120$ g 时,$L \approx 10.2 + 0.039\times120 \approx 14.9$ cm。</p>
+<pre class="mermaid">flowchart LR
+    A["自变量 x<br/>(选择或控制)"] --> B["规则 f<br/>(函数关系)"]
+    B --> C["因变量 y = f(x)<br/>(被测量或计算)"]
+    D["控制变量<br/>(保持不变)"] -.-> B</pre>
+<p><em>图示:自变量经过函数关系 $f$ 得到因变量;控制变量保持不变,以保证 $y$ 的变化只来自 $x$。</em></p>
+<p><strong>小结。</strong> 解题时先明确"谁在被改变、谁在被测量",再写出 $y=f(x)$,并留意定义域的限制(如距离、质量不能为负)。这样才能正确作图、拟合并做出预测。</p>
+  </main>
+  <footer class="spl-credit"><span class="spl-credit__meta">Introductory Statistics — Ch12: Linear Regression and Correlation (Level: College &middot; Language: ZH &middot; Model: sonnet)</span><span class="spl-credit__powered">Generated and Powered by <a href="https://github.com/digital-duck/SPL.py" target="_blank" rel="noopener">SPL</a></span></footer>
+</div>
+</body>
+</html>

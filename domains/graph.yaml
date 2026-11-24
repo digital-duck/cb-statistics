@@ -1,0 +1,1737 @@
+# Book-level super-graph — AUTO-GENERATED, do not edit by hand.
+# Run:  python scripts/build_super_graph.py
+#
+# Merges all chapter graphs; each node carries source_domain (canonical
+# definition) and optionally also_in (other chapters that reuse it).
+# Cross-domain primitives (concepts in an earlier chapter re-declared as
+# primitives in a later one) appear here with their full composed_of chain.
+# This file is never used for SPL generation — it exists for validation
+# and future book-level graph visualisation.
+domain: introductory_statistics
+chapters:
+- introductory_statistics_ch01
+- introductory_statistics_ch02
+- introductory_statistics_ch03
+- introductory_statistics_ch04
+- introductory_statistics_ch05
+- introductory_statistics_ch06
+- introductory_statistics_ch07
+- introductory_statistics_ch08
+- introductory_statistics_ch09
+- introductory_statistics_ch10
+- introductory_statistics_ch11
+- introductory_statistics_ch12
+- introductory_statistics_ch13
+primitives:
+  population:
+    defines: All individuals, objects, or measurements whose properties are being
+      studied.
+    tier: 0
+    source_domain: introductory_statistics_ch01
+  data:
+    defines: The actual values of a variable, which may be numbers or words, collected
+      from a population or sample.
+    tier: 0
+    source_domain: introductory_statistics_ch01
+  variable:
+    defines: A characteristic or measurement that can be determined for each member
+      of a population, notated by capital letters such as X and Y.
+    tier: 0
+    source_domain: introductory_statistics_ch01
+  probability:
+    defines: A mathematical tool, expressed as a number between zero and one, used
+      to study the likelihood of an event occurring.
+    tier: 0
+    source_domain: introductory_statistics_ch01
+    also_in:
+    - introductory_statistics_ch03
+  stem_and_leaf_plot:
+    defines: A graph that divides each data value into a stem and leaf and displays
+      all values in increasing order next to their stem, giving an exact picture of
+      small data sets.
+    tier: 0
+    source_domain: introductory_statistics_ch02
+  outlier:
+    defines: An observation of data that does not fit the overall pattern of the rest
+      of the data; also called an extreme value.
+    tier: 0
+    source_domain: introductory_statistics_ch02
+  line_graph:
+    defines: A graph in which data values are plotted on the x-axis, frequency points
+      on the y-axis, and the points connected by line segments.
+    tier: 0
+    source_domain: introductory_statistics_ch02
+  bar_graph:
+    defines: A graph consisting of separated bars (vertical or horizontal) used to
+      compare categories of data.
+    tier: 0
+    source_domain: introductory_statistics_ch02
+  median:
+    defines: The "middle value" that separates ordered data into two equal halves;
+      found using the location formula (n+1)/2.
+    tier: 0
+    source_domain: introductory_statistics_ch02
+  mean:
+    defines: The arithmetic average of a data set, calculated by summing all values
+      and dividing by the number of values; denoted x-bar for a sample and μ for a
+      population.
+    tier: 0
+    source_domain: introductory_statistics_ch02
+    also_in:
+    - introductory_statistics_ch06
+    - introductory_statistics_ch07
+  mode:
+    defines: The most frequently occurring value or values in a data set.
+    tier: 0
+    source_domain: introductory_statistics_ch02
+  experiment:
+    defines: A planned operation carried out under controlled conditions; if the result
+      is not predetermined it is a chance experiment.
+    tier: 0
+    source_domain: introductory_statistics_ch03
+  outcome:
+    defines: A particular result of an experiment.
+    tier: 0
+    source_domain: introductory_statistics_ch03
+  sample_space:
+    defines: The set of all possible outcomes of an experiment, denoted S.
+    tier: 0
+    source_domain: introductory_statistics_ch03
+  random_variable:
+    defines: A characteristic of interest whose value varies with each repetition
+      of a statistical experiment, denoted by an upper-case letter (X) with specific
+      outcomes denoted by lower-case letters (x).
+    tier: 0
+    source_domain: introductory_statistics_ch04
+    also_in:
+    - introductory_statistics_ch06
+    - introductory_statistics_ch07
+  bernoulli_trial:
+    defines: An experiment with exactly two possible outcomes ("success" and "failure")
+      where the probability of success p is the same on every trial.
+    tier: 0
+    source_domain: introductory_statistics_ch04
+  continuous_random_variable:
+    defines: A random variable whose values are measured (not counted) and can take
+      any value within an interval.
+    tier: 0
+    source_domain: introductory_statistics_ch05
+  probability_density_function:
+    defines: The function f(x) whose graph represents a continuous probability distribution,
+      where area under the curve corresponds to probability.
+    tier: 0
+    source_domain: introductory_statistics_ch05
+  continuous_probability_distribution:
+    defines: A probability distribution for a continuous random variable, where probability
+      is represented as area under a curve.
+    tier: 0
+    source_domain: introductory_statistics_ch06
+  point_estimate:
+    defines: A single number, computed from sample data, used to estimate an unknown
+      population parameter.
+    tier: 0
+    source_domain: introductory_statistics_ch08
+  sample_mean:
+    defines: The average of sample data values, used as a point estimate of the population
+      mean.
+    tier: 0
+    source_domain: introductory_statistics_ch08
+  sample_standard_deviation:
+    defines: A statistic measuring variability in sample data, used as an estimate
+      of the population standard deviation.
+    tier: 0
+    source_domain: introductory_statistics_ch08
+  population_parameter:
+    defines: A fixed numerical characteristic of an entire population, such as the
+      mean or proportion, that is typically unknown and must be estimated.
+    tier: 0
+    source_domain: introductory_statistics_ch08
+  central_limit_theorem:
+    defines: The result that the sampling distribution of the sample mean is approximately
+      normal, with standard deviation equal to the population standard deviation divided
+      by the square root of the sample size.
+    tier: 0
+    source_domain: introductory_statistics_ch08
+    also_in:
+    - introductory_statistics_ch09
+  confidence_level:
+    defines: The percent of all possible confidence intervals, constructed the same
+      way, that are expected to contain the true population parameter.
+    tier: 0
+    source_domain: introductory_statistics_ch08
+  degrees_of_freedom:
+    defines: The number of values in a sample that are free to vary, calculated as
+      n − 1 for a sample standard deviation.
+    tier: 0
+    source_domain: introductory_statistics_ch08
+    also_in:
+    - introductory_statistics_ch11
+    - introductory_statistics_ch13
+  null_hypothesis:
+    defines: A statement of no difference or status quo about a population parameter,
+      assumed true unless evidence indicates otherwise.
+    tier: 0
+    source_domain: introductory_statistics_ch09
+  alternative_hypothesis:
+    defines: A claim about the population that contradicts the null hypothesis and
+      is typically what the researcher is trying to show.
+    tier: 0
+    source_domain: introductory_statistics_ch09
+  significance_level:
+    defines: The preconceived probability of committing a Type I error, set before
+      collecting sample data.
+    tier: 0
+    source_domain: introductory_statistics_ch09
+  independent_samples:
+    defines: Two samples in which values selected from one population are not related
+      in any way to values selected from the other population.
+    tier: 0
+    source_domain: introductory_statistics_ch10
+  matched_paired_samples:
+    defines: Two samples that are dependent, consisting of two measurements drawn
+      from the same pair of individuals or objects.
+    tier: 0
+    source_domain: introductory_statistics_ch10
+  standard_error_diff_means:
+    defines: An estimated standard deviation of the difference between two sample
+      means, computed from the two sample standard deviations.
+    tier: 0
+    source_domain: introductory_statistics_ch10
+  pooled_proportion:
+    defines: An estimate of the common value of two population proportions, computed
+      by combining the successes and sample sizes of both samples.
+    tier: 0
+    source_domain: introductory_statistics_ch10
+  standard_normal_variable:
+    defines: A normally distributed random variable with mean 0 and standard deviation
+      1, used as the building block of the chi-square random variable.
+    tier: 0
+    source_domain: introductory_statistics_ch11
+  hypothesis_test:
+    defines: A statistical procedure involving a null and alternative hypothesis,
+      a test statistic, and a p-value used to make a decision about a population claim.
+    tier: 0
+    source_domain: introductory_statistics_ch11
+  contingency_table:
+    defines: A table that displays sample values for two different factors that may
+      be dependent or contingent on one another, facilitating determination of conditional
+      probabilities.
+    tier: 0
+    source_domain: introductory_statistics_ch11
+  independent_dependent_variables:
+    defines: In a relationship between two numeric variables, x is the independent
+      variable chosen or controlled, and y is the dependent variable whose value depends
+      on x.
+    tier: 0
+    source_domain: introductory_statistics_ch12
+  linear_equation:
+    defines: An equation of the form y = a + bx describing a straight-line relationship
+      between an independent variable x and a dependent variable y.
+    tier: 0
+    source_domain: introductory_statistics_ch12
+  scatter_plot:
+    defines: A graph of paired (x, y) data points used to visually display the direction
+      and strength of the relationship between two variables.
+    tier: 0
+    source_domain: introductory_statistics_ch12
+concepts:
+  sample:
+    defines: A subset or portion of the population that is selected and studied to
+      gain information about the population.
+    composed_of:
+    - population
+    tier: 1
+    source_domain: introductory_statistics_ch01
+  parameter:
+    defines: A numerical characteristic of the whole population that can be estimated
+      by a statistic.
+    composed_of:
+    - population
+    tier: 1
+    source_domain: introductory_statistics_ch01
+  qualitative_data:
+    defines: Data that result from categorizing or describing attributes of a population,
+      generally described by words or letters.
+    composed_of:
+    - variable
+    - data
+    tier: 1
+    source_domain: introductory_statistics_ch01
+  quantitative_data:
+    defines: Data that are always numbers, resulting from counting or measuring attributes
+      of a population, and may be discrete or continuous.
+    composed_of:
+    - variable
+    - data
+    tier: 1
+    source_domain: introductory_statistics_ch01
+  levels_of_measurement:
+    defines: A classification of how data is measured, ranging from nominal to ordinal
+      to interval to ratio scale.
+    composed_of:
+    - variable
+    tier: 1
+    source_domain: introductory_statistics_ch01
+  frequency:
+    defines: The number of times a value of the data occurs.
+    composed_of:
+    - data
+    tier: 1
+    source_domain: introductory_statistics_ch01
+    also_in:
+    - introductory_statistics_ch02
+  explanatory_response_variable:
+    defines: The explanatory variable is manipulated by the researcher and is thought
+      to cause change, while the response variable is the affected variable measured
+      for change.
+    composed_of:
+    - variable
+    tier: 1
+    source_domain: introductory_statistics_ch01
+  statistic:
+    defines: A number that represents a property of the sample and serves as an estimate
+      of a population parameter.
+    composed_of:
+    - sample
+    - parameter
+    tier: 2
+    source_domain: introductory_statistics_ch01
+  descriptive_inferential_statistics:
+    defines: Descriptive statistics organizes and summarizes data, while inferential
+      statistics uses probability to draw confident conclusions about a population
+      from sample data.
+    composed_of:
+    - population
+    - sample
+    - probability
+    - data
+    tier: 2
+    source_domain: introductory_statistics_ch01
+  representative_sample:
+    defines: A subset of the population that has the same characteristics as the population
+      it represents.
+    composed_of:
+    - sample
+    - population
+    tier: 2
+    source_domain: introductory_statistics_ch01
+  simple_random_sampling:
+    defines: A sampling method in which any group of n individuals from the population
+      is equally likely to be chosen as any other group of the same size.
+    composed_of:
+    - sample
+    - population
+    tier: 2
+    source_domain: introductory_statistics_ch01
+  stratified_sampling:
+    defines: A method of dividing the population into groups called strata and taking
+      a proportionate simple random sample from each stratum.
+    composed_of:
+    - sample
+    - population
+    tier: 2
+    source_domain: introductory_statistics_ch01
+  cluster_sampling:
+    defines: A method of dividing the population into clusters, randomly selecting
+      some clusters, and including all members of the chosen clusters in the sample.
+    composed_of:
+    - sample
+    - population
+    tier: 2
+    source_domain: introductory_statistics_ch01
+  systematic_sampling:
+    defines: A method of randomly selecting a starting point and then taking every
+      nth piece of data from a listing of the population.
+    composed_of:
+    - sample
+    - population
+    tier: 2
+    source_domain: introductory_statistics_ch01
+  convenience_sampling:
+    defines: A non-random sampling method that uses results that are readily available,
+      often producing biased data.
+    composed_of:
+    - sample
+    - population
+    tier: 2
+    source_domain: introductory_statistics_ch01
+  sampling_with_without_replacement:
+    defines: Sampling with replacement returns a chosen member to the population before
+      the next selection, while sampling without replacement does not.
+    composed_of:
+    - sample
+    - population
+    tier: 2
+    source_domain: introductory_statistics_ch01
+  sampling_error:
+    defines: The natural variation that results from selecting a sample to represent
+      a larger population, which decreases as sample size increases.
+    composed_of:
+    - sample
+    - population
+    tier: 2
+    source_domain: introductory_statistics_ch01
+  nonsampling_error:
+    defines: Errors affecting the reliability of data caused by factors other than
+      natural sampling variation, such as poor study design or data entry errors.
+    composed_of:
+    - data
+    - sample
+    tier: 2
+    source_domain: introductory_statistics_ch01
+  variation_in_data_and_samples:
+    defines: The natural differences that occur in measurements and in samples drawn
+      from the same population, even when sampling methods are sound.
+    composed_of:
+    - data
+    - sample
+    - population
+    tier: 2
+    source_domain: introductory_statistics_ch01
+  quantitative_discrete_data:
+    defines: Data resulting from counting that take on only certain numerical values.
+    composed_of:
+    - quantitative_data
+    tier: 2
+    source_domain: introductory_statistics_ch01
+  quantitative_continuous_data:
+    defines: Data resulting from measuring that may include fractions, decimals, or
+      irrational numbers.
+    composed_of:
+    - quantitative_data
+    tier: 2
+    source_domain: introductory_statistics_ch01
+  relative_frequency:
+    defines: The ratio of the number of times a value of the data occurs to the total
+      number of outcomes.
+    composed_of:
+    - frequency
+    tier: 2
+    source_domain: introductory_statistics_ch01
+    also_in:
+    - introductory_statistics_ch02
+  treatments_experimental_unit:
+    defines: Treatments are the different values of the explanatory variable applied
+      in an experiment, and an experimental unit is a single object or individual
+      being measured.
+    composed_of:
+    - explanatory_response_variable
+    - population
+    tier: 2
+    source_domain: introductory_statistics_ch01
+  lurking_variable:
+    defines: A variable that affects a study's outcome even though it is neither the
+      explanatory nor the response variable, potentially clouding causal conclusions.
+    composed_of:
+    - explanatory_response_variable
+    tier: 2
+    source_domain: introductory_statistics_ch01
+  sampling_bias:
+    defines: A condition in which some members of a population are not as likely to
+      be chosen as others, leading to incorrect conclusions about the population.
+    composed_of:
+    - sample
+    - population
+    - representative_sample
+    tier: 3
+    source_domain: introductory_statistics_ch01
+  cumulative_relative_frequency:
+    defines: The accumulation of previous relative frequencies, obtained by summing
+      all relative frequencies up to and including the current value.
+    composed_of:
+    - relative_frequency
+    tier: 3
+    source_domain: introductory_statistics_ch01
+    also_in:
+    - introductory_statistics_ch02
+  random_assignment:
+    defines: The act of assigning experimental units to treatment groups randomly,
+      so that lurking variables are spread equally among groups.
+    composed_of:
+    - treatments_experimental_unit
+    tier: 3
+    source_domain: introductory_statistics_ch01
+  control_group_placebo:
+    defines: A control group receives an inactive placebo treatment, allowing researchers
+      to counter the power of suggestion and isolate the effect of the actual treatment.
+    composed_of:
+    - treatments_experimental_unit
+    tier: 3
+    source_domain: introductory_statistics_ch01
+  critical_evaluation_of_studies:
+    defines: The practice of identifying common problems in studies, such as biased
+      samples, self-selection, undue influence, causality confusion, and confounding,
+      before accepting results.
+    composed_of:
+    - sampling_bias
+    tier: 4
+    source_domain: introductory_statistics_ch01
+  blinding:
+    defines: A technique in which participants (single-blind) or both participants
+      and researchers (double-blind) do not know who is receiving the active treatment
+      versus the placebo.
+    composed_of:
+    - control_group_placebo
+    tier: 4
+    source_domain: introductory_statistics_ch01
+  class_interval:
+    defines: A range of data values, chosen with a starting point and width, used
+      to group data values into the bars of a histogram.
+    composed_of:
+    - frequency
+    tier: 1
+    source_domain: introductory_statistics_ch02
+  histogram:
+    defines: A graph of contiguous bars, built from class intervals, whose horizontal
+      axis shows data values and vertical axis shows frequency or relative frequency,
+      used to display the shape, center, and spread of large data sets.
+    composed_of:
+    - class_interval
+    - relative_frequency
+    tier: 2
+    source_domain: introductory_statistics_ch02
+  frequency_polygon:
+    defines: A graph, analogous to a line graph, formed by plotting frequencies at
+      interval midpoints and connecting the points with line segments, used to display
+      and compare distributions.
+    composed_of:
+    - class_interval
+    - line_graph
+    tier: 2
+    source_domain: introductory_statistics_ch02
+  time_series_graph:
+    defines: A graph that plots paired data with time on the horizontal axis and a
+      measured quantity on the vertical axis, connected chronologically to reveal
+      trends over time.
+    composed_of:
+    - line_graph
+    tier: 1
+    source_domain: introductory_statistics_ch02
+  quartile:
+    defines: One of three values (Q1, Q2, Q3) that divide ordered data into four equal
+      parts, where Q2 is the median, Q1 is the median of the lower half, and Q3 is
+      the median of the upper half.
+    composed_of:
+    - median
+    tier: 1
+    source_domain: introductory_statistics_ch02
+  interquartile_range:
+    defines: A measure of spread equal to Q3 minus Q1, representing the range of the
+      middle 50% of the data and used to detect potential outliers via the 1.5×IQR
+      rule.
+    composed_of:
+    - quartile
+    - outlier
+    tier: 2
+    source_domain: introductory_statistics_ch02
+  box_plot:
+    defines: A graph built from the minimum, first quartile, median, third quartile,
+      and maximum that shows the concentration and spread of the middle 50% of the
+      data.
+    composed_of:
+    - quartile
+    - median
+    tier: 2
+    source_domain: introductory_statistics_ch02
+  grouped_frequency_table_mean:
+    defines: An estimate of the mean computed from grouped data by multiplying each
+      interval's midpoint by its frequency, summing these products, and dividing by
+      the total frequency.
+    composed_of:
+    - class_interval
+    - mean
+    - frequency
+    tier: 2
+    source_domain: introductory_statistics_ch02
+  sampling_distribution:
+    defines: A relative frequency distribution built from a very large number of samples;
+      a statistic (e.g. sample mean) is a number calculated from a sample that estimates
+      a population parameter.
+    composed_of:
+    - mean
+    - relative_frequency
+    tier: 2
+    source_domain: introductory_statistics_ch02
+    also_in:
+    - introductory_statistics_ch07
+  skewness:
+    defines: A description of the asymmetry of a data distribution's shape (left-skewed,
+      right-skewed, or symmetrical), characterized by the relative positions of the
+      mean, median, and mode.
+    composed_of:
+    - mean
+    - median
+    - mode
+    tier: 1
+    source_domain: introductory_statistics_ch02
+  variance:
+    defines: The average of the squared deviations of data values from the mean, used
+      as an intermediate step in computing standard deviation.
+    composed_of:
+    - mean
+    tier: 1
+    source_domain: introductory_statistics_ch02
+    also_in:
+    - introductory_statistics_ch13
+  standard_deviation:
+    defines: A number equal to the square root of the variance that measures how far
+      data values are typically spread from their mean.
+    composed_of:
+    - variance
+    tier: 2
+    source_domain: introductory_statistics_ch02
+    also_in:
+    - introductory_statistics_ch06
+    - introductory_statistics_ch07
+  grouped_standard_deviation:
+    defines: An estimate of standard deviation for grouped data, computed using interval
+      midpoints, frequencies, and the estimated grouped mean.
+    composed_of:
+    - grouped_frequency_table_mean
+    - standard_deviation
+    - class_interval
+    tier: 3
+    source_domain: introductory_statistics_ch02
+  z_score:
+    defines: The number of standard deviations a data value lies above or below the
+      mean, used to compare values from different data sets.
+    composed_of:
+    - standard_deviation
+    - mean
+    tier: 3
+    source_domain: introductory_statistics_ch02
+    also_in:
+    - introductory_statistics_ch06
+    - introductory_statistics_ch07
+  standard_error:
+    defines: The standard deviation of the sampling distribution of the mean, measuring
+      the sampling variability of the sample mean statistic.
+    composed_of:
+    - sampling_distribution
+    - standard_deviation
+    tier: 3
+    source_domain: introductory_statistics_ch02
+  event:
+    defines: Any combination of outcomes, represented by an uppercase letter such
+      as A or B, and treated as a subset of the sample space.
+    composed_of:
+    - sample_space
+    - outcome
+    tier: 1
+    source_domain: introductory_statistics_ch03
+  equally_likely_outcomes:
+    defines: A property of an experiment where each outcome occurs with the same probability
+      as any other outcome.
+    composed_of:
+    - outcome
+    - probability
+    tier: 1
+    source_domain: introductory_statistics_ch03
+  law_of_large_numbers:
+    defines: As the number of repetitions of an experiment increases, the relative
+      frequency obtained tends to become closer to the theoretical probability.
+    composed_of:
+    - probability
+    - experiment
+    tier: 1
+    source_domain: introductory_statistics_ch03
+    also_in:
+    - introductory_statistics_ch04
+    - introductory_statistics_ch07
+  or_event:
+    defines: An outcome is in the event A OR B if it is in A, in B, or in both, corresponding
+      to the set union of A and B.
+    composed_of:
+    - event
+    tier: 2
+    source_domain: introductory_statistics_ch03
+  and_event:
+    defines: An outcome is in the event A AND B if it is in both A and B at the same
+      time, corresponding to the set intersection of A and B.
+    composed_of:
+    - event
+    tier: 2
+    source_domain: introductory_statistics_ch03
+  complement_event:
+    defines: The complement of event A, denoted A', consists of all outcomes in the
+      sample space that are not in A, with P(A) + P(A') = 1.
+    composed_of:
+    - event
+    - probability
+    tier: 2
+    source_domain: introductory_statistics_ch03
+  conditional_probability:
+    defines: The probability P(A|B) that event A occurs given that event B has already
+      occurred, calculated as P(A|B) = P(A AND B)/P(B), reducing the sample space
+      to B.
+    composed_of:
+    - event
+    - probability
+    tier: 2
+    source_domain: introductory_statistics_ch03
+    also_in:
+    - introductory_statistics_ch05
+  independent_events:
+    defines: Two events A and B are independent if the occurrence of one does not
+      affect the probability of the other, shown by P(A|B) = P(A), P(B|A) = P(B),
+      or P(A AND B) = P(A)P(B).
+    composed_of:
+    - conditional_probability
+    tier: 3
+    source_domain: introductory_statistics_ch03
+  dependent_events:
+    defines: Two events that are not independent, meaning knowledge that one occurred
+      changes the probability that the other occurs.
+    composed_of:
+    - conditional_probability
+    tier: 3
+    source_domain: introductory_statistics_ch03
+  mutually_exclusive_events:
+    defines: Two events A and B that cannot occur at the same time, meaning they share
+      no outcomes and P(A AND B) = 0.
+    composed_of:
+    - and_event
+    tier: 3
+    source_domain: introductory_statistics_ch03
+  sampling_with_replacement:
+    defines: A sampling method where each member of a population is replaced after
+      being picked, so it may be chosen more than once and successive picks are independent.
+    composed_of:
+    - independent_events
+    tier: 4
+    source_domain: introductory_statistics_ch03
+  sampling_without_replacement:
+    defines: A sampling method where each member of a population may be chosen only
+      once, so successive picks are dependent.
+    composed_of:
+    - dependent_events
+    tier: 4
+    source_domain: introductory_statistics_ch03
+  multiplication_rule:
+    defines: For two events A and B on a sample space, P(A AND B) = P(B)P(A|B), which
+      simplifies to P(A AND B) = P(A)P(B) when A and B are independent.
+    composed_of:
+    - and_event
+    - conditional_probability
+    - independent_events
+    tier: 4
+    source_domain: introductory_statistics_ch03
+  addition_rule:
+    defines: For two events A and B on a sample space, P(A OR B) = P(A) + P(B) - P(A
+      AND B), which simplifies to P(A OR B) = P(A) + P(B) when A and B are mutually
+      exclusive.
+    composed_of:
+    - or_event
+    - and_event
+    - mutually_exclusive_events
+    tier: 4
+    source_domain: introductory_statistics_ch03
+  discrete_random_variable:
+    defines: A random variable whose possible values are countable outcomes, such
+      as the number of heads in coin tosses.
+    composed_of:
+    - random_variable
+    tier: 1
+    source_domain: introductory_statistics_ch04
+  probability_distribution_function:
+    defines: A description (table or formula) of a discrete random variable giving
+      the probability P(x) of each possible outcome, where each probability is between
+      0 and 1 and all probabilities sum to 1.
+    composed_of:
+    - discrete_random_variable
+    tier: 2
+    source_domain: introductory_statistics_ch04
+  expected_value:
+    defines: The long-term average outcome of a discrete random variable, denoted
+      μ, calculated by multiplying each value of the random variable by its probability
+      and summing the products.
+    composed_of:
+    - probability_distribution_function
+    tier: 3
+    source_domain: introductory_statistics_ch04
+  standard_deviation_pdf:
+    defines: A measure of how far the outcomes of a statistical experiment are spread
+      from the mean of the distribution, calculated as the square root of the sum
+      of (x−μ)²P(x).
+    composed_of:
+    - expected_value
+    - probability_distribution_function
+    tier: 4
+    source_domain: introductory_statistics_ch04
+  binomial_distribution:
+    defines: The probability distribution of the number of successes X in a fixed
+      number n of independent Bernoulli trials, each with success probability p, denoted
+      X ~ B(n, p) with mean np and standard deviation sqrt(npq).
+    composed_of:
+    - bernoulli_trial
+    - discrete_random_variable
+    tier: 2
+    source_domain: introductory_statistics_ch04
+    also_in:
+    - introductory_statistics_ch07
+    - introductory_statistics_ch08
+    - introductory_statistics_ch09
+  geometric_distribution:
+    defines: The probability distribution of the number of independent Bernoulli trials,
+      X, required to obtain the first success, denoted X ~ G(p), with mean 1/p.
+    composed_of:
+    - bernoulli_trial
+    - discrete_random_variable
+    tier: 2
+    source_domain: introductory_statistics_ch04
+  hypergeometric_distribution:
+    defines: The probability distribution of the number of items of interest, X, drawn
+      in a fixed-size sample taken without replacement from two combined finite groups,
+      denoted X ~ H(r, b, n).
+    composed_of:
+    - discrete_random_variable
+    tier: 2
+    source_domain: introductory_statistics_ch04
+  poisson_distribution:
+    defines: The probability distribution giving the number of occurrences of an event,
+      X, in a fixed interval of time or space when events happen independently at
+      a known average rate μ, denoted X ~ P(μ), and usable to approximate the binomial
+      when n is large and p is small.
+    composed_of:
+    - discrete_random_variable
+    - binomial_distribution
+    tier: 3
+    source_domain: introductory_statistics_ch04
+    also_in:
+    - introductory_statistics_ch05
+  probability_as_area:
+    defines: For continuous distributions, the probability that X falls in an interval
+      equals the area under f(x) between the interval's endpoints.
+    composed_of:
+    - continuous_random_variable
+    - probability_density_function
+    tier: 1
+    source_domain: introductory_statistics_ch05
+  uniform_distribution:
+    defines: A continuous distribution X ~ U(a,b) where all outcomes between a and
+      b are equally likely and f(x) = 1/(b-a).
+    composed_of:
+    - continuous_random_variable
+    - probability_density_function
+    tier: 1
+    source_domain: introductory_statistics_ch05
+    also_in:
+    - introductory_statistics_ch07
+  exponential_distribution:
+    defines: A continuous distribution X ~ Exp(m) modeling time until a specific event
+      occurs, with pdf f(x) = me^(-mx).
+    composed_of:
+    - continuous_random_variable
+    - probability_density_function
+    tier: 1
+    source_domain: introductory_statistics_ch05
+    also_in:
+    - introductory_statistics_ch07
+  cumulative_distribution_function:
+    defines: The function P(X <= x) that gives the area to the left of x under the
+      pdf.
+    composed_of:
+    - probability_density_function
+    - probability_as_area
+    tier: 2
+    source_domain: introductory_statistics_ch05
+    also_in:
+    - introductory_statistics_ch06
+  decay_parameter:
+    defines: The value m in the exponential pdf f(x) = me^(-mx), equal to 1/mu.
+    composed_of:
+    - exponential_distribution
+    tier: 2
+    source_domain: introductory_statistics_ch05
+  memoryless_property:
+    defines: The property that P(X > r + t | X > r) = P(X > t) for the exponential
+      distribution.
+    composed_of:
+    - exponential_distribution
+    - conditional_probability
+    tier: 2
+    source_domain: introductory_statistics_ch05
+  mean_and_standard_deviation_of_continuous_distributions:
+    defines: The theoretical mean and spread of a continuous random variable, computed
+      via distribution-specific formulas.
+    composed_of:
+    - uniform_distribution
+    - exponential_distribution
+    tier: 2
+    source_domain: introductory_statistics_ch05
+  percentile:
+    defines: The value k such that a given percentage of the distribution's probability
+      lies below k, found via the CDF.
+    composed_of:
+    - cumulative_distribution_function
+    tier: 3
+    source_domain: introductory_statistics_ch05
+    also_in:
+    - introductory_statistics_ch02
+    - introductory_statistics_ch07
+  normal_distribution:
+    defines: A continuous, bell-shaped probability distribution characterized by two
+      parameters, the mean (μ) and standard deviation (σ), written X ~ N(μ, σ).
+    composed_of:
+    - random_variable
+    - continuous_probability_distribution
+    - mean
+    - standard_deviation
+    tier: 1
+    source_domain: introductory_statistics_ch06
+    also_in:
+    - introductory_statistics_ch07
+    - introductory_statistics_ch09
+    - introductory_statistics_ch11
+    - introductory_statistics_ch13
+  standard_normal_distribution:
+    defines: The normal distribution of z-scores, with mean zero and standard deviation
+      one, written Z ~ N(0, 1).
+    composed_of:
+    - z_score
+    - normal_distribution
+    tier: 3
+    source_domain: introductory_statistics_ch06
+  empirical_rule:
+    defines: A rule stating that for a normal distribution, about 68%, 95%, and 99.7%
+      of values lie within one, two, and three standard deviations of the mean, respectively.
+    composed_of:
+    - normal_distribution
+    - standard_deviation
+    - mean
+    tier: 2
+    source_domain: introductory_statistics_ch06
+  continuity_correction_factor:
+    defines: An adjustment of 0.5 added to or subtracted from a discrete value x when
+      approximating a discrete binomial distribution with the continuous normal distribution.
+    composed_of:
+    - binomial_distribution
+    - normal_distribution
+    tier: 1
+    source_domain: introductory_statistics_ch07
+  standard_error_of_mean:
+    defines: The standard deviation of the sampling distribution of the sample mean,
+      equal to the population standard deviation divided by the square root of the
+      sample size.
+    composed_of:
+    - standard_deviation
+    - sampling_distribution
+    tier: 2
+    source_domain: introductory_statistics_ch07
+  central_limit_theorem_means:
+    defines: The theorem stating that for a sufficiently large sample size n, the
+      distribution of sample means x̄ from any population approaches N(μ, σ/√n).
+    composed_of:
+    - sampling_distribution
+    - standard_error_of_mean
+    - normal_distribution
+    tier: 3
+    source_domain: introductory_statistics_ch07
+  central_limit_theorem_sums:
+    defines: The theorem stating that for a sufficiently large sample size n, the
+      distribution of sample sums ΣX from any population approaches N(nμ, √n·σ).
+    composed_of:
+    - central_limit_theorem_means
+    - normal_distribution
+    tier: 4
+    source_domain: introductory_statistics_ch07
+  choosing_clt_form:
+    defines: The practice of deciding whether to apply the central limit theorem for
+      means or for sums (or neither, for individual values) based on what a problem
+      asks for.
+    composed_of:
+    - central_limit_theorem_means
+    - central_limit_theorem_sums
+    tier: 5
+    source_domain: introductory_statistics_ch07
+  inferential_statistics:
+    defines: The branch of statistics concerned with using sample data to make generalizations
+      or estimates about an unknown population parameter.
+    composed_of:
+    - point_estimate
+    - population_parameter
+    tier: 1
+    source_domain: introductory_statistics_ch08
+  alpha_significance:
+    defines: The probability that a confidence interval does not contain the true
+      population parameter, equal to 1 minus the confidence level.
+    composed_of:
+    - confidence_level
+    tier: 1
+    source_domain: introductory_statistics_ch08
+  z_score_confidence:
+    defines: The value from the standard normal distribution that places the specified
+      confidence level's area in the center of the distribution, used to compute the
+      error bound when the population standard deviation is known.
+    composed_of:
+    - confidence_level
+    tier: 1
+    source_domain: introductory_statistics_ch08
+  students_t_distribution:
+    defines: A probability distribution, similar to but more spread out than the normal
+      distribution, used to construct confidence intervals for a population mean when
+      the population standard deviation is unknown, with shape determined by degrees
+      of freedom.
+    composed_of:
+    - degrees_of_freedom
+    tier: 1
+    source_domain: introductory_statistics_ch08
+    also_in:
+    - introductory_statistics_ch09
+  sample_proportion:
+    defines: The point estimate of a population proportion, calculated as the number
+      of successes x divided by the sample size n.
+    composed_of:
+    - binomial_distribution
+    tier: 1
+    source_domain: introductory_statistics_ch08
+  error_bound_mean:
+    defines: The margin of error added to and subtracted from the sample mean to form
+      a confidence interval, depending on confidence level, sample size, and standard
+      deviation.
+    composed_of:
+    - z_score_confidence
+    - sample_standard_deviation
+    tier: 2
+    source_domain: introductory_statistics_ch08
+  t_score:
+    defines: A standardized value, analogous to a z-score, computed as (sample mean
+      − μ) divided by (s / sqrt(n)), that follows the Student's t-distribution.
+    composed_of:
+    - sample_mean
+    - sample_standard_deviation
+    - students_t_distribution
+    tier: 2
+    source_domain: introductory_statistics_ch08
+  confidence_interval_mean_unknown_sigma:
+    defines: An interval estimate for a population mean using the sample standard
+      deviation and the Student's t-distribution when the population standard deviation
+      is unknown.
+    composed_of:
+    - sample_mean
+    - sample_standard_deviation
+    - students_t_distribution
+    tier: 2
+    source_domain: introductory_statistics_ch08
+  error_bound_proportion:
+    defines: The margin of error for a population proportion, calculated using the
+      z-score for the confidence level and the estimated standard deviation of the
+      sample proportion.
+    composed_of:
+    - z_score_confidence
+    - sample_proportion
+    tier: 2
+    source_domain: introductory_statistics_ch08
+  confidence_interval_mean_known_sigma:
+    defines: An interval estimate of the form (sample mean − EBM, sample mean + EBM),
+      constructed using the normal distribution when the population standard deviation
+      is known.
+    composed_of:
+    - sample_mean
+    - error_bound_mean
+    - central_limit_theorem
+    tier: 3
+    source_domain: introductory_statistics_ch08
+  sample_size_for_mean:
+    defines: A formula, derived by solving the error bound formula for n, used to
+      determine how many observations are needed to achieve a desired margin of error
+      and confidence level when estimating a population mean.
+    composed_of:
+    - error_bound_mean
+    tier: 3
+    source_domain: introductory_statistics_ch08
+  confidence_interval_proportion:
+    defines: An interval estimate of the form (p′ − EBP, p′ + EBP), constructed using
+      the normal approximation to the binomial distribution to estimate an unknown
+      population proportion.
+    composed_of:
+    - sample_proportion
+    - error_bound_proportion
+    tier: 3
+    source_domain: introductory_statistics_ch08
+  sample_size_for_proportion:
+    defines: A formula, derived from the error bound formula for a proportion, used
+      to determine the sample size needed to achieve a desired margin of error and
+      confidence level when estimating a population proportion.
+    composed_of:
+    - error_bound_proportion
+    tier: 3
+    source_domain: introductory_statistics_ch08
+  plus_four_method:
+    defines: An adjusted method for constructing a confidence interval for a proportion
+      by adding two successes and two failures (four total observations) to the sample
+      before calculating, improving accuracy for small samples.
+    composed_of:
+    - confidence_interval_proportion
+    tier: 4
+    source_domain: introductory_statistics_ch08
+  hypothesis_testing:
+    defines: A procedure using sample data to decide whether there is sufficient evidence
+      to reject a null hypothesis about a population parameter.
+    composed_of:
+    - null_hypothesis
+    - alternative_hypothesis
+    tier: 1
+    source_domain: introductory_statistics_ch09
+    also_in:
+    - introductory_statistics_ch13
+  type_i_error:
+    defines: The error of rejecting the null hypothesis when it is actually true,
+      with probability denoted alpha.
+    composed_of:
+    - null_hypothesis
+    - significance_level
+    tier: 1
+    source_domain: introductory_statistics_ch09
+  type_ii_error:
+    defines: The error of not rejecting the null hypothesis when it is actually false,
+      with probability denoted beta.
+    composed_of:
+    - null_hypothesis
+    - alternative_hypothesis
+    tier: 1
+    source_domain: introductory_statistics_ch09
+  sampling_distribution_selection:
+    defines: The process of choosing the normal, Student's t, or binomial-based normal
+      distribution for a hypothesis test based on the parameter tested and whether
+      the population standard deviation is known.
+    composed_of:
+    - normal_distribution
+    - students_t_distribution
+    - binomial_distribution
+    - central_limit_theorem
+    tier: 1
+    source_domain: introductory_statistics_ch09
+  rare_event:
+    defines: An outcome so unlikely under an assumption that its occurrence casts
+      doubt on the assumption (the null hypothesis).
+    composed_of:
+    - null_hypothesis
+    - significance_level
+    tier: 1
+    source_domain: introductory_statistics_ch09
+  confidence_interval:
+    defines: An interval estimate for an unknown population parameter, constructed
+      from sample data and a desired confidence level, often used alongside hypothesis
+      test conclusions.
+    composed_of:
+    - students_t_distribution
+    - normal_distribution
+    - central_limit_theorem
+    tier: 1
+    source_domain: introductory_statistics_ch09
+  power_of_test:
+    defines: The probability of correctly rejecting the null hypothesis when it is
+      false, equal to 1 minus beta.
+    composed_of:
+    - type_ii_error
+    tier: 2
+    source_domain: introductory_statistics_ch09
+  p_value:
+    defines: The probability, assuming the null hypothesis is true, of obtaining a
+      sample result as extreme or more extreme than the one observed.
+    composed_of:
+    - null_hypothesis
+    - sampling_distribution_selection
+    - rare_event
+    tier: 2
+    source_domain: introductory_statistics_ch09
+    also_in:
+    - introductory_statistics_ch11
+    - introductory_statistics_ch13
+  test_statistic:
+    defines: A standardized value computed from sample data (such as a z-score or
+      t-score) used to find the p-value and compare against a critical value.
+    composed_of:
+    - sampling_distribution_selection
+    tier: 2
+    source_domain: introductory_statistics_ch09
+  decision_rule:
+    defines: The rule that rejects H0 when alpha is greater than the p-value, and
+      fails to reject H0 when alpha is less than or equal to the p-value.
+    composed_of:
+    - significance_level
+    - p_value
+    tier: 3
+    source_domain: introductory_statistics_ch09
+  tailed_tests:
+    defines: Classification of a hypothesis test based on which direction(s) of the
+      sampling distribution the p-value region falls in, determined by the alternative
+      hypothesis symbol.
+    composed_of:
+    - alternative_hypothesis
+    - p_value
+    tier: 3
+    source_domain: introductory_statistics_ch09
+  conclusion_writing:
+    defines: A plain-language statement, written after the decision, interpreting
+      the hypothesis test result in terms of the original problem.
+    composed_of:
+    - decision_rule
+    tier: 4
+    source_domain: introductory_statistics_ch09
+  hypothesis_test_procedure:
+    defines: The systematic five-step process of stating hypotheses, identifying the
+      distribution, calculating the test statistic and p-value, comparing to alpha,
+      and stating a conclusion.
+    composed_of:
+    - hypothesis_testing
+    - sampling_distribution_selection
+    - test_statistic
+    - p_value
+    - decision_rule
+    - tailed_tests
+    - conclusion_writing
+    tier: 5
+    source_domain: introductory_statistics_ch09
+  degrees_of_freedom_two_sample:
+    defines: A calculated (often non-whole) value approximating the Student's t-distribution
+      for the two-independent-sample means test with unpooled variances.
+    composed_of:
+    - independent_samples
+    - standard_error_diff_means
+    tier: 1
+    source_domain: introductory_statistics_ch10
+  cohens_d:
+    defines: A measure of effect size based on the standardized difference between
+      two means, divided by the pooled standard deviation, classified as small, medium,
+      or large.
+    composed_of:
+    - independent_samples
+    - standard_error_diff_means
+    tier: 1
+    source_domain: introductory_statistics_ch10
+  two_means_known_sd_test:
+    defines: A z-test comparing two independent population means when the population
+      standard deviations are known, using a normal sampling distribution for the
+      difference in means.
+    composed_of:
+    - independent_samples
+    tier: 1
+    source_domain: introductory_statistics_ch10
+  two_proportions_test:
+    defines: A z-test comparing two independent population proportions using the pooled
+      proportion to construct the sampling distribution of the difference in sample
+      proportions.
+    composed_of:
+    - independent_samples
+    - pooled_proportion
+    tier: 1
+    source_domain: introductory_statistics_ch10
+  matched_pairs_test:
+    defines: A single-mean Student's t-test applied to the differences calculated
+      from matched pairs of dependent observations.
+    composed_of:
+    - matched_paired_samples
+    tier: 1
+    source_domain: introductory_statistics_ch10
+  two_means_unknown_sd_test:
+    defines: A t-test (Aspin-Welch) comparing two independent population means when
+      the population standard deviations are unknown and not pooled, using a t-score
+      test statistic and calculated degrees of freedom.
+    composed_of:
+    - independent_samples
+    - standard_error_diff_means
+    - degrees_of_freedom_two_sample
+    tier: 2
+    source_domain: introductory_statistics_ch10
+  normal_approx_large_samples:
+    defines: When the sum of two independent sample sizes exceeds 30, the normal distribution
+      can be used to approximate the Student's t-distribution for comparing means.
+    composed_of:
+    - two_means_unknown_sd_test
+    - degrees_of_freedom_two_sample
+    tier: 3
+    source_domain: introductory_statistics_ch10
+  chi_square_distribution:
+    defines: A right-skewed continuous probability distribution, parameterized by
+      degrees of freedom, defined as the sum of squares of independent standard normal
+      variables, used as the sampling distribution for several hypothesis tests.
+    composed_of:
+    - standard_normal_variable
+    - degrees_of_freedom
+    - normal_distribution
+    tier: 1
+    source_domain: introductory_statistics_ch11
+  observed_expected_values:
+    defines: The actual data values (observed) compared against the values predicted
+      under the null hypothesis (expected), whose discrepancy forms the basis of chi-square
+      test statistics.
+    composed_of:
+    - hypothesis_test
+    tier: 1
+    source_domain: introductory_statistics_ch11
+  goodness_of_fit_test:
+    defines: A hypothesis test using the chi-square distribution to determine whether
+      an observed data set fits a particular (assumed) distribution, comparing observed
+      to expected cell values with df = k − 1.
+    composed_of:
+    - chi_square_distribution
+    - observed_expected_values
+    - p_value
+    tier: 2
+    source_domain: introductory_statistics_ch11
+  test_of_independence:
+    defines: A hypothesis test using a contingency table and the chi-square distribution
+      to determine whether two categorical factors are independent, with df = (rows
+      − 1)(columns − 1).
+    composed_of:
+    - chi_square_distribution
+    - contingency_table
+    - observed_expected_values
+    - p_value
+    tier: 2
+    source_domain: introductory_statistics_ch11
+  test_for_homogeneity:
+    defines: A hypothesis test using the chi-square distribution to determine whether
+      two or more populations share the same distribution over a categorical variable,
+      with df = number of columns − 1.
+    composed_of:
+    - chi_square_distribution
+    - contingency_table
+    - observed_expected_values
+    - p_value
+    tier: 2
+    source_domain: introductory_statistics_ch11
+  test_of_single_variance:
+    defines: A hypothesis test assuming an underlying normal distribution that uses
+      the chi-square distribution to test claims about a population variance or standard
+      deviation, with df = n − 1.
+    composed_of:
+    - chi_square_distribution
+    - normal_distribution
+    - p_value
+    tier: 2
+    source_domain: introductory_statistics_ch11
+  comparison_of_chi_square_tests:
+    defines: A synthesis distinguishing when to apply the goodness-of-fit, independence,
+      or homogeneity chi-square tests based on the number of populations and variables
+      involved.
+    composed_of:
+    - goodness_of_fit_test
+    - test_of_independence
+    - test_for_homogeneity
+    tier: 3
+    source_domain: introductory_statistics_ch11
+  slope_and_y_intercept:
+    defines: In y = a + bx, b (slope) describes the steepness/rate of change of the
+      line, and a (y-intercept) is the y-value where the line crosses the y-axis (x
+      = 0).
+    composed_of:
+    - linear_equation
+    tier: 1
+    source_domain: introductory_statistics_ch12
+  correlation:
+    defines: The degree to which two variables are linearly related, observable from
+      a scatter plot as a positive, negative, or absent pattern.
+    composed_of:
+    - scatter_plot
+    - independent_dependent_variables
+    tier: 1
+    source_domain: introductory_statistics_ch12
+  linear_regression:
+    defines: The statistical process of fitting a straight line to bivariate data
+      that appears to follow a linear pattern, using one independent variable.
+    composed_of:
+    - linear_equation
+    - scatter_plot
+    - independent_dependent_variables
+    tier: 1
+    source_domain: introductory_statistics_ch12
+  residual:
+    defines: The vertical distance y − ŷ between an observed data value y and the
+      value ŷ predicted by the regression line for the same x.
+    composed_of:
+    - linear_regression
+    tier: 2
+    source_domain: introductory_statistics_ch12
+  sum_of_squared_errors:
+    defines: The sum of the squares of all residuals for a data set, minimized by
+      the least-squares regression line.
+    composed_of:
+    - residual
+    tier: 3
+    source_domain: introductory_statistics_ch12
+  least_squares_regression_line:
+    defines: The unique line ŷ = a + bx that minimizes the sum of squared errors (SSE)
+      between observed and predicted y-values.
+    composed_of:
+    - sum_of_squared_errors
+    - linear_regression
+    tier: 4
+    source_domain: introductory_statistics_ch12
+  correlation_coefficient_r:
+    defines: A numerical measure, between −1 and +1, of the strength and direction
+      of the linear association between x and y, with sign matching the regression
+      slope.
+    composed_of:
+    - correlation
+    - least_squares_regression_line
+    tier: 5
+    source_domain: introductory_statistics_ch12
+  coefficient_of_determination:
+    defines: The square of the correlation coefficient, expressed as a percent, representing
+      the proportion of variation in y explained by variation in x via the regression
+      line.
+    composed_of:
+    - correlation_coefficient_r
+    tier: 6
+    source_domain: introductory_statistics_ch12
+  significance_test_correlation_coefficient:
+    defines: 'A hypothesis test (H0: ρ = 0 vs Ha: ρ ≠ 0) using the sample correlation
+      coefficient r and sample size n to determine whether a significant linear relationship
+      exists in the population.'
+    composed_of:
+    - correlation_coefficient_r
+    tier: 6
+    source_domain: introductory_statistics_ch12
+  p_value_method:
+    defines: A method of deciding significance of r by comparing a computed p-value
+      (from a t-distribution with n − 2 degrees of freedom) to the significance level
+      α.
+    composed_of:
+    - significance_test_correlation_coefficient
+    tier: 7
+    source_domain: introductory_statistics_ch12
+  critical_value_method:
+    defines: A method of deciding significance of r by comparing it against tabulated
+      critical values for a given degrees of freedom at the 95% level.
+    composed_of:
+    - significance_test_correlation_coefficient
+    tier: 7
+    source_domain: introductory_statistics_ch12
+  outliers:
+    defines: Observed data points that lie unusually far (typically more than two
+      standard deviations of the residuals) from the least-squares line.
+    composed_of:
+    - residual
+    - least_squares_regression_line
+    tier: 5
+    source_domain: introductory_statistics_ch12
+  influential_points:
+    defines: Observed data points that are far from other points in the horizontal
+      (x) direction and can substantially affect the slope of the regression line.
+    composed_of:
+    - least_squares_regression_line
+    tier: 5
+    source_domain: introductory_statistics_ch12
+  sum_of_squares:
+    defines: The sum of squared deviations (possibly weighted) used to quantify variation,
+      split into between-group (SSbetween) and within-group (SSwithin) components.
+    composed_of:
+    - variance
+    tier: 1
+    source_domain: introductory_statistics_ch13
+  mean_square:
+    defines: A variance estimate obtained by dividing a sum of squares by its associated
+      degrees of freedom (MSbetween and MSwithin).
+    composed_of:
+    - sum_of_squares
+    - degrees_of_freedom
+    tier: 2
+    source_domain: introductory_statistics_ch13
+  f_distribution:
+    defines: A right-skewed probability distribution, derived from the Student's t-distribution,
+      characterized by two sets of degrees of freedom (numerator and denominator),
+      used as the sampling distribution for ratios of variances.
+    composed_of:
+    - normal_distribution
+    - degrees_of_freedom
+    tier: 1
+    source_domain: introductory_statistics_ch13
+  f_ratio:
+    defines: The ratio of two variance estimates (MSbetween/MSwithin, or the ratio
+      of two sample variances) used as the test statistic for ANOVA and tests of two
+      variances.
+    composed_of:
+    - mean_square
+    - f_distribution
+    tier: 3
+    source_domain: introductory_statistics_ch13
+  one_way_anova:
+    defines: A hypothesis test method that uses the F distribution to determine whether
+      the means of three or more groups (from a single categorical factor) are equal,
+      by comparing between-group and within-group variance.
+    composed_of:
+    - hypothesis_testing
+    - f_ratio
+    - p_value
+    tier: 4
+    source_domain: introductory_statistics_ch13
+applications:
+  frequency_table:
+    defines: A table organizing data values with their frequency, relative frequency,
+      and cumulative relative frequency to analyze how often data occurs.
+    needs:
+    - frequency
+    - relative_frequency
+    - cumulative_relative_frequency
+    tier: 4
+    source_domain: introductory_statistics_ch01
+  randomized_experiment:
+    defines: A study design used to investigate the relationship between an explanatory
+      and response variable by manipulating treatments and randomly assigning experimental
+      units, allowing cause-and-effect conclusions.
+    needs:
+    - explanatory_response_variable
+    - treatments_experimental_unit
+    - random_assignment
+    - control_group_placebo
+    - blinding
+    - lurking_variable
+    tier: 5
+    source_domain: introductory_statistics_ch01
+  data_collection_design:
+    defines: The application of sampling techniques (simple random, systematic, stratified,
+      cluster) and frequency tables to real data collection exercises.
+    needs:
+    - simple_random_sampling
+    - stratified_sampling
+    - cluster_sampling
+    - systematic_sampling
+    - frequency_table
+    tier: 5
+    source_domain: introductory_statistics_ch01
+  research_ethics_irb:
+    defines: The principles and oversight, including informed consent and IRB approval,
+      that protect human subjects and ensure the integrity of research data.
+    needs:
+    - randomized_experiment
+    tier: 6
+    source_domain: introductory_statistics_ch01
+  chebyshev_and_empirical_rules:
+    defines: Rules describing the minimum (Chebyshev's, any distribution) or approximate
+      (Empirical, bell-shaped symmetric distributions) percentage of data falling
+      within a given number of standard deviations of the mean.
+    needs:
+    - standard_deviation
+    - mean
+    tier: 3
+    source_domain: introductory_statistics_ch02
+  contingency_table:
+    defines: A table displaying sample data by two variables in rows and columns to
+      facilitate calculating probabilities, including conditional probabilities.
+    needs:
+    - event
+    - conditional_probability
+    tier: 3
+    source_domain: introductory_statistics_ch03
+  venn_diagram:
+    defines: A picture representing the sample space as a box with circles or ovals
+      representing events, used to visualize OR, AND, and complement relationships.
+    needs:
+    - or_event
+    - and_event
+    - complement_event
+    tier: 3
+    source_domain: introductory_statistics_ch03
+  tree_diagram:
+    defines: A graph with branches labeled by frequencies or probabilities used to
+      visualize and determine the outcomes and probabilities of a multi-stage experiment.
+    needs:
+    - multiplication_rule
+    - independent_events
+    - dependent_events
+    tier: 5
+    source_domain: introductory_statistics_ch03
+  playing_card_experiment:
+    defines: A hands-on lab comparing empirical relative frequencies from repeated
+      card draws to the theoretical binomial distribution.
+    needs:
+    - binomial_distribution
+    - law_of_large_numbers
+    tier: 3
+    source_domain: introductory_statistics_ch04
+  dice_experiment:
+    defines: A hands-on lab comparing empirical relative frequencies and profit outcomes
+      from repeated three-dice rolls to the theoretical binomial distribution and
+      its expected value.
+    needs:
+    - binomial_distribution
+    - expected_value
+    - law_of_large_numbers
+    tier: 4
+    source_domain: introductory_statistics_ch04
+  empirical_vs_theoretical_distribution_comparison:
+    defines: Comparing sample data's summary statistics and shape to values predicted
+      by a theoretical continuous distribution.
+    needs:
+    - uniform_distribution
+    - exponential_distribution
+    - mean_and_standard_deviation_of_continuous_distributions
+    tier: 3
+    source_domain: introductory_statistics_ch05
+  normal_probability_calculation:
+    defines: Using technology (e.g., normalcdf) to find the probability that a normally
+      distributed variable falls within, above, or below given values.
+    needs:
+    - cumulative_distribution_function
+    - normal_distribution
+    tier: 3
+    source_domain: introductory_statistics_ch06
+  percentile_and_invnorm:
+    defines: Finding a critical value k such that a given percentage of data lies
+      below it, using invNorm(area, mean, standard deviation).
+    needs:
+    - cumulative_distribution_function
+    - normal_distribution
+    tier: 3
+    source_domain: introductory_statistics_ch06
+  interquartile_range_normal:
+    defines: The range between the 25th percentile (Q1) and 75th percentile (Q3) of
+      a normal distribution, IQR = Q3 − Q1.
+    needs:
+    - percentile_and_invnorm
+    tier: 4
+    source_domain: introductory_statistics_ch06
+  normal_approximation_to_empirical_data:
+    defines: Using a sample mean and sample standard deviation to model real, collected
+      data (e.g., lap times, pinkie lengths) as an approximate normal distribution
+      and comparing empirical results to theoretical predictions.
+    needs:
+    - normal_distribution
+    - empirical_rule
+    - mean
+    - standard_deviation
+    tier: 3
+    source_domain: introductory_statistics_ch06
+  normal_approximation_to_binomial:
+    defines: A method of approximating binomial probabilities using a normal distribution
+      with μ = np and σ = √(npq) when np and nq both exceed five.
+    needs:
+    - binomial_distribution
+    - normal_distribution
+    - continuity_correction_factor
+    tier: 2
+    source_domain: introductory_statistics_ch07
+  pocket_change_simulation:
+    defines: A hands-on lab demonstrating the CLT by comparing histograms of individual
+      values versus sample means of increasing size for pocket change data.
+    needs:
+    - central_limit_theorem_means
+    - sampling_distribution
+    tier: 4
+    source_domain: introductory_statistics_ch07
+  cookie_recipes_simulation:
+    defines: A hands-on lab demonstrating the CLT by comparing histograms of a population's
+      data versus sample means of size 5 and 10 drawn from cookie recipe lifespan
+      data.
+    needs:
+    - central_limit_theorem_means
+    - sampling_distribution
+    tier: 4
+    source_domain: introductory_statistics_ch07
+  confidence_interval_application:
+    defines: The practical use of confidence interval construction, through in-class
+      labs and exercises, to estimate real population parameters such as home costs,
+      place of birth proportions, and women's heights.
+    needs:
+    - confidence_interval_mean_known_sigma
+    - confidence_interval_mean_unknown_sigma
+    - confidence_interval_proportion
+    tier: 4
+    source_domain: introductory_statistics_ch08
+  test_single_mean_known_sd:
+    defines: A z-test that determines whether a population mean differs from a claimed
+      value when the population standard deviation is known.
+    needs:
+    - hypothesis_test_procedure
+    - normal_distribution
+    tier: 6
+    source_domain: introductory_statistics_ch09
+  test_single_mean_unknown_sd:
+    defines: A t-test that determines whether a population mean differs from a claimed
+      value using the sample standard deviation in place of an unknown population
+      standard deviation.
+    needs:
+    - hypothesis_test_procedure
+    - students_t_distribution
+    tier: 6
+    source_domain: introductory_statistics_ch09
+  test_single_proportion:
+    defines: A normal-approximation test that determines whether a population proportion
+      differs from a claimed value, applicable when both np and nq exceed five.
+    needs:
+    - hypothesis_test_procedure
+    - binomial_distribution
+    - normal_distribution
+    tier: 6
+    source_domain: introductory_statistics_ch09
+  two_sample_test_classification:
+    defines: The process of determining whether a hypothesis test involves independent
+      group means (variances known or unknown), independent proportions, or matched
+      paired samples.
+    needs:
+    - two_means_unknown_sd_test
+    - two_means_known_sd_test
+    - two_proportions_test
+    - matched_pairs_test
+    tier: 3
+    source_domain: introductory_statistics_ch10
+  real_world_two_group_comparisons:
+    defines: Applying two-sample hypothesis tests to practical scenarios such as comparing
+      medications, consumer products, salaries, and demographic proportions.
+    needs:
+    - two_sample_test_classification
+    tier: 4
+    source_domain: introductory_statistics_ch10
+  goodness_of_fit_lab:
+    defines: A hands-on exercise applying the goodness-of-fit test to real collected
+      data (e.g., grocery receipts) to assess fit to uniform or exponential distributions.
+    needs:
+    - goodness_of_fit_test
+    tier: 3
+    source_domain: introductory_statistics_ch11
+  independence_lab:
+    defines: A hands-on exercise applying the chi-square test of independence to classroom-collected
+      data on favorite snack type versus gender.
+    needs:
+    - test_of_independence
+    tier: 3
+    source_domain: introductory_statistics_ch11
+  prediction_interpolation_extrapolation:
+    defines: Using a significant regression line to estimate y for a given x; interpolation
+      predicts within the observed x-range (reliable), extrapolation predicts outside
+      it (unreliable).
+    needs:
+    - least_squares_regression_line
+    - significance_test_correlation_coefficient
+    tier: 7
+    source_domain: introductory_statistics_ch12
+  regression_labs_distance_textbook_fuel:
+    defines: Hands-on data-collection exercises (distance from school vs. supply cost,
+      textbook pages vs. cost, car weight vs. fuel efficiency) applying regression,
+      correlation significance, and outlier detection to real data.
+    needs:
+    - linear_regression
+    - correlation_coefficient_r
+    - outliers
+    tier: 6
+    source_domain: introductory_statistics_ch12
+  anova_table:
+    defines: A structured table summarizing source of variation, sum of squares, degrees
+      of freedom, mean squares, and the F statistic for a one-way ANOVA.
+    needs:
+    - sum_of_squares
+    - mean_square
+    - f_ratio
+    - one_way_anova
+    tier: 5
+    source_domain: introductory_statistics_ch13
+  test_of_two_variances:
+    defines: An F-test that compares the variances of two independent, normally distributed
+      populations by forming the ratio of their sample variances.
+    needs:
+    - f_ratio
+    - hypothesis_testing
+    - p_value
+    tier: 4
+    source_domain: introductory_statistics_ch13
+  one_way_anova_lab:
+    defines: A hands-on exercise applying one-way ANOVA to real collected data (e.g.,
+      prices of fruits, vegetables, and breads) to practice conducting and interpreting
+      the test.
+    needs:
+    - one_way_anova
+    tier: 5
+    source_domain: introductory_statistics_ch13

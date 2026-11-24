@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Standard Normal Variable | Introductory Statistics Ch11</title>
+<script>
+MathJax = {
+  tex: { inlineMath: [['$','$'],['\\(','\\)']], displayMath: [['$$','$$'],['\\[','\\]']] },
+  options: { skipHtmlTags: ['script','noscript','style','textarea','pre','code'] }
+};
+</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" async></script>
+<script src="https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.min.js"></script>
+<script>mermaid.initialize({ startOnLoad: true, theme: 'neutral' });</script>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:Georgia,serif;background:#fafaf8;color:#1a1a1a;line-height:1.7}
+h2{font-size:1.45rem;color:#1e3a5f;margin-bottom:12px}
+h3{font-size:1.1rem;color:#2e4a7f;margin:20px 0 8px}
+h4{font-size:1rem;color:#3a5a8f;margin:16px 0 6px}
+p{margin-bottom:16px;font-size:1rem}
+li{margin-bottom:6px;margin-left:24px;font-size:1rem}
+pre{background:#f4f4f0;border:1px solid #d8d8d0;border-radius:6px;
+    padding:16px 20px;overflow-x:auto;margin:16px 0}
+code{font-family:Menlo,Consolas,monospace;font-size:.87em}
+p code{background:#f0f0ea;padding:1px 4px;border-radius:3px}
+footer.spl-credit{margin-top:32px;padding-top:16px;border-top:1px solid #e0e0d8;
+      font-family:system-ui,sans-serif;font-size:.78rem;color:#999;text-align:center}
+footer.spl-credit a{color:#2563eb;text-decoration:none}
+footer.spl-credit span{display:block}
+footer.spl-credit .spl-credit__meta{margin-bottom:4px}
+.cb-figure{margin:24px 0;text-align:center}
+.cb-figure img{max-width:100%;height:auto;border:1px solid #e0e0d8;border-radius:6px}
+figcaption{font-size:.82rem;color:#666;margin-top:8px;font-style:italic;text-align:center}
+pre.mermaid{background:none;border:none;padding:0;overflow:visible;margin:16px 0}
+.page{max-width:780px;margin:0 auto;padding:40px 32px}
+section{margin-bottom:48px;border-top:1px solid #e0e0d8;padding-top:36px}
+section:first-of-type{border-top:none;padding-top:0}
+</style>
+</head>
+<body>
+<div class="page">
+  <main>
+    <h2 id="标准正态变量">标准正态变量</h2>
+<p><strong>定义。</strong> 若随机变量 $Z$ 服从均值为 $0$、标准差为 $1$ 的正态分布,则称 $Z$ 为<strong>标准正态变量</strong>,记作 $Z\sim N(0,1)$。其概率密度函数为</p>
+$$\varphi(z)=\frac{1}{\sqrt{2\pi}}\,e^{-z^{2}/2},\qquad -\infty<z<\infty .$$
+<p>密度曲线关于 $z=0$ 对称,呈钟形。累积分布函数记为 $\Phi(z)=P(Z\le z)$,由对称性有 $\Phi(-z)=1-\Phi(z)$。常用的经验数据是:$P(|Z|<1)\approx 0.683$,$P(|Z|<2)\approx 0.954$,$P(|Z|<3)\approx 0.997$。</p>
+<p><strong>标准化。</strong> 任何正态变量 $X\sim N(\mu,\sigma^{2})$ 都可以通过</p>
+$$Z=\frac{X-\mu}{\sigma}$$
+<p>化为标准正态变量。$Z$ 表示 $X$ 偏离均值多少个标准差。因此只需一张标准正态分布表,就能处理所有正态分布问题。</p>
+<p><strong>例题。</strong> 某次考试成绩 $X\sim N(70,\,10^{2})$。求 $P(X>85)$。</p>
+<p>第一步,标准化:</p>
+$$z=\frac{85-70}{10}=1.5 .$$
+<p>第二步,转化为标准正态概率:</p>
+$$P(X>85)=P(Z>1.5)=1-\Phi(1.5)\approx 1-0.9332=0.0668 .$$
+<p>即约有 $6.7\%$ 的考生成绩超过 85 分。</p>
+<p><strong>问题求解应用。</strong> 假设某零件长度 $L\sim N(50,\,0.4^{2})$(单位:mm),规格要求为 $49.2\le L\le 50.8$。求合格率。</p>
+<p>标准化两端:</p>
+$$z_1=\frac{49.2-50}{0.4}=-2,\qquad z_2=\frac{50.8-50}{0.4}=2 .$$
+<p>于是</p>
+$$P(49.2\le L\le 50.8)=P(-2\le Z\le 2)=2\Phi(2)-1\approx 2(0.9772)-1=0.9544 .$$
+<p>合格率约为 $95.4\%$。</p>
+<p><strong>与卡方变量的联系。</strong> 标准正态变量的平方 $Z^{2}$ 是最简单的非负随机变量。若 $Z_1,Z_2,\dots,Z_k$ 相互独立且都服从 $N(0,1)$,则</p>
+$$\chi^{2}=Z_1^{2}+Z_2^{2}+\cdots+Z_k^{2}$$
+<p>服从自由度为 $k$ 的卡方分布。此外,因为 $E[Z]=0$、$\operatorname{Var}(Z)=1$,所以 $E[Z^{2}]=1$,由此立即得到 $E[\chi^{2}]=k$。可见,标准正态变量正是构造卡方分布的基本单元。</p>
+<pre class="mermaid">flowchart LR
+A["正态变量 X"] --> B["标准化 Z=(X-μ)/σ"]
+B --> C["标准正态变量 Z"]
+C --> D["平方 Z²"]
+D --> E["k 个独立平方求和"]
+E --> F["卡方变量"]</pre>
+<p><em>图示:从一般正态变量出发,经标准化得到标准正态变量,再通过平方并求和构造卡方变量。</em></p>
+  </main>
+  <footer class="spl-credit"><span class="spl-credit__meta">Introductory Statistics — Ch11: The Chi-Square Distribution (Level: College &middot; Language: ZH &middot; Model: sonnet)</span><span class="spl-credit__powered">Generated and Powered by <a href="https://github.com/digital-duck/SPL.py" target="_blank" rel="noopener">SPL</a></span></footer>
+</div>
+</body>
+</html>

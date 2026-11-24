@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Matched Paired Samples | Introductory Statistics Ch10</title>
+<script>
+MathJax = {
+  tex: { inlineMath: [['$','$'],['\\(','\\)']], displayMath: [['$$','$$'],['\\[','\\]']] },
+  options: { skipHtmlTags: ['script','noscript','style','textarea','pre','code'] }
+};
+</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" async></script>
+<script src="https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.min.js"></script>
+<script>mermaid.initialize({ startOnLoad: true, theme: 'neutral' });</script>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:Georgia,serif;background:#fafaf8;color:#1a1a1a;line-height:1.7}
+h2{font-size:1.45rem;color:#1e3a5f;margin-bottom:12px}
+h3{font-size:1.1rem;color:#2e4a7f;margin:20px 0 8px}
+h4{font-size:1rem;color:#3a5a8f;margin:16px 0 6px}
+p{margin-bottom:16px;font-size:1rem}
+li{margin-bottom:6px;margin-left:24px;font-size:1rem}
+pre{background:#f4f4f0;border:1px solid #d8d8d0;border-radius:6px;
+    padding:16px 20px;overflow-x:auto;margin:16px 0}
+code{font-family:Menlo,Consolas,monospace;font-size:.87em}
+p code{background:#f0f0ea;padding:1px 4px;border-radius:3px}
+footer.spl-credit{margin-top:32px;padding-top:16px;border-top:1px solid #e0e0d8;
+      font-family:system-ui,sans-serif;font-size:.78rem;color:#999;text-align:center}
+footer.spl-credit a{color:#2563eb;text-decoration:none}
+footer.spl-credit span{display:block}
+footer.spl-credit .spl-credit__meta{margin-bottom:4px}
+.cb-figure{margin:24px 0;text-align:center}
+.cb-figure img{max-width:100%;height:auto;border:1px solid #e0e0d8;border-radius:6px}
+figcaption{font-size:.82rem;color:#666;margin-top:8px;font-style:italic;text-align:center}
+pre.mermaid{background:none;border:none;padding:0;overflow:visible;margin:16px 0}
+.page{max-width:780px;margin:0 auto;padding:40px 32px}
+section{margin-bottom:48px;border-top:1px solid #e0e0d8;padding-top:36px}
+section:first-of-type{border-top:none;padding-top:0}
+</style>
+</head>
+<body>
+<div class="page">
+  <main>
+    <h2 id="配对样本-matched-paired-samples">配对样本(Matched Paired Samples)</h2>
+<p><strong>定义。</strong> 配对样本是两组相互依赖的测量值:每一对数据来自同一个体(如同一名患者治疗前后的血压),或来自经过匹配的一对个体(如同卵双胞胎、年龄性别相同的受试者)。配对使两组数据之间存在一一对应关系,因此不能当作两个独立样本处理。</p>
+<p>分析的核心思想是:<strong>先对每一对求差值,再把差值当作单个样本来分析</strong>。记第 $i$ 对数据为 $(x_i, y_i)$,差值为</p>
+$$d_i = x_i - y_i,\quad i=1,\dots,n$$
+<p>差值的样本均值为 $\bar d$,样本标准差为 $s_d$。要检验的假设是总体平均差 $\mu_d$ 是否为 0:</p>
+$$H_0:\ \mu_d = 0,\qquad t=\frac{\bar d-\mu_{d,0}}{s_d/\sqrt n},\quad \text{自由度 } n-1.$$
+<p>配对的好处在于:个体之间固有的差异(体质、基础水平)在做差时被抵消,噪声变小,检验更灵敏。</p>
+<p><strong>例题。</strong> 8 名学生参加某辅导班,前后测验成绩如下:</p>
+<p>| 学生 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | |---|---|---|---|---|---|---|---|---| | 辅导前 | 62 | 70 | 55 | 80 | 68 | 74 | 59 | 66 | | 辅导后 | 68 | 75 | 58 | 84 | 70 | 82 | 62 | 71 |</p>
+<p>差值(后 − 前)为 $6,5,3,4,2,8,3,5$,故</p>
+$$\bar d=\frac{36}{8}=4.5,\qquad s_d=\sqrt{\frac{\sum (d_i-\bar d)^2}{7}}=\sqrt{\frac{25.5}{7}}\approx 1.91.$$
+<p>检验统计量为</p>
+$$t=\frac{4.5}{1.91/\sqrt8}\approx 6.67,\quad df=7.$$
+<p>查表,双侧 $\alpha=0.05$ 的临界值为 $t_{0.025,7}=2.365$。由于 $6.67>2.365$,拒绝 $H_0$,说明辅导班使成绩显著提高。</p>
+<p><strong>问题求解应用。</strong> 95% 置信区间为</p>
+$$\bar d \pm t_{0.025,7}\frac{s_d}{\sqrt n}=4.5\pm 2.365\times 0.675\approx(2.9,\ 6.1).$$
+<p>即平均提高约 3 到 6 分。</p>
+<p><strong>对比提醒。</strong> 若错误地把两组成绩当作独立样本,学生之间成绩的差异很大(辅导前标准差约 7.5),两样本 $t$ 统计量只有约 1.1,会得出"无显著差异"的错误结论。这正是配对设计的价值:它去除了个体差异,只保留处理效应。</p>
+<p><strong>使用条件。</strong></p>
+<li>数据确实成对(同一对象重复测量或合理匹配);</li>
+<li>差值 $d_i$ 近似服从正态分布(样本量小时尤其重要),否则可改用符号秩检验(Wilcoxon);</li>
+<li>各对之间相互独立。</li>
+<p><strong>判断口诀:</strong> 如果打乱某一组的顺序会破坏数据含义,就是配对样本;如果可以随意打乱,就是独立样本。</p>
+  </main>
+  <footer class="spl-credit"><span class="spl-credit__meta">Introductory Statistics — Ch10: Hypothesis Testing with Two Samples (Level: College &middot; Language: ZH &middot; Model: sonnet)</span><span class="spl-credit__powered">Generated and Powered by <a href="https://github.com/digital-duck/SPL.py" target="_blank" rel="noopener">SPL</a></span></footer>
+</div>
+</body>
+</html>

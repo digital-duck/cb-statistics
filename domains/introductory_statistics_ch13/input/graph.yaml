@@ -1,0 +1,83 @@
+domain: introductory_statistics_2e
+primitives:
+  variance:
+    defines: The mean of the squared deviations from the mean; the square of the standard deviation.
+    tier: 0
+  normal_distribution:
+    defines: The assumed underlying distribution for each population from which samples are drawn in ANOVA
+      and F-tests.
+    tier: 0
+  hypothesis_testing:
+    defines: A framework using a null hypothesis (no difference) and alternative hypothesis (a difference
+      exists) to draw conclusions from sample data.
+    tier: 0
+  degrees_of_freedom:
+    defines: A parameter (separately for numerator and denominator) that determines the shape of the F
+      distribution and other test distributions.
+    tier: 0
+  p_value:
+    defines: The probability, under the null hypothesis, of obtaining a test statistic at least as extreme
+      as the one observed; compared to the significance level to make a decision.
+    tier: 0
+concepts:
+  sum_of_squares:
+    defines: The sum of squared deviations (possibly weighted) used to quantify variation, split into
+      between-group (SSbetween) and within-group (SSwithin) components.
+    composed_of:
+    - variance
+    tier: 1
+  mean_square:
+    defines: A variance estimate obtained by dividing a sum of squares by its associated degrees of freedom
+      (MSbetween and MSwithin).
+    composed_of:
+    - sum_of_squares
+    - degrees_of_freedom
+    tier: 2
+  f_distribution:
+    defines: A right-skewed probability distribution, derived from the Student's t-distribution, characterized
+      by two sets of degrees of freedom (numerator and denominator), used as the sampling distribution
+      for ratios of variances.
+    composed_of:
+    - normal_distribution
+    - degrees_of_freedom
+    tier: 1
+  f_ratio:
+    defines: The ratio of two variance estimates (MSbetween/MSwithin, or the ratio of two sample variances)
+      used as the test statistic for ANOVA and tests of two variances.
+    composed_of:
+    - mean_square
+    - f_distribution
+    tier: 3
+  one_way_anova:
+    defines: A hypothesis test method that uses the F distribution to determine whether the means of three
+      or more groups (from a single categorical factor) are equal, by comparing between-group and within-group
+      variance.
+    composed_of:
+    - hypothesis_testing
+    - f_ratio
+    - p_value
+    tier: 4
+applications:
+  anova_table:
+    defines: A structured table summarizing source of variation, sum of squares, degrees of freedom, mean
+      squares, and the F statistic for a one-way ANOVA.
+    needs:
+    - sum_of_squares
+    - mean_square
+    - f_ratio
+    - one_way_anova
+    tier: 5
+  test_of_two_variances:
+    defines: An F-test that compares the variances of two independent, normally distributed populations
+      by forming the ratio of their sample variances.
+    needs:
+    - f_ratio
+    - hypothesis_testing
+    - p_value
+    tier: 4
+  one_way_anova_lab:
+    defines: A hands-on exercise applying one-way ANOVA to real collected data (e.g., prices of fruits,
+      vegetables, and breads) to practice conducting and interpreting the test.
+    needs:
+    - one_way_anova
+    tier: 5

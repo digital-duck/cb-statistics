@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Correlation | Introductory Statistics Ch12</title>
+<script>
+MathJax = {
+  tex: { inlineMath: [['$','$'],['\\(','\\)']], displayMath: [['$$','$$'],['\\[','\\]']] },
+  options: { skipHtmlTags: ['script','noscript','style','textarea','pre','code'] }
+};
+</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" async></script>
+<script src="https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.min.js"></script>
+<script>mermaid.initialize({ startOnLoad: true, theme: 'neutral' });</script>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:Georgia,serif;background:#fafaf8;color:#1a1a1a;line-height:1.7}
+h2{font-size:1.45rem;color:#1e3a5f;margin-bottom:12px}
+h3{font-size:1.1rem;color:#2e4a7f;margin:20px 0 8px}
+h4{font-size:1rem;color:#3a5a8f;margin:16px 0 6px}
+p{margin-bottom:16px;font-size:1rem}
+li{margin-bottom:6px;margin-left:24px;font-size:1rem}
+pre{background:#f4f4f0;border:1px solid #d8d8d0;border-radius:6px;
+    padding:16px 20px;overflow-x:auto;margin:16px 0}
+code{font-family:Menlo,Consolas,monospace;font-size:.87em}
+p code{background:#f0f0ea;padding:1px 4px;border-radius:3px}
+footer.spl-credit{margin-top:32px;padding-top:16px;border-top:1px solid #e0e0d8;
+      font-family:system-ui,sans-serif;font-size:.78rem;color:#999;text-align:center}
+footer.spl-credit a{color:#2563eb;text-decoration:none}
+footer.spl-credit span{display:block}
+footer.spl-credit .spl-credit__meta{margin-bottom:4px}
+.cb-figure{margin:24px 0;text-align:center}
+.cb-figure img{max-width:100%;height:auto;border:1px solid #e0e0d8;border-radius:6px}
+figcaption{font-size:.82rem;color:#666;margin-top:8px;font-style:italic;text-align:center}
+pre.mermaid{background:none;border:none;padding:0;overflow:visible;margin:16px 0}
+.page{max-width:780px;margin:0 auto;padding:40px 32px}
+section{margin-bottom:48px;border-top:1px solid #e0e0d8;padding-top:36px}
+section:first-of-type{border-top:none;padding-top:0}
+</style>
+</head>
+<body>
+<div class="page">
+  <main>
+    <h2 id="相关性">相关性</h2>
+<p><strong>定义。</strong> 相关性(correlation)描述两个数值变量之间线性关系的强弱与方向。在散点图上,若点随 $x$ 增大而整体上升,称为<strong>正相关</strong>;整体下降,称为<strong>负相关</strong>;若看不出直线趋势,则称<strong>无相关</strong>。衡量它的常用指标是皮尔逊相关系数:</p>
+$$r=\frac{\sum_{i=1}^{n}(x_i-\bar{x})(y_i-\bar{y})}{\sqrt{\sum_{i=1}^{n}(x_i-\bar{x})^2}\,\sqrt{\sum_{i=1}^{n}(y_i-\bar{y})^2}}$$
+<p>它满足 $-1\le r\le 1$。$r$ 的符号表示方向,$|r|$ 越接近 $1$,点越紧密地围绕一条直线;$r\approx 0$ 表示没有线性关系。</p>
+<p><strong>几点要领。</strong></p>
+<li>$r$ 无单位,改变 $x$ 或 $y$ 的单位(如厘米改为米)不会改变它。</li>
+<li>$r$ 只衡量<strong>线性</strong>关系。例如 $y=x^2$ 在 $x$ 关于 $0$ 对称取值时 $r=0$,但两者显然有关。</li>
+<li><strong>相关不等于因果</strong>:冰淇淋销量与溺水人数正相关,是因为两者都受气温影响。</li>
+<p><strong>例题。</strong> 某班 5 名学生的每周学习时间 $x$(小时)与测验成绩 $y$ 如下:</p>
+<p>| $x$ | 1 | 2 | 3 | 4 | 5 | |---|---|---|---|---|---| | $y$ | 55 | 60 | 70 | 75 | 85 |</p>
+<p>求 $r$。</p>
+<li>均值:$\bar{x}=3$,$\bar{y}=69$。</li>
+<li>离差:$x_i-\bar{x}$ 为 $-2,-1,0,1,2$;$y_i-\bar{y}$ 为 $-14,-9,1,6,16$。</li>
+<li>分子:$(-2)(-14)+(-1)(-9)+0\cdot1+1\cdot6+2\cdot16=28+9+0+6+32=75$。</li>
+<li>分母:$\sum(x_i-\bar{x})^2=10$,$\sum(y_i-\bar{y})^2=196+81+1+36+256=570$,故分母为 $\sqrt{10\cdot570}\approx75.5$。</li>
+<li>$r\approx75/75.5\approx0.993$。</li>
+<p>这是非常强的正相关,散点几乎落在一条上升的直线上。</p>
+<p><strong>问题求解应用。</strong> 假设在一项调查中发现 $r=-0.85$,这说明什么?</p>
+<li>方向:$r<0$,两变量呈负相关。</li>
+<li>强度:$|r|=0.85$ 接近 $1$,线性关系较强。</li>
+<li>解释力:$r^2=0.7225$,即 $y$ 的变化中约 $72\%$ 可由 $x$ 的线性关系解释。</li>
+<li>谨慎结论:只能说二者"伴随变化",不能直接断言 $x$ 导致 $y$ 变化。</li>
+<p><strong>检验步骤。</strong> 拿到数据后,应当(1)先画散点图,确认关系大致呈直线,并留意离群点,因为单个离群点就可能使 $r$ 大幅改变;(2)再计算 $r$;(3)最后结合背景判断是否存在混杂变量。只看数字而不看图,是初学者最常见的错误。</p>
+  </main>
+  <footer class="spl-credit"><span class="spl-credit__meta">Introductory Statistics — Ch12: Linear Regression and Correlation (Level: College &middot; Language: ZH &middot; Model: sonnet)</span><span class="spl-credit__powered">Generated and Powered by <a href="https://github.com/digital-duck/SPL.py" target="_blank" rel="noopener">SPL</a></span></footer>
+</div>
+</body>
+</html>

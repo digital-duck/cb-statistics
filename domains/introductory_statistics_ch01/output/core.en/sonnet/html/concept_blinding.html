@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Blinding | Introductory Statistics Ch01</title>
+<script>
+MathJax = {
+  tex: { inlineMath: [['$','$'],['\\(','\\)']], displayMath: [['$$','$$'],['\\[','\\]']] },
+  options: { skipHtmlTags: ['script','noscript','style','textarea','pre','code'] }
+};
+</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" async></script>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:Georgia,serif;background:#fafaf8;color:#1a1a1a;line-height:1.7}
+h2{font-size:1.45rem;color:#1e3a5f;margin-bottom:12px}
+h3{font-size:1.1rem;color:#2e4a7f;margin:20px 0 8px}
+h4{font-size:1rem;color:#3a5a8f;margin:16px 0 6px}
+p{margin-bottom:16px;font-size:1rem}
+li{margin-bottom:6px;margin-left:24px;font-size:1rem}
+pre{background:#f4f4f0;border:1px solid #d8d8d0;border-radius:6px;
+    padding:16px 20px;overflow-x:auto;margin:16px 0}
+code{font-family:Menlo,Consolas,monospace;font-size:.87em}
+p code{background:#f0f0ea;padding:1px 4px;border-radius:3px}
+footer.spl-credit{margin-top:32px;padding-top:16px;border-top:1px solid #e0e0d8;
+      font-family:system-ui,sans-serif;font-size:.78rem;color:#999;text-align:center}
+footer.spl-credit a{color:#2563eb;text-decoration:none}
+.page{max-width:780px;margin:0 auto;padding:40px 32px}
+section{margin-bottom:48px;border-top:1px solid #e0e0d8;padding-top:36px}
+section:first-of-type{border-top:none;padding-top:0}
+</style>
+</head>
+<body>
+<div class="page">
+  <main>
+    <h2 id="blinding">Blinding</h2>
+<p><strong>Definition.</strong> In the design of experiments and clinical trials, <em>blinding</em> (also called <em>masking</em>) is a procedure that conceals treatment assignment information from one or more parties involved in the study, in order to prevent conscious or unconscious bias from influencing outcomes. Formally, let $\Omega$ be a sample space of experimental units, and let $T: \Omega \to \{0, 1\}$ be a binary treatment indicator ($T=1$ for treatment, $T=0$ for control). A study is said to be <em>single-blind</em> if the subjects are unaware of their value of $T$; <em>double-blind</em> if both subjects and outcome assessors are unaware; and <em>triple-blind</em> if additionally the data analysts are unaware until after primary analyses are locked.</p>
+<p>The statistical rationale is grounded in potential outcomes. Let $Y_i(1)$ and $Y_i(0)$ denote the potential outcomes for unit $i$ under treatment and control, respectively. The average treatment effect is</p>
+$$\tau = \mathbb{E}[Y_i(1) - Y_i(0)].$$
+<p>If knowledge of treatment assignment influences how $Y_i$ is measured or reported — an effect captured by a bias term $\delta_i$ — then the observed estimator $\hat{\tau}$ satisfies $\mathbb{E}[\hat{\tau}] = \tau + \bar{\delta}$, where $\bar{\delta} \neq 0$ in an unblinded study. Blinding drives $\bar{\delta} \to 0$ by severing the informational channel through which assignment affects measurement.</p>
+<p><strong>Worked Example.</strong> A pharmaceutical trial tests a new analgesic against a placebo. Without blinding, patients who know they received the drug may report lower pain scores due to expectation alone (the placebo effect), while physicians may probe outcomes more optimistically. By administering identical-looking capsules and withholding allocation codes until trial completion, both $\delta_{\text{subject}}$ and $\delta_{\text{assessor}}$ are eliminated, yielding an unbiased estimate of pharmacological efficacy.</p>
+<p><strong>Key Theorem (Unconfounded Estimation under Blinding).</strong> If treatment assignment is independent of potential outcomes conditional on observed covariates $X_i$ — the <em>ignorability</em> condition $(Y_i(0), Y_i(1)) \perp T_i \mid X_i$ — and blinding ensures measurement is independent of $T_i$ given true outcomes, then the ordinary least-squares estimator of $\tau$ is consistent.</p>
+<p><strong>Lab Cell.</strong></p>
+<pre><code>import numpy as np
+from scipy import stats
+
+rng = np.random.default_rng(42)
+n = 200
+treatment = rng.integers(0, 2, n)          # 0 = control, 1 = treatment
+bias = 1.5 * treatment                      # simulated unblinded reporter bias
+true_effect = 3.0
+Y = true_effect * treatment + rng.normal(0, 2, n) + bias
+
+# Naive (unblinded) estimate
+t_stat, p_val = stats.ttest_ind(Y[treatment==1], Y[treatment==0])
+print(f"Biased estimate of effect: {Y[treatment==1].mean() - Y[treatment==0].mean():.3f}")
+
+# Blinded: bias removed
+Y_blind = true_effect * treatment + rng.normal(0, 2, n)
+print(f"Unbiased estimate of effect: {Y_blind[treatment==1].mean() - Y_blind[treatment==0].mean():.3f}")
+print(f"True effect: {true_effect}")</code></pre>
+<p>Running this cell demonstrates quantitatively how unblinded measurement inflates the estimated treatment effect beyond the true value $\tau = 3.0$.</p>
+  </main>
+  <footer class="spl-credit">Generated by SPL &middot; Powered by SPL.py</footer>
+</div>
+</body>
+</html>

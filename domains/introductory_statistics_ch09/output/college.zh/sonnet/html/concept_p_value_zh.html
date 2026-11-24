@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>P Value | Introductory Statistics Ch09</title>
+<script>
+MathJax = {
+  tex: { inlineMath: [['$','$'],['\\(','\\)']], displayMath: [['$$','$$'],['\\[','\\]']] },
+  options: { skipHtmlTags: ['script','noscript','style','textarea','pre','code'] }
+};
+</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" async></script>
+<script src="https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.min.js"></script>
+<script>mermaid.initialize({ startOnLoad: true, theme: 'neutral' });</script>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:Georgia,serif;background:#fafaf8;color:#1a1a1a;line-height:1.7}
+h2{font-size:1.45rem;color:#1e3a5f;margin-bottom:12px}
+h3{font-size:1.1rem;color:#2e4a7f;margin:20px 0 8px}
+h4{font-size:1rem;color:#3a5a8f;margin:16px 0 6px}
+p{margin-bottom:16px;font-size:1rem}
+li{margin-bottom:6px;margin-left:24px;font-size:1rem}
+pre{background:#f4f4f0;border:1px solid #d8d8d0;border-radius:6px;
+    padding:16px 20px;overflow-x:auto;margin:16px 0}
+code{font-family:Menlo,Consolas,monospace;font-size:.87em}
+p code{background:#f0f0ea;padding:1px 4px;border-radius:3px}
+footer.spl-credit{margin-top:32px;padding-top:16px;border-top:1px solid #e0e0d8;
+      font-family:system-ui,sans-serif;font-size:.78rem;color:#999;text-align:center}
+footer.spl-credit a{color:#2563eb;text-decoration:none}
+footer.spl-credit span{display:block}
+footer.spl-credit .spl-credit__meta{margin-bottom:4px}
+.cb-figure{margin:24px 0;text-align:center}
+.cb-figure img{max-width:100%;height:auto;border:1px solid #e0e0d8;border-radius:6px}
+figcaption{font-size:.82rem;color:#666;margin-top:8px;font-style:italic;text-align:center}
+pre.mermaid{background:none;border:none;padding:0;overflow:visible;margin:16px 0}
+.page{max-width:780px;margin:0 auto;padding:40px 32px}
+section{margin-bottom:48px;border-top:1px solid #e0e0d8;padding-top:36px}
+section:first-of-type{border-top:none;padding-top:0}
+</style>
+</head>
+<body>
+<div class="page">
+  <main>
+    <h2 id="p-值">P 值</h2>
+<h3 id="定义">定义</h3>
+<p><strong>P 值</strong>(p-value)是在原假设 $H_0$ 成立的前提下,得到与观测样本结果<strong>一样极端或更极端</strong>的结果的概率。设检验统计量为 $T$,观测值为 $t_{\text{obs}}$,则对右尾检验:</p>
+$$p = P(T \ge t_{\text{obs}} \mid H_0)$$
+<p>对双尾检验,则要把两侧的极端情形都计入。P 值越小,说明"如果 $H_0$ 为真,却观察到这样的数据"越不寻常,因而越有理由怀疑 $H_0$。</p>
+<p>需要特别注意:P 值<strong>不是</strong> $H_0$ 为真的概率,也不是效应大小的度量。它只回答一个问题:数据与 $H_0$ 的相容程度如何。</p>
+<h3 id="例题">例题</h3>
+<p>某硬币被怀疑偏向正面。抛掷 100 次,得到 60 次正面。检验 $H_0: p_0 = 0.5$,$H_a: p_0 \ne 0.5$。</p>
+<p><strong>第 1 步:构造检验统计量。</strong> 在 $H_0$ 下,正面次数近似服从均值 $np_0 = 50$、标准差 $\sqrt{np_0(1-p_0)} = 5$ 的正态分布。于是</p>
+$$z = \frac{60 - 50}{5} = 2.00$$
+<p><strong>第 2 步:计算尾部概率。</strong> 查标准正态分布表得 $P(Z \ge 2.00) \approx 0.0228$。</p>
+<p><strong>第 3 步:双尾检验。</strong> 偏向反面同样算"极端",故</p>
+$$p = 2 \times 0.0228 = 0.0456$$
+<p><strong>第 4 步:下结论。</strong> 若显著性水平为 $\alpha = 0.05$,则 $p < \alpha$,拒绝 $H_0$;若取 $\alpha = 0.01$,则不能拒绝 $H_0$。</p>
+<h3 id="问题求解应用">问题求解应用</h3>
+<p><strong>问题:</strong> 某药厂声称药片平均含量为 $\mu_0 = 500$ mg。质检员抽取 $n = 36$ 片,得 $\bar{x} = 497$ mg,已知 $\sigma = 9$ mg。在 $\alpha = 0.05$ 下检验含量是否偏低。</p>
+<p><strong>解:</strong> 这是左尾检验,$H_0: \mu = 500$,$H_a: \mu < 500$。</p>
+$$z = \frac{497 - 500}{9/\sqrt{36}} = \frac{-3}{1.5} = -2.00$$
+$$p = P(Z \le -2.00) \approx 0.0228$$
+<p>因 $0.0228 < 0.05$,拒绝 $H_0$,有证据表明平均含量偏低。</p>
+<p><strong>常见误区:</strong></p>
+<li><strong>"$p = 0.0228$ 意味着 $H_0$ 有 2.28% 的概率为真。"</strong> 错误。P 值是在假定 $H_0$ 为真时计算的条件概率,并不给出 $H_0$ 本身的概率。</li>
+<li><strong>"$p > \alpha$ 证明 $H_0$ 为真。"</strong> 错误。这只说明证据不足以拒绝 $H_0$。</li>
+<li><strong>"$p$ 很小说明效应很大。"</strong> 错误。样本量很大时,微不足道的差异也可能得到极小的 P 值,所以需要同时报告效应大小和置信区间。</li>
+<pre class="mermaid">flowchart LR
+A[设定原假设与备择假设] --> B[计算检验统计量]
+B --> C[在原假设下求尾部概率 p]
+C --> D{p 小于 α 吗}
+D -->|是| E[拒绝原假设]
+D -->|否| F[不能拒绝原假设]</pre>
+<p><em>P 值检验流程:将尾部概率 $p$ 与显著性水平 $\alpha$ 比较,得出拒绝或不拒绝原假设的结论。</em></p>
+  </main>
+  <footer class="spl-credit"><span class="spl-credit__meta">Introductory Statistics — Ch9: Hypothesis Testing with One Sample (Level: College &middot; Language: ZH &middot; Model: sonnet)</span><span class="spl-credit__powered">Generated and Powered by <a href="https://github.com/digital-duck/SPL.py" target="_blank" rel="noopener">SPL</a></span></footer>
+</div>
+</body>
+</html>

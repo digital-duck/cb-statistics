@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Students T Distribution | Introductory Statistics Ch09</title>
+<script>
+MathJax = {
+  tex: { inlineMath: [['$','$'],['\\(','\\)']], displayMath: [['$$','$$'],['\\[','\\]']] },
+  options: { skipHtmlTags: ['script','noscript','style','textarea','pre','code'] }
+};
+</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" async></script>
+<script src="https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.min.js"></script>
+<script>mermaid.initialize({ startOnLoad: true, theme: 'neutral' });</script>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:Georgia,serif;background:#fafaf8;color:#1a1a1a;line-height:1.7}
+h2{font-size:1.45rem;color:#1e3a5f;margin-bottom:12px}
+h3{font-size:1.1rem;color:#2e4a7f;margin:20px 0 8px}
+h4{font-size:1rem;color:#3a5a8f;margin:16px 0 6px}
+p{margin-bottom:16px;font-size:1rem}
+li{margin-bottom:6px;margin-left:24px;font-size:1rem}
+pre{background:#f4f4f0;border:1px solid #d8d8d0;border-radius:6px;
+    padding:16px 20px;overflow-x:auto;margin:16px 0}
+code{font-family:Menlo,Consolas,monospace;font-size:.87em}
+p code{background:#f0f0ea;padding:1px 4px;border-radius:3px}
+footer.spl-credit{margin-top:32px;padding-top:16px;border-top:1px solid #e0e0d8;
+      font-family:system-ui,sans-serif;font-size:.78rem;color:#999;text-align:center}
+footer.spl-credit a{color:#2563eb;text-decoration:none}
+footer.spl-credit span{display:block}
+footer.spl-credit .spl-credit__meta{margin-bottom:4px}
+.cb-figure{margin:24px 0;text-align:center}
+.cb-figure img{max-width:100%;height:auto;border:1px solid #e0e0d8;border-radius:6px}
+figcaption{font-size:.82rem;color:#666;margin-top:8px;font-style:italic;text-align:center}
+pre.mermaid{background:none;border:none;padding:0;overflow:visible;margin:16px 0}
+.page{max-width:780px;margin:0 auto;padding:40px 32px}
+section{margin-bottom:48px;border-top:1px solid #e0e0d8;padding-top:36px}
+section:first-of-type{border-top:none;padding-top:0}
+</style>
+</head>
+<body>
+<div class="page">
+  <main>
+    <h2 id="学生t分布">学生t分布</h2>
+<h3 id="定义">定义</h3>
+<p>当总体标准差 $\sigma$ 未知时,检验总体均值只能用样本标准差 $s$ 代替 $\sigma$。这时统计量</p>
+$$
+t=\frac{\bar{X}-\mu}{s/\sqrt{n}}
+$$
+<p>不再服从标准正态分布,而是服从<strong>自由度为 $\nu=n-1$ 的学生t分布</strong>。这是 W. S. Gosset(笔名"Student")在1908年得到的结果。</p>
+<p>t分布的主要性质:</p>
+<li>密度曲线关于 0 对称,呈钟形,与标准正态分布相似。</li>
+<li>与正态分布相比,它<strong>尾部更厚、峰值更低</strong>。原因是 $s$ 本身随样本波动,增加了不确定性。</li>
+<li>自由度 $\nu$ 越大,曲线越接近标准正态分布。当 $\nu\to\infty$ 时,t分布收敛于 $N(0,1)$。</li>
+<li>当 $\nu>2$ 时,方差为 $\dfrac{\nu}{\nu-2}>1$,大于标准正态分布的方差。</li>
+<pre class="mermaid">flowchart LR
+A["总体标准差已知"] --> B["使用标准正态分布 z"]
+C["总体标准差未知"] --> D["用样本标准差 s 代替"]
+D --> E["使用 t 分布,自由度 n-1"]
+E --> F["n 增大时趋近正态分布"]</pre>
+<p><em>图:根据总体标准差是否已知,选择 z 分布或 t 分布。</em></p>
+<h3 id="例题">例题</h3>
+<p>某品牌电池标称平均寿命为 $\mu_0=50$ 小时。随机抽取 $n=9$ 个电池,测得样本均值 $\bar{x}=47$ 小时,样本标准差 $s=4.5$ 小时。总体标准差未知。问:在 $\alpha=0.05$ 水平下,能否认为平均寿命低于标称值?</p>
+<p><strong>步骤 1:建立假设。</strong> $H_0:\mu=50$,$H_1:\mu<50$(单侧检验)。</p>
+<p><strong>步骤 2:计算检验统计量。</strong></p>
+$$
+t=\frac{47-50}{4.5/\sqrt{9}}=\frac{-3}{1.5}=-2.00
+$$
+<p><strong>步骤 3:确定临界值。</strong> 自由度 $\nu=8$,查表得单侧 $t_{0.05,8}=1.860$,所以拒绝域为 $t<-1.860$。</p>
+<p><strong>步骤 4:结论。</strong> 因为 $-2.00<-1.860$,所以拒绝 $H_0$。有证据表明平均寿命低于 50 小时。</p>
+<p>若错误地使用正态临界值 $-1.645$,结论虽然相同,但会<strong>低估</strong>临界值的大小,在小样本时容易误判为显著。</p>
+<h3 id="问题求解应用-置信区间">问题求解应用:置信区间</h3>
+<p>用同一组数据构造 $95\%$ 双侧置信区间。自由度为 8 时,$t_{0.025,8}=2.306$,因此</p>
+$$
+\bar{x}\pm t_{0.025,8}\frac{s}{\sqrt{n}}=47\pm 2.306\times1.5=47\pm 3.46
+$$
+<p>即区间为 $(43.54,\,50.46)$。</p>
+<p>这个区间包含 50,与双侧检验"不能拒绝 $H_0:\mu=50$"一致。注意这里是双侧,而上面的例题用的是单侧检验,二者的临界值不同。若用正态临界值 $1.96$,区间半宽只有 $2.94$,明显偏窄。</p>
+<p><strong>使用要点:</strong></p>
+<li>总体 $\sigma$ 未知,且总体近似正态(或 $n$ 较大)时,用 t 分布。</li>
+<li>自由度始终是 $n-1$,不是 $n$。</li>
+<li>样本量小时,t 与 $z$ 的差别大;当 $n>30$ 时,两者已十分接近。</li>
+<li>若数据严重偏斜且样本很小,t 方法的结果不可靠,应考虑其他方法。</li>
+  </main>
+  <footer class="spl-credit"><span class="spl-credit__meta">Introductory Statistics — Ch9: Hypothesis Testing with One Sample (Level: College &middot; Language: ZH &middot; Model: sonnet)</span><span class="spl-credit__powered">Generated and Powered by <a href="https://github.com/digital-duck/SPL.py" target="_blank" rel="noopener">SPL</a></span></footer>
+</div>
+</body>
+</html>
