@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Real World Two Group Comparisons | Introductory Statistics Ch10</title>
+<script>
+MathJax = {
+  tex: { inlineMath: [['$','$'],['\\(','\\)']], displayMath: [['$$','$$'],['\\[','\\]']] },
+  options: { skipHtmlTags: ['script','noscript','style','textarea','pre','code'] }
+};
+</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" async></script>
+<script src="https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.min.js"></script>
+<script>mermaid.initialize({ startOnLoad: true, theme: 'neutral' });</script>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:Georgia,serif;background:#fafaf8;color:#1a1a1a;line-height:1.7}
+h2{font-size:1.45rem;color:#1e3a5f;margin-bottom:12px}
+h3{font-size:1.1rem;color:#2e4a7f;margin:20px 0 8px}
+h4{font-size:1rem;color:#3a5a8f;margin:16px 0 6px}
+p{margin-bottom:16px;font-size:1rem}
+li{margin-bottom:6px;margin-left:24px;font-size:1rem}
+pre{background:#f4f4f0;border:1px solid #d8d8d0;border-radius:6px;
+    padding:16px 20px;overflow-x:auto;margin:16px 0}
+code{font-family:Menlo,Consolas,monospace;font-size:.87em}
+p code{background:#f0f0ea;padding:1px 4px;border-radius:3px}
+footer.spl-credit{margin-top:32px;padding-top:16px;border-top:1px solid #e0e0d8;
+      font-family:system-ui,sans-serif;font-size:.78rem;color:#999;text-align:center}
+footer.spl-credit a{color:#2563eb;text-decoration:none}
+footer.spl-credit span{display:block}
+footer.spl-credit .spl-credit__meta{margin-bottom:4px}
+.cb-figure{margin:24px 0;text-align:center}
+.cb-figure img{max-width:100%;height:auto;border:1px solid #e0e0d8;border-radius:6px}
+figcaption{font-size:.82rem;color:#666;margin-top:8px;font-style:italic;text-align:center}
+pre.mermaid{background:none;border:none;padding:0;overflow:visible;margin:16px 0}
+.page{max-width:780px;margin:0 auto;padding:40px 32px}
+section{margin-bottom:48px;border-top:1px solid #e0e0d8;padding-top:36px}
+section:first-of-type{border-top:none;padding-top:0}
+</style>
+</head>
+<body>
+<div class="page">
+  <main>
+    <h2 id="现实世界中的两组比较">现实世界中的两组比较</h2>
+<h3 id="定义">定义</h3>
+<p>两组比较是指用两个样本的数据,检验两个总体的某个参数(均值或比例)是否存在差异。常见情形有三类:</p>
+<li><strong>独立样本均值比较</strong>(如两种药物的疗效):</li>
+$$H_0:\mu_1=\mu_2,\qquad t=\frac{\bar x_1-\bar x_2}{\sqrt{\dfrac{s_1^2}{n_1}+\dfrac{s_2^2}{n_2}}}$$
+<li><strong>配对样本比较</strong>(如同一批人用药前后):对差值 $d_i$ 做单样本 $t$ 检验,$t=\dfrac{\bar d}{s_d/\sqrt n}$。</li>
+<li><strong>两比例比较</strong>(如不同人群的支持率):</li>
+$$z=\frac{\hat p_1-\hat p_2}{\sqrt{\hat p(1-\hat p)\left(\frac1{n_1}+\frac1{n_2}\right)}},\quad \hat p=\frac{x_1+x_2}{n_1+n_2}$$
+<p>关键的第一步是<strong>判断设计类型</strong>:两组是否相互独立?比较的是均值还是比例?</p>
+<h3 id="例题">例题</h3>
+<p>某公司比较两种降压药。药物 A:$n_1=40$,$\bar x_1=12.5$ mmHg,$s_1=6$;药物 B:$n_2=45$,$\bar x_2=9.8$ mmHg,$s_2=5$(数值为血压下降量)。在 $\alpha=0.05$ 下检验两药疗效是否不同。</p>
+<li>假设:$H_0:\mu_1=\mu_2$,$H_1:\mu_1\ne\mu_2$。</li>
+<li>标准误:</li>
+$$SE=\sqrt{\frac{36}{40}+\frac{25}{45}}=\sqrt{0.9+0.556}\approx1.207$$
+<li>检验统计量:$t=\dfrac{12.5-9.8}{1.207}\approx2.24$。</li>
+<li>自由度约为 $78$,双侧临界值约为 $1.99$。因为 $|t|>1.99$,所以拒绝 $H_0$($p\approx0.028$)。</li>
+<p>95% 置信区间为 $2.7\pm1.99\times1.207$,即 $(0.30,\,5.10)$,不含 0,与检验结论一致。</p>
+<h3 id="问题求解应用">问题求解应用</h3>
+<p><strong>场景:比较人群比例。</strong> 某城市 A 区 $500$ 人中有 $290$ 人支持新交通政策,B 区 $600$ 人中有 $300$ 人支持。两区支持率是否不同?</p>
+<li>$\hat p_1=0.58$,$\hat p_2=0.50$,合并比例 $\hat p=\dfrac{590}{1100}\approx0.536$。</li>
+<li>$SE=\sqrt{0.536\times0.464\times\left(\frac1{500}+\frac1{600}\right)}\approx0.0301$。</li>
+<li>$z=\dfrac{0.08}{0.0301}\approx2.66$,双侧 $p\approx0.008<0.05$,拒绝 $H_0$。</li>
+<p><strong>解题清单:</strong></p>
+<li><strong>识别设计</strong>:独立还是配对?均值还是比例?(比较同一员工调薪前后的工资用配对;比较两家公司的工资用独立样本。)</li>
+<li><strong>检查条件</strong>:随机抽样;样本量足够大或总体近似正态;比例检验要求 $n\hat p$ 与 $n(1-\hat p)$ 均不小于 10。</li>
+<li><strong>计算并给出区间</strong>:除了 $p$ 值,还应报告差异的置信区间,以反映差异的大小。</li>
+<li><strong>谨慎解读</strong>:统计显著不等于实际重要。若某消费品两批次的差异仅 $0.1$ 个单位,样本量足够大时也可能"显著"。另外,观察性数据(如不同性别的薪资比较)只能说明相关,不能证明因果,因为职位、资历等混杂变量可能起作用。</li>
+<p><strong>小结</strong>:现实中的两组比较,关键在于"先识别设计,再选对方法,最后结合实际意义解释结果"。</p>
+  </main>
+  <footer class="spl-credit"><span class="spl-credit__meta">Introductory Statistics — Ch10: Hypothesis Testing with Two Samples (Level: College &middot; Language: ZH &middot; Model: sonnet)</span><span class="spl-credit__powered">Generated and Powered by <a href="https://github.com/digital-duck/SPL.py" target="_blank" rel="noopener">SPL</a></span></footer>
+</div>
+</body>
+</html>

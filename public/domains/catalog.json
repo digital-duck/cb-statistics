@@ -4108,6 +4108,18 @@
         "file": "output/research.en/sonnet/html/book_test_single_proportion.html",
         "model": "sonnet",
         "language": "en"
+      },
+      {
+        "target": "test_single_mean_known_sd",
+        "file": "output/college.zh/sonnet/html/book_test_single_mean_known_sd.html",
+        "model": "sonnet",
+        "language": "zh"
+      },
+      {
+        "target": "test_single_mean_unknown_sd",
+        "file": "output/college.zh/sonnet/html/book_test_single_mean_unknown_sd.html",
+        "model": "sonnet",
+        "language": "zh"
       }
     ],
     "generated_concepts": [
@@ -4128,13 +4140,6 @@
       {
         "name": "alternative_hypothesis",
         "label": "Alternative Hypothesis",
-        "file": "output/college.zh/sonnet/html/concept_alternative_hypothesis_zh.html",
-        "model": "sonnet",
-        "language": "zh"
-      },
-      {
-        "name": "alternative_hypothesis",
-        "label": "Alternative Hypothesis",
         "file": "output/core.en/sonnet/html/concept_alternative_hypothesis.html",
         "model": "sonnet",
         "language": "en"
@@ -4145,6 +4150,13 @@
         "file": "output/research.en/sonnet/html/concept_alternative_hypothesis.html",
         "model": "sonnet",
         "language": "en"
+      },
+      {
+        "name": "alternative_hypothesis_zh",
+        "label": "Alternative Hypothesis Zh",
+        "file": "output/college.zh/sonnet/html/concept_alternative_hypothesis_zh.html",
+        "model": "sonnet",
+        "language": "zh"
       },
       {
         "name": "binomial_distribution",
@@ -4163,13 +4175,6 @@
       {
         "name": "binomial_distribution",
         "label": "Binomial Distribution",
-        "file": "output/college.zh/sonnet/html/concept_binomial_distribution_zh.html",
-        "model": "sonnet",
-        "language": "zh"
-      },
-      {
-        "name": "binomial_distribution",
-        "label": "Binomial Distribution",
         "file": "output/core.en/sonnet/html/concept_binomial_distribution.html",
         "model": "sonnet",
         "language": "en"
@@ -4180,6 +4185,13 @@
         "file": "output/research.en/sonnet/html/concept_binomial_distribution.html",
         "model": "sonnet",
         "language": "en"
+      },
+      {
+        "name": "binomial_distribution_zh",
+        "label": "Binomial Distribution Zh",
+        "file": "output/college.zh/sonnet/html/concept_binomial_distribution_zh.html",
+        "model": "sonnet",
+        "language": "zh"
       },
       {
         "name": "central_limit_theorem",
@@ -4198,13 +4210,6 @@
       {
         "name": "central_limit_theorem",
         "label": "Central Limit Theorem",
-        "file": "output/college.zh/sonnet/html/concept_central_limit_theorem_zh.html",
-        "model": "sonnet",
-        "language": "zh"
-      },
-      {
-        "name": "central_limit_theorem",
-        "label": "Central Limit Theorem",
         "file": "output/core.en/sonnet/html/concept_central_limit_theorem.html",
         "model": "sonnet",
         "language": "en"
@@ -4215,6 +4220,13 @@
         "file": "output/research.en/sonnet/html/concept_central_limit_theorem.html",
         "model": "sonnet",
         "language": "en"
+      },
+      {
+        "name": "central_limit_theorem_zh",
+        "label": "Central Limit Theorem Zh",
+        "file": "output/college.zh/sonnet/html/concept_central_limit_theorem_zh.html",
+        "model": "sonnet",
+        "language": "zh"
       },
       {
         "name": "conclusion_writing",
@@ -4245,6 +4257,13 @@
         "language": "en"
       },
       {
+        "name": "conclusion_writing_zh",
+        "label": "Conclusion Writing Zh",
+        "file": "output/college.zh/sonnet/html/concept_conclusion_writing_zh.html",
+        "model": "sonnet",
+        "language": "zh"
+      },
+      {
         "name": "decision_rule",
         "label": "Decision Rule",
         "file": "output/intro.en/sonnet/html/concept_decision_rule.html",
@@ -4271,6 +4290,13 @@
         "file": "output/research.en/sonnet/html/concept_decision_rule.html",
         "model": "sonnet",
         "language": "en"
+      },
+      {
+        "name": "decision_rule_zh",
+        "label": "Decision Rule Zh",
+        "file": "output/college.zh/sonnet/html/concept_decision_rule_zh.html",
+        "model": "sonnet",
+        "language": "zh"
       },
       {
         "name": "hypothesis_test_procedure",
@@ -4301,6 +4327,13 @@
         "language": "en"
       },
       {
+        "name": "hypothesis_test_procedure_zh",
+        "label": "Hypothesis Test Procedure Zh",
+        "file": "output/college.zh/sonnet/html/concept_hypothesis_test_procedure_zh.html",
+        "model": "sonnet",
+        "language": "zh"
+      },
+      {
         "name": "hypothesis_testing",
         "label": "Hypothesis Testing",
         "file": "output/intro.en/sonnet/html/concept_hypothesis_testing.html",
@@ -4329,6 +4362,13 @@
         "language": "en"
       },
       {
+        "name": "hypothesis_testing_zh",
+        "label": "Hypothesis Testing Zh",
+        "file": "output/college.zh/sonnet/html/concept_hypothesis_testing_zh.html",
+        "model": "sonnet",
+        "language": "zh"
+      },
+      {
         "name": "normal_distribution",
         "label": "Normal Distribution",
         "file": "output/intro.en/sonnet/html/concept_normal_distribution.html",
@@ -4345,13 +4385,6 @@
       {
         "name": "normal_distribution",
         "label": "Normal Distribution",
-        "file": "output/college.zh/sonnet/html/concept_normal_distribution_zh.html",
-        "model": "sonnet",
-        "language": "zh"
-      },
-      {
-        "name": "normal_distribution",
-        "label": "Normal Distribution",
         "file": "output/core.en/sonnet/html/concept_normal_distribution.html",
         "model": "sonnet",
         "language": "en"
@@ -4362,6 +4395,13 @@
         "file": "output/research.en/sonnet/html/concept_normal_distribution.html",
         "model": "sonnet",
         "language": "en"
+      },
+      {
+        "name": "normal_distribution_zh",
+        "label": "Normal Distribution Zh",
+        "file": "output/college.zh/sonnet/html/concept_normal_distribution_zh.html",
+        "model": "sonnet",
+        "language": "zh"
       },
       {
         "name": "null_hypothesis",
@@ -4380,13 +4420,6 @@
       {
         "name": "null_hypothesis",
         "label": "Null Hypothesis",
-        "file": "output/college.zh/sonnet/html/concept_null_hypothesis_zh.html",
-        "model": "sonnet",
-        "language": "zh"
-      },
-      {
-        "name": "null_hypothesis",
-        "label": "Null Hypothesis",
         "file": "output/core.en/sonnet/html/concept_null_hypothesis.html",
         "model": "sonnet",
         "language": "en"
@@ -4397,6 +4430,13 @@
         "file": "output/research.en/sonnet/html/concept_null_hypothesis.html",
         "model": "sonnet",
         "language": "en"
+      },
+      {
+        "name": "null_hypothesis_zh",
+        "label": "Null Hypothesis Zh",
+        "file": "output/college.zh/sonnet/html/concept_null_hypothesis_zh.html",
+        "model": "sonnet",
+        "language": "zh"
       },
       {
         "name": "p_value",
@@ -4415,13 +4455,6 @@
       {
         "name": "p_value",
         "label": "P Value",
-        "file": "output/college.zh/sonnet/html/concept_p_value_zh.html",
-        "model": "sonnet",
-        "language": "zh"
-      },
-      {
-        "name": "p_value",
-        "label": "P Value",
         "file": "output/core.en/sonnet/html/concept_p_value.html",
         "model": "sonnet",
         "language": "en"
@@ -4432,6 +4465,13 @@
         "file": "output/research.en/sonnet/html/concept_p_value.html",
         "model": "sonnet",
         "language": "en"
+      },
+      {
+        "name": "p_value_zh",
+        "label": "P Value Zh",
+        "file": "output/college.zh/sonnet/html/concept_p_value_zh.html",
+        "model": "sonnet",
+        "language": "zh"
       },
       {
         "name": "rare_event",
@@ -4450,13 +4490,6 @@
       {
         "name": "rare_event",
         "label": "Rare Event",
-        "file": "output/college.zh/sonnet/html/concept_rare_event_zh.html",
-        "model": "sonnet",
-        "language": "zh"
-      },
-      {
-        "name": "rare_event",
-        "label": "Rare Event",
         "file": "output/core.en/sonnet/html/concept_rare_event.html",
         "model": "sonnet",
         "language": "en"
@@ -4467,6 +4500,13 @@
         "file": "output/research.en/sonnet/html/concept_rare_event.html",
         "model": "sonnet",
         "language": "en"
+      },
+      {
+        "name": "rare_event_zh",
+        "label": "Rare Event Zh",
+        "file": "output/college.zh/sonnet/html/concept_rare_event_zh.html",
+        "model": "sonnet",
+        "language": "zh"
       },
       {
         "name": "sampling_distribution_selection",
@@ -4485,13 +4525,6 @@
       {
         "name": "sampling_distribution_selection",
         "label": "Sampling Distribution Selection",
-        "file": "output/college.zh/sonnet/html/concept_sampling_distribution_selection_zh.html",
-        "model": "sonnet",
-        "language": "zh"
-      },
-      {
-        "name": "sampling_distribution_selection",
-        "label": "Sampling Distribution Selection",
         "file": "output/core.en/sonnet/html/concept_sampling_distribution_selection.html",
         "model": "sonnet",
         "language": "en"
@@ -4502,6 +4535,13 @@
         "file": "output/research.en/sonnet/html/concept_sampling_distribution_selection.html",
         "model": "sonnet",
         "language": "en"
+      },
+      {
+        "name": "sampling_distribution_selection_zh",
+        "label": "Sampling Distribution Selection Zh",
+        "file": "output/college.zh/sonnet/html/concept_sampling_distribution_selection_zh.html",
+        "model": "sonnet",
+        "language": "zh"
       },
       {
         "name": "significance_level",
@@ -4520,13 +4560,6 @@
       {
         "name": "significance_level",
         "label": "Significance Level",
-        "file": "output/college.zh/sonnet/html/concept_significance_level_zh.html",
-        "model": "sonnet",
-        "language": "zh"
-      },
-      {
-        "name": "significance_level",
-        "label": "Significance Level",
         "file": "output/core.en/sonnet/html/concept_significance_level.html",
         "model": "sonnet",
         "language": "en"
@@ -4537,6 +4570,13 @@
         "file": "output/research.en/sonnet/html/concept_significance_level.html",
         "model": "sonnet",
         "language": "en"
+      },
+      {
+        "name": "significance_level_zh",
+        "label": "Significance Level Zh",
+        "file": "output/college.zh/sonnet/html/concept_significance_level_zh.html",
+        "model": "sonnet",
+        "language": "zh"
       },
       {
         "name": "students_t_distribution",
@@ -4555,13 +4595,6 @@
       {
         "name": "students_t_distribution",
         "label": "Students T Distribution",
-        "file": "output/college.zh/sonnet/html/concept_students_t_distribution_zh.html",
-        "model": "sonnet",
-        "language": "zh"
-      },
-      {
-        "name": "students_t_distribution",
-        "label": "Students T Distribution",
         "file": "output/core.en/sonnet/html/concept_students_t_distribution.html",
         "model": "sonnet",
         "language": "en"
@@ -4572,6 +4605,13 @@
         "file": "output/research.en/sonnet/html/concept_students_t_distribution.html",
         "model": "sonnet",
         "language": "en"
+      },
+      {
+        "name": "students_t_distribution_zh",
+        "label": "Students T Distribution Zh",
+        "file": "output/college.zh/sonnet/html/concept_students_t_distribution_zh.html",
+        "model": "sonnet",
+        "language": "zh"
       },
       {
         "name": "tailed_tests",
@@ -4602,6 +4642,13 @@
         "language": "en"
       },
       {
+        "name": "tailed_tests_zh",
+        "label": "Tailed Tests Zh",
+        "file": "output/college.zh/sonnet/html/concept_tailed_tests_zh.html",
+        "model": "sonnet",
+        "language": "zh"
+      },
+      {
         "name": "test_single_mean_known_sd",
         "label": "Test Single Mean Known Sd",
         "file": "output/intro.en/sonnet/html/concept_test_single_mean_known_sd.html",
@@ -4630,6 +4677,13 @@
         "language": "en"
       },
       {
+        "name": "test_single_mean_known_sd_zh",
+        "label": "Test Single Mean Known Sd Zh",
+        "file": "output/college.zh/sonnet/html/concept_test_single_mean_known_sd_zh.html",
+        "model": "sonnet",
+        "language": "zh"
+      },
+      {
         "name": "test_single_mean_unknown_sd",
         "label": "Test Single Mean Unknown Sd",
         "file": "output/intro.en/sonnet/html/concept_test_single_mean_unknown_sd.html",
@@ -4656,6 +4710,13 @@
         "file": "output/research.en/sonnet/html/concept_test_single_mean_unknown_sd.html",
         "model": "sonnet",
         "language": "en"
+      },
+      {
+        "name": "test_single_mean_unknown_sd_zh",
+        "label": "Test Single Mean Unknown Sd Zh",
+        "file": "output/college.zh/sonnet/html/concept_test_single_mean_unknown_sd_zh.html",
+        "model": "sonnet",
+        "language": "zh"
       },
       {
         "name": "test_single_proportion",
@@ -4712,6 +4773,13 @@
         "file": "output/research.en/sonnet/html/concept_test_statistic.html",
         "model": "sonnet",
         "language": "en"
+      },
+      {
+        "name": "test_statistic_zh",
+        "label": "Test Statistic Zh",
+        "file": "output/college.zh/sonnet/html/concept_test_statistic_zh.html",
+        "model": "sonnet",
+        "language": "zh"
       }
     ],
     "tags": [
@@ -4781,6 +4849,18 @@
         "file": "output/research.en/sonnet/html/book_two_sample_test_classification.html",
         "model": "sonnet",
         "language": "en"
+      },
+      {
+        "target": "two_sample_test_classification",
+        "file": "output/college.zh/sonnet/html/book_two_sample_test_classification.html",
+        "model": "sonnet",
+        "language": "zh"
+      },
+      {
+        "target": "real_world_two_group_comparisons",
+        "file": "output/college.zh/sonnet/html/book_real_world_two_group_comparisons.html",
+        "model": "sonnet",
+        "language": "zh"
       }
     ],
     "generated_concepts": [
@@ -4813,6 +4893,13 @@
         "language": "en"
       },
       {
+        "name": "degrees_of_freedom_two_sample_zh",
+        "label": "Degrees Of Freedom Two Sample Zh",
+        "file": "output/college.zh/sonnet/html/concept_degrees_of_freedom_two_sample_zh.html",
+        "model": "sonnet",
+        "language": "zh"
+      },
+      {
         "name": "independent_samples",
         "label": "Independent Samples",
         "file": "output/intro.en/sonnet/html/concept_independent_samples.html",
@@ -4839,6 +4926,13 @@
         "file": "output/research.en/sonnet/html/concept_independent_samples.html",
         "model": "sonnet",
         "language": "en"
+      },
+      {
+        "name": "independent_samples_zh",
+        "label": "Independent Samples Zh",
+        "file": "output/college.zh/sonnet/html/concept_independent_samples_zh.html",
+        "model": "sonnet",
+        "language": "zh"
       },
       {
         "name": "matched_paired_samples",
@@ -4869,6 +4963,13 @@
         "language": "en"
       },
       {
+        "name": "matched_paired_samples_zh",
+        "label": "Matched Paired Samples Zh",
+        "file": "output/college.zh/sonnet/html/concept_matched_paired_samples_zh.html",
+        "model": "sonnet",
+        "language": "zh"
+      },
+      {
         "name": "matched_pairs_test",
         "label": "Matched Pairs Test",
         "file": "output/intro.en/sonnet/html/concept_matched_pairs_test.html",
@@ -4895,6 +4996,13 @@
         "file": "output/research.en/sonnet/html/concept_matched_pairs_test.html",
         "model": "sonnet",
         "language": "en"
+      },
+      {
+        "name": "matched_pairs_test_zh",
+        "label": "Matched Pairs Test Zh",
+        "file": "output/college.zh/sonnet/html/concept_matched_pairs_test_zh.html",
+        "model": "sonnet",
+        "language": "zh"
       },
       {
         "name": "pooled_proportion",
@@ -4925,6 +5033,13 @@
         "language": "en"
       },
       {
+        "name": "pooled_proportion_zh",
+        "label": "Pooled Proportion Zh",
+        "file": "output/college.zh/sonnet/html/concept_pooled_proportion_zh.html",
+        "model": "sonnet",
+        "language": "zh"
+      },
+      {
         "name": "real_world_two_group_comparisons",
         "label": "Real World Two Group Comparisons",
         "file": "output/intro.en/sonnet/html/concept_real_world_two_group_comparisons.html",
@@ -4951,6 +5066,13 @@
         "file": "output/research.en/sonnet/html/concept_real_world_two_group_comparisons.html",
         "model": "sonnet",
         "language": "en"
+      },
+      {
+        "name": "real_world_two_group_comparisons_zh",
+        "label": "Real World Two Group Comparisons Zh",
+        "file": "output/college.zh/sonnet/html/concept_real_world_two_group_comparisons_zh.html",
+        "model": "sonnet",
+        "language": "zh"
       },
       {
         "name": "standard_error_diff_means",
@@ -4981,6 +5103,13 @@
         "language": "en"
       },
       {
+        "name": "standard_error_diff_means_zh",
+        "label": "Standard Error Diff Means Zh",
+        "file": "output/college.zh/sonnet/html/concept_standard_error_diff_means_zh.html",
+        "model": "sonnet",
+        "language": "zh"
+      },
+      {
         "name": "two_means_known_sd_test",
         "label": "Two Means Known Sd Test",
         "file": "output/intro.en/sonnet/html/concept_two_means_known_sd_test.html",
@@ -5007,6 +5136,13 @@
         "file": "output/research.en/sonnet/html/concept_two_means_known_sd_test.html",
         "model": "sonnet",
         "language": "en"
+      },
+      {
+        "name": "two_means_known_sd_test_zh",
+        "label": "Two Means Known Sd Test Zh",
+        "file": "output/college.zh/sonnet/html/concept_two_means_known_sd_test_zh.html",
+        "model": "sonnet",
+        "language": "zh"
       },
       {
         "name": "two_means_unknown_sd_test",
@@ -5037,6 +5173,13 @@
         "language": "en"
       },
       {
+        "name": "two_means_unknown_sd_test_zh",
+        "label": "Two Means Unknown Sd Test Zh",
+        "file": "output/college.zh/sonnet/html/concept_two_means_unknown_sd_test_zh.html",
+        "model": "sonnet",
+        "language": "zh"
+      },
+      {
         "name": "two_proportions_test",
         "label": "Two Proportions Test",
         "file": "output/intro.en/sonnet/html/concept_two_proportions_test.html",
@@ -5065,6 +5208,13 @@
         "language": "en"
       },
       {
+        "name": "two_proportions_test_zh",
+        "label": "Two Proportions Test Zh",
+        "file": "output/college.zh/sonnet/html/concept_two_proportions_test_zh.html",
+        "model": "sonnet",
+        "language": "zh"
+      },
+      {
         "name": "two_sample_test_classification",
         "label": "Two Sample Test Classification",
         "file": "output/intro.en/sonnet/html/concept_two_sample_test_classification.html",
@@ -5091,6 +5241,13 @@
         "file": "output/research.en/sonnet/html/concept_two_sample_test_classification.html",
         "model": "sonnet",
         "language": "en"
+      },
+      {
+        "name": "two_sample_test_classification_zh",
+        "label": "Two Sample Test Classification Zh",
+        "file": "output/college.zh/sonnet/html/concept_two_sample_test_classification_zh.html",
+        "model": "sonnet",
+        "language": "zh"
       }
     ],
     "tags": [
@@ -5160,6 +5317,18 @@
         "file": "output/research.en/sonnet/html/book_independence_lab.html",
         "model": "sonnet",
         "language": "en"
+      },
+      {
+        "target": "goodness_of_fit_lab",
+        "file": "output/college.zh/sonnet/html/book_goodness_of_fit_lab.html",
+        "model": "sonnet",
+        "language": "zh"
+      },
+      {
+        "target": "independence_lab",
+        "file": "output/college.zh/sonnet/html/book_independence_lab.html",
+        "model": "sonnet",
+        "language": "zh"
       }
     ],
     "generated_concepts": [
@@ -5192,6 +5361,13 @@
         "language": "en"
       },
       {
+        "name": "chi_square_distribution_zh",
+        "label": "Chi Square Distribution Zh",
+        "file": "output/college.zh/sonnet/html/concept_chi_square_distribution_zh.html",
+        "model": "sonnet",
+        "language": "zh"
+      },
+      {
         "name": "contingency_table",
         "label": "Contingency Table",
         "file": "output/intro.en/sonnet/html/concept_contingency_table.html",
@@ -5218,6 +5394,13 @@
         "file": "output/research.en/sonnet/html/concept_contingency_table.html",
         "model": "sonnet",
         "language": "en"
+      },
+      {
+        "name": "contingency_table_zh",
+        "label": "Contingency Table Zh",
+        "file": "output/college.zh/sonnet/html/concept_contingency_table_zh.html",
+        "model": "sonnet",
+        "language": "zh"
       },
       {
         "name": "degrees_of_freedom",
@@ -5248,6 +5431,13 @@
         "language": "en"
       },
       {
+        "name": "degrees_of_freedom_zh",
+        "label": "Degrees Of Freedom Zh",
+        "file": "output/college.zh/sonnet/html/concept_degrees_of_freedom_zh.html",
+        "model": "sonnet",
+        "language": "zh"
+      },
+      {
         "name": "goodness_of_fit_lab",
         "label": "Goodness Of Fit Lab",
         "file": "output/intro.en/sonnet/html/concept_goodness_of_fit_lab.html",
@@ -5274,6 +5464,13 @@
         "file": "output/research.en/sonnet/html/concept_goodness_of_fit_lab.html",
         "model": "sonnet",
         "language": "en"
+      },
+      {
+        "name": "goodness_of_fit_lab_zh",
+        "label": "Goodness Of Fit Lab Zh",
+        "file": "output/college.zh/sonnet/html/concept_goodness_of_fit_lab_zh.html",
+        "model": "sonnet",
+        "language": "zh"
       },
       {
         "name": "goodness_of_fit_test",
@@ -5304,6 +5501,13 @@
         "language": "en"
       },
       {
+        "name": "goodness_of_fit_test_zh",
+        "label": "Goodness Of Fit Test Zh",
+        "file": "output/college.zh/sonnet/html/concept_goodness_of_fit_test_zh.html",
+        "model": "sonnet",
+        "language": "zh"
+      },
+      {
         "name": "hypothesis_test",
         "label": "Hypothesis Test",
         "file": "output/intro.en/sonnet/html/concept_hypothesis_test.html",
@@ -5330,6 +5534,13 @@
         "file": "output/research.en/sonnet/html/concept_hypothesis_test.html",
         "model": "sonnet",
         "language": "en"
+      },
+      {
+        "name": "hypothesis_test_zh",
+        "label": "Hypothesis Test Zh",
+        "file": "output/college.zh/sonnet/html/concept_hypothesis_test_zh.html",
+        "model": "sonnet",
+        "language": "zh"
       },
       {
         "name": "independence_lab",
@@ -5360,6 +5571,13 @@
         "language": "en"
       },
       {
+        "name": "independence_lab_zh",
+        "label": "Independence Lab Zh",
+        "file": "output/college.zh/sonnet/html/concept_independence_lab_zh.html",
+        "model": "sonnet",
+        "language": "zh"
+      },
+      {
         "name": "normal_distribution",
         "label": "Normal Distribution",
         "file": "output/intro.en/sonnet/html/concept_normal_distribution.html",
@@ -5386,6 +5604,13 @@
         "file": "output/research.en/sonnet/html/concept_normal_distribution.html",
         "model": "sonnet",
         "language": "en"
+      },
+      {
+        "name": "normal_distribution_zh",
+        "label": "Normal Distribution Zh",
+        "file": "output/college.zh/sonnet/html/concept_normal_distribution_zh.html",
+        "model": "sonnet",
+        "language": "zh"
       },
       {
         "name": "observed_expected_values",
@@ -5416,6 +5641,13 @@
         "language": "en"
       },
       {
+        "name": "observed_expected_values_zh",
+        "label": "Observed Expected Values Zh",
+        "file": "output/college.zh/sonnet/html/concept_observed_expected_values_zh.html",
+        "model": "sonnet",
+        "language": "zh"
+      },
+      {
         "name": "p_value",
         "label": "P Value",
         "file": "output/intro.en/sonnet/html/concept_p_value.html",
@@ -5442,6 +5674,13 @@
         "file": "output/research.en/sonnet/html/concept_p_value.html",
         "model": "sonnet",
         "language": "en"
+      },
+      {
+        "name": "p_value_zh",
+        "label": "P Value Zh",
+        "file": "output/college.zh/sonnet/html/concept_p_value_zh.html",
+        "model": "sonnet",
+        "language": "zh"
       },
       {
         "name": "standard_normal_variable",
@@ -5472,6 +5711,13 @@
         "language": "en"
       },
       {
+        "name": "standard_normal_variable_zh",
+        "label": "Standard Normal Variable Zh",
+        "file": "output/college.zh/sonnet/html/concept_standard_normal_variable_zh.html",
+        "model": "sonnet",
+        "language": "zh"
+      },
+      {
         "name": "test_of_independence",
         "label": "Test Of Independence",
         "file": "output/intro.en/sonnet/html/concept_test_of_independence.html",
@@ -5498,6 +5744,13 @@
         "file": "output/research.en/sonnet/html/concept_test_of_independence.html",
         "model": "sonnet",
         "language": "en"
+      },
+      {
+        "name": "test_of_independence_zh",
+        "label": "Test Of Independence Zh",
+        "file": "output/college.zh/sonnet/html/concept_test_of_independence_zh.html",
+        "model": "sonnet",
+        "language": "zh"
       }
     ],
     "tags": [
@@ -5567,6 +5820,18 @@
         "file": "output/research.en/sonnet/html/book_regression_labs_distance_textbook_fuel.html",
         "model": "sonnet",
         "language": "en"
+      },
+      {
+        "target": "prediction_interpolation_extrapolation",
+        "file": "output/college.zh/sonnet/html/book_prediction_interpolation_extrapolation.html",
+        "model": "sonnet",
+        "language": "zh"
+      },
+      {
+        "target": "regression_labs_distance_textbook_fuel",
+        "file": "output/college.zh/sonnet/html/book_regression_labs_distance_textbook_fuel.html",
+        "model": "sonnet",
+        "language": "zh"
       }
     ],
     "generated_concepts": [
@@ -5627,6 +5892,20 @@
         "language": "en"
       },
       {
+        "name": "correlation_coefficient_r_zh",
+        "label": "Correlation Coefficient R Zh",
+        "file": "output/college.zh/sonnet/html/concept_correlation_coefficient_r_zh.html",
+        "model": "sonnet",
+        "language": "zh"
+      },
+      {
+        "name": "correlation_zh",
+        "label": "Correlation Zh",
+        "file": "output/college.zh/sonnet/html/concept_correlation_zh.html",
+        "model": "sonnet",
+        "language": "zh"
+      },
+      {
         "name": "independent_dependent_variables",
         "label": "Independent Dependent Variables",
         "file": "output/intro.en/sonnet/html/concept_independent_dependent_variables.html",
@@ -5653,6 +5932,13 @@
         "file": "output/research.en/sonnet/html/concept_independent_dependent_variables.html",
         "model": "sonnet",
         "language": "en"
+      },
+      {
+        "name": "independent_dependent_variables_zh",
+        "label": "Independent Dependent Variables Zh",
+        "file": "output/college.zh/sonnet/html/concept_independent_dependent_variables_zh.html",
+        "model": "sonnet",
+        "language": "zh"
       },
       {
         "name": "least_squares_regression_line",
@@ -5683,6 +5969,13 @@
         "language": "en"
       },
       {
+        "name": "least_squares_regression_line_zh",
+        "label": "Least Squares Regression Line Zh",
+        "file": "output/college.zh/sonnet/html/concept_least_squares_regression_line_zh.html",
+        "model": "sonnet",
+        "language": "zh"
+      },
+      {
         "name": "linear_equation",
         "label": "Linear Equation",
         "file": "output/intro.en/sonnet/html/concept_linear_equation.html",
@@ -5709,6 +6002,13 @@
         "file": "output/research.en/sonnet/html/concept_linear_equation.html",
         "model": "sonnet",
         "language": "en"
+      },
+      {
+        "name": "linear_equation_zh",
+        "label": "Linear Equation Zh",
+        "file": "output/college.zh/sonnet/html/concept_linear_equation_zh.html",
+        "model": "sonnet",
+        "language": "zh"
       },
       {
         "name": "linear_regression",
@@ -5739,6 +6039,13 @@
         "language": "en"
       },
       {
+        "name": "linear_regression_zh",
+        "label": "Linear Regression Zh",
+        "file": "output/college.zh/sonnet/html/concept_linear_regression_zh.html",
+        "model": "sonnet",
+        "language": "zh"
+      },
+      {
         "name": "outliers",
         "label": "Outliers",
         "file": "output/intro.en/sonnet/html/concept_outliers.html",
@@ -5765,6 +6072,13 @@
         "file": "output/research.en/sonnet/html/concept_outliers.html",
         "model": "sonnet",
         "language": "en"
+      },
+      {
+        "name": "outliers_zh",
+        "label": "Outliers Zh",
+        "file": "output/college.zh/sonnet/html/concept_outliers_zh.html",
+        "model": "sonnet",
+        "language": "zh"
       },
       {
         "name": "prediction_interpolation_extrapolation",
@@ -5795,6 +6109,13 @@
         "language": "en"
       },
       {
+        "name": "prediction_interpolation_extrapolation_zh",
+        "label": "Prediction Interpolation Extrapolation Zh",
+        "file": "output/college.zh/sonnet/html/concept_prediction_interpolation_extrapolation_zh.html",
+        "model": "sonnet",
+        "language": "zh"
+      },
+      {
         "name": "regression_labs_distance_textbook_fuel",
         "label": "Regression Labs Distance Textbook Fuel",
         "file": "output/intro.en/sonnet/html/concept_regression_labs_distance_textbook_fuel.html",
@@ -5821,6 +6142,13 @@
         "file": "output/research.en/sonnet/html/concept_regression_labs_distance_textbook_fuel.html",
         "model": "sonnet",
         "language": "en"
+      },
+      {
+        "name": "regression_labs_distance_textbook_fuel_zh",
+        "label": "Regression Labs Distance Textbook Fuel Zh",
+        "file": "output/college.zh/sonnet/html/concept_regression_labs_distance_textbook_fuel_zh.html",
+        "model": "sonnet",
+        "language": "zh"
       },
       {
         "name": "residual",
@@ -5851,6 +6179,13 @@
         "language": "en"
       },
       {
+        "name": "residual_zh",
+        "label": "Residual Zh",
+        "file": "output/college.zh/sonnet/html/concept_residual_zh.html",
+        "model": "sonnet",
+        "language": "zh"
+      },
+      {
         "name": "scatter_plot",
         "label": "Scatter Plot",
         "file": "output/intro.en/sonnet/html/concept_scatter_plot.html",
@@ -5877,6 +6212,13 @@
         "file": "output/research.en/sonnet/html/concept_scatter_plot.html",
         "model": "sonnet",
         "language": "en"
+      },
+      {
+        "name": "scatter_plot_zh",
+        "label": "Scatter Plot Zh",
+        "file": "output/college.zh/sonnet/html/concept_scatter_plot_zh.html",
+        "model": "sonnet",
+        "language": "zh"
       },
       {
         "name": "significance_test_correlation_coefficient",
@@ -5907,6 +6249,13 @@
         "language": "en"
       },
       {
+        "name": "significance_test_correlation_coefficient_zh",
+        "label": "Significance Test Correlation Coefficient Zh",
+        "file": "output/college.zh/sonnet/html/concept_significance_test_correlation_coefficient_zh.html",
+        "model": "sonnet",
+        "language": "zh"
+      },
+      {
         "name": "sum_of_squared_errors",
         "label": "Sum Of Squared Errors",
         "file": "output/intro.en/sonnet/html/concept_sum_of_squared_errors.html",
@@ -5933,6 +6282,13 @@
         "file": "output/research.en/sonnet/html/concept_sum_of_squared_errors.html",
         "model": "sonnet",
         "language": "en"
+      },
+      {
+        "name": "sum_of_squared_errors_zh",
+        "label": "Sum Of Squared Errors Zh",
+        "file": "output/college.zh/sonnet/html/concept_sum_of_squared_errors_zh.html",
+        "model": "sonnet",
+        "language": "zh"
       }
     ],
     "tags": [
@@ -6038,6 +6394,18 @@
         "file": "output/college.en/gemma4/html/book_p_value.html",
         "model": "gemma4",
         "language": "en"
+      },
+      {
+        "target": "anova_table",
+        "file": "output/college.zh/sonnet/html/book_anova_table.html",
+        "model": "sonnet",
+        "language": "zh"
+      },
+      {
+        "target": "test_of_two_variances",
+        "file": "output/college.zh/sonnet/html/book_test_of_two_variances.html",
+        "model": "sonnet",
+        "language": "zh"
       }
     ],
     "generated_concepts": [
@@ -6070,18 +6438,18 @@
         "language": "en"
       },
       {
+        "name": "anova_table_zh",
+        "label": "Anova Table Zh",
+        "file": "output/college.zh/sonnet/html/concept_anova_table_zh.html",
+        "model": "sonnet",
+        "language": "zh"
+      },
+      {
         "name": "degrees_of_freedom",
         "label": "Degrees Of Freedom",
         "file": "output/intro.en/sonnet/html/concept_degrees_of_freedom.html",
         "model": "sonnet",
         "language": "en"
-      },
-      {
-        "name": "degrees_of_freedom",
-        "label": "Degrees Of Freedom",
-        "file": "output/college.zh/sonnet/html/concept_degrees_of_freedom_zh.html",
-        "model": "sonnet",
-        "language": "zh"
       },
       {
         "name": "degrees_of_freedom",
@@ -6112,18 +6480,18 @@
         "language": "en"
       },
       {
+        "name": "degrees_of_freedom_zh",
+        "label": "Degrees Of Freedom Zh",
+        "file": "output/college.zh/sonnet/html/concept_degrees_of_freedom_zh.html",
+        "model": "sonnet",
+        "language": "zh"
+      },
+      {
         "name": "f_distribution",
         "label": "F Distribution",
         "file": "output/intro.en/sonnet/html/concept_f_distribution.html",
         "model": "sonnet",
         "language": "en"
-      },
-      {
-        "name": "f_distribution",
-        "label": "F Distribution",
-        "file": "output/college.zh/sonnet/html/concept_f_distribution_zh.html",
-        "model": "sonnet",
-        "language": "zh"
       },
       {
         "name": "f_distribution",
@@ -6147,18 +6515,18 @@
         "language": "en"
       },
       {
+        "name": "f_distribution_zh",
+        "label": "F Distribution Zh",
+        "file": "output/college.zh/sonnet/html/concept_f_distribution_zh.html",
+        "model": "sonnet",
+        "language": "zh"
+      },
+      {
         "name": "f_ratio",
         "label": "F Ratio",
         "file": "output/intro.en/sonnet/html/concept_f_ratio.html",
         "model": "sonnet",
         "language": "en"
-      },
-      {
-        "name": "f_ratio",
-        "label": "F Ratio",
-        "file": "output/college.zh/sonnet/html/concept_f_ratio_zh.html",
-        "model": "sonnet",
-        "language": "zh"
       },
       {
         "name": "f_ratio",
@@ -6182,18 +6550,18 @@
         "language": "en"
       },
       {
+        "name": "f_ratio_zh",
+        "label": "F Ratio Zh",
+        "file": "output/college.zh/sonnet/html/concept_f_ratio_zh.html",
+        "model": "sonnet",
+        "language": "zh"
+      },
+      {
         "name": "hypothesis_testing",
         "label": "Hypothesis Testing",
         "file": "output/intro.en/sonnet/html/concept_hypothesis_testing.html",
         "model": "sonnet",
         "language": "en"
-      },
-      {
-        "name": "hypothesis_testing",
-        "label": "Hypothesis Testing",
-        "file": "output/college.zh/sonnet/html/concept_hypothesis_testing_zh.html",
-        "model": "sonnet",
-        "language": "zh"
       },
       {
         "name": "hypothesis_testing",
@@ -6217,18 +6585,18 @@
         "language": "en"
       },
       {
+        "name": "hypothesis_testing_zh",
+        "label": "Hypothesis Testing Zh",
+        "file": "output/college.zh/sonnet/html/concept_hypothesis_testing_zh.html",
+        "model": "sonnet",
+        "language": "zh"
+      },
+      {
         "name": "mean_square",
         "label": "Mean Square",
         "file": "output/intro.en/sonnet/html/concept_mean_square.html",
         "model": "sonnet",
         "language": "en"
-      },
-      {
-        "name": "mean_square",
-        "label": "Mean Square",
-        "file": "output/college.zh/sonnet/html/concept_mean_square_zh.html",
-        "model": "sonnet",
-        "language": "zh"
       },
       {
         "name": "mean_square",
@@ -6252,18 +6620,18 @@
         "language": "en"
       },
       {
+        "name": "mean_square_zh",
+        "label": "Mean Square Zh",
+        "file": "output/college.zh/sonnet/html/concept_mean_square_zh.html",
+        "model": "sonnet",
+        "language": "zh"
+      },
+      {
         "name": "normal_distribution",
         "label": "Normal Distribution",
         "file": "output/intro.en/sonnet/html/concept_normal_distribution.html",
         "model": "sonnet",
         "language": "en"
-      },
-      {
-        "name": "normal_distribution",
-        "label": "Normal Distribution",
-        "file": "output/college.zh/sonnet/html/concept_normal_distribution_zh.html",
-        "model": "sonnet",
-        "language": "zh"
       },
       {
         "name": "normal_distribution",
@@ -6287,18 +6655,18 @@
         "language": "en"
       },
       {
+        "name": "normal_distribution_zh",
+        "label": "Normal Distribution Zh",
+        "file": "output/college.zh/sonnet/html/concept_normal_distribution_zh.html",
+        "model": "sonnet",
+        "language": "zh"
+      },
+      {
         "name": "one_way_anova",
         "label": "One Way Anova",
         "file": "output/intro.en/sonnet/html/concept_one_way_anova.html",
         "model": "sonnet",
         "language": "en"
-      },
-      {
-        "name": "one_way_anova",
-        "label": "One Way Anova",
-        "file": "output/college.zh/sonnet/html/concept_one_way_anova_zh.html",
-        "model": "sonnet",
-        "language": "zh"
       },
       {
         "name": "one_way_anova",
@@ -6350,18 +6718,18 @@
         "language": "en"
       },
       {
+        "name": "one_way_anova_zh",
+        "label": "One Way Anova Zh",
+        "file": "output/college.zh/sonnet/html/concept_one_way_anova_zh.html",
+        "model": "sonnet",
+        "language": "zh"
+      },
+      {
         "name": "p_value",
         "label": "P Value",
         "file": "output/intro.en/sonnet/html/concept_p_value.html",
         "model": "sonnet",
         "language": "en"
-      },
-      {
-        "name": "p_value",
-        "label": "P Value",
-        "file": "output/college.zh/sonnet/html/concept_p_value_zh.html",
-        "model": "sonnet",
-        "language": "zh"
       },
       {
         "name": "p_value",
@@ -6392,18 +6760,18 @@
         "language": "en"
       },
       {
+        "name": "p_value_zh",
+        "label": "P Value Zh",
+        "file": "output/college.zh/sonnet/html/concept_p_value_zh.html",
+        "model": "sonnet",
+        "language": "zh"
+      },
+      {
         "name": "sum_of_squares",
         "label": "Sum Of Squares",
         "file": "output/intro.en/sonnet/html/concept_sum_of_squares.html",
         "model": "sonnet",
         "language": "en"
-      },
-      {
-        "name": "sum_of_squares",
-        "label": "Sum Of Squares",
-        "file": "output/college.zh/sonnet/html/concept_sum_of_squares_zh.html",
-        "model": "sonnet",
-        "language": "zh"
       },
       {
         "name": "sum_of_squares",
@@ -6434,6 +6802,13 @@
         "language": "en"
       },
       {
+        "name": "sum_of_squares_zh",
+        "label": "Sum Of Squares Zh",
+        "file": "output/college.zh/sonnet/html/concept_sum_of_squares_zh.html",
+        "model": "sonnet",
+        "language": "zh"
+      },
+      {
         "name": "test_of_two_variances",
         "label": "Test Of Two Variances",
         "file": "output/intro.en/sonnet/html/concept_test_of_two_variances.html",
@@ -6462,18 +6837,18 @@
         "language": "en"
       },
       {
+        "name": "test_of_two_variances_zh",
+        "label": "Test Of Two Variances Zh",
+        "file": "output/college.zh/sonnet/html/concept_test_of_two_variances_zh.html",
+        "model": "sonnet",
+        "language": "zh"
+      },
+      {
         "name": "variance",
         "label": "Variance",
         "file": "output/intro.en/sonnet/html/concept_variance.html",
         "model": "sonnet",
         "language": "en"
-      },
-      {
-        "name": "variance",
-        "label": "Variance",
-        "file": "output/college.zh/sonnet/html/concept_variance_zh.html",
-        "model": "sonnet",
-        "language": "zh"
       },
       {
         "name": "variance",
@@ -6502,6 +6877,13 @@
         "file": "output/college.en/gemma4/html/concept_variance.html",
         "model": "gemma4",
         "language": "en"
+      },
+      {
+        "name": "variance_zh",
+        "label": "Variance Zh",
+        "file": "output/college.zh/sonnet/html/concept_variance_zh.html",
+        "model": "sonnet",
+        "language": "zh"
       }
     ],
     "tags": [

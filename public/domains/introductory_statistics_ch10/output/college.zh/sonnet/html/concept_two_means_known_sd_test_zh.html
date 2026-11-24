@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Two Means Known Sd Test | Introductory Statistics Ch10</title>
+<script>
+MathJax = {
+  tex: { inlineMath: [['$','$'],['\\(','\\)']], displayMath: [['$$','$$'],['\\[','\\]']] },
+  options: { skipHtmlTags: ['script','noscript','style','textarea','pre','code'] }
+};
+</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" async></script>
+<script src="https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.min.js"></script>
+<script>mermaid.initialize({ startOnLoad: true, theme: 'neutral' });</script>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:Georgia,serif;background:#fafaf8;color:#1a1a1a;line-height:1.7}
+h2{font-size:1.45rem;color:#1e3a5f;margin-bottom:12px}
+h3{font-size:1.1rem;color:#2e4a7f;margin:20px 0 8px}
+h4{font-size:1rem;color:#3a5a8f;margin:16px 0 6px}
+p{margin-bottom:16px;font-size:1rem}
+li{margin-bottom:6px;margin-left:24px;font-size:1rem}
+pre{background:#f4f4f0;border:1px solid #d8d8d0;border-radius:6px;
+    padding:16px 20px;overflow-x:auto;margin:16px 0}
+code{font-family:Menlo,Consolas,monospace;font-size:.87em}
+p code{background:#f0f0ea;padding:1px 4px;border-radius:3px}
+footer.spl-credit{margin-top:32px;padding-top:16px;border-top:1px solid #e0e0d8;
+      font-family:system-ui,sans-serif;font-size:.78rem;color:#999;text-align:center}
+footer.spl-credit a{color:#2563eb;text-decoration:none}
+footer.spl-credit span{display:block}
+footer.spl-credit .spl-credit__meta{margin-bottom:4px}
+.cb-figure{margin:24px 0;text-align:center}
+.cb-figure img{max-width:100%;height:auto;border:1px solid #e0e0d8;border-radius:6px}
+figcaption{font-size:.82rem;color:#666;margin-top:8px;font-style:italic;text-align:center}
+pre.mermaid{background:none;border:none;padding:0;overflow:visible;margin:16px 0}
+.page{max-width:780px;margin:0 auto;padding:40px 32px}
+section{margin-bottom:48px;border-top:1px solid #e0e0d8;padding-top:36px}
+section:first-of-type{border-top:none;padding-top:0}
+</style>
+</head>
+<body>
+<div class="page">
+  <main>
+    <h2 id="双总体均值检验-总体标准差已知">双总体均值检验(总体标准差已知)</h2>
+<h3 id="定义">定义</h3>
+<p>设有两个相互独立的总体:总体 1 服从均值为 $\mu_1$、标准差为 $\sigma_1$ 的分布,总体 2 服从均值为 $\mu_2$、标准差为 $\sigma_2$ 的分布,且 $\sigma_1,\sigma_2$ <strong>已知</strong>。从两个总体中分别抽取容量为 $n_1,n_2$ 的独立样本,样本均值为 $\bar X_1,\bar X_2$。</p>
+<p>若两个总体近似正态,或样本容量足够大(中心极限定理),则</p>
+$$
+\bar X_1-\bar X_2 \sim N\!\left(\mu_1-\mu_2,\ \frac{\sigma_1^2}{n_1}+\frac{\sigma_2^2}{n_2}\right).
+$$
+<p>在原假设 $H_0:\mu_1-\mu_2=\Delta_0$(通常 $\Delta_0=0$)成立时,检验统计量为</p>
+$$
+z=\frac{(\bar x_1-\bar x_2)-\Delta_0}{\sqrt{\dfrac{\sigma_1^2}{n_1}+\dfrac{\sigma_2^2}{n_2}}}\ \sim N(0,1).
+$$
+<p>注意:两个样本方差相加,因为独立随机变量之差的方差等于方差之和,而不是相减。</p>
+<p>备择假设决定拒绝域:</p>
+<li>双侧 $H_1:\mu_1\neq\mu_2$:当 $|z|>z_{\alpha/2}$ 时拒绝;</li>
+<li>右侧 $H_1:\mu_1>\mu_2$:当 $z>z_\alpha$ 时拒绝;</li>
+<li>左侧 $H_1:\mu_1<\mu_2$:当 $z<-z_\alpha$ 时拒绝。</li>
+<h3 id="例题">例题</h3>
+<p>某工厂比较两条生产线所产螺栓的平均长度。已知总体标准差 $\sigma_1=0.8$ mm,$\sigma_2=1.0$ mm。抽样结果:$n_1=40$,$\bar x_1=50.6$ mm;$n_2=50$,$\bar x_2=50.2$ mm。在 $\alpha=0.05$ 下检验两条线平均长度是否不同。</p>
+<p><strong>步骤 1:</strong> $H_0:\mu_1-\mu_2=0$,$H_1:\mu_1-\mu_2\neq0$。</p>
+<p><strong>步骤 2:</strong> 计算标准误:</p>
+$$
+SE=\sqrt{\frac{0.8^2}{40}+\frac{1.0^2}{50}}=\sqrt{0.016+0.020}=\sqrt{0.036}\approx0.1897.
+$$
+<p><strong>步骤 3:</strong> 计算统计量:</p>
+$$
+z=\frac{50.6-50.2}{0.1897}\approx 2.11.
+$$
+<p><strong>步骤 4:</strong> 双侧临界值 $z_{0.025}=1.96$。因为 $2.11>1.96$,拒绝 $H_0$。$p$ 值为 $2\,[1-\Phi(2.11)]\approx 0.035<0.05$。</p>
+<p><strong>结论:</strong> 在 5% 显著性水平下,有证据表明两条生产线的平均螺栓长度不同。</p>
+<h3 id="问题求解应用">问题求解应用</h3>
+<p><strong>1. 置信区间的对应关系。</strong> 同一数据的 95% 置信区间为</p>
+$$
+(\bar x_1-\bar x_2)\pm z_{0.025}\,SE = 0.4\pm1.96(0.1897)\approx(0.028,\ 0.772).
+$$
+<p>区间不含 0,与拒绝 $H_0$ 一致。</p>
+<p><strong>2. 单侧检验。</strong> 若问"第 1 条线是否更长?",取 $H_1:\mu_1>\mu_2$,临界值 $z_{0.05}=1.645$。因为 $2.11>1.645$,同样拒绝,单侧 $p\approx0.0174$。</p>
+<p><strong>3. 样本量设计。</strong> 若希望两组样本量相等($n_1=n_2=n$),并能检测 $0.4$ mm 的差异,可由 $SE=\sqrt{(\sigma_1^2+\sigma_2^2)/n}$ 反推所需 $n$。</p>
+<p><strong>常见错误:</strong></p>
+<li>将标准误写成 $\sqrt{\sigma_1^2+\sigma_2^2}/\sqrt{n_1+n_2}$,这是错误的;应分别除以各自的样本量;</li>
+<li>配对数据(如同一对象前后测量)不独立,应使用配对检验;</li>
+<li>实际中 $\sigma$ 很少已知。若未知且样本较小,应改用 $t$ 检验。</li>
+<p><strong>小结:</strong> 当总体标准差已知且样本独立时,用 $z$ 统计量比较两个均值;核心是 $SE=\sqrt{\sigma_1^2/n_1+\sigma_2^2/n_2}$,再将 $z$ 与临界值(或 $p$ 值与 $\alpha$)比较。</p>
+  </main>
+  <footer class="spl-credit"><span class="spl-credit__meta">Introductory Statistics — Ch10: Hypothesis Testing with Two Samples (Level: College &middot; Language: ZH &middot; Model: sonnet)</span><span class="spl-credit__powered">Generated and Powered by <a href="https://github.com/digital-duck/SPL.py" target="_blank" rel="noopener">SPL</a></span></footer>
+</div>
+</body>
+</html>

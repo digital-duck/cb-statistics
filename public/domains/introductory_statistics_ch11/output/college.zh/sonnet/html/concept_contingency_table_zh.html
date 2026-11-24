@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contingency Table | Introductory Statistics Ch11</title>
+<script>
+MathJax = {
+  tex: { inlineMath: [['$','$'],['\\(','\\)']], displayMath: [['$$','$$'],['\\[','\\]']] },
+  options: { skipHtmlTags: ['script','noscript','style','textarea','pre','code'] }
+};
+</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" async></script>
+<script src="https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.min.js"></script>
+<script>mermaid.initialize({ startOnLoad: true, theme: 'neutral' });</script>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:Georgia,serif;background:#fafaf8;color:#1a1a1a;line-height:1.7}
+h2{font-size:1.45rem;color:#1e3a5f;margin-bottom:12px}
+h3{font-size:1.1rem;color:#2e4a7f;margin:20px 0 8px}
+h4{font-size:1rem;color:#3a5a8f;margin:16px 0 6px}
+p{margin-bottom:16px;font-size:1rem}
+li{margin-bottom:6px;margin-left:24px;font-size:1rem}
+pre{background:#f4f4f0;border:1px solid #d8d8d0;border-radius:6px;
+    padding:16px 20px;overflow-x:auto;margin:16px 0}
+code{font-family:Menlo,Consolas,monospace;font-size:.87em}
+p code{background:#f0f0ea;padding:1px 4px;border-radius:3px}
+footer.spl-credit{margin-top:32px;padding-top:16px;border-top:1px solid #e0e0d8;
+      font-family:system-ui,sans-serif;font-size:.78rem;color:#999;text-align:center}
+footer.spl-credit a{color:#2563eb;text-decoration:none}
+footer.spl-credit span{display:block}
+footer.spl-credit .spl-credit__meta{margin-bottom:4px}
+.cb-figure{margin:24px 0;text-align:center}
+.cb-figure img{max-width:100%;height:auto;border:1px solid #e0e0d8;border-radius:6px}
+figcaption{font-size:.82rem;color:#666;margin-top:8px;font-style:italic;text-align:center}
+pre.mermaid{background:none;border:none;padding:0;overflow:visible;margin:16px 0}
+.page{max-width:780px;margin:0 auto;padding:40px 32px}
+section{margin-bottom:48px;border-top:1px solid #e0e0d8;padding-top:36px}
+section:first-of-type{border-top:none;padding-top:0}
+</style>
+</head>
+<body>
+<div class="page">
+  <main>
+    <h2 id="列联表">列联表</h2>
+<h3 id="定义">定义</h3>
+<p><strong>列联表</strong>(contingency table,也称交叉表)是把同一批样本按两个分类变量同时分类、并记录每个组合出现次数的表格。设变量 $A$ 有 $r$ 个类别,变量 $B$ 有 $c$ 个类别,则表中第 $i$ 行第 $j$ 列的数 $n_{ij}$ 是同时属于 $A_i$ 与 $B_j$ 的样本个数。行合计 $n_{i\cdot}$、列合计 $n_{\cdot j}$ 称为<strong>边际频数</strong>,总样本量为 $n$。</p>
+<p>由频数可以估计各类概率:</p>
+<li>联合概率:$P(A_i\cap B_j)\approx \dfrac{n_{ij}}{n}$</li>
+<li>边际概率:$P(A_i)\approx \dfrac{n_{i\cdot}}{n}$</li>
+<li>条件概率:$P(B_j\mid A_i)=\dfrac{P(A_i\cap B_j)}{P(A_i)}\approx\dfrac{n_{ij}}{n_{i\cdot}}$</li>
+<p>关键在于:<strong>条件概率的分母是所选行(或列)的合计,而不是总数。</strong></p>
+<h3 id="例题">例题</h3>
+<p>某校调查 200 名学生是否每天锻炼与是否近视:</p>
+<p>| | 近视 | 不近视 | 合计 | |---|---|---|---| | 锻炼 | 30 | 70 | 100 | | 不锻炼 | 50 | 50 | 100 | | 合计 | 80 | 120 | 200 |</p>
+<p>求:(1)$P(\text{近视})$;(2)$P(\text{近视}\mid\text{锻炼})$;(3)$P(\text{锻炼}\mid\text{近视})$。</p>
+<p><strong>解:</strong></p>
+<li>$P(\text{近视})=\dfrac{80}{200}=0.40$。</li>
+<li>限定在"锻炼"这一行:$P(\text{近视}\mid\text{锻炼})=\dfrac{30}{100}=0.30$。</li>
+<li>限定在"近视"这一列:$P(\text{锻炼}\mid\text{近视})=\dfrac{30}{80}=0.375$。</li>
+<p>注意(2)与(3)不相等,条件的方向不能颠倒。</p>
+<h3 id="问题求解应用-判断两个变量是否独立">问题求解应用:判断两个变量是否独立</h3>
+<p>若 $A$ 与 $B$ 独立,则对所有 $i,j$ 有 $P(A_i\cap B_j)=P(A_i)P(B_j)$,即各格的<strong>期望频数</strong>为</p>
+$$E_{ij}=\frac{n_{i\cdot}\,n_{\cdot j}}{n}.$$
+<p>在上例中,"锻炼且近视"的期望频数为 $E_{11}=\dfrac{100\times 80}{200}=40$,而实际观测值为 30,二者有差距。同理 $E_{12}=60$,$E_{21}=40$,$E_{22}=60$。</p>
+<p>用卡方统计量衡量总体偏离程度:</p>
+$$\chi^2=\sum_{i,j}\frac{(n_{ij}-E_{ij})^2}{E_{ij}}=\frac{100}{40}+\frac{100}{60}+\frac{100}{40}+\frac{100}{60}\approx 8.33.$$
+<p>自由度为 $(r-1)(c-1)=1$。显著性水平 $0.05$ 的临界值为 $3.84$,而 $8.33>3.84$,所以拒绝"独立"的假设:在该样本中,锻炼与近视之间存在统计关联。</p>
+<p>另一种直观检验是比较条件概率:$P(\text{近视}\mid\text{锻炼})=0.30$,$P(\text{近视}\mid\text{不锻炼})=0.50$,两者与 $P(\text{近视})=0.40$ 都不同,同样说明二者不独立。</p>
+<p><strong>需要注意:</strong> 关联不等于因果。这个表只说明两者相关,并不能证明锻炼本身降低了近视率,也可能存在其他因素(如户外时间、家庭条件)同时影响二者。</p>
+<h3 id="小结">小结</h3>
+<p>解题步骤:① 先确定条件是什么,选对行或列;② 用该行(列)合计作分母;③ 若要判断独立性,比较条件概率与边际概率,或计算 $\chi^2$。</p>
+  </main>
+  <footer class="spl-credit"><span class="spl-credit__meta">Introductory Statistics — Ch11: The Chi-Square Distribution (Level: College &middot; Language: ZH &middot; Model: sonnet)</span><span class="spl-credit__powered">Generated and Powered by <a href="https://github.com/digital-duck/SPL.py" target="_blank" rel="noopener">SPL</a></span></footer>
+</div>
+</body>
+</html>

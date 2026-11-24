@@ -11,6 +11,8 @@ MathJax = {
 };
 </script>
 <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" async></script>
+<script src="https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.min.js"></script>
+<script>mermaid.initialize({ startOnLoad: true, theme: 'neutral' });</script>
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
 body{font-family:Georgia,serif;background:#fafaf8;color:#1a1a1a;line-height:1.7}
@@ -26,6 +28,12 @@ p code{background:#f0f0ea;padding:1px 4px;border-radius:3px}
 footer.spl-credit{margin-top:32px;padding-top:16px;border-top:1px solid #e0e0d8;
       font-family:system-ui,sans-serif;font-size:.78rem;color:#999;text-align:center}
 footer.spl-credit a{color:#2563eb;text-decoration:none}
+footer.spl-credit span{display:block}
+footer.spl-credit .spl-credit__meta{margin-bottom:4px}
+.cb-figure{margin:24px 0;text-align:center}
+.cb-figure img{max-width:100%;height:auto;border:1px solid #e0e0d8;border-radius:6px}
+figcaption{font-size:.82rem;color:#666;margin-top:8px;font-style:italic;text-align:center}
+pre.mermaid{background:none;border:none;padding:0;overflow:visible;margin:16px 0}
 .page{max-width:780px;margin:0 auto;padding:40px 32px}
 section{margin-bottom:48px;border-top:1px solid #e0e0d8;padding-top:36px}
 section:first-of-type{border-top:none;padding-top:0}
@@ -35,36 +43,51 @@ section:first-of-type{border-top:none;padding-top:0}
 <div class="page">
   <main>
     <h2 id="正态分布">正态分布</h2>
-<p><strong>定义。</strong> 设连续随机变量 $X$ 的概率密度函数为</p>
-$$f(x) = \frac{1}{\sigma\sqrt{2\pi}} \exp\!\left(-\frac{(x-\mu)^2}{2\sigma^2}\right), \quad x \in \mathbb{R},$$
-<p>其中参数 $\mu \in \mathbb{R}$ 称为<strong>均值</strong>，$\sigma > 0$ 称为<strong>标准差</strong>。则称 $X$ 服从<strong>正态分布</strong>，记作 $X \sim \mathcal{N}(\mu, \sigma^2)$。当 $\mu = 0,\, \sigma = 1$ 时，称之为<strong>标准正态分布</strong>，其密度函数记为 $\varphi(x)$，累积分布函数记为 $\Phi(x)$。</p>
-<p><strong>具体示例。</strong> 某大学一年级物理课期末成绩 $X \sim \mathcal{N}(72, 10^2)$，即均值为 $72$ 分，标准差为 $10$ 分。求成绩落在区间 $[62, 82]$ 内的概率。</p>
-<p>将端点标准化：</p>
-$$Z = \frac{X - 72}{10},$$
-<p>则</p>
-$$P(62 \leq X \leq 82) = P\!\left(\frac{62-72}{10} \leq Z \leq \frac{82-72}{10}\right) = P(-1 \leq Z \leq 1) = \Phi(1) - \Phi(-1).$$
-<p>利用标准正态表知 $\Phi(1) \approx 0.8413$，而对称性给出 $\Phi(-1) = 1 - \Phi(1) \approx 0.1587$，故</p>
-$$P(62 \leq X \leq 82) \approx 0.8413 - 0.1587 = 0.6826.$$
-<p>这正是著名的<strong>68–95–99.7 法则</strong>中 $\mu \pm \sigma$ 区间所对应的概率。</p>
-<p><strong>关键定理（中心极限定理，Lindeberg–Lévy 版本）。</strong> 设 $X_1, X_2, \ldots$ 为独立同分布随机变量序列，均值为 $\mu$，方差为 $\sigma^2 < \infty$。令 $S_n = \sum_{i=1}^n X_i$，则</p>
-$$\frac{S_n - n\mu}{\sigma\sqrt{n}} \xrightarrow{d} \mathcal{N}(0,1), \quad n \to \infty.$$
-<p>该定理揭示了正态分布在概率论中的核心地位：大量独立随机因素叠加后，无论原始分布形态如何，其标准化和均依分布收敛于标准正态分布。</p>
-<p><strong>实验单元（SymPy）。</strong></p>
-<pre><code>from sympy import symbols, exp, pi, sqrt, integrate, oo, simplify
-
-x, mu, sigma = symbols('x mu sigma', real=True)
-f = (1 / (sigma * sqrt(2 * pi))) * exp(-(x - mu)**2 / (2 * sigma**2))
-
-# 验证归一化：∫_{-∞}^{∞} f dx = 1
-norm = integrate(f, (x, -oo, oo))
-print(simplify(norm))  # 输出 1
-
-# 计算 P(62 ≤ X ≤ 82)，μ=72，σ=10
-from sympy import erf
-prob = integrate(f.subs([(mu, 72), (sigma, 10)]), (x, 62, 82))
-print(prob.evalf())    # 约 0.6827</code></pre>
+<p><strong>定义。</strong> 若连续型随机变量 $X$ 的概率密度函数为</p>
+$$
+f(x)=\frac{1}{\sigma\sqrt{2\pi}}\exp\!\left(-\frac{(x-\mu)^2}{2\sigma^2}\right),\quad -\infty<x<\infty,
+$$
+<p>则称 $X$ 服从正态分布,记作 $X\sim N(\mu,\sigma^2)$。参数 $\mu$ 是均值(曲线对称轴),$\sigma>0$ 是标准差(决定曲线的"胖瘦")。曲线下总面积为 1,概率等于面积:$P(a<X<b)=\int_a^b f(x)\,dx$。</p>
+<p>当 $\mu=0,\sigma=1$ 时称为<strong>标准正态分布</strong>,记作 $Z\sim N(0,1)$。任何正态变量都可以标准化:</p>
+$$
+Z=\frac{X-\mu}{\sigma}.
+$$
+<p>经验法则:约 68%、95%、99.7% 的概率分别落在 $\mu\pm\sigma$、$\mu\pm2\sigma$、$\mu\pm3\sigma$ 之内。</p>
+<pre class="mermaid">flowchart LR
+A["原始变量 X ~ N(μ, σ²)"] --> B["标准化 Z = (X-μ)/σ"]
+B --> C["查标准正态表或用软件"]
+C --> D["得到概率或临界值"]</pre>
+<p><em>图:用标准化把任意正态问题转化为标准正态问题的流程。</em></p>
+<p><strong>例题。</strong> 某考试成绩 $X\sim N(70,\,10^2)$,求成绩高于 85 分的概率。</p>
+<p>标准化:</p>
+$$
+z=\frac{85-70}{10}=1.5,\qquad P(X>85)=P(Z>1.5)=1-\Phi(1.5)\approx 1-0.9332=0.0668.
+$$
+<p>即约 6.7% 的考生超过 85 分。</p>
+<p><strong>在假设检验中的应用。</strong> 正态分布之所以成为检验的核心,是因为<strong>中心极限定理</strong>:当样本量 $n$ 足够大时,无论总体形状如何,样本均值 $\bar X$ 近似服从</p>
+$$
+\bar X\sim N\!\left(\mu,\ \frac{\sigma^2}{n}\right),
+$$
+<p>于是检验统计量为</p>
+$$
+z=\frac{\bar x-\mu_0}{\sigma/\sqrt n}.
+$$
+<p>对比例 $p$,当 $np_0\ge10$ 且 $n(1-p_0)\ge10$ 时,样本比例 $\hat p$ 近似服从 $N\!\left(p_0,\ \dfrac{p_0(1-p_0)}{n}\right)$,统计量为</p>
+$$
+z=\frac{\hat p-p_0}{\sqrt{p_0(1-p_0)/n}}.
+$$
+<p><strong>例:</strong> 某零件长度已知 $\sigma=2$ mm,声称均值 $\mu_0=50$ mm。抽取 $n=64$ 个,得 $\bar x=50.6$。检验 $H_0:\mu=50$ 与 $H_1:\mu\ne50$,显著性水平 $\alpha=0.05$。</p>
+$$
+z=\frac{50.6-50}{2/\sqrt{64}}=\frac{0.6}{0.25}=2.4.
+$$
+<p>双侧临界值为 $\pm1.96$。因 $|2.4|>1.96$,拒绝 $H_0$。$p$ 值为 $2\,[1-\Phi(2.4)]\approx 2(0.0082)=0.0164<0.05$,结论一致:样本均值与声称值之间存在统计上显著的差异。</p>
+<p><strong>解题要点。</strong></p>
+<li>先确认条件:$\sigma$ 已知(均值检验)或样本足够大(比例检验)。</li>
+<li>写出统计量并标准化。</li>
+<li>比较临界值或计算 $p$ 值,再用问题的语言写出结论。</li>
+<p>注意:若 $\sigma$ 未知,需用样本标准差并改用 $t$ 分布;正态分布在此仅适用于 $\sigma$ 已知的情形。</p>
   </main>
-  <footer class="spl-credit">Generated by SPL &middot; Powered by SPL.py</footer>
+  <footer class="spl-credit"><span class="spl-credit__meta">Introductory Statistics — Ch9: Hypothesis Testing with One Sample (Level: College &middot; Language: ZH &middot; Model: sonnet)</span><span class="spl-credit__powered">Generated and Powered by <a href="https://github.com/digital-duck/SPL.py" target="_blank" rel="noopener">SPL</a></span></footer>
 </div>
 </body>
 </html>

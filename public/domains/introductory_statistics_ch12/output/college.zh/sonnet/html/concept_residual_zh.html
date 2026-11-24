@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Residual | Introductory Statistics Ch12</title>
+<script>
+MathJax = {
+  tex: { inlineMath: [['$','$'],['\\(','\\)']], displayMath: [['$$','$$'],['\\[','\\]']] },
+  options: { skipHtmlTags: ['script','noscript','style','textarea','pre','code'] }
+};
+</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" async></script>
+<script src="https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.min.js"></script>
+<script>mermaid.initialize({ startOnLoad: true, theme: 'neutral' });</script>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:Georgia,serif;background:#fafaf8;color:#1a1a1a;line-height:1.7}
+h2{font-size:1.45rem;color:#1e3a5f;margin-bottom:12px}
+h3{font-size:1.1rem;color:#2e4a7f;margin:20px 0 8px}
+h4{font-size:1rem;color:#3a5a8f;margin:16px 0 6px}
+p{margin-bottom:16px;font-size:1rem}
+li{margin-bottom:6px;margin-left:24px;font-size:1rem}
+pre{background:#f4f4f0;border:1px solid #d8d8d0;border-radius:6px;
+    padding:16px 20px;overflow-x:auto;margin:16px 0}
+code{font-family:Menlo,Consolas,monospace;font-size:.87em}
+p code{background:#f0f0ea;padding:1px 4px;border-radius:3px}
+footer.spl-credit{margin-top:32px;padding-top:16px;border-top:1px solid #e0e0d8;
+      font-family:system-ui,sans-serif;font-size:.78rem;color:#999;text-align:center}
+footer.spl-credit a{color:#2563eb;text-decoration:none}
+footer.spl-credit span{display:block}
+footer.spl-credit .spl-credit__meta{margin-bottom:4px}
+.cb-figure{margin:24px 0;text-align:center}
+.cb-figure img{max-width:100%;height:auto;border:1px solid #e0e0d8;border-radius:6px}
+figcaption{font-size:.82rem;color:#666;margin-top:8px;font-style:italic;text-align:center}
+pre.mermaid{background:none;border:none;padding:0;overflow:visible;margin:16px 0}
+.page{max-width:780px;margin:0 auto;padding:40px 32px}
+section{margin-bottom:48px;border-top:1px solid #e0e0d8;padding-top:36px}
+section:first-of-type{border-top:none;padding-top:0}
+</style>
+</head>
+<body>
+<div class="page">
+  <main>
+    <h2 id="残差">残差</h2>
+<p><strong>定义。</strong> 对回归分析中的每个数据点 $(x_i, y_i)$,<strong>残差</strong>(residual)是观测值与回归线预测值之间的竖直差:</p>
+$$e_i = y_i - \hat{y}_i,\qquad \hat{y}_i = b_0 + b_1 x_i .$$
+<p>残差为正,说明点在回归线上方,模型低估了真实值;残差为负,说明点在回归线下方,模型高估了真实值。注意,残差是在 $y$ 方向上度量的,而不是点到直线的垂直距离。</p>
+<p>最小二乘回归线正是使残差平方和 $\sum e_i^2$ 最小的那条直线。由此可得两条性质:只要模型含截距项,就有 $\sum e_i = 0$;并且残差与 $x$ 不相关。</p>
+<p><strong>例题。</strong> 某班级记录了学习时间 $x$(小时)与测验成绩 $y$(分):$(1, 55),\ (2, 65),\ (3, 70),\ (4, 80),\ (5, 85)$。</p>
+<p>先计算均值:$\bar{x}=3,\ \bar{y}=71$。斜率为</p>
+$$b_1=\frac{\sum (x_i-\bar x)(y_i-\bar y)}{\sum (x_i-\bar x)^2}=\frac{(-2)(-16)+(-1)(-6)+0+(1)(9)+(2)(14)}{10}=\frac{75}{10}=7.5,$$
+<p>截距为 $b_0=71-7.5\times 3=48.5$,所以 $\hat{y}=48.5+7.5x$。</p>
+<p>各点的预测值与残差如下:</p>
+<p>| $x$ | $y$ | $\hat y$ | $e=y-\hat y$ | |---|---|---|---| | 1 | 55 | 56 | $-1$ | | 2 | 65 | 63.5 | $1.5$ | | 3 | 70 | 71 | $-1$ | | 4 | 80 | 78.5 | $1.5$ | | 5 | 85 | 86 | $-1$ |</p>
+<p>验证:$-1+1.5-1+1.5-1=0$,与性质一致。</p>
+<p><strong>问题求解应用。</strong> 残差的主要用途是检验线性模型是否合适。</p>
+<li><strong>作残差图。</strong> 以 $x$(或 $\hat y$)为横轴、$e$ 为纵轴作图。若线性模型合适,残差应无规律地散布在 $0$ 附近。</li>
+<li><strong>识别系统性结构。</strong> 若残差呈 U 形或倒 U 形,说明真实关系是曲线,应考虑加入二次项或做变换。若残差随 $x$ 增大而变得更分散(漏斗形),说明方差不齐,预测的精度会随 $x$ 变化。</li>
+<li><strong>发现异常点。</strong> 某点的残差远大于其他点时,应检查是数据录入错误,还是确有特殊情形。</li>
+<li><strong>衡量拟合优劣。</strong> 残差标准误 $s=\sqrt{\dfrac{\sum e_i^2}{n-2}}$ 刻画预测的典型误差。本例中 $\sum e_i^2 = 1+2.25+1+2.25+1=7.5$,所以 $s=\sqrt{7.5/3}\approx 1.58$ 分。也就是说,用学习时间预测成绩,典型误差约为 1.6 分。</li>
+<p><strong>小结。</strong> 残差 $e = y-\hat y$ 是模型没能解释的部分。如果残差中仍有可见的规律,说明模型遗漏了信息;如果残差看起来只是随机噪声,线性模型才算令人信服。</p>
+  </main>
+  <footer class="spl-credit"><span class="spl-credit__meta">Introductory Statistics — Ch12: Linear Regression and Correlation (Level: College &middot; Language: ZH &middot; Model: sonnet)</span><span class="spl-credit__powered">Generated and Powered by <a href="https://github.com/digital-duck/SPL.py" target="_blank" rel="noopener">SPL</a></span></footer>
+</div>
+</body>
+</html>

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Decision Rule | Introductory Statistics Ch09</title>
+<script>
+MathJax = {
+  tex: { inlineMath: [['$','$'],['\\(','\\)']], displayMath: [['$$','$$'],['\\[','\\]']] },
+  options: { skipHtmlTags: ['script','noscript','style','textarea','pre','code'] }
+};
+</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" async></script>
+<script src="https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.min.js"></script>
+<script>mermaid.initialize({ startOnLoad: true, theme: 'neutral' });</script>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:Georgia,serif;background:#fafaf8;color:#1a1a1a;line-height:1.7}
+h2{font-size:1.45rem;color:#1e3a5f;margin-bottom:12px}
+h3{font-size:1.1rem;color:#2e4a7f;margin:20px 0 8px}
+h4{font-size:1rem;color:#3a5a8f;margin:16px 0 6px}
+p{margin-bottom:16px;font-size:1rem}
+li{margin-bottom:6px;margin-left:24px;font-size:1rem}
+pre{background:#f4f4f0;border:1px solid #d8d8d0;border-radius:6px;
+    padding:16px 20px;overflow-x:auto;margin:16px 0}
+code{font-family:Menlo,Consolas,monospace;font-size:.87em}
+p code{background:#f0f0ea;padding:1px 4px;border-radius:3px}
+footer.spl-credit{margin-top:32px;padding-top:16px;border-top:1px solid #e0e0d8;
+      font-family:system-ui,sans-serif;font-size:.78rem;color:#999;text-align:center}
+footer.spl-credit a{color:#2563eb;text-decoration:none}
+footer.spl-credit span{display:block}
+footer.spl-credit .spl-credit__meta{margin-bottom:4px}
+.cb-figure{margin:24px 0;text-align:center}
+.cb-figure img{max-width:100%;height:auto;border:1px solid #e0e0d8;border-radius:6px}
+figcaption{font-size:.82rem;color:#666;margin-top:8px;font-style:italic;text-align:center}
+pre.mermaid{background:none;border:none;padding:0;overflow:visible;margin:16px 0}
+.page{max-width:780px;margin:0 auto;padding:40px 32px}
+section{margin-bottom:48px;border-top:1px solid #e0e0d8;padding-top:36px}
+section:first-of-type{border-top:none;padding-top:0}
+</style>
+</head>
+<body>
+<div class="page">
+  <main>
+    <h2 id="决策规则">决策规则</h2>
+<p><strong>定义。</strong> 在假设检验中,先选定显著性水平 $\alpha$(通常为 $0.05$ 或 $0.01$),再由样本数据算出 $p$ 值,即"在 $H_0$ 为真的前提下,得到至少与观测结果一样极端的统计量的概率"。决策规则把二者联系起来:</p>
+$$
+\begin{cases}
+\alpha > p\text{ 值} & \Rightarrow \text{拒绝 } H_0,\\[2pt]
+\alpha \le p\text{ 值} & \Rightarrow \text{不能拒绝 } H_0.
+\end{cases}
+$$
+<p>直观地说,$p$ 值越小,数据与 $H_0$ 越不相容;一旦它小于我们事先容忍的"误判上限" $\alpha$,就认为证据足以否定 $H_0$。注意:$\alpha$ 必须在看数据之前确定,否则规则就失去了控制第一类错误概率的意义。</p>
+<p><strong>例题。</strong> 某饮料厂声称每瓶平均容量为 $\mu = 500$ mL。质检员抽取 $n=36$ 瓶,测得 $\bar x = 497$ mL,已知 $\sigma = 9$ mL。检验</p>
+$$H_0:\mu = 500 \quad \text{vs} \quad H_1:\mu \ne 500,\quad \alpha = 0.05.$$
+<p>检验统计量为</p>
+$$z=\frac{\bar x-\mu_0}{\sigma/\sqrt n}=\frac{497-500}{9/\sqrt{36}}=\frac{-3}{1.5}=-2.$$
+<p>双侧检验的 $p$ 值为</p>
+$$p = 2P(Z \le -2)\approx 2(0.0228)=0.0456.$$
+<p>比较:$\alpha = 0.05 > 0.0456$,故<strong>拒绝 $H_0$</strong>。结论:在 $5\%$ 显著性水平下,有统计证据表明平均容量不等于 $500$ mL。</p>
+<p><strong>问题求解应用。</strong> 同一份数据,结论会随 $\alpha$ 改变:</p>
+<li>若取 $\alpha = 0.01$,则 $0.01 \le 0.0456$,<strong>不能拒绝 $H_0$</strong>;</li>
+<li>若取 $\alpha = 0.05$,则拒绝 $H_0$。</li>
+<p>因此做题时按以下步骤进行:</p>
+<li>写出 $H_0$、$H_1$,并确定 $\alpha$;</li>
+<li>计算检验统计量和 $p$ 值(注意单侧、双侧的区别);</li>
+<li>按规则比较 $\alpha$ 与 $p$;</li>
+<li>用问题的语言写出结论。</li>
+<p><strong>常见误区。</strong></p>
+<li>"不能拒绝 $H_0$"不等于"证明 $H_0$ 为真",只说明证据不足。</li>
+<li>$p$ 值不是"$H_0$ 为真的概率"。</li>
+<li>不要看到 $p$ 值后再挑选 $\alpha$。</li>
+<p><strong>练习。</strong> 某检验得 $p = 0.032$。分别在 $\alpha=0.10$、$0.05$、$0.01$ 下作出决策。(答案:前两者拒绝 $H_0$,第三者不能拒绝 $H_0$。)</p>
+  </main>
+  <footer class="spl-credit"><span class="spl-credit__meta">Introductory Statistics — Ch9: Hypothesis Testing with One Sample (Level: College &middot; Language: ZH &middot; Model: sonnet)</span><span class="spl-credit__powered">Generated and Powered by <a href="https://github.com/digital-duck/SPL.py" target="_blank" rel="noopener">SPL</a></span></footer>
+</div>
+</body>
+</html>

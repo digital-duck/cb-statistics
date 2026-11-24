@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Goodness Of Fit Lab | Introductory Statistics Ch11</title>
+<script>
+MathJax = {
+  tex: { inlineMath: [['$','$'],['\\(','\\)']], displayMath: [['$$','$$'],['\\[','\\]']] },
+  options: { skipHtmlTags: ['script','noscript','style','textarea','pre','code'] }
+};
+</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" async></script>
+<script src="https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.min.js"></script>
+<script>mermaid.initialize({ startOnLoad: true, theme: 'neutral' });</script>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:Georgia,serif;background:#fafaf8;color:#1a1a1a;line-height:1.7}
+h2{font-size:1.45rem;color:#1e3a5f;margin-bottom:12px}
+h3{font-size:1.1rem;color:#2e4a7f;margin:20px 0 8px}
+h4{font-size:1rem;color:#3a5a8f;margin:16px 0 6px}
+p{margin-bottom:16px;font-size:1rem}
+li{margin-bottom:6px;margin-left:24px;font-size:1rem}
+pre{background:#f4f4f0;border:1px solid #d8d8d0;border-radius:6px;
+    padding:16px 20px;overflow-x:auto;margin:16px 0}
+code{font-family:Menlo,Consolas,monospace;font-size:.87em}
+p code{background:#f0f0ea;padding:1px 4px;border-radius:3px}
+footer.spl-credit{margin-top:32px;padding-top:16px;border-top:1px solid #e0e0d8;
+      font-family:system-ui,sans-serif;font-size:.78rem;color:#999;text-align:center}
+footer.spl-credit a{color:#2563eb;text-decoration:none}
+footer.spl-credit span{display:block}
+footer.spl-credit .spl-credit__meta{margin-bottom:4px}
+.cb-figure{margin:24px 0;text-align:center}
+.cb-figure img{max-width:100%;height:auto;border:1px solid #e0e0d8;border-radius:6px}
+figcaption{font-size:.82rem;color:#666;margin-top:8px;font-style:italic;text-align:center}
+pre.mermaid{background:none;border:none;padding:0;overflow:visible;margin:16px 0}
+.page{max-width:780px;margin:0 auto;padding:40px 32px}
+section{margin-bottom:48px;border-top:1px solid #e0e0d8;padding-top:36px}
+section:first-of-type{border-top:none;padding-top:0}
+</style>
+</head>
+<body>
+<div class="page">
+  <main>
+    <h2 id="拟合优度实验">拟合优度实验</h2>
+<p><strong>定义。</strong> 拟合优度检验用来判断一组观测数据是否与某个假设的分布相容。把数据分成 $k$ 个区间,记第 $i$ 个区间的观测频数为 $O_i$,在原假设 $H_0$ 下的期望频数为 $E_i=n\,p_i$,则检验统计量为</p>
+$$\chi^2=\sum_{i=1}^{k}\frac{(O_i-E_i)^2}{E_i}.$$
+<p>当 $H_0$ 成立且各 $E_i\ge 5$ 时,$\chi^2$ 近似服从自由度为 $k-1-m$ 的卡方分布,其中 $m$ 是由数据估计出的参数个数。若 $\chi^2$ 大于临界值(或 $p$ 值小于 $\alpha=0.05$),就拒绝 $H_0$。</p>
+<p><strong>实验设计。</strong> 收集 $n=100$ 张杂货店小票,记录每张的消费金额(单位:元)。我们检验两个假设:</p>
+<li>金额在 $[0,100)$ 上服从均匀分布;</li>
+<li>金额服从指数分布,$f(x)=\lambda e^{-\lambda x}$。</li>
+<p><strong>例题。</strong> 把金额分成 5 个区间:$[0,20),[20,40),[40,60),[60,80),[80,100)$,观测频数为 $O=(41,27,16,9,7)$。</p>
+<p><em>均匀假设。</em> 每个区间 $p_i=0.2$,所以 $E_i=20$。</p>
+$$\chi^2=\frac{21^2+7^2+4^2+11^2+13^2}{20}=\frac{441+49+16+121+169}{20}=39.8.$$
+<p>自由度为 $5-1=4$,临界值 $\chi^2_{0.05,4}=9.49$。因为 $39.8>9.49$,拒绝均匀分布。</p>
+<p><em>指数假设。</em> 样本均值 $\bar x=30$,估计 $\hat\lambda=1/30$。区间概率 $p_i=e^{-a_i/30}-e^{-b_i/30}$。前四个区间依次为 $0.4866,\,0.2499,\,0.1283,\,0.0659$。最后一个区间并入右尾,$p_5=e^{-80/30}=0.0695$。由此得 $E\approx(48.7,\,25.0,\,12.8,\,6.6,\,6.9)$。</p>
+$$\chi^2\approx\frac{(-7.7)^2}{48.7}+\frac{2^2}{25.0}+\frac{3.2^2}{12.8}+\frac{2.4^2}{6.6}+\frac{0.1^2}{6.9}\approx1.22+0.16+0.80+0.87+0.00\approx3.05.$$
+<p>这里 $m=1$(估计了 $\lambda$),所以自由度为 $5-1-1=3$,临界值为 $7.81$。因为 $3.05<7.81$,不能拒绝指数分布。</p>
+<p><strong>问题求解应用。</strong> 做实验时按下面的步骤检查:</p>
+<li><strong>分箱</strong>:保证每个 $E_i\ge5$,否则合并相邻区间(本例的末区间已合并右尾)。</li>
+<li><strong>估计参数</strong>:用样本估计的参数每个减少 1 个自由度。上例若忘记减去 $m$,会误用临界值 9.49,使检验过于宽松。</li>
+<li><strong>判断与解释</strong>:“不能拒绝”不等于“证明是指数分布”,只说明数据与该模型没有显著矛盾。</li>
+<li><strong>诊断</strong>:查看各区间 $(O_i-E_i)^2/E_i$ 的贡献。均匀假设中,第一个区间(小额消费)和最后一个区间的偏差最大,这说明小额消费占多数,与指数分布的右偏形态吻合。</li>
+<pre class="mermaid">flowchart TD
+A[收集小票数据] --> B[选择假设分布]
+B --> C[估计参数 m 个]
+C --> D[分箱并检查 E 不小于 5]
+D --> E[计算卡方统计量]
+E --> F[自由度 k-1-m 查临界值]
+F --> G{统计量大于临界值?}
+G -->|是| H[拒绝原假设]
+G -->|否| I[不能拒绝原假设]</pre>
+<p><em>图:拟合优度实验的完整流程,从数据收集到判断结论。</em></p>
+<p><strong>练习。</strong> 自己收集 50 张以上的小票,用本节方法分别检验均匀与指数分布,比较两个 $\chi^2$ 值,并用各区间的贡献解释差异来源。</p>
+  </main>
+  <footer class="spl-credit"><span class="spl-credit__meta">Introductory Statistics — Ch11: The Chi-Square Distribution (Level: College &middot; Language: ZH &middot; Model: sonnet)</span><span class="spl-credit__powered">Generated and Powered by <a href="https://github.com/digital-duck/SPL.py" target="_blank" rel="noopener">SPL</a></span></footer>
+</div>
+</body>
+</html>

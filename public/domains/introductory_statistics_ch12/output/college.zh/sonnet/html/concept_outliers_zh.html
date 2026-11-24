@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Outliers | Introductory Statistics Ch12</title>
+<script>
+MathJax = {
+  tex: { inlineMath: [['$','$'],['\\(','\\)']], displayMath: [['$$','$$'],['\\[','\\]']] },
+  options: { skipHtmlTags: ['script','noscript','style','textarea','pre','code'] }
+};
+</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" async></script>
+<script src="https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.min.js"></script>
+<script>mermaid.initialize({ startOnLoad: true, theme: 'neutral' });</script>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:Georgia,serif;background:#fafaf8;color:#1a1a1a;line-height:1.7}
+h2{font-size:1.45rem;color:#1e3a5f;margin-bottom:12px}
+h3{font-size:1.1rem;color:#2e4a7f;margin:20px 0 8px}
+h4{font-size:1rem;color:#3a5a8f;margin:16px 0 6px}
+p{margin-bottom:16px;font-size:1rem}
+li{margin-bottom:6px;margin-left:24px;font-size:1rem}
+pre{background:#f4f4f0;border:1px solid #d8d8d0;border-radius:6px;
+    padding:16px 20px;overflow-x:auto;margin:16px 0}
+code{font-family:Menlo,Consolas,monospace;font-size:.87em}
+p code{background:#f0f0ea;padding:1px 4px;border-radius:3px}
+footer.spl-credit{margin-top:32px;padding-top:16px;border-top:1px solid #e0e0d8;
+      font-family:system-ui,sans-serif;font-size:.78rem;color:#999;text-align:center}
+footer.spl-credit a{color:#2563eb;text-decoration:none}
+footer.spl-credit span{display:block}
+footer.spl-credit .spl-credit__meta{margin-bottom:4px}
+.cb-figure{margin:24px 0;text-align:center}
+.cb-figure img{max-width:100%;height:auto;border:1px solid #e0e0d8;border-radius:6px}
+figcaption{font-size:.82rem;color:#666;margin-top:8px;font-style:italic;text-align:center}
+pre.mermaid{background:none;border:none;padding:0;overflow:visible;margin:16px 0}
+.page{max-width:780px;margin:0 auto;padding:40px 32px}
+section{margin-bottom:48px;border-top:1px solid #e0e0d8;padding-top:36px}
+section:first-of-type{border-top:none;padding-top:0}
+</style>
+</head>
+<body>
+<div class="page">
+  <main>
+    <h2 id="离群点">离群点</h2>
+<p><strong>定义。</strong> 在最小二乘回归中,第 $i$ 个观测的<strong>残差</strong>为 $e_i = y_i - \hat y_i$。<strong>离群点</strong>(outlier)是指其残差异常大的数据点,通常指 $|e_i|$ 超过残差标准差 $s_e$ 约两倍的点,即</p>
+$$
+\left|\frac{e_i}{s_e}\right| > 2, \qquad s_e=\sqrt{\frac{\sum e_i^2}{n-2}} .
+$$
+<p>离群点在竖直方向上远离回归直线。它与"高杠杆点"不同。高杠杆点的 $x$ 值极端,但不一定远离直线。</p>
+<p><strong>例题。</strong> 有 6 组数据 $(x,y)$:$(1,3),(2,5),(3,7),(4,9),(5,11),(6,25)$。</p>
+<li>拟合最小二乘直线。$\bar x = 3.5$,$\bar y = 10$,$S_{xx}=17.5$,$S_{xy}=\sum (x_i-\bar x)(y_i-\bar y)=2.5\cdot15+1.5\cdot 5+0.5\cdot(-3)\ldots$ 逐项计算得 $S_{xy}=\,$ </li>
+<p>$(-2.5)(-7)+(-1.5)(-5)+(-0.5)(-3)+(0.5)(-1)+(1.5)(1)+(2.5)(15)=17.5+7.5+1.5-0.5+1.5+37.5=65$。 于是 $b_1 = 65/17.5\approx 3.714$,$b_0=10-3.714\times3.5=-3.0$。</p>
+<li>计算残差。$\hat y = -3+3.714x$,各点预测值为 $0.71,\,4.43,\,8.14,\,11.86,\,15.57,\,19.29$。残差依次为 $2.29,\,0.57,\,-1.14,\,-2.86,\,-4.57,\,5.71$。</li>
+<li>求标准差。$\sum e_i^2\approx 5.22+0.33+1.31+8.16+20.9+32.6\approx 68.5$,所以 $s_e=\sqrt{68.5/4}\approx4.14$。最后一点的标准化残差为 $5.71/4.14\approx1.38<2$。</li>
+<p>这个结果出乎意料:$(6,25)$ 明显偏离其余五点的线性趋势,却没有被判为离群点。原因在于它自己把直线"拉"向了它,同时也抬高了 $s_e$。这种现象称为<strong>掩蔽</strong>(masking)。</p>
+<p><strong>问题求解应用。</strong> 这类问题的处理流程如下。</p>
+<li><strong>先作图。</strong> 画散点图和残差图,不要只依赖单一阈值。</li>
+<li><strong>标记候选点。</strong> 计算 $e_i/s_e$。更稳妥的做法是用"留一法":去掉该点重新拟合,再检验它的残差。</li>
+<li><strong>查明原因。</strong> 判断它是录入错误、测量故障,还是真实的特殊个案。</li>
+<li><strong>比较有无该点的结果。</strong> 去掉 $(6,25)$ 后,前五点恰好满足 $y=2x+1$,斜率从 $3.71$ 降到 $2$,说明它对模型影响极大。</li>
+<li><strong>如实报告。</strong> 只有找到合理原因才能删除数据,并且要说明删除了什么、为什么删除。若点是真实的,可改用稳健回归(如 Huber 回归),或另行建模。</li>
+<p><strong>要点。</strong> 离群点会扭曲斜率、截距和 $R^2$。判断时要结合图形、残差和专业背景,不能机械套用"两倍标准差"的规则。</p>
+<pre class="mermaid">flowchart TD
+    A[拟合最小二乘直线] --> B[计算残差与标准化残差]
+    B --> C{残差是否超过两倍标准差}
+    C -->|是| D[标记为候选离群点]
+    C -->|否| G[检查残差图是否有掩蔽]
+    D --> E[查明原因]
+    E --> F{是否为错误数据}
+    F -->|是| H[修正或删除并说明]
+    F -->|否| I[保留并使用稳健方法]</pre>
+<p><em>离群点的识别与处理流程:先标记,再查因,最后决定修正、删除或保留。</em></p>
+  </main>
+  <footer class="spl-credit"><span class="spl-credit__meta">Introductory Statistics — Ch12: Linear Regression and Correlation (Level: College &middot; Language: ZH &middot; Model: sonnet)</span><span class="spl-credit__powered">Generated and Powered by <a href="https://github.com/digital-duck/SPL.py" target="_blank" rel="noopener">SPL</a></span></footer>
+</div>
+</body>
+</html>

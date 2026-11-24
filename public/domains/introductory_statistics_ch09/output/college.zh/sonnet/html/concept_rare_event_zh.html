@@ -11,6 +11,8 @@ MathJax = {
 };
 </script>
 <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" async></script>
+<script src="https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.min.js"></script>
+<script>mermaid.initialize({ startOnLoad: true, theme: 'neutral' });</script>
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
 body{font-family:Georgia,serif;background:#fafaf8;color:#1a1a1a;line-height:1.7}
@@ -26,6 +28,12 @@ p code{background:#f0f0ea;padding:1px 4px;border-radius:3px}
 footer.spl-credit{margin-top:32px;padding-top:16px;border-top:1px solid #e0e0d8;
       font-family:system-ui,sans-serif;font-size:.78rem;color:#999;text-align:center}
 footer.spl-credit a{color:#2563eb;text-decoration:none}
+footer.spl-credit span{display:block}
+footer.spl-credit .spl-credit__meta{margin-bottom:4px}
+.cb-figure{margin:24px 0;text-align:center}
+.cb-figure img{max-width:100%;height:auto;border:1px solid #e0e0d8;border-radius:6px}
+figcaption{font-size:.82rem;color:#666;margin-top:8px;font-style:italic;text-align:center}
+pre.mermaid{background:none;border:none;padding:0;overflow:visible;margin:16px 0}
 .page{max-width:780px;margin:0 auto;padding:40px 32px}
 section{margin-bottom:48px;border-top:1px solid #e0e0d8;padding-top:36px}
 section:first-of-type{border-top:none;padding-top:0}
@@ -34,33 +42,34 @@ section:first-of-type{border-top:none;padding-top:0}
 <body>
 <div class="page">
   <main>
-    <h2 id="稀有事件">稀有事件</h2>
-<p><strong>定义。</strong> 设概率空间 $(\Omega, \mathcal{F}, P)$ 上有事件序列 $\{A_n\}_{n=1}^{\infty}$。若存在参数 $\lambda > 0$ 使得 $n P(A_n) \to \lambda$（当 $n \to \infty$），则称 $A_n$ 为<strong>稀有事件</strong>（rare event）。直观而言，稀有事件是概率极小、但在大量重复试验中仍可能出现的事件。其核心特征在于：单次发生概率 $p = P(A_n)$ 趋于零，而期望发生次数 $np$ 保持有界正值。</p>
-<p><strong>具体示例。</strong> 某制造商每批次生产 $n = 1000$ 件产品，每件出现缺陷的概率为 $p = 0.003$。则缺陷件数 $X \sim \text{Binomial}(1000,\ 0.003)$，期望值 $\mu = np = 3$。此时 $p$ 极小而 $n$ 极大，满足稀有事件条件。我们关心的典型问题是：某批次恰好出现 $k = 5$ 件缺陷的概率是多少？精确计算为</p>
-$$P(X = 5) = \binom{1000}{5}(0.003)^5(0.997)^{995}.$$
-<p>该表达式涉及极大数与极小数的乘积，直接计算容易出现数值溢出。</p>
-<p><strong>关键定理（泊松极限定理）。</strong> 设 $X_n \sim \text{Binomial}(n, p_n)$，其中 $n p_n \to \lambda > 0$。则对任意非负整数 $k$，</p>
-$$\lim_{n \to \infty} P(X_n = k) = \frac{\lambda^k e^{-\lambda}}{k!}.$$
-<p>该极限分布称为参数为 $\lambda$ 的<strong>泊松分布</strong> $\text{Poisson}(\lambda)$。证明思路：将二项式概率展开，利用 $\binom{n}{k} p^k \approx \frac{(np)^k}{k!}$ 以及 $(1-p)^{n-k} \approx e^{-\lambda}$，令 $n \to \infty$ 即得。</p>
-<p>对上述示例，取 $\lambda = 3$，则</p>
-$$P(X = 5) \approx \frac{3^5 e^{-3}}{5!} = \frac{243 \times e^{-3}}{120} \approx 0.1008.$$
-<p><strong>实验单元（SymPy）。</strong></p>
-<pre><code>from sympy import symbols, factorial, exp, Rational, N
-from sympy.stats import Poisson, P as Prob, Eq
-
-lam, k = 3, 5
-# 泊松近似
-p_approx = lam**k * exp(-lam) / factorial(k)
-print("泊松近似：", N(p_approx, 6))
-
-# 精确二项式
-from sympy import binomial as C
-n_val, p_val = 1000, Rational(3, 1000)
-p_exact = C(n_val, k) * p_val**k * (1 - p_val)**(n_val - k)
-print("精确二项：", N(p_exact, 6))</code></pre>
-<p>运行结果将显示两值之差不超过 $10^{-4}$，直观验证泊松极限定理的精度。</p>
+    <h2 id="稀有事件-rare-event">稀有事件(Rare Event)</h2>
+<h3 id="定义">定义</h3>
+<p><strong>稀有事件</strong>是指在某个假设成立的前提下,发生概率极小的结果。在假设检验中,这个假设就是<strong>零假设</strong> $H_0$。如果我们实际观测到了这样的结果,就有理由怀疑 $H_0$ 本身不成立。</p>
+<p>形式化地,设检验统计量为 $T$,观测值为 $t_{\text{obs}}$,则 <strong>$p$ 值</strong>为</p>
+$$p = P\big(T \text{ 至少与 } t_{\text{obs}} \text{ 一样极端} \mid H_0\big).$$
+<p>当 $p \le \alpha$($\alpha$ 为预先设定的显著性水平,常取 $0.05$ 或 $0.01$)时,我们称该结果为稀有事件,并<strong>拒绝</strong> $H_0$。</p>
+<p>注意:"稀有"不是绝对的,而是<strong>相对于某个假设</strong>而言。同一个结果在一个假设下很平常,在另一个假设下却可能极其罕见。</p>
+<h3 id="例题">例题</h3>
+<p>某人声称自己手里的硬币是公平的($H_0: p = 0.5$)。你抛了 $20$ 次,得到 $17$ 次正面。这个结果算稀有事件吗?</p>
+<p>设 $X$ 为正面次数,在 $H_0$ 下 $X \sim \text{Binomial}(20, 0.5)$。"至少与 17 次一样极端"(单侧)的概率为</p>
+$$P(X \ge 17) = \sum_{k=17}^{20}\binom{20}{k}\left(\tfrac12\right)^{20} = \frac{1140 + 190 + 20 + 1}{1\,048\,576} = \frac{1351}{1\,048\,576} \approx 0.0013.$$
+<p>因为 $0.0013 < 0.05$(甚至 $< 0.01$),在公平硬币的假设下,这是一个稀有事件。我们据此怀疑硬币并不公平。</p>
+<h3 id="问题求解应用">问题求解应用</h3>
+<p><strong>问题</strong>:某工厂声称次品率为 $2\%$。随机抽检 $100$ 件,发现 $7$ 件次品。该声称可信吗?</p>
+<p><strong>步骤</strong>:</p>
+<li>建立假设:$H_0: p = 0.02$,备择假设 $H_1: p > 0.02$。</li>
+<li>在 $H_0$ 下,$X \sim \text{Binomial}(100, 0.02)$,期望 $\lambda = np = 2$。由于 $n$ 大、$p$ 小,可用泊松近似 $X \approx \text{Poisson}(2)$。</li>
+<li>计算 $P(X \ge 7)$:</li>
+$$P(X \ge 7) = 1 - \sum_{k=0}^{6} \frac{e^{-2}2^k}{k!} \approx 1 - 0.9955 = 0.0045.$$
+<li>因 $0.0045 < 0.01$,在 $H_0$ 下观测到 $7$ 件及以上次品是稀有事件,应拒绝工厂的声称。</li>
+<h3 id="常见陷阱">常见陷阱</h3>
+<li><strong>稀有 ≠ 不可能</strong>:即使 $H_0$ 为真,也有概率 $\alpha$ 发生稀有事件,这就是<strong>第一类错误</strong>。</li>
+<li><strong>多重检验</strong>:做 $m$ 次独立检验,至少出现一次"稀有事件"的概率为 $1-(1-\alpha)^m$。例如 $\alpha=0.05$、$m=20$ 时约为 $64\%$。因此"总能找到稀有事件"并不说明什么。</li>
+<li><strong>$p$ 值不是 $H_0$ 为真的概率</strong>:它只衡量"在 $H_0$ 下数据有多意外"。</li>
+<h3 id="小结">小结</h3>
+<p>稀有事件的推理逻辑类似"概率版反证法":先假设 $H_0$,计算观测结果的出现概率;若该概率极小,则 $H_0$ 与数据难以相容,我们选择质疑 $H_0$。</p>
   </main>
-  <footer class="spl-credit">Generated by SPL &middot; Powered by SPL.py</footer>
+  <footer class="spl-credit"><span class="spl-credit__meta">Introductory Statistics — Ch9: Hypothesis Testing with One Sample (Level: College &middot; Language: ZH &middot; Model: sonnet)</span><span class="spl-credit__powered">Generated and Powered by <a href="https://github.com/digital-duck/SPL.py" target="_blank" rel="noopener">SPL</a></span></footer>
 </div>
 </body>
 </html>

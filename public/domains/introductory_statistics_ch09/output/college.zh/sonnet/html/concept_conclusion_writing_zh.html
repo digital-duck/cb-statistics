@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Conclusion Writing | Introductory Statistics Ch09</title>
+<script>
+MathJax = {
+  tex: { inlineMath: [['$','$'],['\\(','\\)']], displayMath: [['$$','$$'],['\\[','\\]']] },
+  options: { skipHtmlTags: ['script','noscript','style','textarea','pre','code'] }
+};
+</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" async></script>
+<script src="https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.min.js"></script>
+<script>mermaid.initialize({ startOnLoad: true, theme: 'neutral' });</script>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:Georgia,serif;background:#fafaf8;color:#1a1a1a;line-height:1.7}
+h2{font-size:1.45rem;color:#1e3a5f;margin-bottom:12px}
+h3{font-size:1.1rem;color:#2e4a7f;margin:20px 0 8px}
+h4{font-size:1rem;color:#3a5a8f;margin:16px 0 6px}
+p{margin-bottom:16px;font-size:1rem}
+li{margin-bottom:6px;margin-left:24px;font-size:1rem}
+pre{background:#f4f4f0;border:1px solid #d8d8d0;border-radius:6px;
+    padding:16px 20px;overflow-x:auto;margin:16px 0}
+code{font-family:Menlo,Consolas,monospace;font-size:.87em}
+p code{background:#f0f0ea;padding:1px 4px;border-radius:3px}
+footer.spl-credit{margin-top:32px;padding-top:16px;border-top:1px solid #e0e0d8;
+      font-family:system-ui,sans-serif;font-size:.78rem;color:#999;text-align:center}
+footer.spl-credit a{color:#2563eb;text-decoration:none}
+footer.spl-credit span{display:block}
+footer.spl-credit .spl-credit__meta{margin-bottom:4px}
+.cb-figure{margin:24px 0;text-align:center}
+.cb-figure img{max-width:100%;height:auto;border:1px solid #e0e0d8;border-radius:6px}
+figcaption{font-size:.82rem;color:#666;margin-top:8px;font-style:italic;text-align:center}
+pre.mermaid{background:none;border:none;padding:0;overflow:visible;margin:16px 0}
+.page{max-width:780px;margin:0 auto;padding:40px 32px}
+section{margin-bottom:48px;border-top:1px solid #e0e0d8;padding-top:36px}
+section:first-of-type{border-top:none;padding-top:0}
+</style>
+</head>
+<body>
+<div class="page">
+  <main>
+    <h2 id="结论撰写">结论撰写</h2>
+<p><strong>定义。</strong> 结论撰写是假设检验的最后一步：在做出"拒绝 $H_0$"或"不拒绝 $H_0$"的决定之后，用原问题的语言写出一句通俗的陈述，说明数据对所研究的问题意味着什么。一个完整的结论应包含四个要素：</p>
+<li><strong>决定</strong>：拒绝或不拒绝 $H_0$，并给出依据（$p$ 值与 $\alpha$ 的比较）；</li>
+<li><strong>显著性水平</strong>：说明所用的 $\alpha$；</li>
+<li><strong>情境</strong>：用问题中的变量、总体和单位来表述；</li>
+<li><strong>证据强度</strong>：是"有充分证据"还是"没有充分证据"。</li>
+<p><strong>两条关键规则：</strong></p>
+<li>若 $p \le \alpha$：拒绝 $H_0$，写"有充分证据表明……（即 $H_a$ 的内容）"。</li>
+<li>若 $p > \alpha$：不拒绝 $H_0$，写"没有充分证据表明……"。</li>
+<p>注意：不能写"接受 $H_0$"或"证明了 $H_0$ 为真"。不拒绝只表示证据不足，不表示原假设成立。同理，拒绝 $H_0$ 也不等于"证明了 $H_a$"，因为仍存在犯第一类错误的概率 $\alpha$。</p>
+<p><strong>例题。</strong> 某电池厂声称其电池平均寿命为 $\mu = 500$ 小时。质检员怀疑实际寿命更短，抽取 $n=36$ 个样本，得 $\bar{x}=492$，已知 $\sigma=24$。检验</p>
+$$H_0:\mu=500,\qquad H_a:\mu<500,\qquad \alpha=0.05.$$
+<p>检验统计量为</p>
+$$z=\frac{\bar{x}-\mu_0}{\sigma/\sqrt{n}}=\frac{492-500}{24/\sqrt{36}}=\frac{-8}{4}=-2.0,$$
+<p>左尾 $p$ 值为 $P(Z\le -2.0)\approx 0.0228$。因为 $0.0228<0.05$，所以拒绝 $H_0$。</p>
+<p><strong>结论写法：</strong></p>
+<p>> 在 $\alpha=0.05$ 的显著性水平下，有充分证据表明该厂电池的平均寿命低于 500 小时（$z=-2.0$，$p\approx0.023$）。</p>
+<p><strong>问题求解应用。</strong> 若上例中样本均值为 $\bar{x}=497$，则 $z=\dfrac{-3}{4}=-0.75$，$p\approx0.2266>0.05$，不拒绝 $H_0$。</p>
+<p>| 写法 | 评价 | |---|---| | "电池平均寿命就是 500 小时。" | ✗ 把"不拒绝"当成了"证明" | | "没有充分证据表明平均寿命低于 500 小时。" | ✓ 正确，且使用了问题情境 |</p>
+<p><strong>常见错误检查表：</strong></p>
+<li>只写"拒绝 $H_0$"而不翻译成问题的语言；</li>
+<li>把 $p$ 值解释为"$H_0$ 为真的概率"（它是在 $H_0$ 为真时，观察到如此极端数据的概率）；</li>
+<li>混淆统计显著与实际重要：$n$ 很大时，微小差异也可能 $p<\alpha$，结论中应适当说明差异的实际大小；</li>
+<li>单侧与双侧不一致：结论的方向必须与 $H_a$ 匹配。</li>
+<pre class="mermaid">flowchart TD
+    A[比较 p 值与 α] --> B{p ≤ α ?}
+    B -->|是| C[拒绝 H0]
+    B -->|否| D[不拒绝 H0]
+    C --> E[有充分证据表明 Ha 的内容]
+    D --> F[没有充分证据表明 Ha 的内容]
+    E --> G[用问题情境写出完整结论]
+    F --> G</pre>
+<p><em>图：从检验决定到结论措辞的流程。无论决定如何，最后都要回到原问题的情境中表述。</em></p>
+  </main>
+  <footer class="spl-credit"><span class="spl-credit__meta">Introductory Statistics — Ch9: Hypothesis Testing with One Sample (Level: College &middot; Language: ZH &middot; Model: sonnet)</span><span class="spl-credit__powered">Generated and Powered by <a href="https://github.com/digital-duck/SPL.py" target="_blank" rel="noopener">SPL</a></span></footer>
+</div>
+</body>
+</html>

@@ -11,6 +11,8 @@ MathJax = {
 };
 </script>
 <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" async></script>
+<script src="https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.min.js"></script>
+<script>mermaid.initialize({ startOnLoad: true, theme: 'neutral' });</script>
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
 body{font-family:Georgia,serif;background:#fafaf8;color:#1a1a1a;line-height:1.7}
@@ -26,6 +28,12 @@ p code{background:#f0f0ea;padding:1px 4px;border-radius:3px}
 footer.spl-credit{margin-top:32px;padding-top:16px;border-top:1px solid #e0e0d8;
       font-family:system-ui,sans-serif;font-size:.78rem;color:#999;text-align:center}
 footer.spl-credit a{color:#2563eb;text-decoration:none}
+footer.spl-credit span{display:block}
+footer.spl-credit .spl-credit__meta{margin-bottom:4px}
+.cb-figure{margin:24px 0;text-align:center}
+.cb-figure img{max-width:100%;height:auto;border:1px solid #e0e0d8;border-radius:6px}
+figcaption{font-size:.82rem;color:#666;margin-top:8px;font-style:italic;text-align:center}
+pre.mermaid{background:none;border:none;padding:0;overflow:visible;margin:16px 0}
 .page{max-width:780px;margin:0 auto;padding:40px 32px}
 section{margin-bottom:48px;border-top:1px solid #e0e0d8;padding-top:36px}
 section:first-of-type{border-top:none;padding-top:0}
@@ -34,48 +42,38 @@ section:first-of-type{border-top:none;padding-top:0}
 <body>
 <div class="page">
   <main>
-    <h2 id="central-limit-theorem">Central Limit Theorem</h2>
-<p><strong>定义。</strong> 设 $X_1, X_2, \ldots, X_n$ 为独立同分布的随机变量，其共同期望为 $\mu$，方差为 $\sigma^2 < \infty$。定义样本均值为</p>
-$$\bar{X}_n = \frac{1}{n}\sum_{i=1}^{n} X_i.$$
-<p><strong>中心极限定理</strong>断言：当 $n \to \infty$ 时，标准化统计量</p>
-$$Z_n = \frac{\bar{X}_n - \mu}{\sigma / \sqrt{n}}$$
-<p>在分布上收敛于标准正态分布 $\mathcal{N}(0,1)$，即对任意 $z \in \mathbb{R}$，</p>
-$$\lim_{n \to \infty} P(Z_n \leq z) = \Phi(z) = \frac{1}{\sqrt{2\pi}}\int_{-\infty}^{z} e^{-t^2/2}\,dt.$$
-<p>这一结论的深刻之处在于：无论原始分布的形状如何，只要方差有限，样本均值的分布在大样本下均趋向正态。</p>
-<hr>
-<p><strong>证明思路。</strong> 标准证明借助特征函数（即矩母函数的复数推广）。令 $Y_i = (X_i - \mu)/\sigma$，则 $Z_n = n^{-1/2}\sum_{i=1}^n Y_i$。$Y_i$ 的特征函数展开为</p>
-$$\varphi_{Y}(t) = 1 - \frac{t^2}{2} + o(t^2),\quad t \to 0.$$
-<p>于是 $Z_n$ 的特征函数为</p>
-$$\varphi_{Z_n}(t) = \left[\varphi_Y\!\left(\frac{t}{\sqrt{n}}\right)\right]^n = \left(1 - \frac{t^2}{2n} + o\!\left(\frac{1}{n}\right)\right)^n \xrightarrow{n\to\infty} e^{-t^2/2},$$
-<p>而 $e^{-t^2/2}$ 正是 $\mathcal{N}(0,1)$ 的特征函数。由连续性定理，分布收敛得证。</p>
-<hr>
-<p><strong>具体例题。</strong> 设 $X_i \sim \text{Uniform}(0,1)$，则 $\mu = 1/2$，$\sigma^2 = 1/12$。取 $n = 50$，求 $P(\bar{X}_{50} > 0.55)$。</p>
-<p>标准化：</p>
-$$Z = \frac{0.55 - 0.5}{1/\!\sqrt{600}} = 0.05\sqrt{600} \approx 1.225.$$
-<p>因此</p>
-$$P(\bar{X}_{50} > 0.55) \approx 1 - \Phi(1.225) \approx 1 - 0.8897 = 0.1103.$$
-<hr>
-<p><strong>实验单元（SymPy/NumPy）。</strong></p>
+    <h2 id="中心极限定理">中心极限定理</h2>
+<p><strong>定义。</strong> 设 $X_1, X_2, \dots, X_n$ 是独立同分布的随机变量，均值为 $\mu$，方差为 $\sigma^2<\infty$。样本均值记为</p>
+$$\bar X_n=\frac1n\sum_{i=1}^n X_i .$$
+<p>中心极限定理（Central Limit Theorem, CLT）指出：无论总体分布的形状如何，标准化后的样本均值依分布收敛于标准正态分布，即</p>
+$$\frac{\bar X_n-\mu}{\sigma/\sqrt n}\ \xrightarrow{\ d\ }\ N(0,1)\quad (n\to\infty).$$
+<p>因此，当 $n$ 较大时可近似地认为</p>
+$$\bar X_n\approx N\!\left(\mu,\ \frac{\sigma^2}{n}\right),\qquad \sum_{i=1}^n X_i\approx N\!\left(n\mu,\ n\sigma^2\right).$$
+<p>样本均值的标准差 $\sigma/\sqrt n$ 称为<strong>标准误</strong>，它随样本量增大而缩小。经验上，若总体不严重偏斜，$n\ge 30$ 时近似通常已相当好。</p>
+<p><strong>直观理解。</strong> 单个观测值可能很不规则，但把许多独立的小波动加在一起后，极端值会相互抵消，结果呈现对称的钟形。</p>
+<pre class="mermaid">flowchart LR
+A["任意形状的总体分布"] --> B["反复抽取容量为 n 的样本"]
+B --> C["计算每个样本的均值"]
+C --> D["样本均值的分布"]
+D --> E["n 增大时趋近正态分布"]</pre>
+<p><em>图：从任意总体反复抽样并计算样本均值，样本均值的分布随 $n$ 增大趋近正态分布。</em></p>
+<p><strong>例题。</strong> 某快递站每件包裹的处理时间服从指数分布，均值 $\mu=4$ 分钟，标准差 $\sigma=4$ 分钟（明显右偏）。随机抽取 $n=64$ 件，求平均处理时间超过 4.8 分钟的概率。</p>
+<p><em>解：</em> 标准误为</p>
+$$\frac{\sigma}{\sqrt n}=\frac{4}{\sqrt{64}}=0.5 .$$
+<p>由 CLT，$\bar X\approx N(4,\,0.5^2)$，故</p>
+$$P(\bar X>4.8)=P\!\left(Z>\frac{4.8-4}{0.5}\right)=P(Z>1.6)\approx 1-0.9452=0.0548 .$$
+<p>约有 5.5% 的可能性。注意：单件包裹处理时间超过 4.8 分钟的概率为 $e^{-1.2}\approx0.30$，远大于上述结果，这正是取平均带来的稳定效应。</p>
+<p><strong>应用：确定样本量。</strong> 若希望平均处理时间的估计误差以 95% 的把握不超过 0.4 分钟，需要</p>
+$$1.96\cdot\frac{\sigma}{\sqrt n}\le 0.4\ \Longrightarrow\ \sqrt n\ge \frac{1.96\times4}{0.4}=19.6\ \Longrightarrow\ n\ge 385 .$$
+<p>这说明精度每提高一倍，样本量需增加到原来的四倍，因为误差按 $1/\sqrt n$ 缩小。</p>
+<p>用代码可以直接验证：</p>
 <pre><code>import numpy as np
-from scipy import stats
-
-rng = np.random.default_rng(42)
-n, trials = 50, 100_000
-samples = rng.uniform(0, 1, size=(trials, n))
-means = samples.mean(axis=1)
-
-# 模拟概率
-prob_sim = (means &gt; 0.55).mean()
-
-# 理论概率
-mu, sigma = 0.5, 1/np.sqrt(12)
-prob_theory = 1 - stats.norm.cdf(0.55, loc=mu, scale=sigma/np.sqrt(n))
-
-print(f"模拟值: {prob_sim:.4f}")
-print(f"理论值: {prob_theory:.4f}")</code></pre>
-<p>运行结果应显示两值高度吻合，直观验证了中心极限定理的有效性。对较小的 $n$（如 $n=5$），可观察到分布偏态尚未消失，从而体会"大样本"假设的必要性。</p>
+rng = np.random.default_rng(0)
+means = rng.exponential(4, size=(100000, 64)).mean(axis=1)
+print((means &gt; 4.8).mean())   # 约 0.055，与理论值吻合</code></pre>
+<p><strong>要点。</strong> CLT 是置信区间与假设检验的理论基础；使用时需检查：观测值相互独立、方差有限，且样本量足以抵消总体的偏斜程度。</p>
   </main>
-  <footer class="spl-credit">Generated by SPL &middot; Powered by SPL.py</footer>
+  <footer class="spl-credit"><span class="spl-credit__meta">Introductory Statistics — Ch9: Hypothesis Testing with One Sample (Level: College &middot; Language: ZH &middot; Model: sonnet)</span><span class="spl-credit__powered">Generated and Powered by <a href="https://github.com/digital-duck/SPL.py" target="_blank" rel="noopener">SPL</a></span></footer>
 </div>
 </body>
 </html>

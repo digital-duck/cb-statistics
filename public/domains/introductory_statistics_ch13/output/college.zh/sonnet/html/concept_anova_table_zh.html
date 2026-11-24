@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Anova Table | Introductory Statistics Ch13</title>
+<script>
+MathJax = {
+  tex: { inlineMath: [['$','$'],['\\(','\\)']], displayMath: [['$$','$$'],['\\[','\\]']] },
+  options: { skipHtmlTags: ['script','noscript','style','textarea','pre','code'] }
+};
+</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" async></script>
+<script src="https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.min.js"></script>
+<script>mermaid.initialize({ startOnLoad: true, theme: 'neutral' });</script>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:Georgia,serif;background:#fafaf8;color:#1a1a1a;line-height:1.7}
+h2{font-size:1.45rem;color:#1e3a5f;margin-bottom:12px}
+h3{font-size:1.1rem;color:#2e4a7f;margin:20px 0 8px}
+h4{font-size:1rem;color:#3a5a8f;margin:16px 0 6px}
+p{margin-bottom:16px;font-size:1rem}
+li{margin-bottom:6px;margin-left:24px;font-size:1rem}
+pre{background:#f4f4f0;border:1px solid #d8d8d0;border-radius:6px;
+    padding:16px 20px;overflow-x:auto;margin:16px 0}
+code{font-family:Menlo,Consolas,monospace;font-size:.87em}
+p code{background:#f0f0ea;padding:1px 4px;border-radius:3px}
+footer.spl-credit{margin-top:32px;padding-top:16px;border-top:1px solid #e0e0d8;
+      font-family:system-ui,sans-serif;font-size:.78rem;color:#999;text-align:center}
+footer.spl-credit a{color:#2563eb;text-decoration:none}
+footer.spl-credit span{display:block}
+footer.spl-credit .spl-credit__meta{margin-bottom:4px}
+.cb-figure{margin:24px 0;text-align:center}
+.cb-figure img{max-width:100%;height:auto;border:1px solid #e0e0d8;border-radius:6px}
+figcaption{font-size:.82rem;color:#666;margin-top:8px;font-style:italic;text-align:center}
+pre.mermaid{background:none;border:none;padding:0;overflow:visible;margin:16px 0}
+.page{max-width:780px;margin:0 auto;padding:40px 32px}
+section{margin-bottom:48px;border-top:1px solid #e0e0d8;padding-top:36px}
+section:first-of-type{border-top:none;padding-top:0}
+</style>
+</head>
+<body>
+<div class="page">
+  <main>
+    <h2 id="方差分析表">方差分析表</h2>
+<p><strong>定义。</strong> 单因素方差分析(ANOVA)用来检验 $k$ 个总体均值是否全部相等。方差分析表把总变异分解为"组间"与"组内"两部分,并按固定格式排列:</p>
+<p>| 变异来源 | 平方和 SS | 自由度 df | 均方 MS | $F$ | |---|---|---|---|---| | 组间(处理) | $SSB=\sum_{i=1}^{k} n_i(\bar{x}_i-\bar{x})^2$ | $k-1$ | $MSB=\dfrac{SSB}{k-1}$ | $F=\dfrac{MSB}{MSW}$ | | 组内(误差) | $SSW=\sum_{i=1}^{k}\sum_{j=1}^{n_i}(x_{ij}-\bar{x}_i)^2$ | $N-k$ | $MSW=\dfrac{SSW}{N-k}$ | | | 总计 | $SST=SSB+SSW$ | $N-1$ | | |</p>
+<p>其中 $N=\sum n_i$ 为样本总量。均方等于平方和除以自由度,是方差的估计。零假设 $H_0:\mu_1=\mu_2=\cdots=\mu_k$ 成立时,$F\sim F(k-1,\,N-k)$。若组间变异远大于组内变异,$F$ 就会偏大,从而拒绝 $H_0$。</p>
+<p><strong>例题。</strong> 三种教学方法各抽取 4 名学生,考试成绩如下:</p>
+<li>A:70, 74, 72, 76(均值 73)</li>
+<li>B:78, 80, 82, 80(均值 80)</li>
+<li>C:84, 86, 88, 90(均值 87)</li>
+<p>总均值 $\bar{x}=80$,$k=3$,$N=12$。</p>
+<p>组间:$SSB=4(73-80)^2+4(80-80)^2+4(87-80)^2=196+0+196=392$。</p>
+<p>组内:A 组偏差平方和为 $9+1+1+9=20$,B 组为 $4+0+4+0=8$,C 组为 $9+1+1+9=20$,所以 $SSW=48$。</p>
+<p>检验:$SST=392+48=440$,与直接计算一致,可作核对。</p>
+<p>| 变异来源 | SS | df | MS | $F$ | |---|---|---|---|---| | 组间 | 392 | 2 | 196 | 36.75 | | 组内 | 48 | 9 | 5.33 | | | 总计 | 440 | 11 | | |</p>
+<p><strong>问题求解应用。</strong> 取 $\alpha=0.05$,查表得 $F_{0.05}(2,9)\approx4.26$。因为 $36.75>4.26$,所以拒绝 $H_0$,认为三种教学方法的平均成绩不全相同。</p>
+<p>使用方差分析表时,可以按下面的步骤做:</p>
+<li>先算 $SSB$ 与 $SSW$,再用 $SST=SSB+SSW$ 核对。</li>
+<li>自由度之和要满足 $(k-1)+(N-k)=N-1$。</li>
+<li>用 $MS=SS/\mathrm{df}$ 得到均方,再算 $F$。</li>
+<li>将 $F$ 与临界值比较,或计算 $p$ 值。</li>
+<p>方差分析表还有一个常见用途:只给出部分格子时反推其余格子。例如已知 $k=4$、$N=20$、$SSB=60$、$SSW=80$,就有 $\mathrm{df}_B=3$、$\mathrm{df}_W=16$、$MSB=20$、$MSW=5$,所以 $F=4$。</p>
+<p>要注意,显著的 $F$ 只说明"至少有一对均值不同",并没有指出具体是哪几组。要找出具体差异,还需要事后检验,例如 Tukey 检验。此外,方差分析假定各组数据独立、近似正态且方差大致相等,使用前应检查这些条件。</p>
+  </main>
+  <footer class="spl-credit"><span class="spl-credit__meta">Introductory Statistics — Ch13: F Distribution and One-Way ANOVA (Level: College &middot; Language: ZH &middot; Model: sonnet)</span><span class="spl-credit__powered">Generated and Powered by <a href="https://github.com/digital-duck/SPL.py" target="_blank" rel="noopener">SPL</a></span></footer>
+</div>
+</body>
+</html>

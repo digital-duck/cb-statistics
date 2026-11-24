@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Two Proportions Test | Introductory Statistics Ch10</title>
+<script>
+MathJax = {
+  tex: { inlineMath: [['$','$'],['\\(','\\)']], displayMath: [['$$','$$'],['\\[','\\]']] },
+  options: { skipHtmlTags: ['script','noscript','style','textarea','pre','code'] }
+};
+</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" async></script>
+<script src="https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.min.js"></script>
+<script>mermaid.initialize({ startOnLoad: true, theme: 'neutral' });</script>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:Georgia,serif;background:#fafaf8;color:#1a1a1a;line-height:1.7}
+h2{font-size:1.45rem;color:#1e3a5f;margin-bottom:12px}
+h3{font-size:1.1rem;color:#2e4a7f;margin:20px 0 8px}
+h4{font-size:1rem;color:#3a5a8f;margin:16px 0 6px}
+p{margin-bottom:16px;font-size:1rem}
+li{margin-bottom:6px;margin-left:24px;font-size:1rem}
+pre{background:#f4f4f0;border:1px solid #d8d8d0;border-radius:6px;
+    padding:16px 20px;overflow-x:auto;margin:16px 0}
+code{font-family:Menlo,Consolas,monospace;font-size:.87em}
+p code{background:#f0f0ea;padding:1px 4px;border-radius:3px}
+footer.spl-credit{margin-top:32px;padding-top:16px;border-top:1px solid #e0e0d8;
+      font-family:system-ui,sans-serif;font-size:.78rem;color:#999;text-align:center}
+footer.spl-credit a{color:#2563eb;text-decoration:none}
+footer.spl-credit span{display:block}
+footer.spl-credit .spl-credit__meta{margin-bottom:4px}
+.cb-figure{margin:24px 0;text-align:center}
+.cb-figure img{max-width:100%;height:auto;border:1px solid #e0e0d8;border-radius:6px}
+figcaption{font-size:.82rem;color:#666;margin-top:8px;font-style:italic;text-align:center}
+pre.mermaid{background:none;border:none;padding:0;overflow:visible;margin:16px 0}
+.page{max-width:780px;margin:0 auto;padding:40px 32px}
+section{margin-bottom:48px;border-top:1px solid #e0e0d8;padding-top:36px}
+section:first-of-type{border-top:none;padding-top:0}
+</style>
+</head>
+<body>
+<div class="page">
+  <main>
+    <h2 id="双比例检验">双比例检验</h2>
+<h3 id="定义">定义</h3>
+<p>当我们想比较两个<strong>独立总体</strong>的比例 $p_1$ 与 $p_2$(例如两种教学方法的及格率、两种药物的有效率)时,使用<strong>双比例 $z$ 检验</strong>。</p>
+<p>检验的假设为</p>
+$$H_0:\ p_1=p_2 \qquad \text{对} \qquad H_a:\ p_1\neq p_2\ (\text{或} <,\ >).$$
+<p>设样本量为 $n_1,n_2$,成功次数为 $x_1,x_2$,样本比例为 $\hat p_1=x_1/n_1$,$\hat p_2=x_2/n_2$。当 $n_1,n_2$ 足够大时,差 $\hat p_1-\hat p_2$ 近似服从正态分布,均值为 $p_1-p_2$。</p>
+<p><strong>关键思想:合并比例。</strong> 若 $H_0$ 成立,两个总体共享同一个比例 $p$,因此用全部数据来估计它:</p>
+$$\hat p=\frac{x_1+x_2}{n_1+n_2}.$$
+<p>于是在 $H_0$ 下,差的标准误为</p>
+$$SE=\sqrt{\hat p(1-\hat p)\left(\frac1{n_1}+\frac1{n_2}\right)},$$
+<p>检验统计量为</p>
+$$z=\frac{\hat p_1-\hat p_2}{SE}.$$
+<p><strong>使用条件:</strong> ① 两个样本为独立随机样本;② 在合并比例下,$n_1\hat p,\ n_1(1-\hat p),\ n_2\hat p,\ n_2(1-\hat p)$ 均不小于 10。</p>
+<h3 id="例题">例题</h3>
+<p>某学校比较两种复习方式。方式 A:$n_1=200$ 名学生中 $x_1=130$ 人通过考试;方式 B:$n_2=250$ 名学生中 $x_2=145$ 人通过。在 $\alpha=0.05$ 下,检验两者通过率是否不同。</p>
+<p><strong>第 1 步:样本比例。</strong> $\hat p_1=0.65$,$\hat p_2=0.58$。</p>
+<p><strong>第 2 步:合并比例。</strong></p>
+$$\hat p=\frac{130+145}{200+250}=\frac{275}{450}\approx0.611.$$
+<p><strong>第 3 步:标准误。</strong></p>
+$$SE=\sqrt{0.611\times0.389\times\left(\tfrac1{200}+\tfrac1{250}\right)}=\sqrt{0.2377\times0.009}\approx0.0463.$$
+<p><strong>第 4 步:统计量与 $p$ 值。</strong></p>
+$$z=\frac{0.65-0.58}{0.0463}\approx1.51,\qquad p\text{ 值}=2P(Z>1.51)\approx0.131.$$
+<p><strong>结论:</strong> $p$ 值 $0.131>0.05$,不能拒绝 $H_0$。现有数据不足以证明两种方式的通过率存在差异。</p>
+<h3 id="解题应用">解题应用</h3>
+<pre class="mermaid">flowchart TD
+    A["提出 H0: p1 = p2"] --> B["检查独立性与样本量条件"]
+    B --> C["计算合并比例 p̂"]
+    C --> D["计算标准误 SE"]
+    D --> E["计算 z 统计量"]
+    E --> F["求 p 值并与 α 比较"]
+    F --> G["给出结论"]</pre>
+<p><em>双比例 $z$ 检验的标准流程:先合并估计,再计算标准误与统计量,最后下结论。</em></p>
+<p><strong>常见陷阱与技巧:</strong></p>
+<li><strong>检验与置信区间用不同的标准误。</strong> 检验时假设 $p_1=p_2$,所以使用合并比例;而估计差 $p_1-p_2$ 的置信区间时不做此假设,应使用 $\sqrt{\frac{\hat p_1(1-\hat p_1)}{n_1}+\frac{\hat p_2(1-\hat p_2)}{n_2}}$。</li>
+<li><strong>单侧检验。</strong> 若问"方式 A 的通过率是否<em>高于</em> B",取 $H_a:p_1>p_2$,$p$ 值为 $P(Z>z)\approx0.066$,在 $\alpha=0.05$ 下仍不显著。</li>
+<li><strong>统计显著不等于实际重要。</strong> 样本量极大时,微小差异也可能显著;应同时报告差值 $\hat p_1-\hat p_2$ 及其置信区间。</li>
+<li><strong>独立性。</strong> 同一批学生"前后测"属于配对数据,不能使用本检验。</li>
+<p><strong>练习:</strong> 若样本量均扩大为原来的 3 倍而比例不变(即 $n_1=600,n_2=750$),$SE$ 缩小为原来的 $1/\sqrt3$,则 $z\approx1.51\times\sqrt3\approx2.61$,$p\approx0.009$,此时拒绝 $H_0$。这说明:相同的观测差异,样本量越大,证据越强。</p>
+  </main>
+  <footer class="spl-credit"><span class="spl-credit__meta">Introductory Statistics — Ch10: Hypothesis Testing with Two Samples (Level: College &middot; Language: ZH &middot; Model: sonnet)</span><span class="spl-credit__powered">Generated and Powered by <a href="https://github.com/digital-duck/SPL.py" target="_blank" rel="noopener">SPL</a></span></footer>
+</div>
+</body>
+</html>

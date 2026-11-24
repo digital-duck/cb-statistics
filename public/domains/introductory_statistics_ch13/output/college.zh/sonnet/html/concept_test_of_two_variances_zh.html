@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Test Of Two Variances | Introductory Statistics Ch13</title>
+<script>
+MathJax = {
+  tex: { inlineMath: [['$','$'],['\\(','\\)']], displayMath: [['$$','$$'],['\\[','\\]']] },
+  options: { skipHtmlTags: ['script','noscript','style','textarea','pre','code'] }
+};
+</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" async></script>
+<script src="https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.min.js"></script>
+<script>mermaid.initialize({ startOnLoad: true, theme: 'neutral' });</script>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:Georgia,serif;background:#fafaf8;color:#1a1a1a;line-height:1.7}
+h2{font-size:1.45rem;color:#1e3a5f;margin-bottom:12px}
+h3{font-size:1.1rem;color:#2e4a7f;margin:20px 0 8px}
+h4{font-size:1rem;color:#3a5a8f;margin:16px 0 6px}
+p{margin-bottom:16px;font-size:1rem}
+li{margin-bottom:6px;margin-left:24px;font-size:1rem}
+pre{background:#f4f4f0;border:1px solid #d8d8d0;border-radius:6px;
+    padding:16px 20px;overflow-x:auto;margin:16px 0}
+code{font-family:Menlo,Consolas,monospace;font-size:.87em}
+p code{background:#f0f0ea;padding:1px 4px;border-radius:3px}
+footer.spl-credit{margin-top:32px;padding-top:16px;border-top:1px solid #e0e0d8;
+      font-family:system-ui,sans-serif;font-size:.78rem;color:#999;text-align:center}
+footer.spl-credit a{color:#2563eb;text-decoration:none}
+footer.spl-credit span{display:block}
+footer.spl-credit .spl-credit__meta{margin-bottom:4px}
+.cb-figure{margin:24px 0;text-align:center}
+.cb-figure img{max-width:100%;height:auto;border:1px solid #e0e0d8;border-radius:6px}
+figcaption{font-size:.82rem;color:#666;margin-top:8px;font-style:italic;text-align:center}
+pre.mermaid{background:none;border:none;padding:0;overflow:visible;margin:16px 0}
+.page{max-width:780px;margin:0 auto;padding:40px 32px}
+section{margin-bottom:48px;border-top:1px solid #e0e0d8;padding-top:36px}
+section:first-of-type{border-top:none;padding-top:0}
+</style>
+</head>
+<body>
+<div class="page">
+  <main>
+    <h2 id="双方差检验">双方差检验</h2>
+<h3 id="定义">定义</h3>
+<p><strong>双方差检验</strong>(test of two variances)是一种 $F$ 检验,用来判断两个相互独立、服从正态分布的总体,其方差是否相等。设两个总体分别为 $N(\mu_1,\sigma_1^2)$ 和 $N(\mu_2,\sigma_2^2)$,从中各取独立样本,样本容量为 $n_1,n_2$,样本方差为 $s_1^2,s_2^2$。</p>
+<p>原假设为 $H_0:\sigma_1^2=\sigma_2^2$。在 $H_0$ 成立时,检验统计量</p>
+$$F=\frac{s_1^2}{s_2^2}\sim F(n_1-1,\;n_2-1),$$
+<p>即服从分子自由度为 $n_1-1$、分母自由度为 $n_2-1$ 的 $F$ 分布。其依据是 $\dfrac{(n_i-1)s_i^2}{\sigma_i^2}\sim\chi^2(n_i-1)$,而两个相互独立的卡方变量除以各自自由度后再作比,就得到 $F$ 分布。</p>
+<p>备择假设可取三种形式:$\sigma_1^2\neq\sigma_2^2$(双侧)、$\sigma_1^2>\sigma_2^2$ 或 $\sigma_1^2<\sigma_2^2$(单侧)。</p>
+<p><strong>使用要点:</strong></p>
+<li>$F$ 分布不对称,且 $F>0$。</li>
+<li>双侧检验的临界值需要分别查上、下两个分位数。下分位数满足 $F_{1-\alpha/2}(d_1,d_2)=\dfrac{1}{F_{\alpha/2}(d_2,d_1)}$。</li>
+<li>该检验对正态性假设很敏感。数据明显偏离正态时,结论不可靠。</li>
+<h3 id="例题">例题</h3>
+<p>两台机器灌装饮料。机器 A 抽取 $n_1=16$ 瓶,$s_1^2=4.8$;机器 B 抽取 $n_2=13$ 瓶,$s_2^2=2.0$。在 $\alpha=0.05$ 下,检验两台机器的灌装方差是否不同。</p>
+<li>假设:$H_0:\sigma_1^2=\sigma_2^2$,$H_1:\sigma_1^2\neq\sigma_2^2$。</li>
+<li>统计量:$F=\dfrac{4.8}{2.0}=2.4$,自由度为 $(15,12)$。</li>
+<li>临界值:查表得 $F_{0.025}(15,12)\approx 3.18$。下临界值为 $1/F_{0.025}(12,15)\approx 1/2.96\approx 0.34$。</li>
+<li>判断:$0.34<2.4<3.18$,落在接受域内,故<strong>不拒绝</strong> $H_0$。</li>
+<p>结论:在 5% 的显著性水平下,没有足够证据说明两台机器的方差不同。</p>
+<h3 id="解题应用">解题应用</h3>
+<p><strong>技巧:把较大的样本方差放在分子。</strong> 这样 $F\ge1$,双侧检验只需比较上临界值 $F_{\alpha/2}(d_{\text{大}},d_{\text{小}})$,其中 $d_{\text{大}}$ 是较大方差所在样本的自由度。</p>
+<p><strong>实际场景:</strong> 做两样本均值的 $t$ 检验之前,常要先判断能否假设方差相等(合并 $t$ 检验)。用双方差检验做预检验,可以决定使用合并方差还是 Welch 法。</p>
+<p><strong>用代码验证上面的例子:</strong></p>
+<pre><code>from scipy import stats
+F = 4.8 / 2.0
+d1, d2 = 15, 12
+p = 2 * min(stats.f.cdf(F, d1, d2), stats.f.sf(F, d1, d2))
+print(F, p)   # F = 2.4, p ≈ 0.145 &gt; 0.05</code></pre>
+<p>$p\approx0.145>0.05$,与临界值法的结论一致。</p>
+<p><strong>常见错误:</strong></p>
+<li>把 $F$ 比值的自由度顺序写反。分子、分母的自由度不能互换。</li>
+<li>双侧检验时只查一个尾部,却仍以 $\alpha$ 而不是 $\alpha/2$ 作比较。</li>
+<li>忽略正态性前提。若数据有明显偏态或离群点,应改用 Levene 检验或 Brown–Forsythe 检验。</li>
+<p><strong>小结:</strong> 双方差检验通过比较 $s_1^2/s_2^2$ 与 $F$ 分布的临界值,判断两个正态总体的方差是否有显著差异。</p>
+  </main>
+  <footer class="spl-credit"><span class="spl-credit__meta">Introductory Statistics — Ch13: F Distribution and One-Way ANOVA (Level: College &middot; Language: ZH &middot; Model: sonnet)</span><span class="spl-credit__powered">Generated and Powered by <a href="https://github.com/digital-duck/SPL.py" target="_blank" rel="noopener">SPL</a></span></footer>
+</div>
+</body>
+</html>

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Standard Error Diff Means | Introductory Statistics Ch10</title>
+<script>
+MathJax = {
+  tex: { inlineMath: [['$','$'],['\\(','\\)']], displayMath: [['$$','$$'],['\\[','\\]']] },
+  options: { skipHtmlTags: ['script','noscript','style','textarea','pre','code'] }
+};
+</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" async></script>
+<script src="https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.min.js"></script>
+<script>mermaid.initialize({ startOnLoad: true, theme: 'neutral' });</script>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:Georgia,serif;background:#fafaf8;color:#1a1a1a;line-height:1.7}
+h2{font-size:1.45rem;color:#1e3a5f;margin-bottom:12px}
+h3{font-size:1.1rem;color:#2e4a7f;margin:20px 0 8px}
+h4{font-size:1rem;color:#3a5a8f;margin:16px 0 6px}
+p{margin-bottom:16px;font-size:1rem}
+li{margin-bottom:6px;margin-left:24px;font-size:1rem}
+pre{background:#f4f4f0;border:1px solid #d8d8d0;border-radius:6px;
+    padding:16px 20px;overflow-x:auto;margin:16px 0}
+code{font-family:Menlo,Consolas,monospace;font-size:.87em}
+p code{background:#f0f0ea;padding:1px 4px;border-radius:3px}
+footer.spl-credit{margin-top:32px;padding-top:16px;border-top:1px solid #e0e0d8;
+      font-family:system-ui,sans-serif;font-size:.78rem;color:#999;text-align:center}
+footer.spl-credit a{color:#2563eb;text-decoration:none}
+footer.spl-credit span{display:block}
+footer.spl-credit .spl-credit__meta{margin-bottom:4px}
+.cb-figure{margin:24px 0;text-align:center}
+.cb-figure img{max-width:100%;height:auto;border:1px solid #e0e0d8;border-radius:6px}
+figcaption{font-size:.82rem;color:#666;margin-top:8px;font-style:italic;text-align:center}
+pre.mermaid{background:none;border:none;padding:0;overflow:visible;margin:16px 0}
+.page{max-width:780px;margin:0 auto;padding:40px 32px}
+section{margin-bottom:48px;border-top:1px solid #e0e0d8;padding-top:36px}
+section:first-of-type{border-top:none;padding-top:0}
+</style>
+</head>
+<body>
+<div class="page">
+  <main>
+    <h2 id="两样本均值之差的标准误">两样本均值之差的标准误</h2>
+<p><strong>定义。</strong> 设两个独立样本的容量分别为 $n_1,n_2$，样本均值为 $\bar{x}_1,\bar{x}_2$，样本标准差为 $s_1,s_2$。差 $\bar{x}_1-\bar{x}_2$ 的标准差（即标准误）的估计值为</p>
+$$
+SE_{\bar{x}_1-\bar{x}_2}=\sqrt{\frac{s_1^2}{n_1}+\frac{s_2^2}{n_2}}.
+$$
+<p>它衡量：如果重复抽样，均值之差会围绕真实差 $\mu_1-\mu_2$ 波动多大。</p>
+<p><strong>公式从何而来。</strong> 独立随机变量之差的方差等于方差之和：</p>
+$$
+\operatorname{Var}(\bar{X}_1-\bar{X}_2)=\operatorname{Var}(\bar{X}_1)+\operatorname{Var}(\bar{X}_2)=\frac{\sigma_1^2}{n_1}+\frac{\sigma_2^2}{n_2}.
+$$
+<p>总体标准差 $\sigma_i$ 未知，所以用 $s_i$ 代替。注意这里是方差相加，而不是标准差相加，也不是相减。即使我们计算的是"差"，不确定性也会累积，不会抵消。</p>
+<p><strong>例题。</strong> 某班级比较两种教学方法。方法 A：$n_1=36$，$\bar{x}_1=78$，$s_1=12$。方法 B：$n_2=49$，$\bar{x}_2=72$，$s_2=14$。</p>
+<p>先算各自的方差项：</p>
+$$
+\frac{s_1^2}{n_1}=\frac{144}{36}=4,\qquad \frac{s_2^2}{n_2}=\frac{196}{49}=4.
+$$
+<p>于是</p>
+$$
+SE=\sqrt{4+4}=\sqrt{8}\approx 2.83.
+$$
+<p>观测到的差为 $78-72=6$，约为 $2.12$ 个标准误。</p>
+<p><strong>问题求解应用。</strong> 标准误是构造置信区间和检验统计量的基础。</p>
+<li><em>置信区间。</em> 样本较大时，近似 95% 区间为 $6\pm 1.96(2.83)\approx(0.45,\,11.55)$。区间不含 0，说明两种方法可能确有差异。</li>
+<li><em>假设检验。</em> 检验 $H_0:\mu_1-\mu_2=0$，统计量为</li>
+$$
+t=\frac{(\bar{x}_1-\bar{x}_2)-0}{SE}=\frac{6}{2.83}\approx 2.12.
+$$
+<p>对应的双侧 $p$ 值约为 $0.04$（此处用正态近似）。在 $\alpha=0.05$ 下拒绝 $H_0$。</p>
+<li><em>样本量规划。</em> 公式表明，要把 $SE$ 减半，每组样本量需增至约四倍，因为 $SE\propto 1/\sqrt{n}$。</li>
+<p><strong>常见错误。</strong></p>
+<li>把 $s_1/\sqrt{n_1}+s_2/\sqrt{n_2}$ 直接相加，这会高估误差。</li>
+<li>用于配对（非独立）数据。配对数据应先求差值，再对差值计算单样本标准误。</li>
+<li>样本很小且总体明显偏态时，正态近似不可靠，应使用 $t$ 分布，并采用 Welch 自由度近似。</li>
+<p><strong>小结。</strong> 两样本均值之差的标准误等于两个均值方差估计之和的平方根。这个量把"观测到的差"转化为可以和随机波动相比较的尺度。</p>
+  </main>
+  <footer class="spl-credit"><span class="spl-credit__meta">Introductory Statistics — Ch10: Hypothesis Testing with Two Samples (Level: College &middot; Language: ZH &middot; Model: sonnet)</span><span class="spl-credit__powered">Generated and Powered by <a href="https://github.com/digital-duck/SPL.py" target="_blank" rel="noopener">SPL</a></span></footer>
+</div>
+</body>
+</html>

@@ -11,6 +11,8 @@ MathJax = {
 };
 </script>
 <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" async></script>
+<script src="https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.min.js"></script>
+<script>mermaid.initialize({ startOnLoad: true, theme: 'neutral' });</script>
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
 body{font-family:Georgia,serif;background:#fafaf8;color:#1a1a1a;line-height:1.7}
@@ -26,6 +28,12 @@ p code{background:#f0f0ea;padding:1px 4px;border-radius:3px}
 footer.spl-credit{margin-top:32px;padding-top:16px;border-top:1px solid #e0e0d8;
       font-family:system-ui,sans-serif;font-size:.78rem;color:#999;text-align:center}
 footer.spl-credit a{color:#2563eb;text-decoration:none}
+footer.spl-credit span{display:block}
+footer.spl-credit .spl-credit__meta{margin-bottom:4px}
+.cb-figure{margin:24px 0;text-align:center}
+.cb-figure img{max-width:100%;height:auto;border:1px solid #e0e0d8;border-radius:6px}
+figcaption{font-size:.82rem;color:#666;margin-top:8px;font-style:italic;text-align:center}
+pre.mermaid{background:none;border:none;padding:0;overflow:visible;margin:16px 0}
 .page{max-width:780px;margin:0 auto;padding:40px 32px}
 section{margin-bottom:48px;border-top:1px solid #e0e0d8;padding-top:36px}
 section:first-of-type{border-top:none;padding-top:0}
@@ -34,40 +42,34 @@ section:first-of-type{border-top:none;padding-top:0}
 <body>
 <div class="page">
   <main>
-    <h2 id="sampling-distribution-selection">Sampling Distribution Selection</h2>
-<h3 id="定义">定义</h3>
-<p><strong>抽样分布</strong>是指统计量在所有可能样本上的概率分布。选择正确的抽样分布，是推断统计的核心技能。设总体参数为 $\theta$，统计量 $T = T(X_1, X_2, \ldots, X_n)$ 为基于样本的估计量，则 $T$ 的分布称为 $T$ 的抽样分布。</p>
-<p>实际应用中，抽样分布的选择取决于三个关键因素：<strong>总体分布的已知程度</strong>、<strong>样本量的大小</strong>，以及<strong>参数的类型</strong>（均值、方差或比例）。常用的抽样分布包括：</p>
-<li><strong>正态分布</strong> $N(\mu, \sigma^2)$：总体正态且 $\sigma^2$ 已知，或 $n \geq 30$ 时由中心极限定理近似适用；</li>
-<li><strong>$t$ 分布</strong> $t(n-1)$：总体正态但 $\sigma^2$ 未知，小样本情形；</li>
-<li><strong>$\chi^2$ 分布</strong> $\chi^2(n-1)$：推断总体方差时使用；</li>
-<li><strong>$F$ 分布</strong> $F(n_1-1, n_2-1)$：比较两总体方差时使用。</li>
-<h3 id="工作例题">工作例题</h3>
-<p>某工厂生产螺栓，直径服从正态分布，均值 $\mu$ 未知，标准差 $\sigma$ 也未知。随机抽取 $n = 16$ 个样本，计算样本均值 $\bar{X}$ 并构造置信区间。</p>
-<p>由于 $\sigma^2$ 未知且 $n < 30$，应选用 $t$ 分布。统计量为</p>
-$$T = \frac{\bar{X} - \mu}{S / \sqrt{n}} \sim t(15),$$
-<p>其中 $S$ 为样本标准差。若计算得 $\bar{X} = 10.02\,\text{mm}$，$S = 0.05\,\text{mm}$，则 $95\%$ 置信区间为</p>
-$$\bar{X} \pm t_{0.025}(15) \cdot \frac{S}{\sqrt{n}} = 10.02 \pm 2.131 \times \frac{0.05}{4} \approx (9.993,\ 10.047)\,\text{mm}.$$
-<h3 id="核心定理">核心定理</h3>
-<p><strong>定理（抽样分布选择准则）</strong>：设 $X_1, \ldots, X_n \overset{\text{i.i.d.}}{\sim} N(\mu, \sigma^2)$，则：</p>
-<li>$\dfrac{\bar{X} - \mu}{\sigma/\sqrt{n}} \sim N(0,1)$（$\sigma$ 已知）；</li>
-<li>$\dfrac{\bar{X} - \mu}{S/\sqrt{n}} \sim t(n-1)$（$\sigma$ 未知）；</li>
-<li>$\dfrac{(n-1)S^2}{\sigma^2} \sim \chi^2(n-1)$。</li>
-<p>若总体非正态，当 $n \geq 30$ 时，由<strong>中心极限定理</strong>，$\bar{X}$ 近似服从正态分布，可用正态分布替代。</p>
-<h3 id="实验单元-sympy">实验单元（SymPy）</h3>
-<pre><code>from sympy.stats import Normal, StudentT, ChiSquared, density, P
-from sympy import symbols, sqrt, simplify
-
-n = 16
-t = symbols('t')
-T = StudentT('T', n - 1)          # t(15)
-
-# 计算 P(T &gt; 2.131)，验证 t 临界值
-prob = P(T &gt; 2.131)
-print(f"P(T &gt; 2.131) ≈ {float(prob):.4f}")  # 应接近 0.025</code></pre>
-<p>通过上述实验，可直接验证所选分布的临界值与查表结果一致，加深对抽样分布选择逻辑的理解。</p>
+    <h2 id="抽样分布的选择">抽样分布的选择</h2>
+<p><strong>定义。</strong> 做假设检验时,检验统计量服从哪种抽样分布,取决于两个问题:(1)检验的参数是什么(均值还是比例);(2)总体标准差 $\sigma$ 是否已知。选错分布,$p$ 值和临界值都会出错。</p>
+<p><strong>选择规则:</strong></p>
+<p>| 检验参数 | 条件 | 抽样分布 | |---|---|---| | 总体均值 $\mu$ | $\sigma$ 已知,且总体近似正态或 $n\ge 30$ | 标准正态 $z$ | | 总体均值 $\mu$ | $\sigma$ 未知,用样本标准差 $s$ 代替 | 学生 $t$,自由度 $df=n-1$ | | 总体比例 $p$ | $np_0\ge 10$ 且 $n(1-p_0)\ge 10$ | 二项分布的正态近似 $z$ |</p>
+<p>对应的检验统计量为:</p>
+$$z=\frac{\bar x-\mu_0}{\sigma/\sqrt n},\qquad t=\frac{\bar x-\mu_0}{s/\sqrt n},\qquad z=\frac{\hat p-p_0}{\sqrt{p_0(1-p_0)/n}}$$
+<p>注意:比例检验的标准误用的是原假设中的 $p_0$,而不是样本比例 $\hat p$。比例检验不需要 $\sigma$,因为二项分布的方差 $np_0(1-p_0)$ 完全由 $p_0$ 决定。</p>
+<p><strong>为什么 $\sigma$ 未知时要用 $t$?</strong> 用 $s$ 替代 $\sigma$ 会引入额外的随机性,$t$ 分布的尾部比正态分布更厚,$df$ 越小越明显;当 $n\to\infty$ 时,$t$ 分布趋近标准正态分布。</p>
+<p><strong>例题 1。</strong> 某工厂声称螺栓平均长度为 $50$ mm。抽取 $n=16$ 个,得 $\bar x=50.8$,$s=1.6$,总体 $\sigma$ 未知。检验 $H_0:\mu=50$。</p>
+<p>因为参数是均值且 $\sigma$ 未知,选用 $t$ 分布,$df=15$:</p>
+$$t=\frac{50.8-50}{1.6/\sqrt{16}}=\frac{0.8}{0.4}=2.0$$
+<p>双侧检验,$t_{0.025,15}=2.131$。由于 $2.0<2.131$,在 $5\%$ 水平上不拒绝 $H_0$。若误用 $z$(临界值 $1.96$),就会错误地拒绝 $H_0$——这正是选错分布的后果。</p>
+<p><strong>例题 2。</strong> 某政策声称支持率为 $p_0=0.40$。调查 $n=200$ 人,有 $92$ 人支持,$\hat p=0.46$。</p>
+<p>先检验条件:$np_0=80\ge10$,$n(1-p_0)=120\ge10$,可以使用正态近似。</p>
+$$z=\frac{0.46-0.40}{\sqrt{0.40\times0.60/200}}=\frac{0.06}{0.0346}\approx1.73$$
+<p>双侧 $p$ 值约为 $0.084>0.05$,不拒绝 $H_0$。</p>
+<p><strong>问题解决流程。</strong></p>
+<pre class="mermaid">flowchart TD
+A[确定检验参数] --> B{均值还是比例?}
+B -->|比例| C[检查 np0 与 n1-p0 是否≥10]
+C --> D[使用正态近似 z]
+B -->|均值| E{σ 是否已知?}
+E -->|已知| F[使用标准正态 z]
+E -->|未知| G[使用 t 分布 df=n-1]</pre>
+<p><em>图:根据参数类型和 $\sigma$ 是否已知选择抽样分布的决策流程。</em></p>
+<p><strong>常见陷阱:</strong> (1)实际问题中 $\sigma$ 几乎总是未知的,默认应优先考虑 $t$;(2)小样本且总体明显偏态时,$t$ 与 $z$ 都不可靠,应改用其他方法;(3)比例检验的条件检查用 $p_0$,而置信区间则用 $\hat p$。</p>
   </main>
-  <footer class="spl-credit">Generated by SPL &middot; Powered by SPL.py</footer>
+  <footer class="spl-credit"><span class="spl-credit__meta">Introductory Statistics — Ch9: Hypothesis Testing with One Sample (Level: College &middot; Language: ZH &middot; Model: sonnet)</span><span class="spl-credit__powered">Generated and Powered by <a href="https://github.com/digital-duck/SPL.py" target="_blank" rel="noopener">SPL</a></span></footer>
 </div>
 </body>
 </html>

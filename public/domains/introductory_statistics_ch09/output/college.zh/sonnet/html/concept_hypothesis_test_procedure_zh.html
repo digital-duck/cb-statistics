@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hypothesis Test Procedure | Introductory Statistics Ch09</title>
+<script>
+MathJax = {
+  tex: { inlineMath: [['$','$'],['\\(','\\)']], displayMath: [['$$','$$'],['\\[','\\]']] },
+  options: { skipHtmlTags: ['script','noscript','style','textarea','pre','code'] }
+};
+</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" async></script>
+<script src="https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.min.js"></script>
+<script>mermaid.initialize({ startOnLoad: true, theme: 'neutral' });</script>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:Georgia,serif;background:#fafaf8;color:#1a1a1a;line-height:1.7}
+h2{font-size:1.45rem;color:#1e3a5f;margin-bottom:12px}
+h3{font-size:1.1rem;color:#2e4a7f;margin:20px 0 8px}
+h4{font-size:1rem;color:#3a5a8f;margin:16px 0 6px}
+p{margin-bottom:16px;font-size:1rem}
+li{margin-bottom:6px;margin-left:24px;font-size:1rem}
+pre{background:#f4f4f0;border:1px solid #d8d8d0;border-radius:6px;
+    padding:16px 20px;overflow-x:auto;margin:16px 0}
+code{font-family:Menlo,Consolas,monospace;font-size:.87em}
+p code{background:#f0f0ea;padding:1px 4px;border-radius:3px}
+footer.spl-credit{margin-top:32px;padding-top:16px;border-top:1px solid #e0e0d8;
+      font-family:system-ui,sans-serif;font-size:.78rem;color:#999;text-align:center}
+footer.spl-credit a{color:#2563eb;text-decoration:none}
+footer.spl-credit span{display:block}
+footer.spl-credit .spl-credit__meta{margin-bottom:4px}
+.cb-figure{margin:24px 0;text-align:center}
+.cb-figure img{max-width:100%;height:auto;border:1px solid #e0e0d8;border-radius:6px}
+figcaption{font-size:.82rem;color:#666;margin-top:8px;font-style:italic;text-align:center}
+pre.mermaid{background:none;border:none;padding:0;overflow:visible;margin:16px 0}
+.page{max-width:780px;margin:0 auto;padding:40px 32px}
+section{margin-bottom:48px;border-top:1px solid #e0e0d8;padding-top:36px}
+section:first-of-type{border-top:none;padding-top:0}
+</style>
+</head>
+<body>
+<div class="page">
+  <main>
+    <h2 id="假设检验的步骤">假设检验的步骤</h2>
+<p><strong>定义。</strong> 假设检验是用样本数据判断关于总体的某个声称是否可信的系统方法。它由五个固定步骤构成,每一步都不可省略:</p>
+<li><strong>陈述假设</strong>:零假设 $H_0$(默认立场,含等号)与备择假设 $H_a$(研究者想要支持的结论)。</li>
+<li><strong>确定分布</strong>:根据参数类型、样本量以及 $\sigma$ 是否已知,选定检验所用的分布($z$、$t$、$\chi^2$ 等)。</li>
+<li><strong>计算检验统计量与 $p$ 值</strong>:$p$ 值是"假设 $H_0$ 为真时,得到至少与当前样本一样极端的结果的概率"。</li>
+<li><strong>与显著性水平 $\alpha$ 比较</strong>:若 $p \le \alpha$,拒绝 $H_0$;否则不拒绝。</li>
+<li><strong>陈述结论</strong>:用问题的语境语言作答,而不是只写"拒绝"或"不拒绝"。</li>
+<p><strong>例题。</strong> 某饮料瓶标称容量为 $500$ mL。质检员随机抽取 $n=25$ 瓶,测得 $\bar{x}=496$ mL,$s=8$ mL。在 $\alpha=0.05$ 下,是否有证据表明平均容量低于标称值?</p>
+<li>$H_0:\ \mu = 500$,$H_a:\ \mu < 500$(左尾检验)。</li>
+<li>总体标准差未知,样本量较小,故使用自由度为 $n-1=24$ 的 $t$ 分布(假设容量近似正态)。</li>
+<li>检验统计量:</li>
+$$t=\frac{\bar{x}-\mu_0}{s/\sqrt{n}}=\frac{496-500}{8/\sqrt{25}}=\frac{-4}{1.6}=-2.5$$
+<p>左尾 $p$ 值为 $P(T_{24}\le -2.5)\approx 0.010$。</p>
+<li>因为 $p\approx 0.010 < 0.05$,拒绝 $H_0$。</li>
+<li>结论:在 $5\%$ 显著性水平下,有充分证据表明该饮料的平均容量低于 $500$ mL。</li>
+<p><strong>问题解决应用。</strong> 将同一流程用于另一情形:某网站声称转化率为 $p_0=0.10$。随机抽查 $n=400$ 次访问,有 $52$ 次转化,即 $\hat{p}=0.13$。问转化率是否与声称值不同($\alpha=0.05$)?</p>
+<li>$H_0:\ p=0.10$,$H_a:\ p\ne 0.10$(双尾)。</li>
+<li>检验条件:$np_0=40\ge 10$,$n(1-p_0)=360\ge 10$,可用正态近似,采用 $z$ 分布。</li>
+<li>计算:</li>
+$$z=\frac{\hat{p}-p_0}{\sqrt{p_0(1-p_0)/n}}=\frac{0.03}{\sqrt{0.09/400}}=\frac{0.03}{0.015}=2.0$$
+<p>双尾 $p=2\,P(Z\ge 2.0)\approx 2(0.0228)=0.0456$。</p>
+<li>$0.0456<0.05$,拒绝 $H_0$。</li>
+<li>结论:有证据表明实际转化率不等于 $10\%$。</li>
+<p><strong>常见错误。</strong></p>
+<li>检验分布与尾数要在看数据<strong>之前</strong>由问题决定,不能根据结果调整。</li>
+<li>双尾检验必须将单尾概率乘以 $2$。</li>
+<li>"不拒绝 $H_0$"不等于"证明 $H_0$ 为真",只说明证据不足。</li>
+<li>$p$ 值<strong>不是</strong> $H_0$ 为真的概率;它是在 $H_0$ 为真的前提下观察到此类数据的概率。</li>
+<li>第二个例子中 $p=0.0456$ 只略低于 $0.05$,结论对 $\alpha$ 的选择很敏感,应如实说明,而不要夸大。</li>
+<pre class="mermaid">flowchart TD
+A["1 陈述 H0 与 Ha"] --> B["2 确定检验分布"]
+B --> C["3 计算统计量与 p 值"]
+C --> D{"4 p 值是否不大于 α?"}
+D -->|"是"| E["拒绝 H0"]
+D -->|"否"| F["不拒绝 H0"]
+E --> G["5 用语境语言陈述结论"]
+F --> G</pre>
+<p><em>假设检验五步流程:先设定假设并选择分布,再计算 $p$ 值与 $\alpha$ 比较,最后用语境语言给出结论。</em></p>
+  </main>
+  <footer class="spl-credit"><span class="spl-credit__meta">Introductory Statistics — Ch9: Hypothesis Testing with One Sample (Level: College &middot; Language: ZH &middot; Model: sonnet)</span><span class="spl-credit__powered">Generated and Powered by <a href="https://github.com/digital-duck/SPL.py" target="_blank" rel="noopener">SPL</a></span></footer>
+</div>
+</body>
+</html>

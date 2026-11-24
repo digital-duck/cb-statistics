@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Test Of Independence | Introductory Statistics Ch11</title>
+<script>
+MathJax = {
+  tex: { inlineMath: [['$','$'],['\\(','\\)']], displayMath: [['$$','$$'],['\\[','\\]']] },
+  options: { skipHtmlTags: ['script','noscript','style','textarea','pre','code'] }
+};
+</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" async></script>
+<script src="https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.min.js"></script>
+<script>mermaid.initialize({ startOnLoad: true, theme: 'neutral' });</script>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:Georgia,serif;background:#fafaf8;color:#1a1a1a;line-height:1.7}
+h2{font-size:1.45rem;color:#1e3a5f;margin-bottom:12px}
+h3{font-size:1.1rem;color:#2e4a7f;margin:20px 0 8px}
+h4{font-size:1rem;color:#3a5a8f;margin:16px 0 6px}
+p{margin-bottom:16px;font-size:1rem}
+li{margin-bottom:6px;margin-left:24px;font-size:1rem}
+pre{background:#f4f4f0;border:1px solid #d8d8d0;border-radius:6px;
+    padding:16px 20px;overflow-x:auto;margin:16px 0}
+code{font-family:Menlo,Consolas,monospace;font-size:.87em}
+p code{background:#f0f0ea;padding:1px 4px;border-radius:3px}
+footer.spl-credit{margin-top:32px;padding-top:16px;border-top:1px solid #e0e0d8;
+      font-family:system-ui,sans-serif;font-size:.78rem;color:#999;text-align:center}
+footer.spl-credit a{color:#2563eb;text-decoration:none}
+footer.spl-credit span{display:block}
+footer.spl-credit .spl-credit__meta{margin-bottom:4px}
+.cb-figure{margin:24px 0;text-align:center}
+.cb-figure img{max-width:100%;height:auto;border:1px solid #e0e0d8;border-radius:6px}
+figcaption{font-size:.82rem;color:#666;margin-top:8px;font-style:italic;text-align:center}
+pre.mermaid{background:none;border:none;padding:0;overflow:visible;margin:16px 0}
+.page{max-width:780px;margin:0 auto;padding:40px 32px}
+section{margin-bottom:48px;border-top:1px solid #e0e0d8;padding-top:36px}
+section:first-of-type{border-top:none;padding-top:0}
+</style>
+</head>
+<body>
+<div class="page">
+  <main>
+    <h2 id="独立性检验">独立性检验</h2>
+<p><strong>定义。</strong> 独立性检验（test of independence）用来判断同一总体中的两个分类变量是否相互独立。检验的数据整理成列联表（contingency table），每个单元格记录同时属于某一行类别和某一列类别的观测频数 $O_{ij}$。</p>
+<p>假设为：</p>
+<li>$H_0$：两个变量独立（一个变量的分布不随另一个变量的类别而改变）；</li>
+<li>$H_a$：两个变量不独立（存在关联）。</li>
+<p>若 $H_0$ 成立，则 $P(\text{第 } i \text{ 行且第 } j \text{ 列}) = P(\text{第 } i \text{ 行})\,P(\text{第 } j \text{ 列})$，由此得到期望频数</p>
+$$E_{ij}=\frac{(\text{第 } i \text{ 行总计})(\text{第 } j \text{ 列总计})}{n}.$$
+<p>检验统计量为</p>
+$$\chi^2=\sum_{i,j}\frac{(O_{ij}-E_{ij})^2}{E_{ij}},$$
+<p>在 $H_0$ 成立且样本足够大时近似服从自由度为</p>
+$$\text{df}=(r-1)(c-1)$$
+<p>的卡方分布，其中 $r$、$c$ 分别为行数和列数。使用条件：数据来自随机样本，各观测相互独立，且每个 $E_{ij}\ge 5$（常用经验标准）。</p>
+<p><strong>例题。</strong> 随机调查 200 名学生，记录“学习方式”（独自学习 / 小组学习）与“成绩”（及格 / 不及格）：</p>
+<p>| | 及格 | 不及格 | 合计 | |---|---|---|---| | 独自学习 | 70 | 30 | 100 | | 小组学习 | 90 | 10 | 100 | | 合计 | 160 | 40 | 200 |</p>
+<p>在 $\alpha=0.05$ 下检验两者是否独立。</p>
+<li>期望频数：$E_{11}=\dfrac{100\times160}{200}=80$，$E_{12}=20$，$E_{21}=80$，$E_{22}=20$，均不小于 5。</li>
+<li>统计量：</li>
+$$\chi^2=\frac{(70-80)^2}{80}+\frac{(30-20)^2}{20}+\frac{(90-80)^2}{80}+\frac{(10-20)^2}{20}=1.25+5+1.25+5=12.5.$$
+<li>自由度：$\text{df}=(2-1)(2-1)=1$，临界值 $\chi^2_{0.05,1}=3.841$。</li>
+<li>决策：$12.5>3.841$（$p\approx 0.0004<0.05$），拒绝 $H_0$。</li>
+<p>结论：有充分证据表明学习方式与成绩有关联。</p>
+<p><strong>问题求解应用。</strong> 检验的步骤可概括为下图。</p>
+<pre class="mermaid">flowchart TD
+A[提出 H0 与 Ha] --> B[由行列合计计算 E_ij]
+B --> C{所有 E_ij 不小于 5?}
+C -- 否 --> D[合并类别或改用精确检验]
+C -- 是 --> E[计算卡方统计量]
+E --> F[确定 df=行数减1乘列数减1]
+F --> G[比较临界值或 p 值]
+G --> H[给出关联结论]</pre>
+<p><em>独立性检验的决策流程：先检查条件，再计算统计量并做出结论。</em></p>
+<p>解题时需注意三点：</p>
+<li><strong>只能说明有关联，不能说明因果。</strong> 上例并不能证明小组学习导致成绩提高，因为学生可能自行选择学习方式。</li>
+<li><strong>找出关联的来源。</strong> 比较各单元格的 $\dfrac{(O_{ij}-E_{ij})^2}{E_{ij}}$，贡献最大的单元格就是偏离独立性最明显之处。上例中，“不及格”这一列的两个单元格贡献最大。</li>
+<li><strong>与齐性检验区分。</strong> 若是从一个总体抽样后再对两个变量分类，用独立性检验；若是分别从几个总体各抽一个样本、比较同一变量的分布，则用齐性检验。两者的计算完全相同，只是抽样设计与表述不同。</li>
+<p>练习：把上例中的每个频数都乘以 2（$n=400$），其余比例不变，$\chi^2$ 会变成多少？（答案：25。样本量增大使统计量等比例增大，同样的差异更容易被检出。）</p>
+  </main>
+  <footer class="spl-credit"><span class="spl-credit__meta">Introductory Statistics — Ch11: The Chi-Square Distribution (Level: College &middot; Language: ZH &middot; Model: sonnet)</span><span class="spl-credit__powered">Generated and Powered by <a href="https://github.com/digital-duck/SPL.py" target="_blank" rel="noopener">SPL</a></span></footer>
+</div>
+</body>
+</html>

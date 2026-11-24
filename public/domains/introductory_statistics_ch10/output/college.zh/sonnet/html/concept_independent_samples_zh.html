@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Independent Samples | Introductory Statistics Ch10</title>
+<script>
+MathJax = {
+  tex: { inlineMath: [['$','$'],['\\(','\\)']], displayMath: [['$$','$$'],['\\[','\\]']] },
+  options: { skipHtmlTags: ['script','noscript','style','textarea','pre','code'] }
+};
+</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" async></script>
+<script src="https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.min.js"></script>
+<script>mermaid.initialize({ startOnLoad: true, theme: 'neutral' });</script>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:Georgia,serif;background:#fafaf8;color:#1a1a1a;line-height:1.7}
+h2{font-size:1.45rem;color:#1e3a5f;margin-bottom:12px}
+h3{font-size:1.1rem;color:#2e4a7f;margin:20px 0 8px}
+h4{font-size:1rem;color:#3a5a8f;margin:16px 0 6px}
+p{margin-bottom:16px;font-size:1rem}
+li{margin-bottom:6px;margin-left:24px;font-size:1rem}
+pre{background:#f4f4f0;border:1px solid #d8d8d0;border-radius:6px;
+    padding:16px 20px;overflow-x:auto;margin:16px 0}
+code{font-family:Menlo,Consolas,monospace;font-size:.87em}
+p code{background:#f0f0ea;padding:1px 4px;border-radius:3px}
+footer.spl-credit{margin-top:32px;padding-top:16px;border-top:1px solid #e0e0d8;
+      font-family:system-ui,sans-serif;font-size:.78rem;color:#999;text-align:center}
+footer.spl-credit a{color:#2563eb;text-decoration:none}
+footer.spl-credit span{display:block}
+footer.spl-credit .spl-credit__meta{margin-bottom:4px}
+.cb-figure{margin:24px 0;text-align:center}
+.cb-figure img{max-width:100%;height:auto;border:1px solid #e0e0d8;border-radius:6px}
+figcaption{font-size:.82rem;color:#666;margin-top:8px;font-style:italic;text-align:center}
+pre.mermaid{background:none;border:none;padding:0;overflow:visible;margin:16px 0}
+.page{max-width:780px;margin:0 auto;padding:40px 32px}
+section{margin-bottom:48px;border-top:1px solid #e0e0d8;padding-top:36px}
+section:first-of-type{border-top:none;padding-top:0}
+</style>
+</head>
+<body>
+<div class="page">
+  <main>
+    <h2 id="独立样本">独立样本</h2>
+<p><strong>定义。</strong> 如果从一个总体中抽取的观测值与从另一个总体中抽取的观测值之间没有任何关联,则称这两个样本为<strong>独立样本</strong>(independent samples)。此时,样本 1 中的任何一个个体都不会影响样本 2 中选取哪些个体,也不会决定它们取什么值。典型情形是:随机把受试者分成两组,或分别从两所学校各自随机抽样。</p>
+<p>与之相对的是<strong>配对样本</strong>(paired samples):同一批对象测量两次(如治疗前、后),或两组对象一一匹配(如双胞胎)。配对数据中的观测值彼此相关,必须按差值 $d_i = x_i - y_i$ 处理;独立样本则不能这样处理。</p>
+<p><strong>数学表述。</strong> 设样本 $X_1,\dots,X_{n_1}$ 来自总体 1,样本 $Y_1,\dots,Y_{n_2}$ 来自总体 2。独立意味着两组之间任意一对变量都独立,且 $n_1$ 与 $n_2$ 不必相等。由独立性可知</p>
+$$\operatorname{Var}(\bar X-\bar Y)=\frac{\sigma_1^2}{n_1}+\frac{\sigma_2^2}{n_2}.$$
+<p>若两组相关,上式还会多出一项协方差。这是独立样本所特有的结论,也是双样本 $t$ 检验的基础。</p>
+<p><strong>例题。</strong> 一位老师想比较两种教学方法。她随机抽取 $n_1=36$ 名学生使用方法 A,另外随机抽取 $n_2=49$ 名学生使用方法 B,两组学生互不重叠。结果为:</p>
+<p>| 方法 | 样本均值 | 样本标准差 | |---|---|---| | A | $\bar x = 78$ | $s_1 = 12$ | | B | $\bar y = 72$ | $s_2 = 14$ |</p>
+<p>求均值之差的标准误:</p>
+$$SE=\sqrt{\frac{12^2}{36}+\frac{14^2}{49}}=\sqrt{4+4}\approx 2.83.$$
+<p>检验统计量为</p>
+$$t=\frac{78-72}{2.83}\approx 2.12.$$
+<p>在样本量较大时,这个值超过了约 $1.96$ 的临界值,因此在 $5\%$ 的显著性水平下,有证据表明两种方法的平均成绩不同。</p>
+<p><strong>问题求解应用。</strong> 遇到实际问题时,先问两个问题,再选方法:</p>
+<li><strong>同一个个体是否被测量了不止一次?</strong> 若是,则为配对样本,应使用配对 $t$ 检验。</li>
+<li><strong>两组个体是否由彼此无关的随机过程产生?</strong> 若是,则为独立样本,应使用双样本 $t$ 检验或双样本比例检验。</li>
+<p><em>判断练习:</em> 20 名运动员训练前后各测一次百米成绩,这是配对样本;随机选 20 名运动员用新鞋、另外 20 名用旧鞋,这是独立样本。</p>
+<p>若误把配对数据当作独立样本,会忽略协方差项,从而使检验效力降低。若误把独立数据当作配对数据,则没有意义,因为根本不存在可以相减的一一对应关系。</p>
+<p><strong>小结。</strong> 独立样本的核心是"两组之间无关联"。这一条件使方差可以直接相加,也决定了我们该用哪种检验来比较两个总体。</p>
+  </main>
+  <footer class="spl-credit"><span class="spl-credit__meta">Introductory Statistics — Ch10: Hypothesis Testing with Two Samples (Level: College &middot; Language: ZH &middot; Model: sonnet)</span><span class="spl-credit__powered">Generated and Powered by <a href="https://github.com/digital-duck/SPL.py" target="_blank" rel="noopener">SPL</a></span></footer>
+</div>
+</body>
+</html>

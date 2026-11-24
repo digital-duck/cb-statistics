@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pooled Proportion | Introductory Statistics Ch10</title>
+<script>
+MathJax = {
+  tex: { inlineMath: [['$','$'],['\\(','\\)']], displayMath: [['$$','$$'],['\\[','\\]']] },
+  options: { skipHtmlTags: ['script','noscript','style','textarea','pre','code'] }
+};
+</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" async></script>
+<script src="https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.min.js"></script>
+<script>mermaid.initialize({ startOnLoad: true, theme: 'neutral' });</script>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:Georgia,serif;background:#fafaf8;color:#1a1a1a;line-height:1.7}
+h2{font-size:1.45rem;color:#1e3a5f;margin-bottom:12px}
+h3{font-size:1.1rem;color:#2e4a7f;margin:20px 0 8px}
+h4{font-size:1rem;color:#3a5a8f;margin:16px 0 6px}
+p{margin-bottom:16px;font-size:1rem}
+li{margin-bottom:6px;margin-left:24px;font-size:1rem}
+pre{background:#f4f4f0;border:1px solid #d8d8d0;border-radius:6px;
+    padding:16px 20px;overflow-x:auto;margin:16px 0}
+code{font-family:Menlo,Consolas,monospace;font-size:.87em}
+p code{background:#f0f0ea;padding:1px 4px;border-radius:3px}
+footer.spl-credit{margin-top:32px;padding-top:16px;border-top:1px solid #e0e0d8;
+      font-family:system-ui,sans-serif;font-size:.78rem;color:#999;text-align:center}
+footer.spl-credit a{color:#2563eb;text-decoration:none}
+footer.spl-credit span{display:block}
+footer.spl-credit .spl-credit__meta{margin-bottom:4px}
+.cb-figure{margin:24px 0;text-align:center}
+.cb-figure img{max-width:100%;height:auto;border:1px solid #e0e0d8;border-radius:6px}
+figcaption{font-size:.82rem;color:#666;margin-top:8px;font-style:italic;text-align:center}
+pre.mermaid{background:none;border:none;padding:0;overflow:visible;margin:16px 0}
+.page{max-width:780px;margin:0 auto;padding:40px 32px}
+section{margin-bottom:48px;border-top:1px solid #e0e0d8;padding-top:36px}
+section:first-of-type{border-top:none;padding-top:0}
+</style>
+</head>
+<body>
+<div class="page">
+  <main>
+    <h2 id="合并比例-pooled-proportion">合并比例(Pooled Proportion)</h2>
+<h3 id="定义">定义</h3>
+<p>在检验两个总体比例是否相等时,原假设为 $H_0: p_1 = p_2$。此时两个总体共享同一个未知的"公共比例" $p$。<strong>合并比例</strong>就是对这个公共值 $p$ 的估计:把两个样本的成功次数相加,再除以两个样本容量之和:</p>
+$$\hat{p}_c = \frac{x_1 + x_2}{n_1 + n_2}$$
+<p>其中 $x_1, x_2$ 分别是两个样本中的成功次数,$n_1, n_2$ 是样本容量。它等价于样本比例 $\hat p_1 = x_1/n_1$ 与 $\hat p_2 = x_2/n_2$ 的<strong>加权平均</strong>:</p>
+$$\hat{p}_c = \frac{n_1\hat p_1 + n_2\hat p_2}{n_1+n_2}$$
+<p>样本容量越大的一组,对合并比例的影响越大。</p>
+<h3 id="为什么要合并">为什么要合并?</h3>
+<p>两样本比例差 $\hat p_1-\hat p_2$ 的标准误依赖于 $p$。在 $H_0$ 成立时 $p_1=p_2=p$,于是</p>
+$$SE = \sqrt{\hat p_c(1-\hat p_c)\left(\frac{1}{n_1}+\frac{1}{n_2}\right)}$$
+<p>检验统计量为</p>
+$$z = \frac{\hat p_1 - \hat p_2}{SE}.$$
+<p>注意:这一做法只适用于假设检验(因为我们假定 $H_0$ 为真)。构造置信区间时不假设两比例相等,应使用各自的 $\hat p_1,\hat p_2$ 分别计算标准误。</p>
+<h3 id="例题">例题</h3>
+<p>某学校比较两种复习方式。方式 A:$n_1=120$ 名学生中 $x_1=90$ 人通过测验;方式 B:$n_2=80$ 名学生中 $x_2=48$ 人通过。问两种方式的通过率是否不同($\alpha=0.05$)?</p>
+<p><strong>第一步:</strong> $\hat p_1 = 0.75$,$\hat p_2 = 0.60$。</p>
+<p><strong>第二步:</strong> 合并比例</p>
+$$\hat p_c = \frac{90+48}{120+80} = \frac{138}{200} = 0.69$$
+<p><strong>第三步:</strong> 标准误</p>
+$$SE = \sqrt{0.69\times0.31\left(\tfrac{1}{120}+\tfrac{1}{80}\right)} = \sqrt{0.2139\times 0.020833} \approx 0.0668$$
+<p><strong>第四步:</strong> 检验统计量</p>
+$$z = \frac{0.75-0.60}{0.0668}\approx 2.25$$
+<p>双侧检验的 $p$ 值约为 $2\times0.0122 = 0.024 < 0.05$,因此拒绝 $H_0$:有证据表明两种方式的通过率不同。</p>
+<h3 id="问题解决中的应用">问题解决中的应用</h3>
+<p>使用前先检查大样本条件:用合并比例计算 $n_1\hat p_c,\ n_1(1-\hat p_c),\ n_2\hat p_c,\ n_2(1-\hat p_c)$ 是否都不小于 10。本例中分别为 82.8、37.2、55.2、24.8,条件满足,正态近似可用。</p>
+<p><strong>常见错误:</strong></p>
+<li>把 $\hat p_c$ 算成 $(\hat p_1+\hat p_2)/2$。只有 $n_1=n_2$ 时二者才相等;本例中简单平均为 0.675,与 0.69 不同。</li>
+<li>在置信区间中误用合并比例。</li>
+<li>检验 $H_0: p_1-p_2 = d_0$($d_0\neq 0$)时,两比例并不相等,不能合并。</li>
+<p><strong>小结:</strong> 合并比例是"假设两总体相同"时对公共比例的最佳估计,按样本容量加权,专用于两比例相等的假设检验。</p>
+  </main>
+  <footer class="spl-credit"><span class="spl-credit__meta">Introductory Statistics — Ch10: Hypothesis Testing with Two Samples (Level: College &middot; Language: ZH &middot; Model: sonnet)</span><span class="spl-credit__powered">Generated and Powered by <a href="https://github.com/digital-duck/SPL.py" target="_blank" rel="noopener">SPL</a></span></footer>
+</div>
+</body>
+</html>

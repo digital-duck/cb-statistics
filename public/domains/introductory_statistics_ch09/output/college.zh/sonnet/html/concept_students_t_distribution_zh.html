@@ -11,6 +11,8 @@ MathJax = {
 };
 </script>
 <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" async></script>
+<script src="https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.min.js"></script>
+<script>mermaid.initialize({ startOnLoad: true, theme: 'neutral' });</script>
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
 body{font-family:Georgia,serif;background:#fafaf8;color:#1a1a1a;line-height:1.7}
@@ -26,6 +28,12 @@ p code{background:#f0f0ea;padding:1px 4px;border-radius:3px}
 footer.spl-credit{margin-top:32px;padding-top:16px;border-top:1px solid #e0e0d8;
       font-family:system-ui,sans-serif;font-size:.78rem;color:#999;text-align:center}
 footer.spl-credit a{color:#2563eb;text-decoration:none}
+footer.spl-credit span{display:block}
+footer.spl-credit .spl-credit__meta{margin-bottom:4px}
+.cb-figure{margin:24px 0;text-align:center}
+.cb-figure img{max-width:100%;height:auto;border:1px solid #e0e0d8;border-radius:6px}
+figcaption{font-size:.82rem;color:#666;margin-top:8px;font-style:italic;text-align:center}
+pre.mermaid{background:none;border:none;padding:0;overflow:visible;margin:16px 0}
 .page{max-width:780px;margin:0 auto;padding:40px 32px}
 section{margin-bottom:48px;border-top:1px solid #e0e0d8;padding-top:36px}
 section:first-of-type{border-top:none;padding-top:0}
@@ -34,40 +42,48 @@ section:first-of-type{border-top:none;padding-top:0}
 <body>
 <div class="page">
   <main>
-    <h2 id="students-t-distribution">Students T Distribution</h2>
+    <h2 id="学生t分布">学生t分布</h2>
 <h3 id="定义">定义</h3>
-<p>设 $X_1, X_2, \ldots, X_n$ 为来自正态总体 $\mathcal{N}(\mu, \sigma^2)$ 的随机样本，样本均值为 $\bar{X}$，样本方差为 $S^2 = \frac{1}{n-1}\sum_{i=1}^n (X_i - \bar{X})^2$。当总体标准差 $\sigma$ <strong>未知</strong>时，统计量</p>
-$$T = \frac{\bar{X} - \mu}{S / \sqrt{n}}$$
-<p>服从自由度为 $\nu = n - 1$ 的 <strong>Student $t$ 分布</strong>，记作 $T \sim t(\nu)$。其概率密度函数为</p>
-$$f(t;\nu) = \frac{\Gamma\!\left(\frac{\nu+1}{2}\right)}{\sqrt{\nu\pi}\,\Gamma\!\left(\frac{\nu}{2}\right)} \left(1 + \frac{t^2}{\nu}\right)^{-\frac{\nu+1}{2}}, \quad t \in \mathbb{R}.$$
-<p>与标准正态分布相比，$t$ 分布具有更厚的尾部；当 $\nu \to \infty$ 时，$t(\nu)$ 收敛于 $\mathcal{N}(0,1)$。</p>
-<h3 id="具体例子">具体例子</h3>
-<p>某班级随机抽取 $n = 10$ 名学生测量身高（单位：cm），得 $\bar{x} = 172.3$，$s = 5.8$。假设身高服从正态分布，检验总体均值是否为 $\mu_0 = 170$。</p>
-<p>计算检验统计量：</p>
-$$t = \frac{172.3 - 170}{5.8 / \sqrt{10}} = \frac{2.3}{1.834} \approx 1.254.$$
-<p>自由度 $\nu = 9$，查 $t$ 分布表得双侧临界值 $t_{0.025}(9) = 2.262$。由于 $|t| = 1.254 < 2.262$，在显著性水平 $\alpha = 0.05$ 下不能拒绝原假设，即无充分证据表明总体均值偏离 170 cm。</p>
-<h3 id="关键定理">关键定理</h3>
-<p><strong>定理（$t$ 统计量的分布推导）</strong>：若 $Z \sim \mathcal{N}(0,1)$ 与 $V \sim \chi^2(\nu)$ 相互独立，则</p>
-$$T = \frac{Z}{\sqrt{V/\nu}} \sim t(\nu).$$
-<p>对于正态样本，$Z = \frac{\bar{X}-\mu}{\sigma/\sqrt{n}}$ 与 $V = \frac{(n-1)S^2}{\sigma^2}$ 正交独立（由 Cochran 定理保证），代入即得 $T \sim t(n-1)$。</p>
-<h3 id="实验单元-sympy">实验单元（SymPy）</h3>
-<pre><code>from sympy import symbols, sqrt, simplify
-from sympy.stats import StudentT, density, cdf, P, Lt, Gt
-
-nu = 9
-T = StudentT('T', nu)
-
-# 计算 P(T &gt; 1.254)（单侧 p 值）
-p_value = P(Gt(T, 1.254))
-print("单侧 p 值:", float(p_value.evalf()))
-
-# 输出自由度 9 的密度函数
-t = symbols('t')
-f = density(T)(t)
-print("密度函数:", simplify(f))</code></pre>
-<p>运行上述代码可直接验证例题中的 $p$ 值，并观察 $t(9)$ 的解析密度表达式，加深对厚尾性质的直觉理解。</p>
+<p>当总体标准差 $\sigma$ 未知时,检验总体均值只能用样本标准差 $s$ 代替 $\sigma$。这时统计量</p>
+$$
+t=\frac{\bar{X}-\mu}{s/\sqrt{n}}
+$$
+<p>不再服从标准正态分布,而是服从<strong>自由度为 $\nu=n-1$ 的学生t分布</strong>。这是 W. S. Gosset(笔名"Student")在1908年得到的结果。</p>
+<p>t分布的主要性质:</p>
+<li>密度曲线关于 0 对称,呈钟形,与标准正态分布相似。</li>
+<li>与正态分布相比,它<strong>尾部更厚、峰值更低</strong>。原因是 $s$ 本身随样本波动,增加了不确定性。</li>
+<li>自由度 $\nu$ 越大,曲线越接近标准正态分布。当 $\nu\to\infty$ 时,t分布收敛于 $N(0,1)$。</li>
+<li>当 $\nu>2$ 时,方差为 $\dfrac{\nu}{\nu-2}>1$,大于标准正态分布的方差。</li>
+<pre class="mermaid">flowchart LR
+A["总体标准差已知"] --> B["使用标准正态分布 z"]
+C["总体标准差未知"] --> D["用样本标准差 s 代替"]
+D --> E["使用 t 分布,自由度 n-1"]
+E --> F["n 增大时趋近正态分布"]</pre>
+<p><em>图:根据总体标准差是否已知,选择 z 分布或 t 分布。</em></p>
+<h3 id="例题">例题</h3>
+<p>某品牌电池标称平均寿命为 $\mu_0=50$ 小时。随机抽取 $n=9$ 个电池,测得样本均值 $\bar{x}=47$ 小时,样本标准差 $s=4.5$ 小时。总体标准差未知。问:在 $\alpha=0.05$ 水平下,能否认为平均寿命低于标称值?</p>
+<p><strong>步骤 1:建立假设。</strong> $H_0:\mu=50$,$H_1:\mu<50$(单侧检验)。</p>
+<p><strong>步骤 2:计算检验统计量。</strong></p>
+$$
+t=\frac{47-50}{4.5/\sqrt{9}}=\frac{-3}{1.5}=-2.00
+$$
+<p><strong>步骤 3:确定临界值。</strong> 自由度 $\nu=8$,查表得单侧 $t_{0.05,8}=1.860$,所以拒绝域为 $t<-1.860$。</p>
+<p><strong>步骤 4:结论。</strong> 因为 $-2.00<-1.860$,所以拒绝 $H_0$。有证据表明平均寿命低于 50 小时。</p>
+<p>若错误地使用正态临界值 $-1.645$,结论虽然相同,但会<strong>低估</strong>临界值的大小,在小样本时容易误判为显著。</p>
+<h3 id="问题求解应用-置信区间">问题求解应用:置信区间</h3>
+<p>用同一组数据构造 $95\%$ 双侧置信区间。自由度为 8 时,$t_{0.025,8}=2.306$,因此</p>
+$$
+\bar{x}\pm t_{0.025,8}\frac{s}{\sqrt{n}}=47\pm 2.306\times1.5=47\pm 3.46
+$$
+<p>即区间为 $(43.54,\,50.46)$。</p>
+<p>这个区间包含 50,与双侧检验"不能拒绝 $H_0:\mu=50$"一致。注意这里是双侧,而上面的例题用的是单侧检验,二者的临界值不同。若用正态临界值 $1.96$,区间半宽只有 $2.94$,明显偏窄。</p>
+<p><strong>使用要点:</strong></p>
+<li>总体 $\sigma$ 未知,且总体近似正态(或 $n$ 较大)时,用 t 分布。</li>
+<li>自由度始终是 $n-1$,不是 $n$。</li>
+<li>样本量小时,t 与 $z$ 的差别大;当 $n>30$ 时,两者已十分接近。</li>
+<li>若数据严重偏斜且样本很小,t 方法的结果不可靠,应考虑其他方法。</li>
   </main>
-  <footer class="spl-credit">Generated by SPL &middot; Powered by SPL.py</footer>
+  <footer class="spl-credit"><span class="spl-credit__meta">Introductory Statistics — Ch9: Hypothesis Testing with One Sample (Level: College &middot; Language: ZH &middot; Model: sonnet)</span><span class="spl-credit__powered">Generated and Powered by <a href="https://github.com/digital-duck/SPL.py" target="_blank" rel="noopener">SPL</a></span></footer>
 </div>
 </body>
 </html>

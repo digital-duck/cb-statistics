@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Observed Expected Values | Introductory Statistics Ch11</title>
+<script>
+MathJax = {
+  tex: { inlineMath: [['$','$'],['\\(','\\)']], displayMath: [['$$','$$'],['\\[','\\]']] },
+  options: { skipHtmlTags: ['script','noscript','style','textarea','pre','code'] }
+};
+</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" async></script>
+<script src="https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.min.js"></script>
+<script>mermaid.initialize({ startOnLoad: true, theme: 'neutral' });</script>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:Georgia,serif;background:#fafaf8;color:#1a1a1a;line-height:1.7}
+h2{font-size:1.45rem;color:#1e3a5f;margin-bottom:12px}
+h3{font-size:1.1rem;color:#2e4a7f;margin:20px 0 8px}
+h4{font-size:1rem;color:#3a5a8f;margin:16px 0 6px}
+p{margin-bottom:16px;font-size:1rem}
+li{margin-bottom:6px;margin-left:24px;font-size:1rem}
+pre{background:#f4f4f0;border:1px solid #d8d8d0;border-radius:6px;
+    padding:16px 20px;overflow-x:auto;margin:16px 0}
+code{font-family:Menlo,Consolas,monospace;font-size:.87em}
+p code{background:#f0f0ea;padding:1px 4px;border-radius:3px}
+footer.spl-credit{margin-top:32px;padding-top:16px;border-top:1px solid #e0e0d8;
+      font-family:system-ui,sans-serif;font-size:.78rem;color:#999;text-align:center}
+footer.spl-credit a{color:#2563eb;text-decoration:none}
+footer.spl-credit span{display:block}
+footer.spl-credit .spl-credit__meta{margin-bottom:4px}
+.cb-figure{margin:24px 0;text-align:center}
+.cb-figure img{max-width:100%;height:auto;border:1px solid #e0e0d8;border-radius:6px}
+figcaption{font-size:.82rem;color:#666;margin-top:8px;font-style:italic;text-align:center}
+pre.mermaid{background:none;border:none;padding:0;overflow:visible;margin:16px 0}
+.page{max-width:780px;margin:0 auto;padding:40px 32px}
+section{margin-bottom:48px;border-top:1px solid #e0e0d8;padding-top:36px}
+section:first-of-type{border-top:none;padding-top:0}
+</style>
+</head>
+<body>
+<div class="page">
+  <main>
+    <h2 id="观测值与期望值">观测值与期望值</h2>
+<p><strong>定义。</strong> 在卡方检验中,<strong>观测值</strong>(observed value)$O_i$ 是样本中第 $i$ 个类别实际统计到的频数。<strong>期望值</strong>(expected value)$E_i$ 是在原假设 $H_0$ 成立时,该类别理论上应出现的频数。若总样本量为 $n$,类别 $i$ 在 $H_0$ 下的概率为 $p_i$,则</p>
+$$E_i = n\,p_i .$$
+<p>对于列联表(独立性检验),若 $H_0$ 为"两个变量相互独立",则第 $i$ 行第 $j$ 列的期望值为</p>
+$$E_{ij} = \frac{(\text{第 } i \text{ 行合计})(\text{第 } j \text{ 列合计})}{n}.$$
+<p>观测值与期望值之间的差异 $O_i - E_i$ 是卡方统计量的基础:</p>
+$$\chi^2 = \sum_i \frac{(O_i - E_i)^2}{E_i}.$$
+<p>除以 $E_i$ 的作用是按尺度标准化:期望频数为 5 时偏差 10 很大,期望频数为 1000 时偏差 10 则微不足道。通常要求每个 $E_i \ge 5$,卡方近似才可靠。</p>
+<p><strong>例题(拟合优度)。</strong> 掷一枚骰子 $n=60$ 次,检验其是否均匀。$H_0$:每个点数概率为 $1/6$,故每个 $E_i = 60 \times \tfrac16 = 10$。观测结果如下:</p>
+<p>| 点数 | 1 | 2 | 3 | 4 | 5 | 6 | |---|---|---|---|---|---|---| | $O_i$ | 8 | 12 | 9 | 11 | 6 | 14 | | $E_i$ | 10 | 10 | 10 | 10 | 10 | 10 |</p>
+<p>各项 $(O_i-E_i)^2/E_i$ 为 $0.4,\ 0.4,\ 0.1,\ 0.1,\ 1.6,\ 1.6$,因此</p>
+$$\chi^2 = 4.2 .$$
+<p>自由度为 $6-1=5$,显著性水平 $\alpha=0.05$ 的临界值为 $11.07$。由于 $4.2<11.07$,不能拒绝 $H_0$,没有充分证据表明骰子不均匀。</p>
+<p><strong>问题求解应用(独立性检验)。</strong> 调查 100 名学生,考察"是否使用学习软件"与"成绩是否达标"是否相关:</p>
+<p>| | 达标 | 未达标 | 行合计 | |---|---|---|---| | 使用 | 40 | 10 | 50 | | 不使用 | 30 | 20 | 50 | | 列合计 | 70 | 30 | 100 |</p>
+<p>在独立假设下,$E_{11} = \frac{50\times 70}{100} = 35$,$E_{12} = 15$,$E_{21} = 35$,$E_{22} = 15$。于是</p>
+$$\chi^2 = \frac{(40-35)^2}{35}+\frac{(10-15)^2}{15}+\frac{(30-35)^2}{35}+\frac{(20-15)^2}{15} \approx 0.714+1.667+0.714+1.667 = 4.76 .$$
+<p>自由度为 $(2-1)(2-1)=1$,临界值为 $3.84$。因为 $4.76>3.84$,在 5% 水平下拒绝独立性假设,说明使用软件与成绩达标之间存在统计关联。</p>
+<p><strong>要点。</strong> 解题的稳定流程是:①写出 $H_0$;②由 $H_0$ 计算每个 $E_i$,并检查是否都不小于 5;③逐项计算 $(O_i-E_i)^2/E_i$ 并求和;④与对应自由度的临界值比较。注意:期望值必须由 $H_0$ 推出,而不是由样本"拟合"出的任意数;同时,$O_i$ 与 $E_i$ 之和都应等于 $n$,这是检查计算是否出错的快速办法。</p>
+  </main>
+  <footer class="spl-credit"><span class="spl-credit__meta">Introductory Statistics — Ch11: The Chi-Square Distribution (Level: College &middot; Language: ZH &middot; Model: sonnet)</span><span class="spl-credit__powered">Generated and Powered by <a href="https://github.com/digital-duck/SPL.py" target="_blank" rel="noopener">SPL</a></span></footer>
+</div>
+</body>
+</html>

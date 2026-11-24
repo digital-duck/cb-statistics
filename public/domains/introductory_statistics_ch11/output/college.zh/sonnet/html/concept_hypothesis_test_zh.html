@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hypothesis Test | Introductory Statistics Ch11</title>
+<script>
+MathJax = {
+  tex: { inlineMath: [['$','$'],['\\(','\\)']], displayMath: [['$$','$$'],['\\[','\\]']] },
+  options: { skipHtmlTags: ['script','noscript','style','textarea','pre','code'] }
+};
+</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" async></script>
+<script src="https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.min.js"></script>
+<script>mermaid.initialize({ startOnLoad: true, theme: 'neutral' });</script>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:Georgia,serif;background:#fafaf8;color:#1a1a1a;line-height:1.7}
+h2{font-size:1.45rem;color:#1e3a5f;margin-bottom:12px}
+h3{font-size:1.1rem;color:#2e4a7f;margin:20px 0 8px}
+h4{font-size:1rem;color:#3a5a8f;margin:16px 0 6px}
+p{margin-bottom:16px;font-size:1rem}
+li{margin-bottom:6px;margin-left:24px;font-size:1rem}
+pre{background:#f4f4f0;border:1px solid #d8d8d0;border-radius:6px;
+    padding:16px 20px;overflow-x:auto;margin:16px 0}
+code{font-family:Menlo,Consolas,monospace;font-size:.87em}
+p code{background:#f0f0ea;padding:1px 4px;border-radius:3px}
+footer.spl-credit{margin-top:32px;padding-top:16px;border-top:1px solid #e0e0d8;
+      font-family:system-ui,sans-serif;font-size:.78rem;color:#999;text-align:center}
+footer.spl-credit a{color:#2563eb;text-decoration:none}
+footer.spl-credit span{display:block}
+footer.spl-credit .spl-credit__meta{margin-bottom:4px}
+.cb-figure{margin:24px 0;text-align:center}
+.cb-figure img{max-width:100%;height:auto;border:1px solid #e0e0d8;border-radius:6px}
+figcaption{font-size:.82rem;color:#666;margin-top:8px;font-style:italic;text-align:center}
+pre.mermaid{background:none;border:none;padding:0;overflow:visible;margin:16px 0}
+.page{max-width:780px;margin:0 auto;padding:40px 32px}
+section{margin-bottom:48px;border-top:1px solid #e0e0d8;padding-top:36px}
+section:first-of-type{border-top:none;padding-top:0}
+</style>
+</head>
+<body>
+<div class="page">
+  <main>
+    <h2 id="假设检验">假设检验</h2>
+<p><strong>定义。</strong> 假设检验是用样本数据判断关于总体的某个断言是否可信的程序。它包含四个要素:</p>
+<li><strong>原假设</strong> $H_0$:默认成立的"无效应"断言,例如 $\mu=\mu_0$。</li>
+<li><strong>备择假设</strong> $H_1$:我们希望用证据支持的断言,例如 $\mu\neq\mu_0$(双侧)或 $\mu>\mu_0$(单侧)。</li>
+<li><strong>检验统计量</strong>:把样本与 $H_0$ 的偏离程度压缩成一个数。总体标准差未知时,均值检验使用</li>
+$$t=\frac{\bar x-\mu_0}{s/\sqrt n},\qquad \text{自由度 } n-1.$$
+<li><strong>$p$ 值</strong>:<em>假设 $H_0$ 为真</em>时,得到至少与当前观测同样极端的统计量的概率。</li>
+<p>决策规则:预先设定显著性水平 $\alpha$(常取 $0.05$)。若 $p\le\alpha$,拒绝 $H_0$;否则"不拒绝 $H_0$"。注意:$p$ 值<strong>不是</strong> $H_0$ 为真的概率,"不拒绝"也不等于"证明 $H_0$ 成立"。</p>
+<p><strong>完整流程:</strong></p>
+<pre class="mermaid">flowchart TD
+A["提出 H0 与 H1"] --> B["选定显著性水平 α"]
+B --> C["收集样本并计算检验统计量"]
+C --> D["计算 p 值"]
+D --> E{"p 小于等于 α ?"}
+E -->|"是"| F["拒绝 H0"]
+E -->|"否"| G["不拒绝 H0"]</pre>
+<p><em>假设检验的决策流程:先设定假设与 α,再由数据得到统计量和 p 值,最后比较 p 与 α。</em></p>
+<p><strong>例题。</strong> 某饮料标注每瓶净含量为 $500\,\text{mL}$。随机抽取 $n=25$ 瓶,测得 $\bar x=496\,\text{mL}$,$s=8\,\text{mL}$。在 $\alpha=0.05$ 下,能否认为平均含量低于标注值?</p>
+<li>假设:$H_0:\mu=500$,$H_1:\mu<500$(单侧)。</li>
+<li>统计量:</li>
+$$t=\frac{496-500}{8/\sqrt{25}}=\frac{-4}{1.6}=-2.5.$$
+<li>自由度为 $24$。查表或软件得 $p=P(T_{24}\le -2.5)\approx 0.010$。</li>
+<li>因为 $0.010<0.05$,拒绝 $H_0$。有较强证据表明平均净含量低于 $500\,\text{mL}$。</li>
+<p><strong>问题求解应用。</strong> 用 Python 一步完成同样的检验(<code>alternative='less'</code> 对应单侧):</p>
+<pre><code>from scipy import stats
+t, p = stats.ttest_1samp(data, popmean=500, alternative='less')
+print(t, p)   # p &lt; 0.05 则拒绝 H0</code></pre>
+<p>解题时要避免三个常见错误:</p>
+<li><strong>单双侧选错。</strong> 若问"是否不同于 $500$",应取双侧,此时 $p\approx 0.020$,是单侧的两倍。</li>
+<li><strong>事后改 $\alpha$。</strong> 必须在看数据之前确定 $\alpha$,否则 $p\le\alpha$ 的结论没有意义。</li>
+<li><strong>混淆统计显著与实际重要。</strong> 样本量极大时,微小的偏差也能得到很小的 $p$ 值,所以还要结合效应大小(如 $\bar x-\mu_0$ 与置信区间)判断。</li>
+<p>另外要知道两类错误:<strong>第一类错误</strong>是 $H_0$ 为真却拒绝它,其概率恰为 $\alpha$。<strong>第二类错误</strong>是 $H_0$ 为假却未拒绝它,其概率记为 $\beta$,检验功效为 $1-\beta$。增大样本量可以在 $\alpha$ 不变的情况下降低 $\beta$。</p>
+  </main>
+  <footer class="spl-credit"><span class="spl-credit__meta">Introductory Statistics — Ch11: The Chi-Square Distribution (Level: College &middot; Language: ZH &middot; Model: sonnet)</span><span class="spl-credit__powered">Generated and Powered by <a href="https://github.com/digital-duck/SPL.py" target="_blank" rel="noopener">SPL</a></span></footer>
+</div>
+</body>
+</html>
