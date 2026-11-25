@@ -4111,13 +4111,13 @@
       },
       {
         "target": "test_single_mean_known_sd",
-        "file": "output/college.zh/sonnet/html/book_test_single_mean_known_sd.html",
+        "file": "output/college.zh/sonnet/html/book_test_single_mean_known_sd_zh.html",
         "model": "sonnet",
         "language": "zh"
       },
       {
         "target": "test_single_mean_unknown_sd",
-        "file": "output/college.zh/sonnet/html/book_test_single_mean_unknown_sd.html",
+        "file": "output/college.zh/sonnet/html/book_test_single_mean_unknown_sd_zh.html",
         "model": "sonnet",
         "language": "zh"
       }
@@ -4852,13 +4852,13 @@
       },
       {
         "target": "two_sample_test_classification",
-        "file": "output/college.zh/sonnet/html/book_two_sample_test_classification.html",
+        "file": "output/college.zh/sonnet/html/book_two_sample_test_classification_zh.html",
         "model": "sonnet",
         "language": "zh"
       },
       {
         "target": "real_world_two_group_comparisons",
-        "file": "output/college.zh/sonnet/html/book_real_world_two_group_comparisons.html",
+        "file": "output/college.zh/sonnet/html/book_real_world_two_group_comparisons_zh.html",
         "model": "sonnet",
         "language": "zh"
       }
@@ -5320,13 +5320,13 @@
       },
       {
         "target": "goodness_of_fit_lab",
-        "file": "output/college.zh/sonnet/html/book_goodness_of_fit_lab.html",
+        "file": "output/college.zh/sonnet/html/book_goodness_of_fit_lab_zh.html",
         "model": "sonnet",
         "language": "zh"
       },
       {
         "target": "independence_lab",
-        "file": "output/college.zh/sonnet/html/book_independence_lab.html",
+        "file": "output/college.zh/sonnet/html/book_independence_lab_zh.html",
         "model": "sonnet",
         "language": "zh"
       }
@@ -5823,13 +5823,13 @@
       },
       {
         "target": "prediction_interpolation_extrapolation",
-        "file": "output/college.zh/sonnet/html/book_prediction_interpolation_extrapolation.html",
+        "file": "output/college.zh/sonnet/html/book_prediction_interpolation_extrapolation_zh.html",
         "model": "sonnet",
         "language": "zh"
       },
       {
         "target": "regression_labs_distance_textbook_fuel",
-        "file": "output/college.zh/sonnet/html/book_regression_labs_distance_textbook_fuel.html",
+        "file": "output/college.zh/sonnet/html/book_regression_labs_distance_textbook_fuel_zh.html",
         "model": "sonnet",
         "language": "zh"
       }
@@ -6397,13 +6397,13 @@
       },
       {
         "target": "anova_table",
-        "file": "output/college.zh/sonnet/html/book_anova_table.html",
+        "file": "output/college.zh/sonnet/html/book_anova_table_zh.html",
         "model": "sonnet",
         "language": "zh"
       },
       {
         "target": "test_of_two_variances",
-        "file": "output/college.zh/sonnet/html/book_test_of_two_variances.html",
+        "file": "output/college.zh/sonnet/html/book_test_of_two_variances_zh.html",
         "model": "sonnet",
         "language": "zh"
       }
